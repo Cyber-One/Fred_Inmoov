@@ -16,3 +16,35 @@
 #                                                     #
 #######################################################
 print "Creating the various life simulation functions"
+
+# To make is a bit easier to control, we define functions to move the two eyes togeter.
+# if you have only the one servo for each of these axis, then comment out the RightEyeLR and the RightEyeUD lines.
+def eyesLR(eyesLRpos):
+	RightEyeLR.moveTo(eyesLRpos)
+	LeftEyeLR.moveTo(eyesLRpos)
+
+def eyesUD(eyesUDpos):
+	RightEyeUD.moveTo(eyesUDpos)
+	LeftEyeUD.moveTo(eyesUDpos)
+
+# Routines to create the blinking motion
+# we use the Clock service to provide a regular event that calls the blink procedure.
+# one of the things we do within the blink routine is to change the blink interval to a random number between 5 and 10 seconds.
+# future enhancements may include shifting the random range based on the current light levels and the average light levels,
+# blink more often when the light levels increase until an average value has been reached.
+BlinkClock = Runtime.createAndStart("BlinkClock","Clock")
+
+def blink(timedata):
+	UpperEyeLid.moveTo(150) # close the upper eye lid
+	LowerEyeLid.moveTo(150) # close the lower eye lid
+	sleep(0.5)
+	UpperEyeLid.moveTo(45) # Open the upper eye lid
+	LowerEyeLid.moveTo(45) # Open the lower eye lid
+	BlinkClock.setInterval(randint(5000, 10000)) # Set a new random time for the next blink
+
+# the addListener() call will run the python routine "blink" whenever the pulse event occurs.
+BlinkClock.addListener("pulse", python.name, "blink")
+# Initially, we will set the blink interval at 10 seconds.
+BlinkClock.setInterval(10000)
+# Then we start the clock running.
+BlinkClock.startClock()
