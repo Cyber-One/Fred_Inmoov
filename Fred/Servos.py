@@ -15,6 +15,7 @@
 # used in the head
 #                                                     #
 #######################################################
+print "Starting the various Servos"
 
 # Change the names of the servos and the pin numbers to your usage
 RightEyeLR = Runtime.createAndStart("RightEyeLR", "Servo")

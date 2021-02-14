@@ -38,14 +38,14 @@ execfile(RuningFolder+'/Servos.py')
 # This file is responsible for giving our robot a bitof life.
 # By blinking the eyes, coordinating the left and right eyes and performing other 
 # random like movements, just to make our robot appear to be alive.
-execfile(RuningFolder+'/Fred_Life.py')
+execfile(RuningFolder+'/Life.py')
 
 # From time to time, you may want your robot to signal with body movements
 # such as nodding or shaking of it's head, this is the file we keep those movements in
-execfile(RuningFolder+'/Fred_Gestures.py')
+execfile(RuningFolder+'/Gestures.py')
 
 # This file sets up the WebKitSpeechRecognition service
 # The MarySpeech TTS service and the ProgramAB service that
 # interperates the Alice2 AIML files
-execfile(RuningFolder+'/Fred_Brain.py')
+execfile(RuningFolder+'/Brain.py')
 
