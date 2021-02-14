@@ -12,3 +12,5 @@ Because I like to be different, I used PCA9685 I2C 16 channel PWM driver boards 
 4 of these in various places throughout the robot provide the servo control while reducing the nuber of wires running about the robot.
 
 In version 4 of the script, we now add in the PIR and Ultrasonic sensors, to interface these, we are using an Arduino Nano.
+
+In version 5, I split the single script up into a number of files and expanded on the comments to help better explain what is happening.
