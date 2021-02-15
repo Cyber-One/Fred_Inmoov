@@ -32,6 +32,7 @@ def eyesUD(eyesUDpos):
 # one of the things we do within the blink routine is to change the blink interval to a random number between 5 and 10 seconds.
 # future enhancements may include shifting the random range based on the current light levels and the average light levels,
 # blink more often when the light levels increase until an average value has been reached.
+print "-Eye blinking"
 BlinkClock = Runtime.createAndStart("BlinkClock","Clock")
 
 def blink(timedata):

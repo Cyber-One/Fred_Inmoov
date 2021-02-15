@@ -15,8 +15,10 @@
 # used in the head
 #                                                     #
 #######################################################
-print "Starting the various Servos"
+print "Starting the various Servos Services"
 
+print "-Head Group"
+print "--Right Eye X axis"
 # Change the names of the servos and the pin numbers to your usage
 RightEyeLR = Runtime.createAndStart("RightEyeLR", "Servo")
 # attach it to the Head Adafruit 16 channel PWM Servo board - pin 15
@@ -33,6 +35,7 @@ RightEyeLR.setVelocity(60)
 RightEyeLR.setAutoDisable(True)
 RightEyeLR.rest()
 
+print "--Right Eye Y axis"
 RightEyeUD = Runtime.createAndStart("RightEyeUD", "Servo")
 # attach it to the pwm board - pin 14
 RightEyeUD.attach(Head,14)
@@ -45,6 +48,7 @@ RightEyeUD.setAutoDisable(True)
 RightEyeUD.rest()
 
 
+print "--Left Eye X axis"
 LeftEyeLR = Runtime.createAndStart("LefttEyeLR", "Servo")
 # attach it to the pwm board - pin 13
 LeftEyeLR.attach(Head,13)
@@ -57,6 +61,7 @@ LeftEyeLR.setAutoDisable(True)
 LeftEyeLR.rest()
 
 
+print "--Left Eye Y axis"
 LeftEyeUD = Runtime.createAndStart("LeftEyeUD", "Servo")
 # attach it to the pwm board - pin 12
 LeftEyeUD.attach(Head,12)
@@ -69,6 +74,7 @@ LeftEyeUD.setAutoDisable(True)
 LeftEyeUD.rest()
 
 
+print "--Upper Eyelids"
 UpperEyeLid = Runtime.createAndStart("UpperEyeLid", "Servo")
 # attach it to the pwm board - pin 11
 UpperEyeLid.attach(Head,11)
@@ -81,6 +87,7 @@ UpperEyeLid.setAutoDisable(False)
 # UpperEyeLid.rest()
 
 
+print "--Lower Eyelids"
 LowerEyeLid = Runtime.createAndStart("LowerEyeLid", "Servo")
 # attach it to the pwm board - pin 10
 LowerEyeLid.attach(Head,10)
@@ -93,6 +100,7 @@ LowerEyeLid.setAutoDisable(False)
 # LowerEyeLid.rest()
 
 
+print "--The Jaw"
 Jaw = Runtime.createAndStart("Jaw", "Servo")
 # attach it to the pwm board - pin 9
 Jaw.attach(Head,9)
@@ -104,6 +112,8 @@ Jaw.setVelocity(-1)
 Jaw.setAutoDisable(True)
 #Jaw.rest()
 
+
+print "Head Yaw"
 HeadYaw = Runtime.createAndStart("HeadYaw", "Servo")
 # attach it to the pwm board - pin 8
 HeadYaw.attach(Head,8)
@@ -120,7 +130,9 @@ HeadYaw.rest()
 # Now lets define the servos attached to the back.    #
 #                                                     #
 #######################################################
+print "-Back Servo Group"
 
+print "--Head Pitch"
 HeadPitch = Runtime.createAndStart("HeadPitch", "Servo")
 # attach it to the pwm board - pin 7
 HeadPitch.attach(Torso,7)
@@ -132,6 +144,7 @@ HeadPitch.setVelocity(120)
 HeadPitch.setAutoDisable(True)
 HeadPitch.rest()
 
+print "--Head Roll"
 HeadRoll = Runtime.createAndStart("HeadRoll", "Servo")
 # attach it to the pwm board - pin 6
 HeadRoll.attach(Torso,6)

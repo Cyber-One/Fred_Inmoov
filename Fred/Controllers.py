@@ -26,11 +26,13 @@ print "Starting the various Controllers"
 # back at a later date and split the processing up.
 # The Raspi4 has two I2C ports built in, Port 0 is used for the microSD card, 
 # while Port 1 is available for us to use.
+print "-Starting the Raspberry Pi Service"
 raspi = Runtime.createAndStart("raspi","RasPi")
 
 # Start the Arduino Nano connected using /dev/ttyUSB0
 # In the Fred build, I'm using an Arduino Nano for the two Ultrasonic Sensors and the PIR sensor.
 # The Arduino also has an I2C Port 0 is we need to use it.
+print "-Starting the Arduino Nano Service"
 arduinoNano = Runtime.start("arduinoNano","Arduino")
 arduinoNano.setBoardNano()
 arduinoNano.connect("/dev/ttyUSB0")
@@ -43,11 +45,13 @@ arduinoNano.connect("/dev/ttyUSB0")
 # installed on each arduino that you have installed
 
 ## For the Left Arduino Mega 2560
+#print "-Starting the Arduino Mega 2560 Left Service"
 #arduinoLeft = Runtime.start("arduinoLeft","Arduino")
 #arduinoLeft.setBoardMega()
 #arduinoLeft.connect("/dev/ttyUSB1")
 
 ## For the Right Arduino Mega 2560
+#print "-Starting the Arduino Mega 2560 Right Service"
 #arduinoRight = Runtime.start("arduinoRight","Arduino")
 #arduinoRight.setBoardMega()
 #arduinoRight.connect("/dev/ttyUSB2")
@@ -74,16 +78,19 @@ arduinoNano.connect("/dev/ttyUSB0")
 # 0x40 is equal to 64 in decimal, the seven jumpers will give up to 128 possible address
 # Just be aware of any other I2C devices you have on the bus and what their address are, 
 # some device can not be changed or have a very limited number of selectable addresses.
-
+print "--Starting the Adafruit16CServoDriver for the Head"
 Head = Runtime.createAndStart("Head","Adafruit16CServoDriver")
 Head.attach("raspi","1","0x40")
 
-#Back = Runtime.createAndStart("Back", "Adafruit16CServoDriver")
-#Back.attach("raspi","1","0x41")
+print "--Starting the Adafruit16CServoDriver for the Back"
+Back = Runtime.createAndStart("Back", "Adafruit16CServoDriver")
+Back.attach("raspi","1","0x41")
 
+#print "--Starting the Adafruit16CServoDriver for the Right Arm"
 #RightArm = Runtime.createAndStart("RightArm", "Adafruit16CServoDriver")
 #RightArm.attach("raspi","1","0x42")
 
+#print "--Starting the Adafruit16CServoDriver for the Left Arm"
 #LeftArm = Runtime.createAndStart("LeftArm", "Adafruit16CServoDriver")
 #LeftArm.attach("raspi","1","0x43")
 
