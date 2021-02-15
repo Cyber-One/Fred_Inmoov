@@ -135,7 +135,7 @@ print "-Back Servo Group"
 print "--Head Pitch"
 HeadPitch = Runtime.createAndStart("HeadPitch", "Servo")
 # attach it to the pwm board - pin 7
-HeadPitch.attach(Torso,7)
+HeadPitch.attach(Back,7)
 HeadPitch.setMinMax(0,180)
 HeadPitch.map(0,180,1,180)
 HeadPitch.setRest(90)
@@ -147,7 +147,7 @@ HeadPitch.rest()
 print "--Head Roll"
 HeadRoll = Runtime.createAndStart("HeadRoll", "Servo")
 # attach it to the pwm board - pin 6
-HeadRoll.attach(Torso,6)
+HeadRoll.attach(Back,6)
 HeadRoll.setMinMax(0,180)
 HeadRoll.map(0,180,1,180)
 HeadRoll.setRest(90)
