@@ -11,10 +11,11 @@
 # origonal files on the Inmoov web site. http://inmoov.fr/ 
 #
 # Life.py
-# This file is to start all the servos 
-# used in the head
+# This file is to Simulate movements associated with a
+# living entity
 #                                                     #
 #######################################################
+from math include math
 print "Creating the various life simulation functions"
 
 EnableBlinking=True
@@ -28,6 +29,18 @@ def eyesLR(eyesLRpos):
 def eyesUD(eyesUDpos):
 	RightEyeUD.moveTo(eyesUDpos)
 	LeftEyeUD.moveTo(eyesUDpos)
+
+# Pan and Tilt are the common methods of controlling a camera.
+# normally, you would have a rotating base and the place a tilt mechinism on the pan base.
+# we have a Pitch and Roll with the Yaw on top of that.
+# When we look up at 20° and then turn the head 90° to the left,
+# the head will end up with a tilt of 0° but the head will roll 20°
+# to overcome this we need a Pan and Tilt translation.
+def PanTilt(Pan, Tilt, Roll):
+    HeadYaw.moveTo(Pan)
+    PanRadians = math.radians(Pan)
+    HeadPitch.moveTo(Tilt*math.cos(PanRadians) + Roll*math.sin(PanRadians))
+    HeadRoll.moveTo(Tilt*math.sin(PanRadians) + Roll*math.cos(PanRadians))
 
 # Routines to create the blinking motion
 # we use the Clock service to provide a regular event that calls the blink procedure.

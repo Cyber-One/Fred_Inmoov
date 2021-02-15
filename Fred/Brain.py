@@ -11,8 +11,8 @@
 # origonal files on the Inmoov web site. http://inmoov.fr/ 
 #
 # Brain.py
-# This file is to start all the servos 
-# used in the head
+# This is where the AI functions will live.
+# In the short term, we will use ProgramAB.
 #                                                     #
 #######################################################
 print "Creating the AI"

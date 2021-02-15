@@ -10,9 +10,10 @@
 # Fred in a modified Inmmov robot, you can find all the
 # origonal files on the Inmoov web site. http://inmoov.fr/ 
 #
-# Gestures.py
-# This file perform standard actions such as nodding Yes
-# or shaking the head No
+# Speech.py
+# This file is to handel all the speech services
+# Text To Speech (TTS)
+# Speech To Text (STT)
 #                                                     #
 #######################################################
-print "Creating the various gestures to make the robot appear alive"
+print "Creating the Text to Speech and Speech to Text functions"
