@@ -15,7 +15,7 @@
 # living entity
 #                                                     #
 #######################################################
-from math include math
+from cmath include math
 print "Creating the various life simulation functions"
 
 EnableBlinking=True
