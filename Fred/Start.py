@@ -17,9 +17,38 @@
 # compared to what I have, the RunningFolder variable is the name of the folder 
 # you will be using.
 RuningFolder="Fred"
+RunSwingGUI=True
+RunWebGUI=False
 
 # Just to help with diagnostics, we will write out we are starting the system.
 print "Starting the Fred MRL OS"
+
+# Before we get too carried away, I plan to start Fred using a shell script callsed start_fred.sh
+# This will start the MRL and the Fred scripts with no Graphical User Interfaces (GUI) at all.
+# To overcome this issue, we will start the GUI here.
+# There are two types of GUI installed in MRL, the SwingGUI and the WebGUI
+if RunSwingGUI == True:
+    gui = Runtime.start('gui','SwingGui')
+
+if RunWebGUI == True:
+    WebGui = Runtime.create("WebGui","WebGui")
+    WebGui.hide('cli')
+    sleep(1)
+    WebGui.show('cli')
+    sleep(1)
+    WebGui.set('cli', 400, 400, 999)
+# if you don't want the browser to autostart to homepage
+#    WebGui.autoStartBrowser(false)
+# set a different port number to listen to. default is 8888
+#    WebGui.setPort(7777)
+# on startup the WebGui will look for a "resources"
+# directory (may change in the future)
+# static html files can be placed here and accessed through
+# the WebGui service
+# starts the websocket server
+# and attempts to autostart browser
+    WebGui.startService();
+
 
 # The execfile() function loads and executes the named program.
 # this is handy for breaking a program into smaller more manageable parts.
