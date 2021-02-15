@@ -36,11 +36,12 @@ def eyesUD(eyesUDpos):
 # When we look up at 20° and then turn the head 90° to the left,
 # the head will end up with a tilt of 0° but the head will roll 20°
 # to overcome this we need a Pan and Tilt translation.
+# This function assumes that 0, 0, 0 is facing straight ahead with tilt and roll level.
 def PanTilt(Pan, Tilt, Roll):
-    HeadYaw.moveTo(Pan)
+    HeadYaw.moveTo(90+Pan)
     PanRadians = math.radians(Pan)
-    HeadPitch.moveTo(Tilt*math.cos(PanRadians) + Roll*math.sin(PanRadians))
-    HeadRoll.moveTo(Tilt*math.sin(PanRadians) + Roll*math.cos(PanRadians))
+    HeadPitch.moveTo(90+(Tilt*math.cos(PanRadians) + Roll*math.sin(PanRadians)))
+    HeadRoll.moveTo(90+(Tilt*math.sin(PanRadians) + Roll*math.cos(PanRadians)))
 
 # Routines to create the blinking motion
 # we use the Clock service to provide a regular event that calls the blink procedure.
