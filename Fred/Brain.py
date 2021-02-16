@@ -16,3 +16,5 @@
 #                                                     #
 #######################################################
 print "Creating the AI"
+# need to set this up using the ProgramAB service to start with.
+# later we could add other things like a neural network interpreter :-)

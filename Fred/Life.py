@@ -15,12 +15,14 @@
 # living entity
 #                                                     #
 #######################################################
-#from cmath import math
+import math
+import time
+import random
 
 print "Creating the various life simulation functions"
 
 EnableBlinking=True
-EnablePanTilt=False
+EnablePanTilt=True
 
 # To make is a bit easier to control, we define functions to move the two eyes togeter.
 # if you have only the one servo for each of these axis, then comment out the RightEyeLR and the RightEyeUD lines.
@@ -41,10 +43,15 @@ def eyesUD(eyesUDpos):
 # This function assumes that 0, 0, 0 is facing straight ahead with tilt and roll level.
 if EnablePanTilt == True:
     def PanTilt(Pan, Tilt, Roll):
-        HeadYaw.moveTo(90+Pan)
+        print "PanTilt( ", Pan, ", ", Tilt, ", ", Roll, ")"
+        PanTo = 90 + Pan
+        print "Panning To ", PanTo
+        HeadYaw.moveTo(PanTo)
         PanRadians = math.radians(Pan)
+        print "Thats ", PanRadians, "Radians"
         HeadPitch.moveTo(90+(Tilt*math.cos(PanRadians) + Roll*math.sin(PanRadians)))
         HeadRoll.moveTo(90+(Tilt*math.sin(PanRadians) + Roll*math.cos(PanRadians)))
+        print "PanTilt finished"
 
 # Routines to create the blinking motion
 # we use the Clock service to provide a regular event that calls the blink procedure.
@@ -61,12 +68,15 @@ if EnableBlinking == True:
         UpperEyeLid.moveTo(150) # close the upper eye lid
         LowerEyeLid.moveTo(150) # close the lower eye lid
         print "blink sleep"
-        sleep(0.5)
+        time.sleep(0.5)
         print "blink open eyes"
         UpperEyeLid.moveTo(45) # Open the upper eye lid
         LowerEyeLid.moveTo(45) # Open the lower eye lid
         print "blink eyes are open set new time"
-        BlinkClock.setInterval(randint(5000, 10000)) # Set a new random time for the next blink
+        #BlinkInterval = 6000
+        BlinkInterval = random.randint(5000, 10000)
+        print "BlinkInterval of ", BlinkInterval, " miliseconds"
+        BlinkClock.setInterval(BlinkInterval) # Set a new random time for the next blink
         print "blink end of routine"
 
 if EnableBlinking == True:

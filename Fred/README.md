@@ -12,6 +12,9 @@ This is where the top level controllers are created such as the RasPi service, t
 <b>Servos.py</b>
 Currently, not too many of the servos are defined, but as more are defined, this file may need to be split into smaller groups.
 
+<b>IO.py</b>
+This is for miscilanous IO devices like the PIR sensor and the Ultrasonic range finders.
+
 <b>Life.py</b>
 This set of routines control the simulation of being alive like the blinking of the eyes ect.
 

@@ -15,23 +15,24 @@
 # or shaking the head No
 #                                                     #
 #######################################################
+import time
 print "Creating the various gestures to make the robot appear alive"
 
-def Yes()
+def Yes():
     PanTilt(0, -40, 0)
-    sleep(0.3)
+    time.sleep(0.3)
     PanTilt(0, 30, 0)
-    sleep(0.3)
+    time.sleep(0.3)
     PanTilt(0, -20, 0)
-    sleep(0.4)
+    time.sleep(0.4)
     PanTilt(0, 0, 0)
 
-def No()
+def No():
     PanTilt(40, 0, 0)
-    sleep(0.3)
+    time.sleep(0.3)
     PanTilt(-40, 0, 0)
-    sleep(0.3)
+    time.sleep(0.3)
     PanTilt(40, 0, 0)
-    sleep(0.3)
+    time.sleep(0.3)
     PanTilt(0, 0, 0)
 
