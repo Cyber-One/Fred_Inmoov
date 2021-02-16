@@ -57,12 +57,17 @@ if EnableBlinking == True:
 
 if EnableBlinking == True:
     def blink(timedata):
+        print "Start of blink"
         UpperEyeLid.moveTo(150) # close the upper eye lid
         LowerEyeLid.moveTo(150) # close the lower eye lid
+        print "blink sleep"
         sleep(0.5)
+        print "blink open eyes"
         UpperEyeLid.moveTo(45) # Open the upper eye lid
         LowerEyeLid.moveTo(45) # Open the lower eye lid
+        print "blink eyes are open set new time"
         BlinkClock.setInterval(randint(5000, 10000)) # Set a new random time for the next blink
+        print "blink end of routine"
 
 if EnableBlinking == True:
     # the addListener() call will run the python routine "blink" whenever the pulse event occurs.
