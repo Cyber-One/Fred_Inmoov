@@ -78,8 +78,8 @@ print "--Upper Eyelids"
 UpperEyeLid = Runtime.createAndStart("UpperEyeLid", "Servo")
 # attach it to the pwm board - pin 11
 UpperEyeLid.attach(Head,11)
-UpperEyeLid.setMinMax(60,180)
-UpperEyeLid.map(0,180,60,180)
+UpperEyeLid.setMinMax(45,180)
+UpperEyeLid.map(0,180,45,180)
 UpperEyeLid.setRest(45)
 UpperEyeLid.setInverted(False)
 UpperEyeLid.setVelocity(-1)

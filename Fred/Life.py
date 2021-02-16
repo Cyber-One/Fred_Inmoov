@@ -15,7 +15,8 @@
 # living entity
 #                                                     #
 #######################################################
-from cmath include math
+#from cmath import math
+
 print "Creating the various life simulation functions"
 
 EnableBlinking=True
@@ -23,12 +24,12 @@ EnableBlinking=True
 # To make is a bit easier to control, we define functions to move the two eyes togeter.
 # if you have only the one servo for each of these axis, then comment out the RightEyeLR and the RightEyeUD lines.
 def eyesLR(eyesLRpos):
-	RightEyeLR.moveTo(eyesLRpos)
-	LeftEyeLR.moveTo(eyesLRpos)
+    RightEyeLR.moveTo(eyesLRpos)
+    LeftEyeLR.moveTo(eyesLRpos)
 
 def eyesUD(eyesUDpos):
-	RightEyeUD.moveTo(eyesUDpos)
-	LeftEyeUD.moveTo(eyesUDpos)
+    RightEyeUD.moveTo(eyesUDpos)
+    LeftEyeUD.moveTo(eyesUDpos)
 
 # Pan and Tilt are the common methods of controlling a camera.
 # normally, you would have a rotating base and the place a tilt mechinism on the pan base.
@@ -62,10 +63,11 @@ if EnableBlinking == True:
         BlinkClock.setInterval(randint(5000, 10000)) # Set a new random time for the next blink
 
 if EnableBlinking == True:
-# the addListener() call will run the python routine "blink" whenever the pulse event occurs.
+    # the addListener() call will run the python routine "blink" whenever the pulse event occurs.
     BlinkClock.addListener("pulse", python.name, "blink")
-# Initially, we will set the blink interval at 10 seconds.
+    # Initially, we will set the blink interval at 10 seconds.
     BlinkClock.setInterval(10000)
-# Then we start the clock running.
+    # Then we start the clock running.
     print "--Start Blink Clock"
     BlinkClock.startClock()
+
