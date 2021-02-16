@@ -66,6 +66,10 @@ execfile(RuningFolder+'/Servos.py')
 # The IO services are for things like the PIR, Ultrasonic range finders and NeoPixel rings ect.
 execfile(RuningFolder+'/IO.py')
 
+# There are a number of options for Text To Speech (TTS) and Speech To Text (STT) service.
+# You will need to have a look in this file to select which ones you want to use.
+execfile(RuningFolder+'/Speech.py')
+
 # When not activly executing a command, we don't want the robot to just stand there,
 # This file is responsible for giving our robot a bitof life.
 # By blinking the eyes, coordinating the left and right eyes and performing other 
