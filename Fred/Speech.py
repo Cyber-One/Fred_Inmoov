@@ -79,9 +79,9 @@ if UseMimicSpeech == True:
 if UseSphinx == True:
     Ear = Runtime.createAndStart("Ear","Sphinx")
     # start listening for the words we are interested in
-    ear.addComfirmations("yes","correct","ya")
-    ear.addNegations("no","wrong","nope","nah")
-    ear.startListening("hello world|happy monkey|go forward|stop")
+    Ear.addComfirmations("yes","correct","ya")
+    Ear.addNegations("no","wrong","nope","nah")
+    Ear.startListening("hello world|happy monkey|go forward|stop")
 
 # create ear Speech Recognition Service using WebkitSpeechRecognition
 # WebkitSpeechRecognition is a very capable service recognising most spoken 
