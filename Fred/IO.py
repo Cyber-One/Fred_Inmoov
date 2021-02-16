@@ -28,7 +28,7 @@ print "Creating the various IO Services"
 # As a warm body such as a person moves from one area to another, there is a large change
 # in the IR levels detected, when this change occurs the output of the PIR sensor is turned on.
 pir = Runtime.start('pir','Pir')
-pir.attach(arduino,2 ) # arduino is controler like i2c arduino ... / 2 is pin number
+pir.attach(arduinoNano,2 ) # arduinoNano is controler like i2c arduinoNano ... / 2 is pin number
 # pir start
 pir.isVerbose=True
 pir.enable(1) # 1 is how many time per second we poll the PIR input.
@@ -42,11 +42,11 @@ def publishSense(event):
 # Create the Ultrasonic services                      #
 #######################################################
 LeftUltraSonic = Runtime.start("LeftUltraSonic", "UltrasonicSensor")
-LeftUltraSonic.attach(arduino, 12, 11)
+LeftUltraSonic.attach(arduinoNano, 12, 11)
 LeftUltraSonic.addRangeListener(python)
   
 RightUltraSonic = Runtime.start("RightUltraSonic", "UltrasonicSensor")
-RightUltraSonic.attach(arduino, 10, 9)
+RightUltraSonic.attach(arduinoNano, 10, 9)
 RightUltraSonic.addRangeListener(python)
 
 # Both the Ultra-Sonic sensor service will call the same onRange function in Python.
