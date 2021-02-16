@@ -20,6 +20,7 @@
 print "Creating the various life simulation functions"
 
 EnableBlinking=True
+EnablePanTilt=False
 
 # To make is a bit easier to control, we define functions to move the two eyes togeter.
 # if you have only the one servo for each of these axis, then comment out the RightEyeLR and the RightEyeUD lines.
@@ -34,15 +35,16 @@ def eyesUD(eyesUDpos):
 # Pan and Tilt are the common methods of controlling a camera.
 # normally, you would have a rotating base and the place a tilt mechinism on the pan base.
 # we have a Pitch and Roll with the Yaw on top of that.
-# When we look up at 20° and then turn the head 90° to the left,
-# the head will end up with a tilt of 0° but the head will roll 20°
+# When we look up at 20 and then turn the head 90 to the left,
+# the head will end up with a tilt of 0 but the head will roll 20
 # to overcome this we need a Pan and Tilt translation.
 # This function assumes that 0, 0, 0 is facing straight ahead with tilt and roll level.
-def PanTilt(Pan, Tilt, Roll):
-    HeadYaw.moveTo(90+Pan)
-    PanRadians = math.radians(Pan)
-    HeadPitch.moveTo(90+(Tilt*math.cos(PanRadians) + Roll*math.sin(PanRadians)))
-    HeadRoll.moveTo(90+(Tilt*math.sin(PanRadians) + Roll*math.cos(PanRadians)))
+if EnablePanTilt == True:
+    def PanTilt(Pan, Tilt, Roll):
+        HeadYaw.moveTo(90+Pan)
+        PanRadians = math.radians(Pan)
+        HeadPitch.moveTo(90+(Tilt*math.cos(PanRadians) + Roll*math.sin(PanRadians)))
+        HeadRoll.moveTo(90+(Tilt*math.sin(PanRadians) + Roll*math.cos(PanRadians)))
 
 # Routines to create the blinking motion
 # we use the Clock service to provide a regular event that calls the blink procedure.
