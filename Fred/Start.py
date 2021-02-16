@@ -63,6 +63,9 @@ execfile(RuningFolder+'/Controllers.py')
 # This file is responsible for starting and configuring each of the servos throughout the robot.
 execfile(RuningFolder+'/Servos.py')
 
+# The IO services are for things like the PIR, Ultrasonic range finders and NeoPixel rings ect.
+execfile(RuningFolder+'/IO.py')
+
 # When not activly executing a command, we don't want the robot to just stand there,
 # This file is responsible for giving our robot a bitof life.
 # By blinking the eyes, coordinating the left and right eyes and performing other 
