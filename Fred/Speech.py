@@ -46,9 +46,9 @@ if UseMarySpeech == True:
 # https://youtu.be/OSbqlRWYBkQ
 if UseMimicSpeech == True:
     # start the service
-    Mouth = Runtime.start('Mouth','MimicSpeech')
+    Mouth = Runtime.start('Mouth','LocalSpeech')
     # next we need to tell the service where to find our executable
-    Mouth.setMimicExecutable("/home/pi/mimic1/mimic")
+    Mouth.setTtsPath("/home/pi/mimic1/mimic")
     # the next command wil get a list of voices we can use
     # note, thesetVoice command does not work until after you have list of voices.
     print Mouth.getVoices()
