@@ -37,13 +37,8 @@ UseWebKit = True
 # MarySpeech TTS
 if UseMarySpeech == True:
     Mouth = Runtime.createAndStart("Mouth", "MarySpeech")
-    # There are multiple voice types available for MarySpeech, 
-    # but to use them, you have to install them :-)
-    Mouth.installComponentsAcceptLicense("cmu-bdl-hsmm")
-    Mouth.installComponentsAcceptLicense("dfki-obadiah-hsmm")
-    Mouth.installComponentsAcceptLicense("dfki-spike-hsmm")
     #Mouth.setVoice("cmu-bdl-hsmm") # Mark
-    Mouth.setVoice("cmu-rms-hsmm") # Henry
+    #Mouth.setVoice("cmu-rms-hsmm") # Henry
     #Mouth.setVoice("dfki-obadiah-hsmm") # Obadiah
     #Mouth.setVoice("dfki-spike-hsmm") # Spike
     Mouth.setVolume(100.0)

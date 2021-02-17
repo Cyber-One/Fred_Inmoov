@@ -17,25 +17,32 @@
 #######################################################
 print "Creating the various IO Services"
 
+UsePIRsensor = True
+
 #######################################################
 # Create the PIR service                              #
 #######################################################
-# Passive Inrea Red (PIR) works on the principle that a warm body emits
-# Infra Red (IR) light. The level of this light can indicate the current temperature.
-# PIR sensors, use a single sensing element to measure the ambient IR level.
-# By using a segmented lens in front of the sensor, there will be areas where the sensor
-# can not see the IR levels, and areas where it is amplified.  
-# As a warm body such as a person moves from one area to another, there is a large change
-# in the IR levels detected, when this change occurs the output of the PIR sensor is turned on.
-pir = Runtime.start('pir','Pir')
-pir.attach(arduinoNano,2 ) # arduinoNano is controler like i2c arduinoNano ... / 2 is pin number
-# pir start
-pir.isVerbose=True
-pir.enable(1) # 1 is how many time per second we poll the PIR input.
-# event listener
-pir.addListener("publishSense",python.name,"publishSense")
-def publishSense(event):
-  if event:print "Warm body movement detected !!!"
+if UsePIRsensor == True:
+    # Passive Inrea Red (PIR) works on the principle that a warm body emits
+    # Infra Red (IR) light. The level of this light can indicate the current temperature.
+    # PIR sensors, use a single sensing element to measure the ambient IR level.
+    # By using a segmented lens in front of the sensor, there will be areas where the sensor
+    # can not see the IR levels, and areas where it is amplified.  
+    # As a warm body such as a person moves from one area to another, there is a large change
+    # in the IR levels detected, when this change occurs the output of the PIR sensor is turned on.
+    pir = Runtime.start('pir','Pir')
+    pir.attach(arduinoNano,2 ) # arduinoNano is controler like i2c arduinoNano ... / 2 is pin number
+    # The isVerbose function is handy if your trying to debug the PIR sensor, 
+    # If you are setting it to True can be handy, but a pain when trying to debug other bits of code :-)
+    pir.isVerbose=False
+    # pir start
+    pir.enable(1) # 1 is how many time per second we poll the PIR input.
+    # Once started, you can disable it by using the following line
+    #pir.disable()
+    # event listener
+    pir.addListener("publishSense",python.name,"publishSense")
+    def publishSense(event):
+      if event:print "Warm body movement detected !!!"
 
 
 #######################################################

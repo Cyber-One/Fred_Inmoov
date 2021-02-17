@@ -21,8 +21,11 @@ import random
 
 print "Creating the various life simulation functions"
 
-EnableBlinking=True
-EnablePanTilt=True
+EnableBlinking = True       # This can be anoying, so the option to turn it of is here.
+EnableSleepTimer = True     # Only valid if the PIR sensor is enabled.
+EnablePanTilt = True
+Awake = True                # when the sleep timer is enabled, this allows the robot to sleep.
+TimeToSleep = 15 * 60000    # this is how much quiet time must elapse for the robot to go to sleep
 
 # To make is a bit easier to control, we define functions to move the two eyes togeter.
 # if you have only the one servo for each of these axis, then comment out the RightEyeLR and the RightEyeUD lines.
@@ -60,26 +63,19 @@ if EnablePanTilt == True:
 # blink more often when the light levels increase until an average value has been reached.
 print "-Eye blinking"
 if EnableBlinking == True:
+    # For the Blink to work, we need a timer to control the interval between blinks
     BlinkClock = Runtime.createAndStart("BlinkClock", "Clock")
-
-if EnableBlinking == True:
+    # Now that we have a timer, we need a function that does the blink when the time expires.
     def blink(timedata):
-        print "Start of blink"
         UpperEyeLid.moveTo(150) # close the upper eye lid
         LowerEyeLid.moveTo(150) # close the lower eye lid
-        print "blink sleep"
         time.sleep(0.5)
-        print "blink open eyes"
         UpperEyeLid.moveTo(45) # Open the upper eye lid
         LowerEyeLid.moveTo(45) # Open the lower eye lid
-        print "blink eyes are open set new time"
-        #BlinkInterval = 6000
-        BlinkInterval = random.randint(5000, 10000)
+        #BlinkInterval = 6000   # use this line for a fixed blink interval
+        BlinkInterval = random.randint(5000, 10000) # But this random one is more life like.
         print "BlinkInterval of ", BlinkInterval, " miliseconds"
         BlinkClock.setInterval(BlinkInterval) # Set a new random time for the next blink
-        print "blink end of routine"
-
-if EnableBlinking == True:
     # the addListener() call will run the python routine "blink" whenever the pulse event occurs.
     BlinkClock.addListener("pulse", python.name, "blink")
     # Initially, we will set the blink interval at 10 seconds.
@@ -91,20 +87,41 @@ if EnableBlinking == True:
 # Jaw control based on MarySpeech.
 if UseMarySpeech == True:
     # Before we can use this feature, we first need to create it :-)
-    mouthcontrol = Runtime.create("mouthcontrol","MouthControl")
+    mouthcontrol = Runtime.start("mouthcontrol","MouthControl")
     # Once created we need to link it to the servo that controls the mouth opening and closing
     # in out case we called that Jaw back in the Servo.py file.
-    mouthcontrol.setJaw(Jaw)
+    mouthcontrol.attach(Jaw)
     # Next we need to link it to the TTS service, we called that Mouth
-    mouthcontrol.setMouth(Mouth)
+    mouthcontrol.attach(Mouth)
     # We need to set the range of motion for the Jaw
-    mouthcontrol.setmouth(Jaw.getMinInput(), Jaw.getMaxInput())
+    mouthcontrol.mouthClosedPos = Jaw.getMinInput()
+    mouthcontrol.mouthOpenPos = Jaw.getMaxInput()
     # next we need to setup the delays for the jaw movement.
     # Thanks to Steve Rayner for explaining this group of settings
     # on his YouTube Channel https://www.youtube.com/watch?v=jswk8lDtGOc
     mouthcontrol.delaytime = 75
     mouthcontrol.delaytimestop = 150
     mouthcontrol.delaytimeletter = 40
-    # Finally we want to start the service running.
-    mouthcontrol.startService()
 
+if UsePIRsensor == True:
+    if EnableSleepTimer==True:
+        SleepTimer =Runtime.createAndStart("SleepTimer", "Clock")
+        def WakeUpEvent():
+            SleepTimer.restartClock(True)
+            Awake = True
+            BlinkClock.restartClock(False)
+        def GoToSleepEvent(timedata):
+            SleepTimer.StopClock()
+            Awake = False
+            BlinkClock.stopClock()
+            UpperEyeLid.moveTo(150) # close the upper eye lid
+            LowerEyeLid.moveTo(150) # close the lower eye lid
+        SleepTimer.addListener("pulse", python.name, "GoToSleepEvent")
+        SleepTimer.setInterval(TimeToSleep)
+        SleepTimer.startClock()
+    pir.addListener("publishSense",python.name,"PirLifeEvent")
+    def PirLifeEvent(event):
+        if event:
+            print "Warm body movement detected !!!"
+            if EnableSleepTimer==True:
+                WakeUpEvent()
