@@ -21,6 +21,7 @@ import random
 
 print "Creating the various life simulation functions"
 
+EnableMouthControl = False
 EnableBlinking = True       # This can be anoying, so the option to turn it of is here.
 EnableSleepTimer = True     # Only valid if the PIR sensor is enabled.
 EnablePanTilt = True
@@ -85,7 +86,7 @@ if EnableBlinking == True:
     BlinkClock.startClock()
 
 # Jaw control based on MarySpeech.
-if UseMarySpeech == True:
+if UseMarySpeech == True and EnableMouthControl == True:
     # Before we can use this feature, we first need to create it :-)
     mouthcontrol = Runtime.start("mouthcontrol","MouthControl")
     # Once created we need to link it to the servo that controls the mouth opening and closing
@@ -103,22 +104,35 @@ if UseMarySpeech == True:
     mouthcontrol.delaytimestop = 150
     mouthcontrol.delaytimeletter = 40
 
+# Use the PIR sensor to wake up or keep awake
 if UsePIRsensor == True:
     if EnableSleepTimer==True:
         SleepTimer =Runtime.createAndStart("SleepTimer", "Clock")
         def WakeUpEvent():
-            SleepTimer.restartClock(True)
-            Awake = True
-            BlinkClock.restartClock(False)
+            if Awake == True:
+                print "Keep Awake"
+                SleepTimer.restartClock()
+            if Awake == False:
+                print "Waking Up"
+                SleepTimer.restartClock()
+                Awake = True
+                BlinkClock.restartClock(False)
+                print "Fully Awake"
         def GoToSleepEvent(timedata):
+            print "Going to Sleep"
             SleepTimer.StopClock()
             Awake = False
             BlinkClock.stopClock()
             UpperEyeLid.moveTo(150) # close the upper eye lid
             LowerEyeLid.moveTo(150) # close the lower eye lid
+            print "Sleeping"
+        print "Sleep Timer Adding Listner"
         SleepTimer.addListener("pulse", python.name, "GoToSleepEvent")
+        print "Sleep Timer Setting Sleep Time"
         SleepTimer.setInterval(TimeToSleep)
+        print "Sleep Timer Starting Clock"
         SleepTimer.startClock()
+        print "Sleep Timer Running"
     pir.addListener("publishSense",python.name,"PirLifeEvent")
     def PirLifeEvent(event):
         if event:
