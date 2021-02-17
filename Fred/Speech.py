@@ -107,7 +107,7 @@ if UseWebKit == True:
     # Now I'm an English speaker in Australia, so i will set the language to "en-AU"
     # with the setLanguage command.
     # for a full list of supported languages visit: https://cloud.google.com/speech/docs/languages
-    Ear.setLanguage("en-AU")
+    #Ear.setLanguage("en-AU")
     # If setAutoListen is True, webkitspeech red microphone will auto rearm. 
     # microphone will shutdown too if mouth is activated. 
     # Careful if this is set to True : You cannot control red microphone from webgui anymore
