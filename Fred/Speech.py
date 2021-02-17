@@ -37,10 +37,6 @@ UseWebKit = True
 # MarySpeech TTS
 if UseMarySpeech == True:
     Mouth = Runtime.createAndStart("Mouth", "MarySpeech")
-    #Mouth.setVoice("cmu-bdl-hsmm") # Mark
-    #Mouth.setVoice("cmu-rms-hsmm") # Henry
-    #Mouth.setVoice("dfki-obadiah-hsmm") # Obadiah
-    #Mouth.setVoice("dfki-spike-hsmm") # Spike
     Mouth.setVolume(100.0)
 
 # MimicSpeech TTS
