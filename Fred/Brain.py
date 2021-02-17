@@ -30,7 +30,7 @@ Brain.startSession("Builder")
 
 # create a route which sends published Responses to the
 # mouth.speak(String) method, The addTextListener is sort of the internal way of doing this :-)
-Brain.addTextListener(mouth)
+Brain.addTextListener(Mouth)
 
 # Next lets create a route that sends the speech our 
 # robot has heard to the ProgramAB, but only if we satarted one of the STT services. :-)

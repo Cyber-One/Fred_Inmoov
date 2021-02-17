@@ -108,19 +108,18 @@ if UseMarySpeech == True and EnableMouthControl == True:
 if UsePIRsensor == True:
     if EnableSleepTimer==True:
         SleepTimer =Runtime.createAndStart("SleepTimer", "Clock")
-        def WakeUpEvent():
-            if Awake == True:
+        def WakeUpEvent(State):
+            if State == True:
                 print "Keep Awake"
                 SleepTimer.restartClock()
-            if Awake == False:
+            if State == False:
                 print "Waking Up"
                 SleepTimer.restartClock()
-                Awake = True
                 BlinkClock.restartClock(False)
                 print "Fully Awake"
         def GoToSleepEvent(timedata):
             print "Going to Sleep"
-            SleepTimer.StopClock()
+            SleepTimer.stopClock()
             Awake = False
             BlinkClock.stopClock()
             UpperEyeLid.moveTo(150) # close the upper eye lid
@@ -138,4 +137,6 @@ if UsePIRsensor == True:
         if event:
             print "Warm body movement detected !!!"
             if EnableSleepTimer==True:
-                WakeUpEvent()
+                print "Waking up or staying awake"
+                WakeUpEvent(Awake)
+                Awake = True
