@@ -1,17 +1,22 @@
-########################################
-#
-# Program Code for Fred Inmoov
-# Of the Cyber_One YouTube Channel
-# https://www.youtube.com/cyber_one
-#
-# This is version 5
-# Divided up into sub programs
-#
-# Running on MyRobotLab (MRL) http://myrobotlab.org/
-# Fred in a modified Inmmov robot, you can find all the
-# origonal files on the Inmoov web site. http://inmoov.fr/ 
-#
-########################################
+##############################################################
+#                                                            #
+# Program Code for Fred Inmoov                               #
+# Of the Cyber_One YouTube Channel                           #
+# https://www.youtube.com/cyber_one                          #
+#                                                            #
+# This is version 5                                          #
+# Divided up into sub programs                               #
+# Coded for the Nixie Version of MyRobotLab.                 #
+#                                                            #
+# Running on MyRobotLab (MRL) http://myrobotlab.org/         #
+# Fred in a modified Inmmov robot, you can find all the      #
+# origonal files on the Inmoov web site. http://inmoov.fr/   #
+#                                                            #
+# Start.py                                                   #
+# This file starts the GUI if required and runs all the      #
+# other files required for the InMoov robot to run.          #
+#                                                            #
+##############################################################
 
 # Because you might want to place your robots files into a different dicrectory 
 # compared to what I have, the RunningFolder variable is the name of the folder 

@@ -97,15 +97,21 @@ ArduinoNanoComPort = "/dev/ttyUSB0" # Refer to notes above
 # "arduinoLeft", "arduinoRight" or "arduinoNano"
 # in our case it will be the Raspi4. "raspi"
 #
-# The second parameter is the bus, This is normally 1 for the RasPi or 0 for an Arduino.
+# The second parameter is the bus, This is normally 1 for the
+# RasPi or 0 for an Arduino.
 #
-# Each servo driver has a unique address that is hard coded by means of a set of jumpers 
-# on the controller boards, This is our Third parameter, There are seven jumpers that form
-# a binary number that is added to 0x40. Note the 0x indicates the number is in hexadecimal format
-# that is base 16 and has values in the range 0,1,2,3,4,5,6,7,8,9,A,B,C,D,E,F
-# 0x40 is equal to 64 in decimal, the seven jumpers will give up to 128 possible address
-# Just be aware of any other I2C devices you have on the bus and what their address are, 
-# some device can not be changed or have a very limited number of selectable addresses.
+# Each servo driver has a unique address that is hard coded
+# by means of a set of jumpers on the controller boards, This
+# is our Third parameter, There are seven jumpers that form
+# a binary number that is added to 0x40. Note the 0x 
+# indicates the number is in hexadecimal format that is base
+# 16 and has values in the range:
+# 0,1,2,3,4,5,6,7,8,9,A,B,C,D,E,F
+# 0x40 is equal to 64 in decimal, the seven jumpers will give
+# up to 128 possible address.
+# Just be aware of any other I2C devices you have on the bus
+# and what their address are, some device can not be changed
+# or have a very limited number of selectable addresses.
 
 EnableAdafruit16CServoDriverHead = True # True or False
 HeadServoDriverAddr = "0x40"            # Refer to notes above
@@ -126,3 +132,287 @@ EnableAdafruit16CServoDriverRightArm = False # True or False
 RightArmServoDriverAddr = "0x43"        # Refer to notes above
 RightArmServoDriverPort = "1"           # Refer to notes above
 RightArmServoDriverAttached = "raspi"   # Refer to notes above
+
+
+##############################################################
+#                                                            #
+# Servo Head Group                                           #
+#                                                            #
+##############################################################
+
+# Each servo has a number of parameters that need to be setup 
+# before it can be used, these include where it's attached 
+# and how far it can be moved.
+# In the InMoov scripts and services, it assumes that your 
+# servos are connected to one of the Arduino Mega 2560's.
+# In the case of Fred using the PCA9685, this is not the case.
+# In this config, the only assumption I will make is that the
+# Servo will be attaches somewhere :-)
+# The default values will be one of our controllers.
+# "arduinoLeft", "arduinoRight", "arduinoNano", "Head", 
+# "Back", "RightArm", "LeftArm".
+# If a new controller is released of more are added, 
+# then add it to this list.
+# Comments after the setting are for a Nervo Boards based 
+# InMoov configuration as listed on the InMoov web site.
+
+# The Jaw
+EnableJawServo = True # True or False
+JawAttachment = "Head"          # "arduinoLeft"
+JawPin = 9                      # 26
+JawMinPos = 0                   # 10
+JawMaxPos = 180                 # 25
+JawRestPos = 90                 # 10
+
+EnableRightEyeX = True
+RightEyeXAttachment = "Head"    # "arduinoLeft"
+RightEyeXPin = 15               # 22
+RightEyeXMinPos = 0             # 60
+RightEyeXMaxPos = 180           # 120
+RightEyeXRestPos = 90           # 90
+
+EnableRightEyeY = True
+RightEyeYAttachment = "Head"    # "arduinoLeft"
+RightEyeYPin = 14               # 24
+RightEyeYMinPos = 0             # 60
+RightEyeYMaxPos = 180           # 120
+RightEyeYRestPos = 90           # 90
+
+EnableLeftEyeX = True
+LeftEyeXAttachment = "Head"     # Not Present
+LeftEyeXPin = 13                #
+LeftEyeXMinPos = 0              #
+LeftEyeXMaxPos = 180            #
+LeftEyeXRestPos = 90            #
+
+EnableLeftEyeY = True
+LeftEyeYAttachment = "Head"     # Not Present
+LeftEyeYPin = 12                #
+LeftEyeYMinPos = 0              #
+LeftEyeYMaxPos = 180            #
+LeftEyeYRestPos = 90            #
+
+EnableUpperEyeLid = True
+UpperEyeLidAttachment = "Head"  # "arduinoRight"
+UpperEyeLidPin = 11             # 13
+UpperEyeLidMinPos = 45          # 60
+UpperEyeLidMaxPos = 180         # 120
+UpperEyeLidRestPos = 45         # 60
+
+EnableLowerEyeLid = True
+LowerEyeLidAttachment = "Head"  # Not Present
+LowerEyeLidPin = 10             #
+LowerEyeLidMinPos = 0           #
+LowerEyeLidMaxPos = 120         #
+LowerEyeLidRestPos = 30         #
+
+##############################################################
+#                                                            #
+# Servo Neck Group                                           #
+#                                                            #
+##############################################################
+
+EnableHeadYaw = True
+HeadYawAttachment = "Head"      # "arduinoLeft"
+HeadYawPin = 8                  # 13
+HeadYawMinPos = 0               # 30
+HeadYawMaxPos = 180             # 150
+HeadYawRestPos = 90             # 90
+
+EnableHeadPitch = True
+HeadPitchAttachment = "Back"    # "arduinoLeft"
+HeadPitchPin = 7                # 12
+HeadPitchMinPos = 0             # 20
+HeadPitchMaxPos = 180           # 160
+HeadPitchRestPos = 90           # 90
+
+EnableHeadRoll = True
+HeadRollAttachment = "Back"     # "arduinoRight"
+HeadRollPin = 6                 # 13
+HeadRollMinPos = 0              # 60
+HeadRollMaxPos = 180            # 130
+HeadRollRestPos = 90            # 90
+
+##############################################################
+#                                                            #
+# Servo Torso Group                                          #
+#                                                            #
+##############################################################
+
+EnableTopStomach = False
+TopStomachAttchment = "Back"    # "arduinoLeft"
+TopStomachPin = 8               # 27
+TopStomachMinPos = 0            # 60
+TopStomachMaxPos = 180          # 120
+TopStomachRestPos = 90          # 90
+
+EnableMidStomach = False
+MidStomachAttchment = "Back"    # "arduinoLeft"
+MidStomachPin = 9               # 28
+MidStomachMinPos = 0            # 60
+MidStomachMaxPos = 180          # 120
+MidStomachRestPos = 90          # 90
+
+##############################################################
+#                                                            #
+# Servo Right Arm Group                                      #
+#                                                            #
+##############################################################
+
+EnableRightOmoPlate = False
+RightOmoPlateAttachment = "Back"# "arduionRight"
+RightOmoPlatePin = 1            # 11
+RightOmoPlateMinPos = 0         # 10
+RightOmoPlateMaxPos = 180       # 80
+RightOmoPlateRestPos = 90       # 10
+
+EnableRightShoulder = False
+RightShoulderAttachment="Back"  # "arduionRight"
+RightShoulderPin = 2            # 10
+RightShoulderMinPos = 0         # 0
+RightShoulderMaxPos = 180       # 180
+RightShoulderRestPos = 90       # 30
+
+EnableRightRotate = False
+RightRotateAttachment = "Back"  # "arduionRight"
+RightRotatePin = 3              # 9
+RightRotateMinPos = 0           # 40
+RightRotateMaxPin = 180         # 180
+RightRotateRestPOs = 90         # 90
+
+EnableRightBicep = False
+RightBicepAttachment ="RightArm"# "arduioRight"
+RightBicepPin = 1               # 8
+RightBicepMinPos = 0            # 0
+RightBicepMaxPos = 180          # 90
+RightBicepRestPos = 90          # 0
+
+##############################################################
+#                                                            #
+# Servo Left Arm Group                                       #
+#                                                            #
+##############################################################
+
+EnableLeftOmoPlate = False
+LeftOmoPlateAttachment = "Back" # "arduioLeft"
+LeftOmoPlatePin = 15            # 11
+LeftOmoPlateMinPos = 0          # 10
+LeftOmoPlateMaxPos = 180        # 80
+LeftOmoPlateRestPos = 90        # 10
+
+EnableLeftShoulder = False
+LeftShoulderAttachment = "Back" # "arduioLeft"
+LeftShoulderPin = 14            # 10
+LeftShoulderMinPos = 0          # 0
+LeftShoulderMaxPos = 180        # 180
+LeftShoulderRestPos = 90        # 30
+
+EnableLeftRotate = False
+LeftRotateAttachment = "Back"   # "arduioLeft"
+LeftRotatePin = 13              # 9
+LeftRotateMinPos = 0            # 40
+LeftRotateMaxPin = 180          # 180
+LeftRotateRestPOs = 90          # 90
+
+EnableLeftBicep = False
+LeftBicepAttachment = "LeftArm" # "arduioLeft"
+LeftBicepPin = 1                # 8
+LeftBicepMinPos = 0             # 0
+LeftBicepMaxPos = 180           # 90
+LeftBicepRestPos = 90           # 0
+
+##############################################################
+#                                                            #
+# Servo Right Hand Group                                     #
+#                                                            #
+##############################################################
+
+EnableRightThumb = False
+RightThumbAttachment ="RightArm"# "arduioRight"
+RightThumbPin = 2               # 2
+RightThumbMinPos = 0            # 0
+RightThumbMaxPos = 180          # 180
+RightThumbRestPos = 0           # 0
+
+EnableRightIndex = False
+RightIndexAttachment ="RightArm"# "arduioRight"
+RightIndexPin = 2               # 3
+RightIndexMinPos = 0            # 0
+RightIndexMaxPos = 180          # 180
+RightIndexRestPos = 0           # 0
+
+EnableRightMajor = False
+RightMajorAttachment ="RightArm"# "arduioRight"
+RightMajorPin = 2               # 4
+RightMajorMinPos = 0            # 0
+RightMajorMaxPos = 180          # 180
+RightMajorRestPos = 0           # 0
+
+EnableRightRing = False
+RightRingAttachment = "RightArm"# "arduioRight"
+RightRingPin = 2                # 5
+RightRingMinPos = 0             # 0
+RightRingMaxPos = 180           # 180
+RightRingRestPos = 0            # 0
+
+EnableRightPinky = False
+RightPinkyAttachment ="RightArm"# "arduioRight"
+RightPinkyPin = 2               # 6
+RightPinkyMinPos = 0            # 0
+RightPinkyMaxPos = 180          # 180
+RightPinkyRestPos = 0           # 0
+
+EnableRightWrist = False
+RightWristAttachment ="RightArm"# "arduioRight"
+RightWristPin = 2               # 7
+RightWristMinPos = 0            # 0
+RightWristMaxPos = 180          # 180
+RightWristRestPos = 0           # 0
+
+##############################################################
+#                                                            #
+# Servo Left Hand Group                                      #
+#                                                            #
+##############################################################
+
+EnableLeftThumb = False
+LeftThumbAttachment = "LeftArm" # "arduioLeft"
+LeftThumbPin = 2                # 2
+LeftThumbMinPos = 0             # 0
+LeftThumbMaxPos = 180           # 180
+LeftThumbRestPos = 0            # 0
+
+EnableLeftIndex = False
+LeftIndexAttachment = "LeftArm" # "arduioLeft"
+LeftIndexPin = 2                # 3
+LeftIndexMinPos = 0             # 0
+LeftIndexMaxPos = 180           # 180
+LeftIndexRestPos = 0            # 0
+
+EnableLeftMajor = False
+LeftMajorAttachment = "LeftArm" # "arduioLeft"
+LeftMajorPin = 2                # 4
+LeftMajorMinPos = 0             # 0
+LeftMajorMaxPos = 180           # 180
+LeftMajorRestPos = 0            # 0
+
+EnableLeftRing = False
+LeftRingAttachment = "LeftArm"  # "arduioLeft"
+LeftRingPin = 2                 # 5
+LeftRingMinPos = 0              # 0
+LeftRingMaxPos = 180            # 180
+LeftRingRestPos = 0             # 0
+
+EnableLeftPinky = False
+LeftPinkyAttachment = "LeftArm" # "arduioLeft"
+LeftPinkyPin = 2                # 6
+LeftPinkyMinPos = 0             # 0
+LeftPinkyMaxPos = 180           # 180
+LeftPinkyRestPos = 0            # 0
+
+EnableLeftWrist = False
+LeftWristAttachment = "LeftArm" # "arduioLeft"
+LeftWristPin = 2                # 7
+LeftWristMinPos = 0             # 0
+LeftWristMaxPos = 180           # 180
+LeftWristRestPos = 0            # 0

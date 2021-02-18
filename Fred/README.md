@@ -6,6 +6,9 @@ Where possible, lots of comment have been placed in the code to help NOOB's lear
 <b>Start.py </b>
 General start point and is responsible for calling all the other sub files.
 
+<b>Configuration.py</b>
+This is the configuration for the Fred Robot.
+
 <b>Controller.py </b>
 This is where the top level controllers are created such as the RasPi service, the Arduino services and the PCA9685 services.
 
@@ -14,6 +17,9 @@ Currently, not too many of the servos are defined, but as more are defined, this
 
 <b>IO.py</b>
 This is for miscilanous IO devices like the PIR sensor and the Ultrasonic range finders.
+
+<b>Speech.py</br>
+This is where the Text To Speech and Speech recognition services are created.
 
 <b>Life.py</b>
 This set of routines control the simulation of being alive like the blinking of the eyes ect.
