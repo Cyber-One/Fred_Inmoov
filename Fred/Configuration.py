@@ -416,3 +416,32 @@ LeftWristPin = 2                # 7
 LeftWristMinPos = 0             # 0
 LeftWristMaxPos = 180           # 180
 LeftWristRestPos = 0            # 0
+
+##############################################################
+#                                                            #
+# Input / Output device group                                #
+#                                                            #
+##############################################################
+
+EnablePIR = True
+PirAttachment = "arduinoNano"   # "arduioLeft"
+PirPin = 2                      # 23
+
+EnableLeftUltrasonic = True
+LeftUltrasonicAttachment = "arduinoNano"
+LeftUltrasonicPin1 = 12
+LeftUltrasonicPin2 = 11
+
+EnableRightUltraSonic = True
+RightUltrasonicAttachment = "arduinoNano"
+RightUltrasonicPin1 = 10
+RightUltrasonicPin2 = 9
+
+##############################################################
+#                                                            #
+# System wide global variable creation                       #
+#                                                            #
+##############################################################
+
+Awake = True                # when the sleep timer is enabled, this allows the robot to sleep.
+TimeToSleep = 15 * 60000    # this is how much quiet time must elapse for the robot to go to sleep

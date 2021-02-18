@@ -1,20 +1,22 @@
-#######################################################
-# Program Code for Fred Inmoov
-# Of the Cyber_One YouTube Channel
-# https://www.youtube.com/cyber_one
-#
-# This is version 5
-# Divided up into sub programs
-#
-# Running on MyRobotLab (MRL) http://myrobotlab.org/
-# Fred in a modified Inmmov robot, you can find all the
-# origonal files on the Inmoov web site. http://inmoov.fr/ 
-#
-# Life.py
-# This file is to Simulate movements associated with a
-# living entity
-#                                                     #
-#######################################################
+##############################################################
+#                                                            #
+# Program Code for Fred Inmoov                               #
+# Of the Cyber_One YouTube Channel                           #
+# https://www.youtube.com/cyber_one                          #
+#                                                            #
+# This is version 5                                          #
+# Divided up into sub programs                               #
+# Coded for the Nixie Version of MyRobotLab.                 #
+#                                                            #
+# Running on MyRobotLab (MRL) http://myrobotlab.org/         #
+# Fred in a modified Inmmov robot, you can find all the      #
+# origonal files on the Inmoov web site. http://inmoov.fr/   #
+#                                                            #
+# Life.py                                                    #
+# This file is to Simulate movements associated with a       #
+# living entity                                              #
+#                                                            #
+##############################################################
 import math
 import time
 import random
@@ -25,8 +27,6 @@ EnableMouthControl = False
 EnableBlinking = True       # This can be anoying, so the option to turn it of is here.
 EnableSleepTimer = True     # Only valid if the PIR sensor is enabled.
 EnablePanTilt = True
-Awake = True                # when the sleep timer is enabled, this allows the robot to sleep.
-TimeToSleep = 15 * 60000    # this is how much quiet time must elapse for the robot to go to sleep
 
 # To make is a bit easier to control, we define functions to move the two eyes togeter.
 # if you have only the one servo for each of these axis, then comment out the RightEyeLR and the RightEyeUD lines.
@@ -86,7 +86,7 @@ if EnableBlinking == True:
     BlinkClock.startClock()
 
 # Use the PIR sensor to wake up or keep awake
-if UsePIRsensor == True:
+if EnablePIR == True:
     if EnableSleepTimer==True:
         SleepTimer =Runtime.createAndStart("SleepTimer", "Clock")
         def WakeUpEvent(State):
