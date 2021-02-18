@@ -419,7 +419,7 @@ LeftWristRestPos = 0            # 0
 
 ##############################################################
 #                                                            #
-# Input / Output device group                                #
+# Input / Output Device Group                                #
 #                                                            #
 ##############################################################
 
@@ -437,11 +437,38 @@ RightUltrasonicAttachment = "arduinoNano"
 RightUltrasonicPin1 = 10
 RightUltrasonicPin2 = 9
 
+
+##############################################################
+#                                                            #
+# Speech To Text and Text To Speech Group                    #
+#                                                            #
+##############################################################
+
+# TTS Select only one of these options.
+UseMarySpeech = True
+UseMimicSpeech = False
+
+# STT Select only one of these options.
+UseSphinx = False
+UseWebKit = True
+
+##############################################################
+#                                                            #
+# Life Simulati9on Function Group                            #
+#                                                            #
+##############################################################
+
+
+
 ##############################################################
 #                                                            #
 # System wide global variable creation                       #
 #                                                            #
 ##############################################################
 
-Awake = True                # when the sleep timer is enabled, this allows the robot to sleep.
-TimeToSleep = 15 * 60000    # this is how much quiet time must elapse for the robot to go to sleep
+# This is how much quiet time must elapse for the robot 
+# goes to sleep. The time is in mili-seconds.
+TimeToSleep = 15 * 60000    
+
+# when the sleep timer is enabled, this allows the robot to sleep.
+Awake = True                

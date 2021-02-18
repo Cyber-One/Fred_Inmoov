@@ -20,13 +20,6 @@ print "Creating the Text to Speech and Speech to Text functions"
 # As a general rule, we define the TTS services as the mouth and 
 # STT services as the Ear :-)
 
-# TTS Select only one of these options.
-UseMarySpeech = True
-UseMimicSpeech = False
-
-# STT Select only one of these options.
-UseSphinx = False
-UseWebKit = True
 
 #######################################################
 #                                                     #
