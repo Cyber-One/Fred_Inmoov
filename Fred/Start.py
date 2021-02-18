@@ -17,8 +17,10 @@
 # compared to what I have, the RunningFolder variable is the name of the folder 
 # you will be using.
 RuningFolder="Fred"
-RunSwingGUI=True
-RunWebGUI=False
+
+# The execfile() function loads and executes the named program.
+# this is handy for breaking a program into smaller more manageable parts.
+execfile(RuningFolder+'/Configuration.py')
 
 # Just to help with diagnostics, we will write out we are starting the system.
 print "Starting the Fred MRL OS"
@@ -49,9 +51,6 @@ if RunWebGUI == True:
 # and attempts to autostart browser
     WebGui.startService();
 
-
-# The execfile() function loads and executes the named program.
-# this is handy for breaking a program into smaller more manageable parts.
 
 # Controllers.py starts the major controller interface services
 # such as the Raspberry Pi service and the Adafruit Servo controller services
