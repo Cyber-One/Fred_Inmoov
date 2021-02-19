@@ -36,7 +36,12 @@ if EnablePIR == True:
     # detected, when this change occurs the output of the PIR 
     # sensor is turned on.
     pir = Runtime.start('pir','Pir')
-    pir.attach(PirAttachment, PirPin) # arduinoNano is controler like i2c arduinoNano ... / 2 is pin number
+    if PirAttachment == "arduinoNano":
+        pir.attach(arduinoNano, PirPin) # arduinoNano
+    if PirAttachment == "arduinoLeft":
+        pir.attach(arduinoLeft, PirPin) # arduinoLeft
+    if PirAttachment == "arduinoRight":
+        pir.attach(arduinoRight, PirPin) # arduinoRight
     # The isVerbose function is handy if your trying to debug 
     # the PIR sensor, If you are setting it to True can be 
     # handy, but a pain when trying to debug other bits of 

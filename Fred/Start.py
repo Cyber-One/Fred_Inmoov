@@ -44,16 +44,16 @@ if RunWebGUI == True:
     WebGui.show('cli')
     sleep(1)
     WebGui.set('cli', 400, 400, 999)
-# if you don't want the browser to autostart to homepage
-#    WebGui.autoStartBrowser(false)
-# set a different port number to listen to. default is 8888
-#    WebGui.setPort(7777)
-# on startup the WebGui will look for a "resources"
-# directory (may change in the future)
-# static html files can be placed here and accessed through
-# the WebGui service
-# starts the websocket server
-# and attempts to autostart browser
+    # if you don't want the browser to autostart to homepage
+    #    WebGui.autoStartBrowser(false)
+    # set a different port number to listen to. default is 8888
+    #    WebGui.setPort(7777)
+    # on startup the WebGui will look for a "resources"
+    # directory (may change in the future)
+    # static html files can be placed here and accessed through
+    # the WebGui service
+    # starts the websocket server
+    # and attempts to autostart browser
     WebGui.startService();
 
 
@@ -72,20 +72,20 @@ execfile(RuningFolder+'/IO.py')
 
 # There are a number of options for Text To Speech (TTS) and Speech To Text (STT) service.
 # You will need to have a look in this file to select which ones you want to use.
-execfile(RuningFolder+'/Speech.py')
+#execfile(RuningFolder+'/Speech.py')
 
 # When not activly executing a command, we don't want the robot to just stand there,
 # This file is responsible for giving our robot a bitof life.
 # By blinking the eyes, coordinating the left and right eyes and performing other 
 # random like movements, just to make our robot appear to be alive.
-execfile(RuningFolder+'/Life.py')
+#execfile(RuningFolder+'/Life.py')
 
 # From time to time, you may want your robot to signal with body movements
 # such as nodding or shaking of it's head, this is the file we keep those movements in
-execfile(RuningFolder+'/Gestures.py')
+#execfile(RuningFolder+'/Gestures.py')
 
 # This file sets up the WebKitSpeechRecognition service
 # The MarySpeech TTS service and the ProgramAB service that
 # interperates the Alice2 AIML files
-execfile(RuningFolder+'/Brain.py')
+#execfile(RuningFolder+'/Brain.py')
 
