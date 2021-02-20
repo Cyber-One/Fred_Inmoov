@@ -52,8 +52,12 @@ if EnableJawServo == True:
     # the servo will be attached to.
     if JawAttachment == "Head":
         Jaw.attach(Head, JawPin)
-    if JawAttachment == "Back":
-        Jaw.attach(Back, JawPin)
+    if JawAttachment == "arduinoLeft":
+        Jaw.attach(arduinoLeft, JawPin)
+    if JawAttachment == "arduinoRight":
+        Jaw.attach(arduinoRight, JawPin)
+    if JawAttachment == "arduinoNano":
+        Jaw.attach(arduinoNano, JawPin)
     # When you install your servo into your robot, you may 
     # find that the servo turns to far and has to potential 
     # of damaging your robot.  In this case you will want to 
@@ -109,7 +113,14 @@ if EnableJawServo == True:
 if EnableRightEyeX == True:
     print "--Right Eye X axis"
     RightEyeLR = Runtime.createAndStart("RightEyeLR", "Servo")
-    RightEyeLR.attach(RightEyeXAttachment, RightEyeXPin)
+    if RightEyeXAttachment == "Head":
+        RightEyeLR.attach(Head, RightEyeXPin)
+    if RightEyeXAttachment == "arduinoLeft":
+        RightEyeLR.attach(arduinoLeft, RightEyeXPin)
+    if RightEyeXAttachment == "arduinoRight":
+        RightEyeLR.attach(arduinoRight, RightEyeXPin)
+    if RightEyeXAttachment == "arduinoNano":
+        RightEyeLR.attach(arduinoNano, RightEyeXPin)
     RightEyeLR.setMinMax(RightEyeXMinPos, RightEyeXMaxPos)
     #RightEyeLR.map(0,180,1,180)
     RightEyeLR.setRest(RightEyeXRestPos)
@@ -121,7 +132,14 @@ if EnableRightEyeX == True:
 if EnableRightEyeY == True:
     print "--Right Eye Y axis"
     RightEyeUD = Runtime.createAndStart("RightEyeUD", "Servo")
-    RightEyeUD.attach(RightEyeYAttachment, RightEyeYPin)
+    if RightEyeYAttachment == "Head":
+        RightEyeUD.attach(Head, RightEyeYPin)
+    if RightEyeYAttachment == "arduinoLeft":
+        RightEyeUD.attach(arduinoLeft, RightEyeYPin)
+    if RightEyeYAttachment == "arduinoRight":
+        RightEyeUD.attach(arduinoRight, RightEyeYPin)
+    if RightEyeYAttachment == "arduinoNano":
+        RightEyeUD.attach(arduinoNano, RightEyeYPin)
     RightEyeUD.setMinMax(RightEyeYMinPos, RightEyeYMaxPos)
     #RightEyeUD.map(0,180,1,180)
     RightEyeUD.setRest(RightEyeYRestPos)
@@ -133,7 +151,14 @@ if EnableRightEyeY == True:
 if EnableLeftEyeX == True:
     print "--Left Eye X axis"
     LeftEyeLR = Runtime.createAndStart("LefttEyeLR", "Servo")
-    LeftEyeLR.attach(LeftEyeXAttachment, LeftEyeXPin)
+    if LeftEyeXAttachment == "Head":
+        LeftEyeLR.attach(Head, LeftEyeXPin)
+    if LeftEyeXAttachment == "arduinoLeft":
+        LeftEyeLR.attach(arduinoLeft, LeftEyeXPin)
+    if LeftEyeXAttachment == "arduinoRight":
+        LeftEyeLR.attach(arduinoRight, LeftEyeXPin)
+    if LeftEyeXAttachment == "arduinoNano":
+        LeftEyeLR.attach(arduinoNano, LeftEyeXPin)
     LeftEyeLR.setMinMax(LeftEyeXMinPos, LeftEyeXMaxPos)
     #LeftEyeLR.map(0,180,1,180)
     LeftEyeLR.setRest(LeftEyeXRestPos)
@@ -145,7 +170,14 @@ if EnableLeftEyeX == True:
 if EnableLeftEyeY == True:
     print "--Left Eye Y axis"
     LeftEyeUD = Runtime.createAndStart("LeftEyeUD", "Servo")
-    LeftEyeUD.attach(LeftEyeYAttachment, LeftEyeYPin)
+    if LeftEyeYAttachment == "Head":
+        LeftEyeUD.attach(Head, LeftEyeYPin)
+    if LeftEyeYAttachment == "arduinoLeft":
+        LeftEyeUD.attach(arduinoLeft, LeftEyeYPin)
+    if LeftEyeYAttachment == "arduinoRight":
+        LeftEyeUD.attach(arduinoRight, LeftEyeYPin)
+    if LeftEyeYAttachment == "arduinoNano":
+        LeftEyeUD.attach(arduinoNano, LeftEyeYPin)
     LeftEyeUD.setMinMax(LeftEyeYMinPos, LeftEyeYMaxPos)
     #LeftEyeUD.map(0,180,1,180)
     LeftEyeUD.setRest(LeftEyeYRestPos)
@@ -154,29 +186,81 @@ if EnableLeftEyeY == True:
     LeftEyeUD.setAutoDisable(True)
     LeftEyeUD.rest()
 
-if EnableUpperEyeLid == True:
-    print "--Upper Eyelids"
-    UpperEyeLid = Runtime.createAndStart("UpperEyeLid", "Servo")
-    UpperEyeLid.attach(UpperEyeLidAttachment, UpperEyeLidPin)
-    UpperEyeLid.setMinMax(UpperEyeLidMinPos, UpperEyeLidMaxPos)
-    #UpperEyeLid.map(0,180,45,180)
-    UpperEyeLid.setRest(UpperEyeLidRestPos)
-    UpperEyeLid.setInverted(False)
-    UpperEyeLid.setSpeed(-1)
-    UpperEyeLid.setAutoDisable(False)
-    # UpperEyeLid.rest()
+if EnableRightUpperEyeLid == True:
+    print "--Upper Right Eyelid"
+    UpperEyeLidR = Runtime.createAndStart("UpperEyeLidR", "Servo")
+    if UpperREyeLidAttachment == "Head":
+        UpperEyeLidR.attach(Head, UpperREyeLidPin)
+    if UpperREyeLidAttachment == "arduinoLeft":
+        UpperEyeLidR.attach(arduinoLeft, UpperREyeLidPin)
+    if UpperREyeLidAttachment == "arduinoRight":
+        UpperEyeLidR.attach(arduinoRight, UpperREyeLidPin)
+    if UpperREyeLidAttachment == "arduinoNano":
+        UpperEyeLidR.attach(arduinoNano, UpperREyeLidPin)
+    UpperEyeLidR.setMinMax(UpperREyeLidMinPos, UpperREyeLidMaxPos)
+    #UpperEyeLidR.map(0,180,45,180)
+    UpperEyeLidR.setRest(UpperREyeLidRestPos)
+    UpperEyeLidR.setInverted(False)
+    UpperEyeLidR.setSpeed(-1)
+    UpperEyeLidR.setAutoDisable(False)
+    # UpperEyeLidR.rest()
 
-if EnableLowerEyeLid == True:
-    print "--Lower Eyelids"
-    LowerEyeLid = Runtime.createAndStart("LowerEyeLid", "Servo")
-    LowerEyeLid.attach(LowerEyeLidAttachment, LowerEyeLidPin)
-    LowerEyeLid.setMinMax(LowerEyeLidMinPos, LowerEyeLidMaxPos)
-    #LowerEyeLid.map(0,180,0,120)
-    LowerEyeLid.setRest(LowerEyeLidRestPos)
-    LowerEyeLid.setInverted(False)
-    LowerEyeLid.setSpeed(-1)
-    LowerEyeLid.setAutoDisable(False)
-    # LowerEyeLid.rest()
+if EnableRightLowerEyeLid == True:
+    print "--Lower Right Eyelid"
+    LowerEyeLidR = Runtime.createAndStart("LowerEyeLidR", "Servo")
+    if LowerREyeLidAttachment == "Head":
+        LowerEyeLidR.attach(Head, LowerREyeLidPin)
+    if LowerREyeLidAttachment == "arduinoLeft":
+        LowerEyeLidR.attach(arduinoLeft, LowerREyeLidPin)
+    if LowerREyeLidAttachment == "arduinoRight":
+        LowerEyeLidR.attach(arduinoRight, LowerREyeLidPin)
+    if LowerREyeLidAttachment == "arduinoNano":
+        LowerEyeLidR.attach(arduinoNano, LowerREyeLidPin)
+    LowerEyeLidR.setMinMax(LowerREyeLidMinPos, LowerREyeLidMaxPos)
+    #LowerEyeLidR.map(0,180,0,120)
+    LowerEyeLidR.setRest(LowerREyeLidRestPos)
+    LowerEyeLidR.setInverted(False)
+    LowerEyeLidR.setSpeed(-1)
+    LowerEyeLidR.setAutoDisable(False)
+    # LowerEyeLidR.rest()
+
+if EnableLeftUpperEyeLid == True:
+    print "--Upper Left Eyelid"
+    UpperEyeLidL = Runtime.createAndStart("UpperEyeLidL", "Servo")
+    if UpperREyeLidAttachment == "Head":
+        UpperEyeLidL.attach(Head, UpperLEyeLidPin)
+    if UpperREyeLidAttachment == "arduinoLeft":
+        UpperEyeLidL.attach(arduinoLeft, UpperLEyeLidPin)
+    if UpperREyeLidAttachment == "arduinoRight":
+        UpperEyeLidL.attach(arduinoRight, UpperLEyeLidPin)
+    if UpperREyeLidAttachment == "arduinoNano":
+        UpperEyeLidL.attach(arduinoNano, UpperLEyeLidPin)
+    UpperEyeLidL.setMinMax(UpperLEyeLidMinPos, UpperLEyeLidMaxPos)
+    #UpperEyeLidL.map(0,180,45,180)
+    UpperEyeLidL.setRest(UpperLEyeLidRestPos)
+    UpperEyeLidL.setInverted(False)
+    UpperEyeLidL.setSpeed(-1)
+    UpperEyeLidL.setAutoDisable(False)
+    # UpperEyeLidL.rest()
+
+if EnableLeftLowerEyeLid == True:
+    print "--Lower Left Eyelid"
+    LowerEyeLidL = Runtime.createAndStart("LowerEyeLidL", "Servo")
+    if LowerREyeLidAttachment == "Head":
+        LowerEyeLidL.attach(Head, LowerLEyeLidPin)
+    if LowerREyeLidAttachment == "arduinoLeft":
+        LowerEyeLidL.attach(arduinoLeft, LowerLEyeLidPin)
+    if LowerREyeLidAttachment == "arduinoRight":
+        LowerEyeLidL.attach(arduinoRight, LowerLEyeLidPin)
+    if LowerREyeLidAttachment == "arduinoNano":
+        LowerEyeLidL.attach(arduinoNano, LowerLEyeLidPin)
+    LowerEyeLidL.setMinMax(LowerLEyeLidMinPos, LowerLEyeLidMaxPos)
+    #LowerEyeLidL.map(0,180,0,120)
+    LowerEyeLidL.setRest(LowerLEyeLidRestPos)
+    LowerEyeLidL.setInverted(False)
+    LowerEyeLidL.setSpeed(-1)
+    LowerEyeLidL.setAutoDisable(False)
+    # LowerEyeLidL.rest()
 
 ##############################################################
 #                                                            #
