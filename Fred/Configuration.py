@@ -164,42 +164,42 @@ JawMinPos = 0                   # 10
 JawMaxPos = 180                 # 25
 JawRestPos = 90                 # 10
 
-EnableRightEyeX = True
+EnableRightEyeX = False
 RightEyeXAttachment = "Head"    # "arduinoLeft"
 RightEyeXPin = 15               # 22
 RightEyeXMinPos = 0             # 60
 RightEyeXMaxPos = 180           # 120
 RightEyeXRestPos = 90           # 90
 
-EnableRightEyeY = True
+EnableRightEyeY = False
 RightEyeYAttachment = "Head"    # "arduinoLeft"
 RightEyeYPin = 14               # 24
 RightEyeYMinPos = 0             # 60
 RightEyeYMaxPos = 180           # 120
 RightEyeYRestPos = 90           # 90
 
-EnableLeftEyeX = True
+EnableLeftEyeX = False
 LeftEyeXAttachment = "Head"     # Not Present
 LeftEyeXPin = 13                #
 LeftEyeXMinPos = 0              #
 LeftEyeXMaxPos = 180            #
 LeftEyeXRestPos = 90            #
 
-EnableLeftEyeY = True
+EnableLeftEyeY = False
 LeftEyeYAttachment = "Head"     # Not Present
 LeftEyeYPin = 12                #
 LeftEyeYMinPos = 0              #
 LeftEyeYMaxPos = 180            #
 LeftEyeYRestPos = 90            #
 
-EnableUpperEyeLid = True
+EnableUpperEyeLid = False
 UpperEyeLidAttachment = "Head"  # "arduinoRight"
 UpperEyeLidPin = 11             # 13
 UpperEyeLidMinPos = 45          # 60
 UpperEyeLidMaxPos = 180         # 120
 UpperEyeLidRestPos = 45         # 60
 
-EnableLowerEyeLid = True
+EnableLowerEyeLid = False
 LowerEyeLidAttachment = "Head"  # Not Present
 LowerEyeLidPin = 10             #
 LowerEyeLidMinPos = 0           #
@@ -212,21 +212,21 @@ LowerEyeLidRestPos = 30         #
 #                                                            #
 ##############################################################
 
-EnableHeadYaw = True
+EnableHeadYaw = False
 HeadYawAttachment = "Head"      # "arduinoLeft"
 HeadYawPin = 8                  # 13
 HeadYawMinPos = 0               # 30
 HeadYawMaxPos = 180             # 150
 HeadYawRestPos = 90             # 90
 
-EnableHeadPitch = True
+EnableHeadPitch = False
 HeadPitchAttachment = "Back"    # "arduinoLeft"
 HeadPitchPin = 7                # 12
 HeadPitchMinPos = 0             # 20
 HeadPitchMaxPos = 180           # 160
 HeadPitchRestPos = 90           # 90
 
-EnableHeadRoll = True
+EnableHeadRoll = False
 HeadRollAttachment = "Back"     # "arduinoRight"
 HeadRollPin = 6                 # 13
 HeadRollMinPos = 0              # 60
@@ -423,16 +423,16 @@ LeftWristRestPos = 0            # 0
 #                                                            #
 ##############################################################
 
-EnablePIR = True
+EnablePIR = False
 PirAttachment = "arduinoNano"   # "arduioLeft"
 PirPin = 2                      # 23
 
-EnableLeftUltrasonic = True
+EnableLeftUltrasonic = False
 LeftUltrasonicAttachment = "arduinoNano"
 LeftUltrasonicPin1 = 12
 LeftUltrasonicPin2 = 11
 
-EnableRightUltraSonic = True
+EnableRightUltraSonic = False
 RightUltrasonicAttachment = "arduinoNano"
 RightUltrasonicPin1 = 10
 RightUltrasonicPin2 = 9
@@ -445,12 +445,12 @@ RightUltrasonicPin2 = 9
 ##############################################################
 
 # TTS Select only one of these options.
-UseMarySpeech = True
+UseMarySpeech = False
 UseMimicSpeech = False
 
 # STT Select only one of these options.
 UseSphinx = False
-UseWebKit = True
+UseWebKit = False
 
 ##############################################################
 #                                                            #

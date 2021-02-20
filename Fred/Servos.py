@@ -50,7 +50,10 @@ if EnableJawServo == True:
     # name of the service or the service object.
     # The second parameter is the pin on the controller that 
     # the servo will be attached to.
-    Jaw.attach(JawAttachment, JawPin)
+    if JawAttachment == "Head":
+        Jaw.attach(Head, JawPin)
+    if JawAttachment == "Back":
+        Jaw.attach(Back, JawPin)
     # When you install your servo into your robot, you may 
     # find that the servo turns to far and has to potential 
     # of damaging your robot.  In this case you will want to 
