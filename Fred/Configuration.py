@@ -268,6 +268,13 @@ MidStomachMinPos = 0            # 60
 MidStomachMaxPos = 180          # 120
 MidStomachRestPos = 90          # 90
 
+EnableRollStomach = False
+RollStomachAttchment = "Back"    # Not Present
+RollStomachPin = 10              # 
+RollStomachMinPos = 0            # 
+RollStomachMaxPos = 180          # 
+RollStomachRestPos = 90          # 
+
 ##############################################################
 #                                                            #
 # Servo Right Arm Group                                      #

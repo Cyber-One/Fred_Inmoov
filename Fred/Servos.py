@@ -87,7 +87,7 @@ if EnableJawServo == True:
     # In this case, we would map the 0 - 270 as the input to 
     # the 0 - 180 on the output. Then when you adjust the 
     # output by 90 degrees the servo will turn 90 degrees.
-    #Jaw.map(0,180,1,180)
+    #Jaw.map(0, 100, JawMinPos, JawMaxPos)
     # The Rest position is a pre-programmed position for the 
     # servo to move to when you call the rest method.
     Jaw.setRest(JawRestPos)
@@ -139,7 +139,7 @@ if EnableRightEyeX == True:
     if RightEyeXAttachment == "arduinoNano":
         RightEyeLR.attach(arduinoNano, RightEyeXPin)
     RightEyeLR.setMinMax(RightEyeXMinPos, RightEyeXMaxPos)
-    #RightEyeLR.map(0,180,1,180)
+    #RightEyeLR.map(0, 100, RightEyeXMinPos, RightEyeXMaxPos)
     RightEyeLR.setRest(RightEyeXRestPos)
     RightEyeLR.setInverted(False)
     RightEyeLR.setSpeed(60)
@@ -164,7 +164,7 @@ if EnableRightEyeY == True:
     if RightEyeYAttachment == "arduinoNano":
         RightEyeUD.attach(arduinoNano, RightEyeYPin)
     RightEyeUD.setMinMax(RightEyeYMinPos, RightEyeYMaxPos)
-    #RightEyeUD.map(0,180,1,180)
+    #RightEyeUD.map(0, 100, RightEyeYMinPos, RightEyeYMaxPos)
     RightEyeUD.setRest(RightEyeYRestPos)
     RightEyeUD.setInverted(False)
     RightEyeUD.setSpeed(120)
@@ -189,7 +189,7 @@ if EnableLeftEyeX == True:
     if LeftEyeXAttachment == "arduinoNano":
         LeftEyeLR.attach(arduinoNano, LeftEyeXPin)
     LeftEyeLR.setMinMax(LeftEyeXMinPos, LeftEyeXMaxPos)
-    #LeftEyeLR.map(0,180,1,180)
+    #LeftEyeLR.map(0, 100, LeftEyeXMinPos, LeftEyeXMaxPos)
     LeftEyeLR.setRest(LeftEyeXRestPos)
     LeftEyeLR.setInverted(False)
     LeftEyeLR.setSpeed(120)
@@ -214,7 +214,7 @@ if EnableLeftEyeY == True:
     if LeftEyeYAttachment == "arduinoNano":
         LeftEyeUD.attach(arduinoNano, LeftEyeYPin)
     LeftEyeUD.setMinMax(LeftEyeYMinPos, LeftEyeYMaxPos)
-    #LeftEyeUD.map(0,180,1,180)
+    #LeftEyeUD.map(0, 100, LeftEyeYMinPos, LeftEyeYMaxPos)
     LeftEyeUD.setRest(LeftEyeYRestPos)
     LeftEyeUD.setInverted(False)
     LeftEyeUD.setSpeed(60)
@@ -239,7 +239,7 @@ if EnableRightUpperEyeLid == True:
     if UpperREyeLidAttachment == "arduinoNano":
         UpperEyeLidR.attach(arduinoNano, UpperREyeLidPin)
     UpperEyeLidR.setMinMax(UpperREyeLidMinPos, UpperREyeLidMaxPos)
-    #UpperEyeLidR.map(0,180,45,180)
+    #UpperEyeLidR.map(0, 100, UpperREyeLidMinPos, UpperREyeLidMaxPos)
     UpperEyeLidR.setRest(UpperREyeLidRestPos)
     UpperEyeLidR.setInverted(False)
     UpperEyeLidR.setSpeed(-1)
@@ -264,7 +264,7 @@ if EnableRightLowerEyeLid == True:
     if LowerREyeLidAttachment == "arduinoNano":
         LowerEyeLidR.attach(arduinoNano, LowerREyeLidPin)
     LowerEyeLidR.setMinMax(LowerREyeLidMinPos, LowerREyeLidMaxPos)
-    #LowerEyeLidR.map(0,180,0,120)
+    #LowerEyeLidR.map(0, 100, LowerREyeLidMinPos, LowerREyeLidMaxPos)
     LowerEyeLidR.setRest(LowerREyeLidRestPos)
     LowerEyeLidR.setInverted(False)
     LowerEyeLidR.setSpeed(-1)
@@ -289,7 +289,7 @@ if EnableLeftUpperEyeLid == True:
     if UpperREyeLidAttachment == "arduinoNano":
         UpperEyeLidL.attach(arduinoNano, UpperLEyeLidPin)
     UpperEyeLidL.setMinMax(UpperLEyeLidMinPos, UpperLEyeLidMaxPos)
-    #UpperEyeLidL.map(0,180,45,180)
+    #UpperEyeLidL.map(0, 100, UpperLEyeLidMinPos, UpperLEyeLidMaxPos)
     UpperEyeLidL.setRest(UpperLEyeLidRestPos)
     UpperEyeLidL.setInverted(False)
     UpperEyeLidL.setSpeed(-1)
@@ -314,7 +314,7 @@ if EnableLeftLowerEyeLid == True:
     if LowerREyeLidAttachment == "arduinoNano":
         LowerEyeLidL.attach(arduinoNano, LowerLEyeLidPin)
     LowerEyeLidL.setMinMax(LowerLEyeLidMinPos, LowerLEyeLidMaxPos)
-    #LowerEyeLidL.map(0,180,0,120)
+    #LowerEyeLidL.map(0, 100, LowerLEyeLidMinPos, LowerLEyeLidMaxPos)
     LowerEyeLidL.setRest(LowerLEyeLidRestPos)
     LowerEyeLidL.setInverted(False)
     LowerEyeLidL.setSpeed(-1)
@@ -345,7 +345,7 @@ if EnableHeadYaw == True:
     if HeadYawAttachment == "arduinoNano":
         HeadYaw.attach(arduinoNano, HeadYawPin)
     HeadYaw.setMinMax(HeadYawMinPos, HeadYawMaxPos)
-    #HeadYaw.map(0,180,1,180)
+    #HeadYaw.map(0, 100, HeadYawMinPos, HeadYawMaxPos)
     HeadYaw.setRest(HeadYawRestPos)
     HeadYaw.setInverted(False)
     HeadYaw.setSpeed(120)
@@ -372,7 +372,7 @@ if EnableHeadPitch == True:
     if HeadPitchAttachment == "arduinoNano":
         HeadPitch.attach(arduinoNano, HeadPitchPin)
     HeadPitch.setMinMax(HeadPitchMinPos, HeadPitchMaxPos)
-    #HeadPitch.map(0,180,1,180)
+    #HeadPitch.map(0, 100, HeadPitchMinPos, HeadPitchMaxPos)
     HeadPitch.setRest(HeadPitchRestPos)
     HeadPitch.setInverted(False)
     HeadPitch.setSpeed(120)
@@ -397,7 +397,7 @@ if EnableHeadRoll == True:
     if HeadRollAttachment == "arduinoNano":
         HeadRoll.attach(arduinoNano, HeadRollPin)
     HeadRoll.setMinMax(HeadRollMinPos, HeadRollMaxPos)
-    #HeadRoll.map(0,180,1,180)
+    #HeadRoll.map(0, 100, HeadRollMinPos, HeadRollMaxPos)
     HeadRoll.setRest(HeadRollRestPos)
     HeadRoll.setInverted(False)
     HeadRoll.setSpeed(120)
@@ -428,7 +428,7 @@ if EnableTopStomach == True:
     if TopStomachAttachment == "arduinoNano":
         TopStomach.attach(arduinoNano, TopStomachPin)
     TopStomach.setMinMax(TopStomachMinPos, TopStomachMaxPos)
-    #TopStomach.map(0,180,1,180)
+    #TopStomach.map(0, 100, TopStomachMinPos, TopStomachMaxPos)
     TopStomach.setRest(TopStomachRestPos)
     TopStomach.setInverted(False)
     TopStomach.setSpeed(120)
@@ -437,7 +437,7 @@ if EnableTopStomach == True:
 
 if EnableMidStomach == True:
     print "--Top Stomach"
-    MidStomach = Runtime.createAndStart("TopStomach", "Servo")
+    MidStomach = Runtime.createAndStart("MidStomach", "Servo")
     if MidStomachAttachment == "Head":
         MidStomach.attach(Head, MidStomachPin)
     if MidStomachAttachment == "Back":
@@ -453,12 +453,37 @@ if EnableMidStomach == True:
     if MidStomachAttachment == "arduinoNano":
         MidStomach.attach(arduinoNano, MidStomachPin)
     MidStomach.setMinMax(MidStomachMinPos, MidStomachMaxPos)
-    #MidStomach.map(0,180,1,180)
+    #MidStomach.map(0, 100, MidStomachMinPos, MidStomachMaxPos)
     MidStomach.setRest(MidStomachRestPos)
     MidStomach.setInverted(False)
     MidStomach.setSpeed(120)
     MidStomach.setAutoDisable(True)
     MidStomach.rest()
+
+if EnableRollStomach == True:
+    print "--Top Stomach"
+    RollStomach = Runtime.createAndStart("RollStomach", "Servo")
+    if RollStomachAttchment == "Head":
+        RollStomach.attach(Head, RollStomachPin)
+    if RollStomachAttchment == "Back":
+        RollStomach.attach(Back, RollStomachPin)
+    if RollStomachAttchment == "RightArm":
+        RollStomach.attach(RightArm, RollStomachPin)
+    if RollStomachAttchment == "LeftArm":
+        RollStomach.attach(LeftArm, RollStomachPin)
+    if RollStomachAttchment == "arduinoLeft":
+        RollStomach.attach(arduinoLeft, RollStomachPin)
+    if RollStomachAttchment == "arduinoRight":
+        RollStomach.attach(arduinoRight, RollStomachPin)
+    if RollStomachAttchment == "arduinoNano":
+        RollStomach.attach(arduinoNano, RollStomachPin)
+    RollStomach.setMinMax(RollStomachMinPos, RollStomachMaxPos)
+    #RollStomach.map(0, 100, RollStomachMinPos, RollStomachMaxPos)
+    RollStomach.setRest(RollStomachRestPos)
+    RollStomach.setInverted(False)
+    RollStomach.setSpeed(120)
+    RollStomach.setAutoDisable(True)
+    RollStomach.rest()
 
 ##############################################################
 #                                                            #
@@ -484,7 +509,7 @@ if EnableRightOmoPlate == True:
     if RightOmoPlateAttachment == "arduinoNano":
         RightOmoPlate.attach(arduinoNano, RightOmoPlatePin)
     RightOmoPlate.setMinMax(RightOmoPlateMinPos, RightOmoPlateMaxPos)
-    #RightOmoPlate.map(0,180,1,180)
+    #RightOmoPlate.map(0, 100, RightOmoPlateMinPos, RightOmoPlateMaxPos)
     RightOmoPlate.setRest(RightOmoPlateRestPos)
     RightOmoPlate.setInverted(False)
     RightOmoPlate.setSpeed(120)
@@ -509,7 +534,7 @@ if EnableRightShoulder == True:
     if RightShoulderAttachment == "arduinoNano":
         RightShoulder.attach(arduinoNano, RightShoulderPin)
     RightShoulder.setMinMax(RightShoulderMinPos, RightShoulderMaxPos)
-    #RightShoulder.map(0,180,1,180)
+    #RightShoulder.map(0, 100, RightShoulderMinPos, RightShoulderMaxPos)
     RightShoulder.setRest(RightShoulderRestPos)
     RightShoulder.setInverted(False)
     RightShoulder.setSpeed(120)
@@ -534,7 +559,7 @@ if EnableRightRotate == True:
     if RightRotateAttachment == "arduinoNano":
         RightRotate.attach(arduinoNano, RightRotatePin)
     RightRotate.setMinMax(RightRotateMinPos, RightRotateMaxPos)
-    #RightRotate.map(0,180,1,180)
+    #RightRotate.map(0, 100, RightRotateMinPos, RightRotateMaxPos)
     RightRotate.setRest(RightRotateRestPos)
     RightRotate.setInverted(False)
     RightRotate.setSpeed(120)
@@ -559,7 +584,7 @@ if EnableRightBicep == True:
     if RightBicepAttachment == "arduinoNano":
         RightBicep.attach(arduinoNano, RightBicepPin)
     RightBicep.setMinMax(RightBicepMinPos, RightBicepMaxPos)
-    #RightBicep.map(0,180,1,180)
+    #RightBicep.map(0, 100, RightBicepMinPos, RightBicepMaxPos)
     RightBicep.setRest(RightBicepRestPos)
     RightBicep.setInverted(False)
     RightBicep.setSpeed(120)
@@ -590,7 +615,7 @@ if EnableLeftOmoPlate == True:
     if LeftOmoPlateAttachment == "arduinoNano":
         LeftOmoPlate.attach(arduinoNano, LeftOmoPlatePin)
     LeftOmoPlate.setMinMax(LeftOmoPlateMinPos, LeftOmoPlateMaxPos)
-    #LeftOmoPlate.map(0,180,1,180)
+    #LeftOmoPlate.map(0, 100, LeftOmoPlateMinPos, LeftOmoPlateMaxPos)
     LeftOmoPlate.setRest(LeftOmoPlateRestPos)
     LeftOmoPlate.setInverted(False)
     LeftOmoPlate.setSpeed(120)
@@ -615,7 +640,7 @@ if EnableLeftShoulder == True:
     if LeftShoulderAttachment == "arduinoNano":
         LeftShoulder.attach(arduinoNano, LeftShoulderPin)
     LeftShoulder.setMinMax(LeftShoulderMinPos, LeftShoulderMaxPos)
-    #LeftShoulder.map(0,180,1,180)
+    #LeftShoulder.map(0, 100, LeftShoulderMinPos, LeftShoulderMaxPos)
     LeftShoulder.setRest(LeftShoulderRestPos)
     LeftShoulder.setInverted(False)
     LeftShoulder.setSpeed(120)
@@ -640,7 +665,7 @@ if EnableLeftRotate == True:
     if LeftRotateAttachment == "arduinoNano":
         LeftRotate.attach(arduinoNano, LeftRotatePin)
     LeftRotate.setMinMax(LeftRotateMinPos, LeftRotateMaxPos)
-    #LeftRotate.map(0,180,1,180)
+    #LeftRotate.map(0, 100, LeftRotateMinPos, LeftRotateMaxPos)
     LeftRotate.setRest(RightRotateRestPos)
     LeftRotate.setInverted(False)
     LeftRotate.setSpeed(120)
@@ -665,7 +690,7 @@ if EnableLeftBicep == True:
     if LeftBicepAttachment == "arduinoNano":
         LeftBicep.attach(arduinoNano, LeftBicepPin)
     LeftBicep.setMinMax(LeftBicepMinPos, LeftBicepMaxPos)
-    #LeftBicep.map(0,180,1,180)
+    #LeftBicep.map(0, 100, LeftBicepMinPos, LeftBicepMaxPos)
     LeftBicep.setRest(LeftBicepRestPos)
     LeftBicep.setInverted(False)
     LeftBicep.setSpeed(120)
@@ -696,7 +721,7 @@ if EnableRightThumb == True:
     if RightThumbAttachment == "arduinoNano":
         RightThumb.attach(arduinoNano, RightThumbPin)
     RightThumb.setMinMax(RightThumbMinPos, RightThumbMaxPos)
-    #RightThumb.map(0,180,1,180)
+    #RightThumb.map(0, 100, RightThumbMinPos, RightThumbMaxPos)
     RightThumb.setRest(RightThumbRestPos)
     RightThumb.setInverted(False)
     RightThumb.setSpeed(120)
@@ -721,7 +746,7 @@ if EnableRightIndex == True:
     if RightIndexAttachment == "arduinoNano":
         RightIndex.attach(arduinoNano, RightIndexPin)
     RightIndex.setMinMax(RightIndexMinPos, RightIndexMaxPos)
-    #RightIndex.map(0,180,1,180)
+    #RightIndex.map(0, 100, RightIndexMinPos, RightIndexMaxPos)
     RightIndex.setRest(RightIndexRestPos)
     RightIndex.setInverted(False)
     RightIndex.setSpeed(120)
@@ -746,7 +771,7 @@ if EnableRightMajor == True:
     if RightMajorAttachment == "arduinoNano":
         RightMajor.attach(arduinoNano, RightMajorPin)
     RightMajor.setMinMax(RightMajorMinPos, RightMajorMaxPos)
-    #RightMajor.map(0,180,1,180)
+    #RightMajor.map(0, 100, RightMajorMinPos, RightMajorMaxPos)
     RightMajor.setRest(RightMajorRestPos)
     RightMajor.setInverted(False)
     RightMajor.setSpeed(120)
@@ -771,7 +796,7 @@ if EnableRightRing == True:
     if RightRingAttachment == "arduinoNano":
         RightRing.attach(arduinoNano, RightRingPin)
     RightRing.setMinMax(RightRingMinPos, RightRingMaxPos)
-    #RightRing.map(0,180,1,180)
+    #RightRing.map(0, 100, RightRingMinPos, RightRingMaxPos)
     RightRing.setRest(RightRingRestPos)
     RightRing.setInverted(False)
     RightRing.setSpeed(120)
@@ -796,7 +821,7 @@ if EnableRightPinky == True:
     if RightPinkyAttachment == "arduinoNano":
         RightPinky.attach(arduinoNano, RightPinkyPin)
     RightPinky.setMinMax(RightPinkyMinPos, RightPinkyMaxPos)
-    #RightPinky.map(0,180,1,180)
+    #RightPinky.map(0, 100, RightPinkyMinPos, RightPinkyMaxPos)
     RightPinky.setRest(RightPinkyRestPos)
     RightPinky.setInverted(False)
     RightPinky.setSpeed(120)
@@ -821,7 +846,7 @@ if EnableRightWrist == True:
     if RightWristAttachment == "arduinoNano":
         RightWrist.attach(arduinoNano, RightWristPin)
     RightWrist.setMinMax(RightWristMinPos, RightWristMaxPos)
-    #RightWrist.map(0,180,1,180)
+    #RightWrist.map(0, 100, RightWristMinPos, RightWristMaxPos)
     RightWrist.setRest(RightWristRestPos)
     RightWrist.setInverted(False)
     RightWrist.setSpeed(120)
@@ -852,7 +877,7 @@ if EnableLeftThumb == True:
     if LeftThumbAttachment == "arduinoNano":
         LeftThumb.attach(arduinoNano, LeftThumbPin)
     LeftThumb.setMinMax(LeftThumbMinPos, LeftThumbMaxPos)
-    #LeftThumb.map(0,180,1,180)
+    #LeftThumb.map(0, 100, LeftThumbMinPos, LeftThumbMaxPos)
     LeftThumb.setRest(LeftThumbRestPos)
     LeftThumb.setInverted(False)
     LeftThumb.setSpeed(120)
@@ -877,7 +902,7 @@ if EnableLeftIndex == True:
     if LeftIndexAttachment == "arduinoNano":
         LeftIndex.attach(arduinoNano, LeftIndexPin)
     LeftIndex.setMinMax(LeftIndexMinPos, LeftIndexMaxPos)
-    #LeftIndex.map(0,180,1,180)
+    #LeftIndex.map(0, 100, LeftIndexMinPos, LeftIndexMaxPos)
     LeftIndex.setRest(LeftIndexRestPos)
     LeftIndex.setInverted(False)
     LeftIndex.setSpeed(120)
@@ -902,7 +927,7 @@ if EnableLeftMajor == True:
     if LeftMajorAttachment == "arduinoNano":
         LeftMajor.attach(arduinoNano, LeftMajorPin)
     LeftMajor.setMinMax(LeftMajorMinPos, LeftMajorMaxPos)
-    #LeftMajor.map(0,180,1,180)
+    #LeftMajor.map(0, 100, LeftMajorMinPos, LeftMajorMaxPos)
     LeftMajor.setRest(LeftMajorRestPos)
     LeftMajor.setInverted(False)
     LeftMajor.setSpeed(120)
@@ -927,7 +952,7 @@ if EnableLeftRing == True:
     if LeftRingAttachment == "arduinoNano":
         LeftRing.attach(arduinoNano, LeftRingPin)
     LeftRing.setMinMax(LeftRingMinPos, LeftRingMaxPos)
-    #LeftRing.map(0,180,1,180)
+    #LeftRing.map(0, 100, LeftRingMinPos, LeftRingMaxPos)
     LeftRing.setRest(LeftRingRestPos)
     LeftRing.setInverted(False)
     LeftRing.setSpeed(120)
@@ -952,7 +977,7 @@ if EnableLeftPinky == True:
     if LeftPinkyAttachment == "arduinoNano":
         LeftPinky.attach(arduinoNano, LeftPinkyPin)
     LeftPinky.setMinMax(LeftPinkyMinPos, LeftPinkyMaxPos)
-    #LeftPinky.map(0,180,1,180)
+    #LeftPinky.map(0, 100, LeftPinkyMinPos, LeftPinkyMaxPos)
     LeftPinky.setRest(LeftPinkyRestPos)
     RightPinky.setInverted(False)
     LeftPinky.setSpeed(120)
@@ -977,7 +1002,7 @@ if EnableLeftWrist == True:
     if LeftWristAttachment == "arduinoNano":
         LeftWrist.attach(arduinoNano, LeftWristPin)
     LeftWrist.setMinMax(LeftWristMinPos, LeftWristMaxPos)
-    #LeftWrist.map(0,180,1,180)
+    #LeftWrist.map(0, 100, LeftWristMinPos, LeftWristMaxPos)
     LeftWrist.setRest(LeftWristRestPos)
     LeftWrist.setInverted(False)
     LeftWrist.setSpeed(120)
