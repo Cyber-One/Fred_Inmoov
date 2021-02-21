@@ -152,7 +152,8 @@ RightArmServoDriverAttached = "raspi"   # Refer to notes above
 # "arduinoLeft", "arduinoRight", "arduinoNano", "Head", 
 # "Back", "RightArm", "LeftArm".
 # If a new controller is released of more are added, 
-# then add it to this list.
+# then add it to this list and to each of the servos in the 
+# Servo.py file.
 # Comments after the setting are for a Nervo Boards based 
 # InMoov configuration as listed on the InMoov web site.
 

@@ -46,12 +46,23 @@ if EnableJawServo == True:
     # system, so we need to tell the service where to find 
     # the controller and what pin to connect ther servo 
     # service to.  For that we use the attach method.
-    # This method takes two parameters, the first can be the 
-    # name of the service or the service object.
+    # This method takes two parameters, the first is the 
+    # service object.
     # The second parameter is the pin on the controller that 
     # the servo will be attached to.
+    # Because we have a number of options for the controller 
+    # service, and we want to make is easy to configure, we 
+    # will set a config string with the service names and 
+    # then select the service based on that name from a list 
+    # of possible service we are likely to use.
     if JawAttachment == "Head":
         Jaw.attach(Head, JawPin)
+    if JawAttachment == "Back":
+        Jaw.attach(Back, JawPin)
+    if JawAttachment == "RightArm":
+        Jaw.attach(RightArm, JawPin)
+    if JawAttachment == "LeftArm":
+        Jaw.attach(LeftArm, JawPin)
     if JawAttachment == "arduinoLeft":
         Jaw.attach(arduinoLeft, JawPin)
     if JawAttachment == "arduinoRight":
@@ -115,6 +126,12 @@ if EnableRightEyeX == True:
     RightEyeLR = Runtime.createAndStart("RightEyeLR", "Servo")
     if RightEyeXAttachment == "Head":
         RightEyeLR.attach(Head, RightEyeXPin)
+    if RightEyeXAttachment == "Back":
+        RightEyeLR.attach(Back, RightEyeXPin)
+    if RightEyeXAttachment == "RightArm":
+        RightEyeLR.attach(RightArm, RightEyeXPin)
+    if RightEyeXAttachment == "LeftArm":
+        RightEyeLR.attach(LeftArm, RightEyeXPin)
     if RightEyeXAttachment == "arduinoLeft":
         RightEyeLR.attach(arduinoLeft, RightEyeXPin)
     if RightEyeXAttachment == "arduinoRight":
@@ -134,6 +151,12 @@ if EnableRightEyeY == True:
     RightEyeUD = Runtime.createAndStart("RightEyeUD", "Servo")
     if RightEyeYAttachment == "Head":
         RightEyeUD.attach(Head, RightEyeYPin)
+    if RightEyeYAttachment == "Back":
+        RightEyeUD.attach(Back, RightEyeYPin)
+    if RightEyeYAttachment == "RightArm":
+        RightEyeUD.attach(RightArm, RightEyeYPin)
+    if RightEyeYAttachment == "LeftArm":
+        RightEyeUD.attach(LeftArm, RightEyeYPin)
     if RightEyeYAttachment == "arduinoLeft":
         RightEyeUD.attach(arduinoLeft, RightEyeYPin)
     if RightEyeYAttachment == "arduinoRight":
@@ -153,6 +176,12 @@ if EnableLeftEyeX == True:
     LeftEyeLR = Runtime.createAndStart("LefttEyeLR", "Servo")
     if LeftEyeXAttachment == "Head":
         LeftEyeLR.attach(Head, LeftEyeXPin)
+    if LeftEyeXAttachment == "Back":
+        LeftEyeLR.attach(Back, LeftEyeXPin)
+    if LeftEyeXAttachment == "RightArm":
+        LeftEyeLR.attach(RightArm, LeftEyeXPin)
+    if LeftEyeXAttachment == "LeftArm":
+        LeftEyeLR.attach(LeftArm, LeftEyeXPin)
     if LeftEyeXAttachment == "arduinoLeft":
         LeftEyeLR.attach(arduinoLeft, LeftEyeXPin)
     if LeftEyeXAttachment == "arduinoRight":
@@ -172,6 +201,12 @@ if EnableLeftEyeY == True:
     LeftEyeUD = Runtime.createAndStart("LeftEyeUD", "Servo")
     if LeftEyeYAttachment == "Head":
         LeftEyeUD.attach(Head, LeftEyeYPin)
+    if LeftEyeYAttachment == "Back":
+        LeftEyeUD.attach(Back, LeftEyeYPin)
+    if LeftEyeYAttachment == "RightArm":
+        LeftEyeUD.attach(RightArm, LeftEyeYPin)
+    if LeftEyeYAttachment == "LeftArm":
+        LeftEyeUD.attach(LeftArm, LeftEyeYPin)
     if LeftEyeYAttachment == "arduinoLeft":
         LeftEyeUD.attach(arduinoLeft, LeftEyeYPin)
     if LeftEyeYAttachment == "arduinoRight":
@@ -191,6 +226,12 @@ if EnableRightUpperEyeLid == True:
     UpperEyeLidR = Runtime.createAndStart("UpperEyeLidR", "Servo")
     if UpperREyeLidAttachment == "Head":
         UpperEyeLidR.attach(Head, UpperREyeLidPin)
+    if UpperREyeLidAttachment == "Back":
+        UpperEyeLidR.attach(Back, UpperREyeLidPin)
+    if UpperREyeLidAttachment == "RightArm":
+        UpperEyeLidR.attach(RightArm, UpperREyeLidPin)
+    if UpperREyeLidAttachment == "LeftArm":
+        UpperEyeLidR.attach(LeftArm, UpperREyeLidPin)
     if UpperREyeLidAttachment == "arduinoLeft":
         UpperEyeLidR.attach(arduinoLeft, UpperREyeLidPin)
     if UpperREyeLidAttachment == "arduinoRight":
@@ -210,6 +251,12 @@ if EnableRightLowerEyeLid == True:
     LowerEyeLidR = Runtime.createAndStart("LowerEyeLidR", "Servo")
     if LowerREyeLidAttachment == "Head":
         LowerEyeLidR.attach(Head, LowerREyeLidPin)
+    if LowerREyeLidAttachment == "Back":
+        LowerEyeLidR.attach(Back, LowerREyeLidPin)
+    if LowerREyeLidAttachment == "RightArm":
+        LowerEyeLidR.attach(RightArm, LowerREyeLidPin)
+    if LowerREyeLidAttachment == "LeftArm":
+        LowerEyeLidR.attach(LeftArm, LowerREyeLidPin)
     if LowerREyeLidAttachment == "arduinoLeft":
         LowerEyeLidR.attach(arduinoLeft, LowerREyeLidPin)
     if LowerREyeLidAttachment == "arduinoRight":
@@ -229,6 +276,12 @@ if EnableLeftUpperEyeLid == True:
     UpperEyeLidL = Runtime.createAndStart("UpperEyeLidL", "Servo")
     if UpperREyeLidAttachment == "Head":
         UpperEyeLidL.attach(Head, UpperLEyeLidPin)
+    if UpperREyeLidAttachment == "Back":
+        UpperEyeLidL.attach(Back, UpperLEyeLidPin)
+    if UpperREyeLidAttachment == "RightArm":
+        UpperEyeLidL.attach(RightArm, UpperLEyeLidPin)
+    if UpperREyeLidAttachment == "LeftArm":
+        UpperEyeLidL.attach(LeftArm, UpperLEyeLidPin)
     if UpperREyeLidAttachment == "arduinoLeft":
         UpperEyeLidL.attach(arduinoLeft, UpperLEyeLidPin)
     if UpperREyeLidAttachment == "arduinoRight":
@@ -248,6 +301,12 @@ if EnableLeftLowerEyeLid == True:
     LowerEyeLidL = Runtime.createAndStart("LowerEyeLidL", "Servo")
     if LowerREyeLidAttachment == "Head":
         LowerEyeLidL.attach(Head, LowerLEyeLidPin)
+    if LowerREyeLidAttachment == "Back":
+        LowerEyeLidL.attach(Back, LowerLEyeLidPin)
+    if LowerREyeLidAttachment == "RightArm":
+        LowerEyeLidL.attach(RightArm, LowerLEyeLidPin)
+    if LowerREyeLidAttachment == "LeftArm":
+        LowerEyeLidL.attach(LeftArm, LowerLEyeLidPin)
     if LowerREyeLidAttachment == "arduinoLeft":
         LowerEyeLidL.attach(arduinoLeft, LowerLEyeLidPin)
     if LowerREyeLidAttachment == "arduinoRight":
@@ -271,7 +330,20 @@ if EnableLeftLowerEyeLid == True:
 if EnableHeadYaw == True:
     print "Head Yaw"
     HeadYaw = Runtime.createAndStart("HeadYaw", "Servo")
-    HeadYaw.attach(HeadYawAttachment, HeadYawPin)
+    if HeadYawAttachment == "Head":
+        HeadYaw.attach(Head, HeadYawPin)
+    if HeadYawAttachment == "Back":
+        HeadYaw.attach(Back, HeadYawPin)
+    if HeadYawAttachment == "RightArm":
+        HeadYaw.attach(RightArm, HeadYawPin)
+    if HeadYawAttachment == "LeftArm":
+        HeadYaw.attach(LeftArm, HeadYawPin)
+    if HeadYawAttachment == "arduinoLeft":
+        HeadYaw.attach(arduinoLeft, HeadYawPin)
+    if HeadYawAttachment == "arduinoRight":
+        HeadYaw.attach(arduinoRight, HeadYawPin)
+    if HeadYawAttachment == "arduinoNano":
+        HeadYaw.attach(arduinoNano, HeadYawPin)
     HeadYaw.setMinMax(HeadYawMinPos, HeadYawMaxPos)
     #HeadYaw.map(0,180,1,180)
     HeadYaw.setRest(HeadYawRestPos)
@@ -285,7 +357,20 @@ print "-Back Servo Group"
 if EnableHeadPitch == True:
     print "--Head Pitch"
     HeadPitch = Runtime.createAndStart("HeadPitch", "Servo")
-    HeadPitch.attach(HeadPitchAttachment, HeadPitchPin)
+    if HeadPitchAttachment == "Head":
+        HeadPitch.attach(Head, HeadPitchPin)
+    if HeadPitchAttachment == "Back":
+        HeadPitch.attach(Back, HeadPitchPin)
+    if HeadPitchAttachment == "RightArm":
+        HeadPitch.attach(RightArm, HeadPitchPin)
+    if HeadPitchAttachment == "LeftArm":
+        HeadPitch.attach(LeftArm, HeadPitchPin)
+    if HeadPitchAttachment == "arduinoLeft":
+        HeadPitch.attach(arduinoLeft, HeadPitchPin)
+    if HeadPitchAttachment == "arduinoRight":
+        HeadPitch.attach(arduinoRight, HeadPitchPin)
+    if HeadPitchAttachment == "arduinoNano":
+        HeadPitch.attach(arduinoNano, HeadPitchPin)
     HeadPitch.setMinMax(HeadPitchMinPos, HeadPitchMaxPos)
     #HeadPitch.map(0,180,1,180)
     HeadPitch.setRest(HeadPitchRestPos)
@@ -297,7 +382,20 @@ if EnableHeadPitch == True:
 if EnableHeadRoll == True:
     print "--Head Roll"
     HeadRoll = Runtime.createAndStart("HeadRoll", "Servo")
-    HeadRoll.attach(HeadRollAttachment, HeadRollPin)
+    if HeadRollAttachment == "Head":
+        HeadRoll.attach(Head, HeadRollPin)
+    if HeadRollAttachment == "Back":
+        HeadRoll.attach(Back, HeadRollPin)
+    if HeadRollAttachment == "RightArm":
+        HeadRoll.attach(RightArm, HeadRollPin)
+    if HeadRollAttachment == "LeftArm":
+        HeadRoll.attach(LeftArm, HeadRollPin)
+    if HeadRollAttachment == "arduinoLeft":
+        HeadRoll.attach(arduinoLeft, HeadRollPin)
+    if HeadRollAttachment == "arduinoRight":
+        HeadRoll.attach(arduinoRight, HeadRollPin)
+    if HeadRollAttachment == "arduinoNano":
+        HeadRoll.attach(arduinoNano, HeadRollPin)
     HeadRoll.setMinMax(HeadRollMinPos, HeadRollMaxPos)
     #HeadRoll.map(0,180,1,180)
     HeadRoll.setRest(HeadRollRestPos)
@@ -315,7 +413,20 @@ if EnableHeadRoll == True:
 if EnableTopStomach == True:
     print "--Top Stomach"
     TopStomach = Runtime.createAndStart("TopStomach", "Servo")
-    TopStomach.attach(TopStomachAttachment, TopStomachPin)
+    if TopStomachAttachment == "Head":
+        TopStomach.attach(Head, TopStomachPin)
+    if TopStomachAttachment == "Back":
+        TopStomach.attach(Back, TopStomachPin)
+    if TopStomachAttachment == "RightArm":
+        TopStomach.attach(RightArm, TopStomachPin)
+    if TopStomachAttachment == "LeftArm":
+        TopStomach.attach(LeftArm, TopStomachPin)
+    if TopStomachAttachment == "arduinoLeft":
+        TopStomach.attach(arduinoLeft, TopStomachPin)
+    if TopStomachAttachment == "arduinoRight":
+        TopStomach.attach(arduinoRight, TopStomachPin)
+    if TopStomachAttachment == "arduinoNano":
+        TopStomach.attach(arduinoNano, TopStomachPin)
     TopStomach.setMinMax(TopStomachMinPos, TopStomachMaxPos)
     #TopStomach.map(0,180,1,180)
     TopStomach.setRest(TopStomachRestPos)
@@ -327,7 +438,20 @@ if EnableTopStomach == True:
 if EnableMidStomach == True:
     print "--Top Stomach"
     MidStomach = Runtime.createAndStart("TopStomach", "Servo")
-    MidStomach.attach(MidStomachAttachment, MidStomachPin)
+    if MidStomachAttachment == "Head":
+        MidStomach.attach(Head, MidStomachPin)
+    if MidStomachAttachment == "Back":
+        MidStomach.attach(Back, MidStomachPin)
+    if MidStomachAttachment == "RightArm":
+        MidStomach.attach(RightArm, MidStomachPin)
+    if MidStomachAttachment == "LeftArm":
+        MidStomach.attach(LeftArm, MidStomachPin)
+    if MidStomachAttachment == "arduinoLeft":
+        MidStomach.attach(arduinoLeft, MidStomachPin)
+    if MidStomachAttachment == "arduinoRight":
+        MidStomach.attach(arduinoRight, MidStomachPin)
+    if MidStomachAttachment == "arduinoNano":
+        MidStomach.attach(arduinoNano, MidStomachPin)
     MidStomach.setMinMax(MidStomachMinPos, MidStomachMaxPos)
     #MidStomach.map(0,180,1,180)
     MidStomach.setRest(MidStomachRestPos)
@@ -345,7 +469,20 @@ if EnableMidStomach == True:
 if EnableRightOmoPlate == True:
     print "--Right OmoPlate"
     RightOmoPlate = Runtime.createAndStart("RightOmoPlate", "Servo")
-    RightOmoPlate.attach(RightOmoPlateAttachment, RightOmoPlatePin)
+    if RightOmoPlateAttachment == "Head":
+        RightOmoPlate.attach(Head, RightOmoPlatePin)
+    if RightOmoPlateAttachment == "Back":
+        RightOmoPlate.attach(Back, RightOmoPlatePin)
+    if RightOmoPlateAttachment == "RightArm":
+        RightOmoPlate.attach(RightArm, RightOmoPlatePin)
+    if RightOmoPlateAttachment == "LeftArm":
+        RightOmoPlate.attach(LeftArm, RightOmoPlatePin)
+    if RightOmoPlateAttachment == "arduinoLeft":
+        RightOmoPlate.attach(arduinoLeft, RightOmoPlatePin)
+    if RightOmoPlateAttachment == "arduinoRight":
+        RightOmoPlate.attach(arduinoRight, RightOmoPlatePin)
+    if RightOmoPlateAttachment == "arduinoNano":
+        RightOmoPlate.attach(arduinoNano, RightOmoPlatePin)
     RightOmoPlate.setMinMax(RightOmoPlateMinPos, RightOmoPlateMaxPos)
     #RightOmoPlate.map(0,180,1,180)
     RightOmoPlate.setRest(RightOmoPlateRestPos)
@@ -357,7 +494,20 @@ if EnableRightOmoPlate == True:
 if EnableRightShoulder == True:
     print "--Right Shoulder"
     RightShoulder = Runtime.createAndStart("RightShoulder", "Servo")
-    RightShoulder.attach(RightShoulderAttachment, RightShoulderPin)
+    if RightShoulderAttachment == "Head":
+        RightShoulder.attach(Head, RightShoulderPin)
+    if RightShoulderAttachment == "Back":
+        RightShoulder.attach(Back, RightShoulderPin)
+    if RightShoulderAttachment == "RightArm":
+        RightShoulder.attach(RightArm, RightShoulderPin)
+    if RightShoulderAttachment == "LeftArm":
+        RightShoulder.attach(LeftArm, RightShoulderPin)
+    if RightShoulderAttachment == "arduinoLeft":
+        RightShoulder.attach(arduinoLeft, RightShoulderPin)
+    if RightShoulderAttachment == "arduinoRight":
+        RightShoulder.attach(arduinoRight, RightShoulderPin)
+    if RightShoulderAttachment == "arduinoNano":
+        RightShoulder.attach(arduinoNano, RightShoulderPin)
     RightShoulder.setMinMax(RightShoulderMinPos, RightShoulderMaxPos)
     #RightShoulder.map(0,180,1,180)
     RightShoulder.setRest(RightShoulderRestPos)
@@ -369,7 +519,20 @@ if EnableRightShoulder == True:
 if EnableRightRotate == True:
     print "--Right Rotate"
     RightRotate = Runtime.createAndStart("RightRotate", "Servo")
-    RightRotate.attach(RightRotateAttachment, RightRotatePin)
+    if RightRotateAttachment == "Head":
+        RightRotate.attach(Head, RightRotatePin)
+    if RightRotateAttachment == "Back":
+        RightRotate.attach(Back, RightRotatePin)
+    if RightRotateAttachment == "RightArm":
+        RightRotate.attach(RightArm, RightRotatePin)
+    if RightRotateAttachment == "LeftArm":
+        RightRotate.attach(LeftArm, RightRotatePin)
+    if RightRotateAttachment == "arduinoLeft":
+        RightRotate.attach(arduinoLeft, RightRotatePin)
+    if RightRotateAttachment == "arduinoRight":
+        RightRotate.attach(arduinoRight, RightRotatePin)
+    if RightRotateAttachment == "arduinoNano":
+        RightRotate.attach(arduinoNano, RightRotatePin)
     RightRotate.setMinMax(RightRotateMinPos, RightRotateMaxPos)
     #RightRotate.map(0,180,1,180)
     RightRotate.setRest(RightRotateRestPos)
@@ -381,7 +544,20 @@ if EnableRightRotate == True:
 if EnableRightBicep == True:
     print "--Right Bicep"
     RightBicep = Runtime.createAndStart("RightBicep", "Servo")
-    RightBicep.attach(RightBicepAttachment, RightBicepPin)
+    if RightBicepAttachment == "Head":
+        RightBicep.attach(Head, RightBicepPin)
+    if RightBicepAttachment == "Back":
+        RightBicep.attach(Back, RightBicepPin)
+    if RightBicepAttachment == "RightArm":
+        RightBicep.attach(RightArm, RightBicepPin)
+    if RightBicepAttachment == "LeftArm":
+        RightBicep.attach(LeftArm, RightBicepPin)
+    if RightBicepAttachment == "arduinoLeft":
+        RightBicep.attach(arduinoLeft, RightBicepPin)
+    if RightBicepAttachment == "arduinoRight":
+        RightBicep.attach(arduinoRight, RightBicepPin)
+    if RightBicepAttachment == "arduinoNano":
+        RightBicep.attach(arduinoNano, RightBicepPin)
     RightBicep.setMinMax(RightBicepMinPos, RightBicepMaxPos)
     #RightBicep.map(0,180,1,180)
     RightBicep.setRest(RightBicepRestPos)
@@ -399,7 +575,20 @@ if EnableRightBicep == True:
 if EnableLeftOmoPlate == True:
     print "--Left OmoPlate"
     LeftOmoPlate = Runtime.createAndStart("LeftOmoPlate", "Servo")
-    LeftOmoPlate.attach(LeftOmoPlateAttachment, LeftOmoPlatePin)
+    if LeftOmoPlateAttachment == "Head":
+        LeftOmoPlate.attach(Head, LeftOmoPlatePin)
+    if LeftOmoPlateAttachment == "Back":
+        LeftOmoPlate.attach(Back, LeftOmoPlatePin)
+    if LeftOmoPlateAttachment == "RightArm":
+        LeftOmoPlate.attach(RightArm, LeftOmoPlatePin)
+    if LeftOmoPlateAttachment == "LeftArm":
+        LeftOmoPlate.attach(LeftArm, LeftOmoPlatePin)
+    if LeftOmoPlateAttachment == "arduinoLeft":
+        LeftOmoPlate.attach(arduinoLeft, LeftOmoPlatePin)
+    if LeftOmoPlateAttachment == "arduinoRight":
+        LeftOmoPlate.attach(arduinoRight, LeftOmoPlatePin)
+    if LeftOmoPlateAttachment == "arduinoNano":
+        LeftOmoPlate.attach(arduinoNano, LeftOmoPlatePin)
     LeftOmoPlate.setMinMax(LeftOmoPlateMinPos, LeftOmoPlateMaxPos)
     #LeftOmoPlate.map(0,180,1,180)
     LeftOmoPlate.setRest(LeftOmoPlateRestPos)
@@ -411,7 +600,20 @@ if EnableLeftOmoPlate == True:
 if EnableLeftShoulder == True:
     print "--Left Shoulder"
     LeftShoulder = Runtime.createAndStart("LeftShoulder", "Servo")
-    LeftShoulder.attach(LeftShoulderAttachment, LeftShoulderPin)
+    if LeftShoulderAttachment == "Head":
+        LeftShoulder.attach(Head, LeftShoulderPin)
+    if LeftShoulderAttachment == "Back":
+        LeftShoulder.attach(Back, LeftShoulderPin)
+    if LeftShoulderAttachment == "RightArm":
+        LeftShoulder.attach(RightArm, LeftShoulderPin)
+    if LeftShoulderAttachment == "LeftArm":
+        LeftShoulder.attach(LeftArm, LeftShoulderPin)
+    if LeftShoulderAttachment == "arduinoLeft":
+        LeftShoulder.attach(arduinoLeft, LeftShoulderPin)
+    if LeftShoulderAttachment == "arduinoRight":
+        LeftShoulder.attach(arduinoRight, LeftShoulderPin)
+    if LeftShoulderAttachment == "arduinoNano":
+        LeftShoulder.attach(arduinoNano, LeftShoulderPin)
     LeftShoulder.setMinMax(LeftShoulderMinPos, LeftShoulderMaxPos)
     #LeftShoulder.map(0,180,1,180)
     LeftShoulder.setRest(LeftShoulderRestPos)
@@ -423,7 +625,20 @@ if EnableLeftShoulder == True:
 if EnableLeftRotate == True:
     print "--Left Rotate"
     LeftRotate = Runtime.createAndStart("LeftRotate", "Servo")
-    LeftRotate.attach(LeftRotateAttachment, LeftRotatePin)
+    if LeftRotateAttachment == "Head":
+        LeftRotate.attach(Head, LeftRotatePin)
+    if LeftRotateAttachment == "Back":
+        LeftRotate.attach(Back, LeftRotatePin)
+    if LeftRotateAttachment == "RightArm":
+        LeftRotate.attach(RightArm, LeftRotatePin)
+    if LeftRotateAttachment == "LeftArm":
+        LeftRotate.attach(LeftArm, LeftRotatePin)
+    if LeftRotateAttachment == "arduinoLeft":
+        LeftRotate.attach(arduinoLeft, LeftRotatePin)
+    if LeftRotateAttachment == "arduinoRight":
+        LeftRotate.attach(arduinoRight, LeftRotatePin)
+    if LeftRotateAttachment == "arduinoNano":
+        LeftRotate.attach(arduinoNano, LeftRotatePin)
     LeftRotate.setMinMax(LeftRotateMinPos, LeftRotateMaxPos)
     #LeftRotate.map(0,180,1,180)
     LeftRotate.setRest(RightRotateRestPos)
@@ -435,7 +650,20 @@ if EnableLeftRotate == True:
 if EnableLeftBicep == True:
     print "--Left Bicep"
     LeftBicep = Runtime.createAndStart("LeftBicep", "Servo")
-    LeftBicep.attach(LeftBicepAttachment, LeftBicepPin)
+    if LeftBicepAttachment == "Head":
+        LeftBicep.attach(Head, LeftBicepPin)
+    if LeftBicepAttachment == "Back":
+        LeftBicep.attach(Back, LeftBicepPin)
+    if LeftBicepAttachment == "RightArm":
+        LeftBicep.attach(RightArm, LeftBicepPin)
+    if LeftBicepAttachment == "LeftArm":
+        LeftBicep.attach(LeftArm, LeftBicepPin)
+    if LeftBicepAttachment == "arduinoLeft":
+        LeftBicep.attach(arduinoLeft, LeftBicepPin)
+    if LeftBicepAttachment == "arduinoRight":
+        LeftBicep.attach(arduinoRight, LeftBicepPin)
+    if LeftBicepAttachment == "arduinoNano":
+        LeftBicep.attach(arduinoNano, LeftBicepPin)
     LeftBicep.setMinMax(LeftBicepMinPos, LeftBicepMaxPos)
     #LeftBicep.map(0,180,1,180)
     LeftBicep.setRest(LeftBicepRestPos)
@@ -453,7 +681,20 @@ if EnableLeftBicep == True:
 if EnableRightThumb == True:
     print "--Right Thumb"
     RightThumb = Runtime.createAndStart("RightThumb", "Servo")
-    RightThumb.attach(RightThumbAttachment, RightThumbPin)
+    if RightThumbAttachment == "Head":
+        RightThumb.attach(Head, RightThumbPin)
+    if RightThumbAttachment == "Back":
+        RightThumb.attach(Back, RightThumbPin)
+    if RightThumbAttachment == "RightArm":
+        RightThumb.attach(RightArm, RightThumbPin)
+    if RightThumbAttachment == "LeftArm":
+        RightThumb.attach(LeftArm, RightThumbPin)
+    if RightThumbAttachment == "arduinoLeft":
+        RightThumb.attach(arduinoLeft, RightThumbPin)
+    if RightThumbAttachment == "arduinoRight":
+        RightThumb.attach(arduinoRight, RightThumbPin)
+    if RightThumbAttachment == "arduinoNano":
+        RightThumb.attach(arduinoNano, RightThumbPin)
     RightThumb.setMinMax(RightThumbMinPos, RightThumbMaxPos)
     #RightThumb.map(0,180,1,180)
     RightThumb.setRest(RightThumbRestPos)
@@ -465,7 +706,20 @@ if EnableRightThumb == True:
 if EnableRightIndex == True:
     print "--Right Index"
     RightIndex = Runtime.createAndStart("RightIndex", "Servo")
-    RightIndex.attach(RightIndexAttachment, RightIndexPin)
+    if RightIndexAttachment == "Head":
+        RightIndex.attach(Head, RightIndexPin)
+    if RightIndexAttachment == "Back":
+        RightIndex.attach(Back, RightIndexPin)
+    if RightIndexAttachment == "RightArm":
+        RightIndex.attach(RightArm, RightIndexPin)
+    if RightIndexAttachment == "LeftArm":
+        RightIndex.attach(LeftArm, RightIndexPin)
+    if RightIndexAttachment == "arduinoLeft":
+        RightIndex.attach(arduinoLeft, RightIndexPin)
+    if RightIndexAttachment == "arduinoRight":
+        RightIndex.attach(arduinoRight, RightIndexPin)
+    if RightIndexAttachment == "arduinoNano":
+        RightIndex.attach(arduinoNano, RightIndexPin)
     RightIndex.setMinMax(RightIndexMinPos, RightIndexMaxPos)
     #RightIndex.map(0,180,1,180)
     RightIndex.setRest(RightIndexRestPos)
@@ -477,7 +731,20 @@ if EnableRightIndex == True:
 if EnableRightMajor == True:
     print "--Right Major"
     RightMajor = Runtime.createAndStart("RightMajor", "Servo")
-    RightMajor.attach(RightMajorAttachment, RightMajorPin)
+    if RightMajorAttachment == "Head":
+        RightMajor.attach(Head, RightMajorPin)
+    if RightMajorAttachment == "Back":
+        RightMajor.attach(Back, RightMajorPin)
+    if RightMajorAttachment == "RightArm":
+        RightMajor.attach(RightArm, RightMajorPin)
+    if RightMajorAttachment == "LeftArm":
+        RightMajor.attach(LeftArm, RightMajorPin)
+    if RightMajorAttachment == "arduinoLeft":
+        RightMajor.attach(arduinoLeft, RightMajorPin)
+    if RightMajorAttachment == "arduinoRight":
+        RightMajor.attach(arduinoRight, RightMajorPin)
+    if RightMajorAttachment == "arduinoNano":
+        RightMajor.attach(arduinoNano, RightMajorPin)
     RightMajor.setMinMax(RightMajorMinPos, RightMajorMaxPos)
     #RightMajor.map(0,180,1,180)
     RightMajor.setRest(RightMajorRestPos)
@@ -489,7 +756,20 @@ if EnableRightMajor == True:
 if EnableRightRing == True:
     print "--Right Ring"
     RightRing = Runtime.createAndStart("RightRing", "Servo")
-    RightRing.attach(RightRingAttachment, RightRingPin)
+    if RightRingAttachment == "Head":
+        RightRing.attach(Head, RightRingPin)
+    if RightRingAttachment == "Back":
+        RightRing.attach(Back, RightRingPin)
+    if RightRingAttachment == "RightArm":
+        RightRing.attach(RightArm, RightRingPin)
+    if RightRingAttachment == "LeftArm":
+        RightRing.attach(LeftArm, RightRingPin)
+    if RightRingAttachment == "arduinoLeft":
+        RightRing.attach(arduinoLeft, RightRingPin)
+    if RightRingAttachment == "arduinoRight":
+        RightRing.attach(arduinoRight, RightRingPin)
+    if RightRingAttachment == "arduinoNano":
+        RightRing.attach(arduinoNano, RightRingPin)
     RightRing.setMinMax(RightRingMinPos, RightRingMaxPos)
     #RightRing.map(0,180,1,180)
     RightRing.setRest(RightRingRestPos)
@@ -501,7 +781,20 @@ if EnableRightRing == True:
 if EnableRightPinky == True:
     print "--Right Pinky"
     RightPinky = Runtime.createAndStart("RightPinky", "Servo")
-    RightPinky.attach(RightPinkyAttachment, RightPinkyPin)
+    if RightPinkyAttachment == "Head":
+        RightPinky.attach(Head, RightPinkyPin)
+    if RightPinkyAttachment == "Back":
+        RightPinky.attach(Back, RightPinkyPin)
+    if RightPinkyAttachment == "RightArm":
+        RightPinky.attach(RightArm, RightPinkyPin)
+    if RightPinkyAttachment == "LeftArm":
+        RightPinky.attach(LeftArm, RightPinkyPin)
+    if RightPinkyAttachment == "arduinoLeft":
+        RightPinky.attach(arduinoLeft, RightPinkyPin)
+    if RightPinkyAttachment == "arduinoRight":
+        RightPinky.attach(arduinoRight, RightPinkyPin)
+    if RightPinkyAttachment == "arduinoNano":
+        RightPinky.attach(arduinoNano, RightPinkyPin)
     RightPinky.setMinMax(RightPinkyMinPos, RightPinkyMaxPos)
     #RightPinky.map(0,180,1,180)
     RightPinky.setRest(RightPinkyRestPos)
@@ -513,7 +806,20 @@ if EnableRightPinky == True:
 if EnableRightWrist == True:
     print "--Right Wrist"
     RightWrist = Runtime.createAndStart("RightWrist", "Servo")
-    RightWrist.attach(RightWristAttachment, RightWristPin)
+    if RightWristAttachment == "Head":
+        RightWrist.attach(Head, RightWristPin)
+    if RightWristAttachment == "Back":
+        RightWrist.attach(Back, RightWristPin)
+    if RightWristAttachment == "RightArm":
+        RightWrist.attach(RightArm, RightWristPin)
+    if RightWristAttachment == "LeftArm":
+        RightWrist.attach(LeftArm, RightWristPin)
+    if RightWristAttachment == "arduinoLeft":
+        RightWrist.attach(arduinoLeft, RightWristPin)
+    if RightWristAttachment == "arduinoRight":
+        RightWrist.attach(arduinoRight, RightWristPin)
+    if RightWristAttachment == "arduinoNano":
+        RightWrist.attach(arduinoNano, RightWristPin)
     RightWrist.setMinMax(RightWristMinPos, RightWristMaxPos)
     #RightWrist.map(0,180,1,180)
     RightWrist.setRest(RightWristRestPos)
@@ -531,7 +837,20 @@ if EnableRightWrist == True:
 if EnableLeftThumb == True:
     print "--Left Thumb"
     LeftThumb = Runtime.createAndStart("LeftThumb", "Servo")
-    LeftThumb.attach(LeftThumbAttachment, LeftThumbPin)
+    if LeftThumbAttachment == "Head":
+        LeftThumb.attach(Head, LeftThumbPin)
+    if LeftThumbAttachment == "Back":
+        LeftThumb.attach(Back, LeftThumbPin)
+    if LeftThumbAttachment == "RightArm":
+        LeftThumb.attach(RightArm, LeftThumbPin)
+    if LeftThumbAttachment == "LeftArm":
+        LeftThumb.attach(LeftArm, LeftThumbPin)
+    if LeftThumbAttachment == "arduinoLeft":
+        LeftThumb.attach(arduinoLeft, LeftThumbPin)
+    if LeftThumbAttachment == "arduinoRight":
+        LeftThumb.attach(arduinoRight, LeftThumbPin)
+    if LeftThumbAttachment == "arduinoNano":
+        LeftThumb.attach(arduinoNano, LeftThumbPin)
     LeftThumb.setMinMax(LeftThumbMinPos, LeftThumbMaxPos)
     #LeftThumb.map(0,180,1,180)
     LeftThumb.setRest(LeftThumbRestPos)
@@ -543,7 +862,20 @@ if EnableLeftThumb == True:
 if EnableLeftIndex == True:
     print "--Left Index"
     LeftIndex = Runtime.createAndStart("LeftIndex", "Servo")
-    LeftIndex.attach(LeftIndexAttachment, LeftIndexPin)
+    if LeftIndexAttachment == "Head":
+        LeftIndex.attach(Head, LeftIndexPin)
+    if LeftIndexAttachment == "Back":
+        LeftIndex.attach(Back, LeftIndexPin)
+    if LeftIndexAttachment == "RightArm":
+        LeftIndex.attach(RightArm, LeftIndexPin)
+    if LeftIndexAttachment == "LeftArm":
+        LeftIndex.attach(LeftArm, LeftIndexPin)
+    if LeftIndexAttachment == "arduinoLeft":
+        LeftIndex.attach(arduinoLeft, LeftIndexPin)
+    if LeftIndexAttachment == "arduinoRight":
+        LeftIndex.attach(arduinoRight, LeftIndexPin)
+    if LeftIndexAttachment == "arduinoNano":
+        LeftIndex.attach(arduinoNano, LeftIndexPin)
     LeftIndex.setMinMax(LeftIndexMinPos, LeftIndexMaxPos)
     #LeftIndex.map(0,180,1,180)
     LeftIndex.setRest(LeftIndexRestPos)
@@ -555,7 +887,20 @@ if EnableLeftIndex == True:
 if EnableLeftMajor == True:
     print "--Left Major"
     LeftMajor = Runtime.createAndStart("LeftMajor", "Servo")
-    LeftMajor.attach(LeftMajorAttachment, LeftMajorPin)
+    if LeftMajorAttachment == "Head":
+        LeftMajor.attach(Head, LeftMajorPin)
+    if LeftMajorAttachment == "Back":
+        LeftMajor.attach(Back, LeftMajorPin)
+    if LeftMajorAttachment == "RightArm":
+        LeftMajor.attach(RightArm, LeftMajorPin)
+    if LeftMajorAttachment == "LeftArm":
+        LeftMajor.attach(LeftArm, LeftMajorPin)
+    if LeftMajorAttachment == "arduinoLeft":
+        LeftMajor.attach(arduinoLeft, LeftMajorPin)
+    if LeftMajorAttachment == "arduinoRight":
+        LeftMajor.attach(arduinoRight, LeftMajorPin)
+    if LeftMajorAttachment == "arduinoNano":
+        LeftMajor.attach(arduinoNano, LeftMajorPin)
     LeftMajor.setMinMax(LeftMajorMinPos, LeftMajorMaxPos)
     #LeftMajor.map(0,180,1,180)
     LeftMajor.setRest(LeftMajorRestPos)
@@ -567,7 +912,20 @@ if EnableLeftMajor == True:
 if EnableLeftRing == True:
     print "--Left Ring"
     LeftRing = Runtime.createAndStart("LeftRing", "Servo")
-    LeftRing.attach(LeftRingAttachment, LeftRingPin)
+    if LeftRingAttachment == "Head":
+        LeftRing.attach(Head, LeftRingPin)
+    if LeftRingAttachment == "Back":
+        LeftRing.attach(Back, LeftRingPin)
+    if LeftRingAttachment == "RightArm":
+        LeftRing.attach(RightArm, LeftRingPin)
+    if LeftRingAttachment == "LeftArm":
+        LeftRing.attach(LeftArm, LeftRingPin)
+    if LeftRingAttachment == "arduinoLeft":
+        LeftRing.attach(arduinoLeft, LeftRingPin)
+    if LeftRingAttachment == "arduinoRight":
+        LeftRing.attach(arduinoRight, LeftRingPin)
+    if LeftRingAttachment == "arduinoNano":
+        LeftRing.attach(arduinoNano, LeftRingPin)
     LeftRing.setMinMax(LeftRingMinPos, LeftRingMaxPos)
     #LeftRing.map(0,180,1,180)
     LeftRing.setRest(LeftRingRestPos)
@@ -579,7 +937,20 @@ if EnableLeftRing == True:
 if EnableLeftPinky == True:
     print "--Left Pinky"
     LeftPinky = Runtime.createAndStart("LeftPinky", "Servo")
-    LeftPinky.attach(LeftPinkyAttachment, LeftPinkyPin)
+    if LeftPinkyAttachment == "Head":
+        LeftPinky.attach(Head, LeftPinkyPin)
+    if LeftPinkyAttachment == "Back":
+        LeftPinky.attach(Back, LeftPinkyPin)
+    if LeftPinkyAttachment == "RightArm":
+        LeftPinky.attach(RightArm, LeftPinkyPin)
+    if LeftPinkyAttachment == "LeftArm":
+        LeftPinky.attach(LeftArm, LeftPinkyPin)
+    if LeftPinkyAttachment == "arduinoLeft":
+        LeftPinky.attach(arduinoLeft, LeftPinkyPin)
+    if LeftPinkyAttachment == "arduinoRight":
+        LeftPinky.attach(arduinoRight, LeftPinkyPin)
+    if LeftPinkyAttachment == "arduinoNano":
+        LeftPinky.attach(arduinoNano, LeftPinkyPin)
     LeftPinky.setMinMax(LeftPinkyMinPos, LeftPinkyMaxPos)
     #LeftPinky.map(0,180,1,180)
     LeftPinky.setRest(LeftPinkyRestPos)
@@ -591,7 +962,20 @@ if EnableLeftPinky == True:
 if EnableLeftWrist == True:
     print "--Left Wrist"
     LeftWrist = Runtime.createAndStart("LeftWrist", "Servo")
-    LeftWrist.attach(LeftWristAttachment, LeftWristPin)
+    if LeftWristAttachment == "Head":
+        LeftWrist.attach(Head, LeftWristPin)
+    if LeftWristAttachment == "Back":
+        LeftWrist.attach(Back, LeftWristPin)
+    if LeftWristAttachment == "RightArm":
+        LeftWrist.attach(RightArm, LeftWristPin)
+    if LeftWristAttachment == "LeftArm":
+        LeftWrist.attach(LeftArm, LeftWristPin)
+    if LeftWristAttachment == "arduinoLeft":
+        LeftWrist.attach(arduinoLeft, LeftWristPin)
+    if LeftWristAttachment == "arduinoRight":
+        LeftWrist.attach(arduinoRight, LeftWristPin)
+    if LeftWristAttachment == "arduinoNano":
+        LeftWrist.attach(arduinoNano, LeftWristPin)
     LeftWrist.setMinMax(LeftWristMinPos, LeftWristMaxPos)
     #LeftWrist.map(0,180,1,180)
     LeftWrist.setRest(LeftWristRestPos)
