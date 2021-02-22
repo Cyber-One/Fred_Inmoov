@@ -33,15 +33,37 @@ if UseMarySpeech == True:
     Mouth.setVolume(100.0)
 
 # MimicSpeech TTS
-# before you can use this on the Raspberry Pi, you first need to install it.
-# By default this is not installed for the ARM based computer like the Raspberry Pi
-# for detailed instructions on installing this please watch my video
+# before you can use this on the Raspberry Pi, 
+# you first need to install it.
+# By default this is not installed for the ARM based computer 
+# like the Raspberry Pi, for detailed instructions on 
+# installing this please watch my video
 # https://youtu.be/OSbqlRWYBkQ
 if UseMimicSpeech == True:
     # start the service
     Mouth = Runtime.start('Mouth','LocalSpeech')
     # next we need to tell the service where to find our executable
     Mouth.setTtsPath("/home/pi/mimic1/mimic")
+    # the next command wil get a list of voices we can use
+    # note, thesetVoice command does not work until after you have list of voices.
+    print Mouth.getVoices()
+    # The next line will allow you to select which voice we use. The default appears to be "slt"
+    Mouth.setVoice("rms")
+    # the set the volume that your robot will speak at use the setVolume command, the value is a float, so remember the .0
+    Mouth.setVolume(100.0)
+
+# Espeak TTS
+# before you can use this on the Raspberry Pi, 
+# you first need to install it.
+# By default this is not installed for the ARM based 
+# computer like the Raspberry Pi.
+# This is very easy with the command 
+# "sudo apt-get install espeak"
+if UseEspeak == True:
+    # start the service
+    Mouth = Runtime.start('Mouth','LocalSpeech')
+    # next we need to tell the service where to find our executable
+    Mouth.setTtsPath("/usr/bin/espeak")
     # the next command wil get a list of voices we can use
     # note, thesetVoice command does not work until after you have list of voices.
     print Mouth.getVoices()
