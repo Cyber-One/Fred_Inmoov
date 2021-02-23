@@ -27,13 +27,17 @@ print "Creating the Config"
 
 # SwingGUI was the origonal one and still my prefference 
 # until the rest of the WebGUI pages are conpleted.
-RunSwingGUI = True  # True for on, False for off
+RunSwingGUI = False          # True for on, False for off
 
 # WebGUI is the new boy on the block and is getting better.
 # It will be started in anycase if you decide to use 
 # WebKitSpeechRecognition.
-RunWebGUI = False   # True for on, False for off
-
+RunWebGUI = False           # True for on, False for off
+# WebGUI can be run headless, that is the web client interface 
+# can be on another computer.  In this case we don't want to 
+# launch the local web browser.  The local web browser also 
+# uses a lot of computer power.
+RunWebGUIbrowser = False    # True for on, False for off
 
 ##############################################################
 #                                                            #
@@ -469,6 +473,7 @@ RightUltrasonicPin2 = 9
 # TTS Select only one of these options.
 UseMarySpeech = False
 UseMimicSpeech = False
+UseEspeak = False
 
 # STT Select only one of these options.
 UseSphinx = False
