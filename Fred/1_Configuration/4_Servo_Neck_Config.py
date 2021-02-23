@@ -12,12 +12,12 @@
 # Fred in a modified Inmmov robot, you can find all the      #
 # origonal files on the Inmoov web site. http://inmoov.fr/   #
 #                                                            #
-# 3.Servo_Head_Config.py                                     #
+# 4_Servo_Neck_Config.py                                     #
 # This is where the configuration settings live for the      #
 # varoius controllers.                                       #
 #                                                            #
 ##############################################################
-print "Creating the Servo Head Config"
+print "Creating the Servo Neck Config"
 ##############################################################
 #                                                            #
 # Servo Neck Group                                           #

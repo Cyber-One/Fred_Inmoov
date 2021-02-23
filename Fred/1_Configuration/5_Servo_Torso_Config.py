@@ -12,7 +12,7 @@
 # Fred in a modified Inmmov robot, you can find all the      #
 # origonal files on the Inmoov web site. http://inmoov.fr/   #
 #                                                            #
-# 5.Servo_Torso_Config.py                                    #
+# 5_Servo_Torso_Config.py                                    #
 # This is where the configuration settings live for the      #
 # varoius controllers.                                       #
 #                                                            #

@@ -18,7 +18,8 @@
 #                                                            #
 ##############################################################
 print "Starting the various Controllers"
-
+# Load the configuration for the Controllers.
+execfile(RuningFolder+'/1_Configuration/2_Controller_Config.py')
 # Start the Raspberry Pi service.
 # The core of the Fred InMoov build, 
 # is the Raspberry Pi 4 (Raspi4) Single Board Computer (SBC)

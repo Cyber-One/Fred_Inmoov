@@ -12,12 +12,12 @@
 # Fred in a modified Inmmov robot, you can find all the      #
 # origonal files on the Inmoov web site. http://inmoov.fr/   #
 #                                                            #
-# 6.Servo_RightArm_Config.py                                 #
+# 6_Servo_RightArm_Config.py                                 #
 # This is where the configuration settings live for the      #
 # varoius controllers.                                       #
 #                                                            #
 ##############################################################
-print "Creating the Servo Head Config"
+print "Creating the Servo Right Arm Config"
 ##############################################################
 #                                                            #
 # Servo Right Arm Group                                      #

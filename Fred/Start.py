@@ -18,22 +18,29 @@
 #                                                            #
 ##############################################################
 
-# Because you might want to place your robots files into a different dicrectory 
-# compared to what I have, the RunningFolder variable is the name of the folder 
-# you will be using.
+# Because you might want to place your robots files into a 
+# different dicrectory compared to what I have, 
+# the RunningFolder variable is the name of the folder you 
+# will be using.
 RuningFolder="Fred"
 
 # The execfile() function loads and executes the named program.
-# this is handy for breaking a program into smaller more manageable parts.
-execfile(RuningFolder+'/Configuration.py')
+# This is handy for breaking a program into smaller more 
+# manageable parts.
+# This file is the system configuration file.
+execfile(RuningFolder+'/1_Configuration/1_Sys_Config.py')
 
-# Just to help with diagnostics, we will write out we are starting the system.
+# Just to help with diagnostics, 
+# we will write out we are starting the system.
 print "Starting the Fred MRL OS"
 
-# Before we get too carried away, I plan to start Fred using a shell script callsed start_fred.sh
-# This will start the MRL and the Fred scripts with no Graphical User Interfaces (GUI) at all.
+# Before we get too carried away, I plan to start Fred using a 
+# shell script called start_fred.sh
+# This will start the MRL and the Fred scripts with no 
+# Graphical User Interfaces (GUI) at all.
 # To overcome this issue, we will start the GUI here.
-# There are two types of GUI installed in MRL, the SwingGUI and the WebGUI
+# There are two types of GUI installed in MRL, the SwingGUI 
+# and the WebGUI
 if RunSwingGUI == True:
     gui = Runtime.start('gui','SwingGui')
 
@@ -64,8 +71,12 @@ if RunWebGUI == True:
 execfile(RuningFolder+'/Controllers.py')
 
 # The next is for the different servos we will be running.
-# This file is responsible for starting and configuring each of the servos throughout the robot.
-execfile(RuningFolder+'/Servos.py')
+# This set of files are responsible for starting and configuring each of the servos throughout the robot.
+execfile(RuningFolder+'/3_Servos/1_Servos_Head.py')
+execfile(RuningFolder+'/3_Servos/2_Servos_Neck.py')
+execfile(RuningFolder+'/3_Servos/3_Servos_Torso.py')
+execfile(RuningFolder+'/3_Servos/4_Servos_RightArm.py')
+
 
 # The IO services are for things like the PIR, Ultrasonic range finders and NeoPixel rings ect.
 execfile(RuningFolder+'/IO.py')

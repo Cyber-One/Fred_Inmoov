@@ -12,7 +12,7 @@
 # Fred in a modified Inmmov robot, you can find all the      #
 # origonal files on the Inmoov web site. http://inmoov.fr/   #
 #                                                            #
-# 3.Servo_Head_Config.py                                     #
+# 3_Servo_Head_Config.py                                     #
 # This is where the configuration settings live for the      #
 # varoius controllers.                                       #
 #                                                            #
