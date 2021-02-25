@@ -76,7 +76,7 @@ execfile(RuningFolder+'/3_Servos/1_Servos_Head.py')
 execfile(RuningFolder+'/3_Servos/2_Servos_Neck.py')
 execfile(RuningFolder+'/3_Servos/3_Servos_Torso.py')
 execfile(RuningFolder+'/3_Servos/4_Servos_RightArm.py')
-
+execfile(RuningFolder+'/3_Servos/5_Servos_LeftArm.py')
 
 # The IO services are for things like the PIR, Ultrasonic range finders and NeoPixel rings ect.
 execfile(RuningFolder+'/IO.py')

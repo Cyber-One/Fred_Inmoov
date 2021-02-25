@@ -12,7 +12,7 @@
 # Fred in a modified Inmmov robot, you can find all the      #
 # origonal files on the Inmoov web site. http://inmoov.fr/   #
 #                                                            #
-# 8.Servo_LeftHand_Config.py                                 #
+# 9_Servo_LeftHand_Config.py                                 #
 # This is where the configuration settings live for the      #
 # varoius controllers.                                       #
 #                                                            #
