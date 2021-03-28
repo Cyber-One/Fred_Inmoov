@@ -49,42 +49,42 @@ JawMinPos = 0                   # 10
 JawMaxPos = 180                 # 25
 JawRestPos = 90                 # 10
 
-EnableRightEyeX = False
+EnableRightEyeX = True
 RightEyeXAttachment = "Head"    # "arduinoLeft"
 RightEyeXPin = 15               # 22
 RightEyeXMinPos = 0             # 60
 RightEyeXMaxPos = 180           # 120
 RightEyeXRestPos = 90           # 90
 
-EnableRightEyeY = False
+EnableRightEyeY = True
 RightEyeYAttachment = "Head"    # "arduinoLeft"
 RightEyeYPin = 14               # 24
 RightEyeYMinPos = 0             # 60
 RightEyeYMaxPos = 180           # 120
 RightEyeYRestPos = 90           # 90
 
-EnableLeftEyeX = False
+EnableLeftEyeX = True
 LeftEyeXAttachment = "Head"     # Not Present
 LeftEyeXPin = 13                #
 LeftEyeXMinPos = 0              #
 LeftEyeXMaxPos = 180            #
 LeftEyeXRestPos = 90            #
 
-EnableLeftEyeY = False
+EnableLeftEyeY = True
 LeftEyeYAttachment = "Head"     # Not Present
 LeftEyeYPin = 12                #
 LeftEyeYMinPos = 0              #
 LeftEyeYMaxPos = 180            #
 LeftEyeYRestPos = 90            #
 
-EnableRightUpperEyeLid = False
+EnableRightUpperEyeLid = True
 UpperREyeLidAttachment = "Head" # "arduinoRight"
 UpperREyeLidPin = 11            # 13
 UpperREyeLidMinPos = 45         # 60
 UpperREyeLidMaxPos = 180        # 120
 UpperREyeLidRestPos = 45        # 60
 
-EnableRightLowerEyeLid = False
+EnableRightLowerEyeLid = True
 LowerREyeLidAttachment = "Head"  # Not Present
 LowerREyeLidPin = 10             #
 LowerREyeLidMinPos = 0           #

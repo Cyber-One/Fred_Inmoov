@@ -24,21 +24,21 @@ print "Creating the Servo Neck Config"
 #                                                            #
 ##############################################################
 
-EnableHeadYaw = False
+EnableHeadYaw = True
 HeadYawAttachment = "Head"      # "arduinoLeft"
 HeadYawPin = 8                  # 13
 HeadYawMinPos = 0               # 30
 HeadYawMaxPos = 180             # 150
 HeadYawRestPos = 90             # 90
 
-EnableHeadPitch = False
+EnableHeadPitch = True
 HeadPitchAttachment = "Back"    # "arduinoLeft"
 HeadPitchPin = 7                # 12
 HeadPitchMinPos = 0             # 20
 HeadPitchMaxPos = 180           # 160
 HeadPitchRestPos = 90           # 90
 
-EnableHeadRoll = False
+EnableHeadRoll = True
 HeadRollAttachment = "Back"     # "arduinoRight"
 HeadRollPin = 6                 # 13
 HeadRollMinPos = 0              # 60

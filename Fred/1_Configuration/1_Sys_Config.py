@@ -31,7 +31,7 @@ RunSwingGUI = False          # True for on, False for off
 # WebGUI is the new boy on the block and is getting better.
 # It will be started in anycase if you decide to use 
 # WebKitSpeechRecognition.
-RunWebGUI = False           # True for on, False for off
+RunWebGUI = True           # True for on, False for off
 # WebGUI can be run headless, that is the web client interface 
 # can be on another computer.  In this case we don't want to 
 # launch the local web browser.  The local web browser also 

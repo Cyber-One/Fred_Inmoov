@@ -24,7 +24,7 @@ print "Creating the Servo Head Config"
 #                                                            #
 ##############################################################
 
-EnableTopStomach = False
+EnableTopStomach = True
 TopStomachAttachment = "Back"    # "arduinoLeft"
 TopStomachPin = 8               # 27
 TopStomachMinPos = 0            # 60
