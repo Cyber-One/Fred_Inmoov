@@ -18,6 +18,8 @@
 #                                                            #
 ##############################################################
 print "Creating the various IO Services"
+# Load the configuration for the IO devices.
+execfile(RuningFolder+'/1_Configuration/A_IO_Config.py')
 
 #######################################################
 # Create the PIR service                              #
