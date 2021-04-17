@@ -24,6 +24,11 @@ print "Creating the Servo Head Config"
 #                                                            #
 ##############################################################
 
+# The TopStomach servo allows the robot to roll it's torso
+# left or right, it consists of two HS805BB, one with it's 
+# electronics removed working as a slave to the other one.
+# these drive a pair of pistons to rotate the torso about
+# it's top stomach behind the neo pixel ring.
 EnableTopStomach = True
 TopStomachAttachment = "Back"    # "arduinoLeft"
 TopStomachPin = 8                # 27
@@ -31,6 +36,8 @@ TopStomachMinPos = 80            # 60
 TopStomachMaxPos = 135           # 120
 TopStomachRestPos = 100          # 90
 
+# The MidStomach servos, a pair of HS805BB again configured
+# as Master Slave, each drive a worm drive to rotate the body.
 EnableMidStomach = False
 MidStomachAttchment = "Back"     # "arduinoLeft"
 MidStomachPin = 9                # 28
@@ -38,6 +45,9 @@ MidStomachMinPos = 0             # 60
 MidStomachMaxPos = 180           # 120
 MidStomachRestPos = 90           # 90
 
+# Not in the official list of parts, some builders have added
+# the ability to pitch the body back and forward above the
+# MidStomach rotator.
 EnableRollStomach = False
 RollStomachAttchment = "Back"    # Not Present
 RollStomachPin = 10              # 
