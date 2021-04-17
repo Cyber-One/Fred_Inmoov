@@ -26,17 +26,17 @@ print "Creating the Servo Head Config"
 
 EnableTopStomach = True
 TopStomachAttachment = "Back"    # "arduinoLeft"
-TopStomachPin = 8               # 27
-TopStomachMinPos = 0            # 60
-TopStomachMaxPos = 180          # 120
-TopStomachRestPos = 90          # 90
+TopStomachPin = 8                # 27
+TopStomachMinPos = 80            # 60
+TopStomachMaxPos = 135           # 120
+TopStomachRestPos = 100          # 90
 
 EnableMidStomach = False
-MidStomachAttchment = "Back"    # "arduinoLeft"
-MidStomachPin = 9               # 28
-MidStomachMinPos = 0            # 60
-MidStomachMaxPos = 180          # 120
-MidStomachRestPos = 90          # 90
+MidStomachAttchment = "Back"     # "arduinoLeft"
+MidStomachPin = 9                # 28
+MidStomachMinPos = 0             # 60
+MidStomachMaxPos = 180           # 120
+MidStomachRestPos = 90           # 90
 
 EnableRollStomach = False
 RollStomachAttchment = "Back"    # Not Present

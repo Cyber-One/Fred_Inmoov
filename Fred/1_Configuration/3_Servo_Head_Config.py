@@ -45,9 +45,9 @@ print "Creating the Servo Head Config"
 EnableJawServo = True # True or False
 JawAttachment = "Head"          # "arduinoLeft"
 JawPin = 9                      # 26
-JawMinPos = 0                   # 10
-JawMaxPos = 180                 # 25
-JawRestPos = 90                 # 10
+JawMinPos = 70                  # 10
+JawMaxPos = 140                 # 25
+JawRestPos = 80                 # 10
 
 EnableRightEyeX = True
 RightEyeXAttachment = "Head"    # "arduinoLeft"
