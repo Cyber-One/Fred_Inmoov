@@ -24,11 +24,40 @@ print "Creating the Input/Output Config"
 #                                                            #
 ##############################################################
 
-# TTS Select only one of these options.
+##############################################################
+# TTS Select only one of these three options.
+##############################################################
+
+# this is the default TTS used in the InMoov robot.
 UseMarySpeech = False
+
+# MimicSpeech TTS
+# before you can use this on the Raspberry Pi, 
+# you first need to install it.
+# By default this is not installed for the ARM based computer 
+# like the Raspberry Pi, for detailed instructions on 
+# installing this please watch my video
+# https://youtu.be/OSbqlRWYBkQ
 UseMimicSpeech = False
+
+# Espeak TTS
+# before you can use this on the Raspberry Pi, 
+# you first need to install it.
+# By default this is not installed for the ARM based 
+# computer like the Raspberry Pi.
+# This is very easy with the command 
+# "sudo apt-get install espeak"
 UseEspeak = False
 
-# STT Select only one of these options.
+##############################################################
+# STT Select only one of these two options.
+##############################################################
+
+# Sphinx is locally run service that does not require access to the internet to work
+# The down side is that is doesn't recognise anywhere near as many words.
 UseSphinx = False
+
+# WebkitSpeechRecognition is a very capable service recognising most spoken 
+# words with a number of different accents.
+# The down side is it does require an Internet access to reach the cloud.
 UseWebKit = False
