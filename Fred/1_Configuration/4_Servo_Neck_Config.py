@@ -59,7 +59,7 @@ HeadPitchRestPos = 90           # 90
 EnableHeadRoll = True
 HeadRollAttachment = "Back"     # "arduinoRight"
 HeadRollPin = 6                 # 13
-HeadRollMinPos = 0              # 60
+HeadRollMinPos = 30             # 60
 HeadRollMaxPos = 180            # 130
-HeadRollRestPos = 90            # 90
+HeadRollRestPos = 100           # 90
 
