@@ -81,7 +81,7 @@ EnableRightUpperEyeLid = True
 UpperREyeLidAttachment = "Head" # "arduinoRight"
 UpperREyeLidPin = 11            # 13
 UpperREyeLidMinPos = 45         # 60
-UpperREyeLidMaxPos = 180        # 120
+UpperREyeLidMaxPos = 150        # 120
 UpperREyeLidRestPos = 45        # 60
 
 EnableRightLowerEyeLid = True
@@ -95,7 +95,7 @@ EnableLeftUpperEyeLid = False
 UpperLEyeLidAttachment = "Head" # Not Present
 UpperLEyeLidPin = 9             # 
 UpperLEyeLidMinPos = 45         # 
-UpperLEyeLidMaxPos = 180        # 
+UpperLEyeLidMaxPos = 150        # 
 UpperLEyeLidRestPos = 45        # 
 
 EnableLeftLowerEyeLid = False

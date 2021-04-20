@@ -68,11 +68,23 @@ if EnableBlinking == True:
     BlinkClock = Runtime.createAndStart("BlinkClock", "Clock")
     # Now that we have a timer, we need a function that does the blink when the time expires.
     def blink(timedata):
-        UpperEyeLid.moveTo(150) # close the upper eye lid
-        LowerEyeLid.moveTo(150) # close the lower eye lid
+        if EnableRightUpperEyeLid == True:
+            UpperEyeLidR.moveTo(UpperREyeLidMaxPos) # close the upper eye lid
+        if EnableRightLowerEyeLid == True:
+            LowerEyeLidR.moveTo(150) # close the lower eye lid
+        if EnableLeftUpperEyeLid == True:
+            UpperEyeLidL.moveTo(UpperLEyeLidMaxPos) # close the upper eye lid
+        if EnableLeftLowerEyeLid == True:
+            LowerEyeLidL.moveTo(150) # close the lower eye lid
         time.sleep(0.5)
-        UpperEyeLid.moveTo(45) # Open the upper eye lid
-        LowerEyeLid.moveTo(45) # Open the lower eye lid
+        if EnableRightUpperEyeLid == True:
+            UpperEyeLidR.moveTo(UpperREyeLidMinPos) # Open the upper eye lid
+        if EnableRightLowerEyeLid == True:
+            LowerEyeLidR.moveTo(45) # Open the lower eye lid
+        if EnableLeftUpperEyeLid == True:
+            UpperEyeLidL.moveTo(UpperLEyeLidMinPos) # Open the upper eye lid
+        if EnableLeftLowerEyeLid == True:
+            LowerEyeLidL.moveTo(45) # Open the lower eye lid
         #BlinkInterval = 6000   # use this line for a fixed blink interval
         BlinkInterval = random.randint(5000, 10000) # But this random one is more life like.
         print "BlinkInterval of ", BlinkInterval, " miliseconds"

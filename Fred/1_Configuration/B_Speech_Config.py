@@ -17,7 +17,7 @@
 # varoius controllers.                                       #
 #                                                            #
 ##############################################################
-print "Creating the Input/Output Config"
+print "Creating the Speech System Config"
 ##############################################################
 #                                                            #
 # Speech To Text and Text To Speech Group                    #

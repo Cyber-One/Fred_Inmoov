@@ -19,6 +19,8 @@
 print "Creating the Text to Speech and Speech to Text functions"
 # As a general rule, we define the TTS services as the mouth and 
 # STT services as the Ear :-)
+# Load the configuration for the IO devices.
+execfile(RuningFolder+'/1_Configuration/B_Speech_Config.py')
 
 
 #######################################################
