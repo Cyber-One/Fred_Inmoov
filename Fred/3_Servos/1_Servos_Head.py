@@ -112,7 +112,10 @@ if EnableJawServo == True:
     # and the target position.  The rate of rotation is set 
     # in degrees per second.  
     # A value of -1 disables speed control.
-    Jaw.setSpeed(-1)
+    if MRL == "Nixie":
+        Jaw.setSpeed(-1)
+    else:
+        Jaw.setVelocity(-1.0) ## max velocity
     # The Servo service has a feature where it will disable a 
     # servos, saving power and potentially preventing the 
     # servo from burning out.  This feature can be disabled 
@@ -144,7 +147,10 @@ if EnableRightEyeX == True:
     #RightEyeLR.map(0, 100, RightEyeXMinPos, RightEyeXMaxPos)
     RightEyeLR.setRest(RightEyeXRestPos)
     RightEyeLR.setInverted(False)
-    RightEyeLR.setSpeed(60)
+    if MRL == "Nixie":
+        RightEyeLR.setSpeed(60)
+    else:
+        RightEyeLR.setVelocity(60.0) ## max velocity
     RightEyeLR.setAutoDisable(True)
     RightEyeLR.rest()
 
@@ -169,7 +175,10 @@ if EnableRightEyeY == True:
     #RightEyeUD.map(0, 100, RightEyeYMinPos, RightEyeYMaxPos)
     RightEyeUD.setRest(RightEyeYRestPos)
     RightEyeUD.setInverted(False)
-    RightEyeUD.setSpeed(120)
+    if MRL == "Nixie":
+        RightEyeUD.setSpeed(60)
+    else:
+        RightEyeUD.setVelocity(60.0) ## max velocity
     RightEyeUD.setAutoDisable(True)
     RightEyeUD.rest()
 
@@ -194,7 +203,10 @@ if EnableLeftEyeX == True:
     #LeftEyeLR.map(0, 100, LeftEyeXMinPos, LeftEyeXMaxPos)
     LeftEyeLR.setRest(LeftEyeXRestPos)
     LeftEyeLR.setInverted(False)
-    LeftEyeLR.setSpeed(120)
+    if MRL == "Nixie":
+        LeftEyeLR.setSpeed(60)
+    else:
+        LeftEyeLR.setVelocity(60.0) ## max velocity
     LeftEyeLR.setAutoDisable(True)
     LeftEyeLR.rest()
 
@@ -219,7 +231,10 @@ if EnableLeftEyeY == True:
     #LeftEyeUD.map(0, 100, LeftEyeYMinPos, LeftEyeYMaxPos)
     LeftEyeUD.setRest(LeftEyeYRestPos)
     LeftEyeUD.setInverted(False)
-    LeftEyeUD.setSpeed(60)
+    if MRL == "Nixie":
+        LeftEyeUD.setSpeed(60)
+    else:
+        LeftEyeUD.setVelocity(60.0) ## max velocity
     LeftEyeUD.setAutoDisable(True)
     LeftEyeUD.rest()
 
@@ -244,7 +259,10 @@ if EnableRightUpperEyeLid == True:
     #UpperEyeLidR.map(0, 100, UpperREyeLidMinPos, UpperREyeLidMaxPos)
     UpperEyeLidR.setRest(UpperREyeLidRestPos)
     UpperEyeLidR.setInverted(False)
-    UpperEyeLidR.setSpeed(-1)
+    if MRL == "Nixie":
+        UpperEyeLidR.setSpeed(-1)
+    else:
+        UpperEyeLidR.setVelocity(-1.0) ## max velocity
     UpperEyeLidR.setAutoDisable(False)
     # UpperEyeLidR.rest()
 
@@ -269,7 +287,10 @@ if EnableRightLowerEyeLid == True:
     #LowerEyeLidR.map(0, 100, LowerREyeLidMinPos, LowerREyeLidMaxPos)
     LowerEyeLidR.setRest(LowerREyeLidRestPos)
     LowerEyeLidR.setInverted(False)
-    LowerEyeLidR.setSpeed(-1)
+    if MRL == "Nixie":
+        LowerEyeLidR.setSpeed(-1)
+    else:
+        LowerEyeLidR.setVelocity(-1.0) ## max velocity
     LowerEyeLidR.setAutoDisable(False)
     # LowerEyeLidR.rest()
 
@@ -294,7 +315,10 @@ if EnableLeftUpperEyeLid == True:
     #UpperEyeLidL.map(0, 100, UpperLEyeLidMinPos, UpperLEyeLidMaxPos)
     UpperEyeLidL.setRest(UpperLEyeLidRestPos)
     UpperEyeLidL.setInverted(False)
-    UpperEyeLidL.setSpeed(-1)
+    if MRL == "Nixie":
+        UpperEyeLidL.setSpeed(-1)
+    else:
+        UpperEyeLidL.setVelocity(-1.0) ## max velocity
     UpperEyeLidL.setAutoDisable(False)
     # UpperEyeLidL.rest()
 
@@ -319,6 +343,9 @@ if EnableLeftLowerEyeLid == True:
     #LowerEyeLidL.map(0, 100, LowerLEyeLidMinPos, LowerLEyeLidMaxPos)
     LowerEyeLidL.setRest(LowerLEyeLidRestPos)
     LowerEyeLidL.setInverted(False)
-    LowerEyeLidL.setSpeed(-1)
+    if MRL == "Nixie":
+        LowerEyeLidL.setSpeed(-1)
+    else:
+        LowerEyeLidL.setVelocity(-1.0) ## max velocity
     LowerEyeLidL.setAutoDisable(False)
     # LowerEyeLidL.rest()
