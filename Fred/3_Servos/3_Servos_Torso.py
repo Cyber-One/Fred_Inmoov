@@ -46,7 +46,10 @@ if EnableTopStomach == True:
     #TopStomach.map(0, 100, TopStomachMinPos, TopStomachMaxPos)
     TopStomach.setRest(TopStomachRestPos)
     TopStomach.setInverted(False)
-    TopStomach.setSpeed(120)
+    if MRL == "Nixie":
+        TopStomach.setSpeed(120)
+    else:
+        TopStomach.setVelocity(120.0) ## max velocity
     TopStomach.setAutoDisable(True)
     TopStomach.rest()
 
@@ -71,7 +74,10 @@ if EnableMidStomach == True:
     #MidStomach.map(0, 100, MidStomachMinPos, MidStomachMaxPos)
     MidStomach.setRest(MidStomachRestPos)
     MidStomach.setInverted(False)
-    MidStomach.setSpeed(120)
+    if MRL == "Nixie":
+        MidStomach.setSpeed(120)
+    else:
+        MidStomach.setVelocity(120.0) ## max velocity
     MidStomach.setAutoDisable(True)
     MidStomach.rest()
 
@@ -96,6 +102,9 @@ if EnableRollStomach == True:
     #RollStomach.map(0, 100, RollStomachMinPos, RollStomachMaxPos)
     RollStomach.setRest(RollStomachRestPos)
     RollStomach.setInverted(False)
-    RollStomach.setSpeed(120)
+    if MRL == "Nixie":
+        RollStomach.setSpeed(120)
+    else:
+        RollStomach.setVelocity(120.0) ## max velocity
     RollStomach.setAutoDisable(True)
     RollStomach.rest()

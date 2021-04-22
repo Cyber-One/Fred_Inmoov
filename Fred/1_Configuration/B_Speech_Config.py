@@ -29,7 +29,7 @@ print "Creating the Speech System Config"
 ##############################################################
 
 # this is the default TTS used in the InMoov robot.
-UseMarySpeech = False
+UseMarySpeech = True
 
 # MimicSpeech TTS
 # before you can use this on the Raspberry Pi, 

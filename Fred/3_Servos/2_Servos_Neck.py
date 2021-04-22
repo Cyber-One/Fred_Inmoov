@@ -46,7 +46,10 @@ if EnableHeadYaw == True:
     #HeadYaw.map(0, 100, HeadYawMinPos, HeadYawMaxPos)
     HeadYaw.setRest(HeadYawRestPos)
     HeadYaw.setInverted(False)
-    HeadYaw.setSpeed(120)
+    if MRL == "Nixie":
+        HeadYaw.setSpeed(120)
+    else:
+        HeadYaw.setVelocity(120.0) ## max velocity
     HeadYaw.setAutoDisable(True)
     HeadYaw.rest()
 
@@ -73,7 +76,10 @@ if EnableHeadPitch == True:
     #HeadPitch.map(0, 100, HeadPitchMinPos, HeadPitchMaxPos)
     HeadPitch.setRest(HeadPitchRestPos)
     HeadPitch.setInverted(False)
-    HeadPitch.setSpeed(120)
+    if MRL == "Nixie":
+        HeadPitch.setSpeed(120)
+    else:
+        HeadPitch.setVelocity(120.0) ## max velocity
     HeadPitch.setAutoDisable(True)
     HeadPitch.rest()
 
@@ -98,6 +104,9 @@ if EnableHeadRoll == True:
     #HeadRoll.map(0, 100, HeadRollMinPos, HeadRollMaxPos)
     HeadRoll.setRest(HeadRollRestPos)
     HeadRoll.setInverted(False)
-    HeadRoll.setSpeed(120)
+    if MRL == "Nixie":
+        HeadRoll.setSpeed(120)
+    else:
+        HeadRoll.setVelocity(120.0) ## max velocity
     HeadRoll.setAutoDisable(True)
     HeadRoll.rest()
