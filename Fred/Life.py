@@ -138,18 +138,23 @@ if EnablePIR == True:
 # Jaw control based on MarySpeech.
 if UseMarySpeech == True and EnableMouthControl == True:
     # Before we can use this feature, we first need to create it :-)
-    mouthcontrol = Runtime.start("mouthcontrol","MouthControl")
+    mouthcontrol = Runtime.create("mouthcontrol","MouthControl")
+    #mouthcontrol = Runtime.start("mouthcontrol","MouthControl")
     # Once created we need to link it to the servo that controls the mouth opening and closing
     # in out case we called that Jaw back in the Servo.py file.
-    mouthcontrol.attach(Jaw)
+    #mouthcontrol.attach(Jaw)
+    mouthcontrol.setJaw(Jaw)
     # Next we need to link it to the TTS service, we called that Mouth
-    mouthcontrol.attach(Mouth)
+    #mouthcontrol.attach(Mouth)
+    mouthcontrol.setMouth(mouth)
     # We need to set the range of motion for the Jaw
-    mouthcontrol.mouthClosedPos = Jaw.getMinInput()
-    mouthcontrol.mouthOpenPos = Jaw.getMaxInput()
+    mouthcontrol.setmouth(JawMinPos, JawMaxPos)
+    #mouthcontrol.mouthClosedPos = JawMinPos
+    #mouthcontrol.mouthOpenedPos = JawMaxPos
     # next we need to setup the delays for the jaw movement.
     # Thanks to Steve Rayner for explaining this group of settings
     # on his YouTube Channel https://www.youtube.com/watch?v=jswk8lDtGOc
     mouthcontrol.delaytime = 75
     mouthcontrol.delaytimestop = 150
     mouthcontrol.delaytimeletter = 40
+    mouthcontrol.startService()
