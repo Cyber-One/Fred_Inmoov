@@ -23,7 +23,7 @@ import random
 
 print "Creating the various life simulation functions"
 
-EnableMouthControl = False
+EnableMouthControl = True
 EnableBlinking = True       # This can be anoying, so the option to turn it of is here.
 EnableSleepTimer = True     # Only valid if the PIR sensor is enabled.
 EnablePanTilt = True
