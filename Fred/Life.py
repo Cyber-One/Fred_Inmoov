@@ -57,13 +57,11 @@ if EnablePanTilt == True:
         HeadRoll.moveTo(90+(Tilt*math.sin(PanRadians) + Roll*math.cos(PanRadians)))
         print "PanTilt finished"
 
-# Routines to create the blinking motion
-# we use the Clock service to provide a regular event that calls the blink procedure.
-# one of the things we do within the blink routine is to change the blink interval to a random number between 5 and 10 seconds.
-# future enhancements may include shifting the random range based on the current light levels and the average light levels,
-# blink more often when the light levels increase until an average value has been reached.
-print "-Eye blinking"
-
+# General eye lid functions
+# because there are so many possible configureations, we need to consider a standard set
+# of function to implement the eye lids movements.
+# Here we define the general ryr lids open and closed as well as half way and wink commands.
+# These functions can be called at any time, and won't crash is the feature is not supported.
 
 def UpperEyeLidsOpen():
     if EnableRightUpperEyeLid == True:
@@ -100,6 +98,35 @@ def LowerEyeLidsClose():
         LowerEyeLidR.moveTo(LowerREyeLidMaxPos) # close the right lower eye lid
     if EnableLeftLowerEyeLid == True:
         LowerEyeLidL.moveTo(LowerLEyeLidMaxPos) # close the left lower eye lid
+
+def WinkLeftEye():
+    if EnableLeftLowerEyeLid == True:
+        LowerEyeLidL.moveTo(LowerLEyeLidMaxPos) # close the left lower eye lid
+    if EnableLeftUpperEyeLid == True:
+        UpperEyeLidL.moveTo(UpperLEyeLidMaxPos) # close the left Upper eye lid
+    time.sleep(0.5)
+    if EnableLeftLowerEyeLid == True:
+        LowerEyeLidL.moveTo(LowerLEyeLidMinPos) # open the left Lower eye lid
+    if EnableLeftUpperEyeLid == True:
+        UpperEyeLidL.moveTo(UpperLEyeLidMinPos) # open the left upper eye lid
+
+def WinkRightEye():
+    if EnableRightLowerEyeLid == True:
+        LowerEyeLidR.moveTo(LowerREyeLidMaxPos) # close the Right lower eye lid
+    if EnableRightUpperEyeLid == True:
+        UpperEyeLidR.moveTo(UpperREyeLidMaxPos) # close the Right Upper eye lid
+    time.sleep(0.5)
+    if EnableRightLowerEyeLid == True:
+        LowerEyeLidR.moveTo(LowerREyeLidMinPos) # open the Right Lower eye lid
+    if EnableRightUpperEyeLid == True:
+        UpperEyeLidR.moveTo(UpperREyeLidMinPos) # open the Right upper eye lid
+
+# Routines to create the blinking motion
+# we use the Clock service to provide a regular event that calls the blink procedure.
+# one of the things we do within the blink routine is to change the blink interval to a random number between 5 and 10 seconds.
+# future enhancements may include shifting the random range based on the current light levels and the average light levels,
+# blink more often when the light levels increase until an average value has been reached.
+print "-Eye blinking"
 
 if EnableBlinking == True:
     # For the Blink to work, we need a timer to control the interval between blinks
@@ -162,7 +189,6 @@ if EnablePIR == True:
         if event:
             print "Warm body movement detected !!!"
             if EnableSleepTimer==True:
-                print "Waking up or staying awake", Awake
                 WakeUpEvent()
     pir.addListener("publishSense",python.name,"PirLifeEvent")
 
