@@ -146,10 +146,11 @@ if EnablePIR == True:
                 SleepTimer.restartClock()
             if State == False:
                 print "Waking Up"
-                SleepTimer.restartClock()
+                SleepTimer.restartClock(False)
                 BlinkClock.restartClock(False)
                 print "Fully Awake"
         def GoToSleepEvent(timedata):
+            global Awake
             print "Going to Sleep"
             SleepTimer.stopClock()
             Awake = False
@@ -162,9 +163,10 @@ if EnablePIR == True:
         print "Sleep Timer Setting Sleep Time"
         SleepTimer.setInterval(TimeToSleep)
         print "Sleep Timer Starting Clock"
-        SleepTimer.startClock()
+        SleepTimer.startClock(False)
         print "Sleep Timer Running"
     def PirLifeEvent(event):
+        global Awake
         if event:
             print "Warm body movement detected !!!"
             if EnableSleepTimer==True:
