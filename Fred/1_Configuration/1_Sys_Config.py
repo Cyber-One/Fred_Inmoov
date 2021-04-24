@@ -37,7 +37,7 @@ MRL = "Manticore"
 
 # SwingGUI was the origonal one and still my prefference 
 # until the rest of the WebGUI pages are conpleted.
-RunSwingGUI = False          # True for on, False for off
+RunSwingGUI = True          # True for on, False for off
 
 # WebGUI is the new boy on the block and is getting better.
 # It will be started in anycase if you decide to use 

@@ -184,7 +184,7 @@ if UseMarySpeech == True and EnableMouthControl == True:
     mouthcontrol.setJaw(Jaw)
     # Next we need to link it to the TTS service, we called that Mouth
     #mouthcontrol.attach(Mouth)
-    mouthcontrol.setMouth(mouth)
+    mouthcontrol.setMouth(Mouth)
     # We need to set the range of motion for the Jaw
     mouthcontrol.setmouth(JawMinPos, JawMaxPos)
     #mouthcontrol.mouthClosedPos = JawMinPos
