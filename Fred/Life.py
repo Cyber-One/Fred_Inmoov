@@ -63,6 +63,44 @@ if EnablePanTilt == True:
 # future enhancements may include shifting the random range based on the current light levels and the average light levels,
 # blink more often when the light levels increase until an average value has been reached.
 print "-Eye blinking"
+
+
+def UpperEyeLidsOpen():
+    if EnableRightUpperEyeLid == True:
+        UpperEyeLidR.moveTo(UpperREyeLidMinPos) # open the right upper eye lid
+    if EnableLeftUpperEyeLid == True:
+        UpperEyeLidL.moveTo(UpperLEyeLidMinPos) # open the left upper eye lid
+
+def UpperEyeLidsMidway():
+    if EnableRightUpperEyeLid == True:
+        UpperEyeLidR.moveTo((UpperREyeLidMaxPos-UpperREyeLidMinPos)/2+UpperREyeLidMinPos) # Move to mid pos the right upper eye lid
+    if EnableLeftUpperEyeLid == True:
+        UpperEyeLidL.moveTo((UpperLEyeLidMaxPos-UpperLEyeLidMinPos)/2+UpperLEyeLidMinPos) # close the upper eye lid
+
+def UpperEyeLidsClose():
+    if EnableRightUpperEyeLid == True:
+        UpperEyeLidR.moveTo(UpperREyeLidMaxPos) # close the right Upper eye lid
+    if EnableLeftUpperEyeLid == True:
+        UpperEyeLidL.moveTo(UpperLEyeLidMaxPos) # close the left Upper eye lid
+
+def LowerEyeLidsOpen():
+    if EnableRightLowerEyeLid == True:
+        LowerEyeLidR.moveTo(LowerREyeLidMinPos) # open the right Lower eye lid
+    if EnableLeftLowerEyeLid == True:
+        LowerEyeLidL.moveTo(LowerLEyeLidMinPos) # open the left Lower eye lid
+
+def LowerEyeLidsMidway():
+    if EnableRightLowerEyeLid == True:
+        LowerEyeLidR.moveTo((LowerREyeLidMaxPos-LowerREyeLidMinPos)/2+LowerREyeLidMinPos) # Move to mid pos the right upper eye lid
+    if EnableLeftLowerEyeLid == True:
+        LowerEyeLidL.moveTo((LowerLEyeLidMaxPos-LowerLEyeLidMinPos)/2+LowerLEyeLidMinPos) # close the upper eye lid
+
+def LowerEyeLidsClose():
+    if EnableRightLowerEyeLid == True:
+        LowerEyeLidR.moveTo(LowerREyeLidMaxPos) # close the right lower eye lid
+    if EnableLeftLowerEyeLid == True:
+        LowerEyeLidL.moveTo(LowerLEyeLidMaxPos) # close the left lower eye lid
+
 if EnableBlinking == True:
     # For the Blink to work, we need a timer to control the interval between blinks
     BlinkClock = Runtime.createAndStart("BlinkClock", "Clock")
@@ -116,8 +154,8 @@ if EnablePIR == True:
             SleepTimer.stopClock()
             Awake = False
             BlinkClock.stopClock()
-            UpperEyeLid.moveTo(150) # close the upper eye lid
-            LowerEyeLid.moveTo(150) # close the lower eye lid
+            UpperEyeLidsClose() # close the upper eye lid
+            LowerEyeLidsClose() # close the lower eye lid
             print "Sleeping"
         print "Sleep Timer Adding Listner"
         SleepTimer.addListener("pulse", python.name, "GoToSleepEvent")
@@ -126,7 +164,6 @@ if EnablePIR == True:
         print "Sleep Timer Starting Clock"
         SleepTimer.startClock()
         print "Sleep Timer Running"
-    pir.addListener("publishSense",python.name,"PirLifeEvent")
     def PirLifeEvent(event):
         if event:
             print "Warm body movement detected !!!"
@@ -134,6 +171,7 @@ if EnablePIR == True:
                 print "Waking up or staying awake", Awake
                 WakeUpEvent(Awake)
                 Awake = True
+    pir.addListener("publishSense",python.name,"PirLifeEvent")
 
 # Jaw control based on MarySpeech.
 if UseMarySpeech == True and EnableMouthControl == True:

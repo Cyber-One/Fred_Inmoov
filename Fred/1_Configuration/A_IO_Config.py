@@ -24,7 +24,7 @@ print "Creating the Input/Output Config"
 #                                                            #
 ##############################################################
 
-EnablePIR = False
+EnablePIR = True
 PirAttachment = "arduinoNano"   # "arduioLeft"
 PirPin = 2                      # 23
 
