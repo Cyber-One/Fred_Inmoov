@@ -106,23 +106,11 @@ if EnableBlinking == True:
     BlinkClock = Runtime.createAndStart("BlinkClock", "Clock")
     # Now that we have a timer, we need a function that does the blink when the time expires.
     def blink(timedata):
-        if EnableRightUpperEyeLid == True:
-            UpperEyeLidR.moveTo(UpperREyeLidMaxPos) # close the upper eye lid
-        if EnableRightLowerEyeLid == True:
-            LowerEyeLidR.moveTo(150) # close the lower eye lid
-        if EnableLeftUpperEyeLid == True:
-            UpperEyeLidL.moveTo(UpperLEyeLidMaxPos) # close the upper eye lid
-        if EnableLeftLowerEyeLid == True:
-            LowerEyeLidL.moveTo(150) # close the lower eye lid
+        UpperEyeLidsClose() # close the upper eye lid
+        LowerEyeLidsClose() # close the lower eye lid
         time.sleep(0.5)
-        if EnableRightUpperEyeLid == True:
-            UpperEyeLidR.moveTo(UpperREyeLidMinPos) # Open the upper eye lid
-        if EnableRightLowerEyeLid == True:
-            LowerEyeLidR.moveTo(45) # Open the lower eye lid
-        if EnableLeftUpperEyeLid == True:
-            UpperEyeLidL.moveTo(UpperLEyeLidMinPos) # Open the upper eye lid
-        if EnableLeftLowerEyeLid == True:
-            LowerEyeLidL.moveTo(45) # Open the lower eye lid
+        UpperEyeLidsOpen() # Open the upper eye lid
+        LowerEyeLidsOpen() # Open the lower eye lid
         #BlinkInterval = 6000   # use this line for a fixed blink interval
         BlinkInterval = random.randint(5000, 10000) # But this random one is more life like.
         print "BlinkInterval of ", BlinkInterval, " miliseconds"
@@ -139,15 +127,19 @@ if EnableBlinking == True:
 if EnablePIR == True:
     if EnableSleepTimer==True:
         SleepTimer =Runtime.createAndStart("SleepTimer", "Clock")
-        def WakeUpEvent(State):
+        def WakeUpEvent():
+        global Awake
             print "Wake Up Event Occured"
-            if State == True:
+            if Awake == True:
                 print "Keep Awake"
-                SleepTimer.restartClock()
-            if State == False:
+                SleepTimer.restartClock(True)
+            if Awake == False:
                 print "Waking Up"
-                SleepTimer.restartClock(False)
-                BlinkClock.restartClock(False)
+                UpperEyeLidsMidway()
+                LowerEyeLidsMidway()
+                SleepTimer.restartClock(True)
+                BlinkClock.restartClock(True)
+                Awake = True
                 print "Fully Awake"
         def GoToSleepEvent(timedata):
             global Awake
@@ -171,8 +163,7 @@ if EnablePIR == True:
             print "Warm body movement detected !!!"
             if EnableSleepTimer==True:
                 print "Waking up or staying awake", Awake
-                WakeUpEvent(Awake)
-                Awake = True
+                WakeUpEvent()
     pir.addListener("publishSense",python.name,"PirLifeEvent")
 
 # Jaw control based on MarySpeech.
