@@ -22,11 +22,8 @@ import time
 import random
 
 print "Creating the various life simulation functions"
-
-EnableMouthControl = True
-EnableBlinking = True       # This can be anoying, so the option to turn it of is here.
-EnableSleepTimer = True     # Only valid if the PIR sensor is enabled.
-EnablePanTilt = True
+# Load the configuration for the IO devices.
+execfile(RuningFolder+'/1_Configuration/C_Life_Config.py')
 
 # To make is a bit easier to control, we define functions to move the two eyes togeter.
 # if you have only the one servo for each of these axis, then comment out the RightEyeLR and the RightEyeUD lines.
@@ -45,18 +42,27 @@ def eyesUD(eyesUDpos):
 # the head will end up with a tilt of 0 but the head will roll 20
 # to overcome this we need a Pan and Tilt translation.
 # This function assumes that 0, 0, 0 is facing straight ahead with tilt and roll level.
-if EnablePanTilt == True:
-    def PanTilt(Pan, Tilt, Roll):
-        print "PanTilt( ", Pan, ", ", Tilt, ", ", Roll, ")"
-        PanTo = 90 + Pan
-        print "Panning To ", PanTo
+def HeadPanTilt(Pan, Tilt, Roll):
+    print "PanTilt( ", Pan, ", ", Tilt, ", ", Roll, ")"
+    PanTo = 90 + Pan
+    print "Panning To ", PanTo
+    if EnableHeadYaw == True:
         HeadYaw.moveTo(PanTo)
-        PanRadians = math.radians(Pan)
-        print "Thats ", PanRadians, "Radians"
+    PanRadians = math.radians(Pan)
+    print "Thats ", PanRadians, "Radians"
+    if EnableHeadPitch == True:
         HeadPitch.moveTo(90+(Tilt*math.cos(PanRadians) + Roll*math.sin(PanRadians)))
+    if EnableHeadRoll == True:
         HeadRoll.moveTo(90+(Tilt*math.sin(PanRadians) + Roll*math.cos(PanRadians)))
-        print "PanTilt finished"
+    print "PanTilt finished"
 
+def HeadPan():
+    global HeadPanPos
+    global HeadTiltPos
+    global HeadRollRos
+    HeadPanPos = NewPan
+    HeadPanTilt(HeadPanTilt, HeadTiltPos, HeadRollRos)
+    
 # General eye lid functions
 # because there are so many possible configureations, we need to consider a standard set
 # of function to implement the eye lids movements.
@@ -128,20 +134,25 @@ def WinkRightEye():
 # blink more often when the light levels increase until an average value has been reached.
 print "-Eye blinking"
 
-if EnableBlinking == True:
-    # For the Blink to work, we need a timer to control the interval between blinks
-    BlinkClock = Runtime.createAndStart("BlinkClock", "Clock")
-    # Now that we have a timer, we need a function that does the blink when the time expires.
-    def blink(timedata):
-        UpperEyeLidsClose() # close the upper eye lid
-        LowerEyeLidsClose() # close the lower eye lid
-        time.sleep(0.5)
-        UpperEyeLidsOpen() # Open the upper eye lid
-        LowerEyeLidsOpen() # Open the lower eye lid
-        #BlinkInterval = 6000   # use this line for a fixed blink interval
+# We need a function that does the blink when the timer expires
+# or if we want to simulate a blink for some reason.
+# timedata is not used but is required by the timer service.
+def blink(timedata):
+    UpperEyeLidsClose() # close the upper eye lid
+    LowerEyeLidsClose() # close the lower eye lid
+    time.sleep(0.5)
+    UpperEyeLidsOpen() # Open the upper eye lid
+    LowerEyeLidsOpen() # Open the lower eye lid
+    if EnableBlinking == True:
         BlinkInterval = random.randint(5000, 10000) # But this random one is more life like.
         print "BlinkInterval of ", BlinkInterval, " miliseconds"
         BlinkClock.setInterval(BlinkInterval) # Set a new random time for the next blink
+
+# To make the robot appear alive, we create the blink timer
+# which in turn calls the blink method.
+if EnableBlinking == True:
+    # For the Blink to work, we need a timer to control the interval between blinks
+    BlinkClock = Runtime.createAndStart("BlinkClock", "Clock")
     # the addListener() call will run the python routine "blink" whenever the pulse event occurs.
     BlinkClock.addListener("pulse", python.name, "blink")
     # Initially, we will set the blink interval at 10 seconds.
@@ -150,33 +161,47 @@ if EnableBlinking == True:
     print "--Start Blink Clock"
     BlinkClock.startClock()
 
+# If our robot has been sleeping, Then we need to wake it up
+# and at least half open it's eyes. 
+# Call the blink to fully open the eyes :-)
+def WakeUpEvent():
+    global Awake
+    print "Wake Up Event Occured"
+    if Awake == True:
+        print "Keep Awake"
+        if EnableSleepTimer==True:
+            SleepTimer.restartClock(True)
+    if Awake == False:
+        print "Waking Up"
+        UpperEyeLidsMidway()
+        LowerEyeLidsMidway()
+        if EnableSleepTimer==True:
+            SleepTimer.restartClock(True)
+        if EnableBlinking == True:
+            BlinkClock.restartClock(True)
+        Awake = True
+        if not WakeupMessage == "OFF":
+            Mouth.speak(WakeupMessage)
+        print "Fully Awake"
+
+# We might not want our robot to be awake all the time.
+# this method will put it to sleep, or at least simulate it.
+def GoToSleepEvent(timedata):
+    global Awake
+    print "Going to Sleep"
+    if EnableSleepTimer==True:
+        SleepTimer.stopClock()
+    Awake = False
+    if EnableBlinking == True:
+        BlinkClock.stopClock()
+    UpperEyeLidsClose() # close the upper eye lid
+    LowerEyeLidsClose() # close the lower eye lid
+    print "Sleeping"
+
 # Use the PIR sensor to wake up or keep awake
 if EnablePIR == True:
     if EnableSleepTimer==True:
         SleepTimer =Runtime.createAndStart("SleepTimer", "Clock")
-        def WakeUpEvent():
-        global Awake
-            print "Wake Up Event Occured"
-            if Awake == True:
-                print "Keep Awake"
-                SleepTimer.restartClock(True)
-            if Awake == False:
-                print "Waking Up"
-                UpperEyeLidsMidway()
-                LowerEyeLidsMidway()
-                SleepTimer.restartClock(True)
-                BlinkClock.restartClock(True)
-                Awake = True
-                print "Fully Awake"
-        def GoToSleepEvent(timedata):
-            global Awake
-            print "Going to Sleep"
-            SleepTimer.stopClock()
-            Awake = False
-            BlinkClock.stopClock()
-            UpperEyeLidsClose() # close the upper eye lid
-            LowerEyeLidsClose() # close the lower eye lid
-            print "Sleeping"
         print "Sleep Timer Adding Listner"
         SleepTimer.addListener("pulse", python.name, "GoToSleepEvent")
         print "Sleep Timer Setting Sleep Time"

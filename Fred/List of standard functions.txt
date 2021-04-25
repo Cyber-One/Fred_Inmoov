@@ -12,27 +12,22 @@
 # Fred in a modified Inmmov robot, you can find all the      #
 # origonal files on the Inmoov web site. http://inmoov.fr/   #
 #                                                            #
-# Common_Variables.py                                        #
-# This is where the configuration settings live for the      #
-# varoius controllers.                                       #
-#                                                            #
-##############################################################
-print "Creating the Common Variables"
-##############################################################
-#                                                            #
-# System wide global variable creation                       #
+# List of Standard Functions.txt                             #
+# This file is a list of function you can call from other    #
+# routines that won't crash if servos havent been defined.   #
 #                                                            #
 ##############################################################
 
-# This is how much quiet time must elapse for the robot 
-# goes to sleep. The time is in mili-seconds.
-TimeToSleep = 15 * 60000    
-
-# when the sleep timer is enabled, this allows the robot to sleep.
-Awake = True                
-
-# To simplify the head movements, we need to keep track of
-# where the head is pointed, for that we use following variables
-HeadPanPos = 0
-HeadTiltPos = 0
-HeadRollRos = 0
+eyesLR(eyesLRpos)
+eyesUD(eyesUDpos)
+UpperEyeLidsOpen()
+UpperEyeLidsMidway()
+UpperEyeLidsClose()
+LowerEyeLidsOpen()
+LowerEyeLidsMidway()
+LowerEyeLidsClose()
+WinkLeftEye()
+WinkRightEye()
+blink(timedata)
+WakeUpEvent()
+GoToSleepEvent(timedata)

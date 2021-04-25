@@ -12,27 +12,36 @@
 # Fred in a modified Inmmov robot, you can find all the      #
 # origonal files on the Inmoov web site. http://inmoov.fr/   #
 #                                                            #
-# Common_Variables.py                                        #
+# C_Life_Config.py                                           #
 # This is where the configuration settings live for the      #
 # varoius controllers.                                       #
 #                                                            #
 ##############################################################
-print "Creating the Common Variables"
+print "Loading the Life Simulation System Config"
 ##############################################################
 #                                                            #
-# System wide global variable creation                       #
+# Life Simulation Group Group                                #
 #                                                            #
 ##############################################################
 
-# This is how much quiet time must elapse for the robot 
-# goes to sleep. The time is in mili-seconds.
-TimeToSleep = 15 * 60000    
+# The Blinking feature can be very anoying, 
+# so the option to turn it of is here.
+EnableBlinking = True       # Set to True or False
 
-# when the sleep timer is enabled, this allows the robot to sleep.
-Awake = True                
+# From time to time, we will want the robot to stop running
+# the life simulations, this is done by putting the robot
+# to sleep after a period of no activity.
+# This is only possible when there is a way to wake the Robot
+# back up again, This auto sleep can be disabled by disabling
+# the Sleep Timer
+EnableSleepTimer = True     # Set to True or False
 
-# To simplify the head movements, we need to keep track of
-# where the head is pointed, for that we use following variables
-HeadPanPos = 0
-HeadTiltPos = 0
-HeadRollRos = 0
+# There are times when setting up your robot, you don't want
+# the jaw to move, this is where you can disable this feature.
+EnableMouthControl = True   # Set to True or False
+
+# Wakeup Message
+# This message is spoken whenever the robot wakes up
+# Set the message to OFF if you don't want this message.
+WakeupMessage = u"Hello, How are you"
+#WakeupMessage = "OFF"
