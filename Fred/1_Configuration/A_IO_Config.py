@@ -28,12 +28,12 @@ EnablePIR = True
 PirAttachment = "arduinoNano"   # "arduioLeft"
 PirPin = 2                      # 23
 
-EnableLeftUltrasonic = False
+EnableLeftUltrasonic = True
 LeftUltrasonicAttachment = "arduinoNano"
 LeftUltrasonicPin1 = 12
 LeftUltrasonicPin2 = 11
 
-EnableRightUltraSonic = False
+EnableRightUltraSonic = True
 RightUltrasonicAttachment = "arduinoNano"
 RightUltrasonicPin1 = 10
 RightUltrasonicPin2 = 9

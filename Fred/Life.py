@@ -25,16 +25,6 @@ print "Creating the various life simulation functions"
 # Load the configuration for the IO devices.
 execfile(RuningFolder+'/1_Configuration/C_Life_Config.py')
 
-# To make is a bit easier to control, we define functions to move the two eyes togeter.
-# if you have only the one servo for each of these axis, then comment out the RightEyeLR and the RightEyeUD lines.
-def eyesLR(eyesLRpos):
-    RightEyeLR.moveTo(eyesLRpos)
-    LeftEyeLR.moveTo(eyesLRpos)
-
-def eyesUD(eyesUDpos):
-    RightEyeUD.moveTo(eyesUDpos)
-    LeftEyeUD.moveTo(eyesUDpos)
-
 # Pan and Tilt are the common methods of controlling a camera.
 # normally, you would have a rotating base and the place a tilt mechinism on the pan base.
 # we have a Pitch and Roll with the Yaw on top of that.
@@ -56,13 +46,47 @@ def HeadPanTilt(Pan, Tilt, Roll):
         HeadRoll.moveTo(90+(Tilt*math.sin(PanRadians) + Roll*math.cos(PanRadians)))
     print "PanTilt finished"
 
-def HeadPan():
+def HeadPan(NewPan):
     global HeadPanPos
     global HeadTiltPos
     global HeadRollRos
     HeadPanPos = NewPan
     HeadPanTilt(HeadPanTilt, HeadTiltPos, HeadRollRos)
     
+# To make is a bit easier to control, we define functions to move the two eyes togeter.
+# if you have only the one servo for each of these axis, then comment out the RightEyeLR and the RightEyeUD lines.
+# Like the Pan, Tilt and Roll, we will use 0 as the center position and negative number will look down or left.
+def eyesLR(eyesLRpos):
+    if EnableRightEyeX == True:
+        RightEyeLR.moveTo(90+eyesLRpos)
+    if EnableLeftEyeX == True:
+        LeftEyeLR.moveTo(90+eyesLRpos)
+
+def eyesUD(eyesUDpos):
+    if EnableRightEyeY == True:
+        RightEyeUD.moveTo(90+eyesUDpos)
+    if EnableLeftEyeY == True:
+        LeftEyeUD.moveTo(90+eyesUDpos)
+
+def MoveEyes(timedata):
+    MoveEyesTimer.setInterval(random.randint(500,2000))
+    if Awake:
+        #need to look at speed settings
+        eyesLR(random.uniform(-20,20))
+        eyesUD(random.uniform(-20,20))
+
+def MoveEyesStart():
+
+def MoveEyesStop():
+    eyesLR(0)
+    eyesUD(0)
+
+if EnableRandomEyeMovements == True:
+    MoveEyesTimer = Runtime.createAndStart("MoveEyesTimer","Clock")
+    MoveEyesTimer.addListener("pulse", python.name, "MoveEyes")
+    MoveEyesTimer.addListener("clockStarted", python.name, "MoveEyesStart")  
+    MoveEyesTimer.addListener("clockStopped", python.name, "MoveEyesStop")
+
 # General eye lid functions
 # because there are so many possible configureations, we need to consider a standard set
 # of function to implement the eye lids movements.
@@ -161,9 +185,10 @@ if EnableBlinking == True:
     print "--Start Blink Clock"
     BlinkClock.startClock()
 
-# If our robot has been sleeping, Then we need to wake it up
-# and at least half open it's eyes. 
+# If our robot has been sleeping, the eyes should be closed
+# So we need to wake it up and at least half open it's eyes. 
 # Call the blink to fully open the eyes :-)
+# It would also pay to center the eyes as well.
 def WakeUpEvent():
     global Awake
     print "Wake Up Event Occured"
@@ -175,10 +200,14 @@ def WakeUpEvent():
         print "Waking Up"
         UpperEyeLidsMidway()
         LowerEyeLidsMidway()
+        eyesLR(0)
+        eyesUD(0)
         if EnableSleepTimer==True:
             SleepTimer.restartClock(True)
         if EnableBlinking == True:
             BlinkClock.restartClock(True)
+        if EnableRandomEyeMovements == True:
+            MoveEyesTimer.startClock()
         Awake = True
         if not WakeupMessage == "OFF":
             Mouth.speak(WakeupMessage)
@@ -194,6 +223,8 @@ def GoToSleepEvent(timedata):
     Awake = False
     if EnableBlinking == True:
         BlinkClock.stopClock()
+    if EnableRandomEyeMovements == True:
+        MoveEyesTimer.stopClock()
     UpperEyeLidsClose() # close the upper eye lid
     LowerEyeLidsClose() # close the lower eye lid
     print "Sleeping"

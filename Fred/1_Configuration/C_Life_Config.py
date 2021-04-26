@@ -26,7 +26,10 @@ print "Loading the Life Simulation System Config"
 
 # The Blinking feature can be very anoying, 
 # so the option to turn it of is here.
-EnableBlinking = True       # Set to True or False
+EnableBlinking = True           # Set to True or False
+
+# Moves the eyes to make the robot appear more alive.
+EnableRandomEyeMovements = True # Set to True or False
 
 # From time to time, we will want the robot to stop running
 # the life simulations, this is done by putting the robot
@@ -34,11 +37,11 @@ EnableBlinking = True       # Set to True or False
 # This is only possible when there is a way to wake the Robot
 # back up again, This auto sleep can be disabled by disabling
 # the Sleep Timer
-EnableSleepTimer = True     # Set to True or False
+EnableSleepTimer = True         # Set to True or False
 
 # There are times when setting up your robot, you don't want
 # the jaw to move, this is where you can disable this feature.
-EnableMouthControl = True   # Set to True or False
+EnableMouthControl = True       # Set to True or False
 
 # Wakeup Message
 # This message is spoken whenever the robot wakes up
