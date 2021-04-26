@@ -31,6 +31,10 @@ TimeToSleep = 15 * 60000
 # when the sleep timer is enabled, this allows the robot to sleep.
 Awake = True                
 
+# to help with some life functions, we turn on this value while
+# our robot is busy talking.
+isTalking = False
+
 # To simplify the head movements, we need to keep track of
 # where the head is pointed, for that we use following variables
 HeadPanPos = 0

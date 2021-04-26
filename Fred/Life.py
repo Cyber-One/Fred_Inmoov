@@ -229,6 +229,22 @@ def GoToSleepEvent(timedata):
     LowerEyeLidsClose() # close the lower eye lid
     print "Sleeping"
 
+def StartSpeaking(Text):
+    if EnableSleepTimer==True:
+    if EnableSleepTimer==True:
+        SleepTimer.stopClock()
+        isTalking = True
+
+def StopSpeaking(Text):
+    if EnableSleepTimer==True:
+        if EnableSleepTimer==True:
+            SleepTimer.restartClock(True)
+        isTalking = False
+
+if (UseMarySpeech or UseEspeak or UseMimicSpeech):
+    Mouth.addListener("startSpeaking",python.name,"StartSpeaking")
+    Mouth.addListener("stopSpeaking",python.name,"StopSpeaking")
+
 # Use the PIR sensor to wake up or keep awake
 if EnablePIR == True:
     if EnableSleepTimer==True:
@@ -249,7 +265,7 @@ if EnablePIR == True:
     pir.addListener("publishSense",python.name,"PirLifeEvent")
 
 # Jaw control based on MarySpeech.
-if UseMarySpeech == True and EnableMouthControl == True:
+if (UseMarySpeech == True or UseMimicSpeech or UseEspeak) and EnableMouthControl == True:
     # Before we can use this feature, we first need to create it :-)
     mouthcontrol = Runtime.create("mouthcontrol","MouthControl")
     #mouthcontrol = Runtime.start("mouthcontrol","MouthControl")
