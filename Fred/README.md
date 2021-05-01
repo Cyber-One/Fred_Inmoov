@@ -6,14 +6,18 @@ Where possible, lots of comment have been placed in the code to help NOOB's lear
 <b>Start.py </b>
 General start point and is responsible for calling all the other sub files.
 
-<b>Configuration.py</b>
-This is the configuration for the Fred Robot.
+<b>1_Configuration/</b>
+This Folder is where the various configuration files are stored for Fred.
+If you are using these scripts for your robot, then this is where you change the config to suit your build.
+I've tried to add notes as to what each of the setting do.
 
 <b>Controller.py </b>
 This is where the top level controllers are created such as the RasPi service, the Arduino services and the PCA9685 services.
 
-<b>Servos.py</b>
-Currently, not too many of the servos are defined, but as more are defined, this file may need to be split into smaller groups.
+<b>3_Servos/</b>
+Because there are so many servos used in an Inmoov build and a modified one like Fred use even more, the servos service creation is broken into multiple files.
+I've tried to group servos by physical area of operation, not controller or location of the servo.
+For example, the Neck group contains the head Roll, Pitch and Yaw servos, the Roll and Pitch are located below the neck while the Yaw is located in the head. 
 
 <b>IO.py</b>
 This is for miscilanous IO devices like the PIR sensor and the Ultrasonic range finders.
@@ -22,10 +26,11 @@ This is for miscilanous IO devices like the PIR sensor and the Ultrasonic range 
 This is where the Text To Speech and Speech recognition services are created.
 
 <b>Life.py</b>
-This set of routines control the simulation of being alive like the blinking of the eyes ect.
+This set of routines control the simulation of being alive like the blinking of the eye lids and random movements that simulate a living being.
 
 <b>Gestures.py</b>
-Any scripts of movements such as shaking the head as a no, or nodding the head as a yes as scripted here.
+Any scripts of movements such as shaking the head as a no, or nodding the head as a yes, that may be called by the ProgramAB are scripted here.
 
 <b>Brain.py</b>
 This is where the simulated AI lives. :-)
+For now, this is ProgramAB, a program that runs Artificial Inteligents Markup Language (AIML) files commonly refered to as Alice Bot.
