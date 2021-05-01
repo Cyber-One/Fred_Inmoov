@@ -53,9 +53,13 @@ def HeadPan(NewPan):
     HeadPanPos = NewPan
     HeadPanTilt(HeadPanTilt, HeadTiltPos, HeadRollRos)
     
-# To make is a bit easier to control, we define functions to move the two eyes togeter.
-# if you have only the one servo for each of these axis, then comment out the RightEyeLR and the RightEyeUD lines.
-# Like the Pan, Tilt and Roll, we will use 0 as the center position and negative number will look down or left.
+# To make is a bit easier to control, we define functions to
+# move the two eyes togeter.
+# if you have only the one servo for each of these axis, then
+# don't worry, this code will ignore the one you don't have
+# without crashing
+# Like the Pan, Tilt and Roll, we will use 0 as the center
+# position and negative number will look down or left.
 def eyesLR(eyesLRpos):
     if EnableRightEyeX == True:
         RightEyeLR.moveTo(90+eyesLRpos)
@@ -68,16 +72,20 @@ def eyesUD(eyesUDpos):
     if EnableLeftEyeY == True:
         LeftEyeUD.moveTo(90+eyesUDpos)
 
+# We want the robot to appear to be more alive, and nothing
+# speaks to being alive more than small random movements.
 def MoveEyes(timedata):
-    MoveEyesTimer.setInterval(random.randint(500,2000))
+    MoveEyesTimer.setInterval(random.randint(1000,2000))
     if Awake:
         #need to look at speed settings
         eyesLR(random.uniform(-20,20))
         eyesUD(random.uniform(-20,20))
 
-def MoveEyesStart():
+def MoveEyesStart(timedata):
+    if isTalking:
+        MoveEyesTimer.stopClock()
 
-def MoveEyesStop():
+def MoveEyesStop(timedata):
     eyesLR(0)
     eyesUD(0)
 
@@ -230,7 +238,6 @@ def GoToSleepEvent(timedata):
     print "Sleeping"
 
 def StartSpeaking(Text):
-    if EnableSleepTimer==True:
     if EnableSleepTimer==True:
         SleepTimer.stopClock()
         isTalking = True

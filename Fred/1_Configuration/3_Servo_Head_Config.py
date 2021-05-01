@@ -35,13 +35,16 @@ print "Creating the Servo Head Config"
 # The default values will be one of our controllers.
 # "arduinoLeft", "arduinoRight", "arduinoNano", "Head", 
 # "Back", "RightArm", "LeftArm".
-# If a new controller is released of more are added, 
+# If a new controller is released or more servos are added, 
 # then add it to this list and to each of the servos in the 
-# Servo.py file.
+# related Servo.py file.  In this case 1_Servos_Head.py
 # Comments after the setting are for a Nervo Boards based 
 # InMoov configuration as listed on the InMoov web site.
 
 # The Jaw
+# There are a few different variations on how the mechanics
+# of this works, but essentially, rotating the servo closes
+# the jaw while rotating it the other way opens it.
 EnableJawServo = True # True or False
 JawAttachment = "Head"          # "arduinoLeft"
 JawPin = 9                      # 26
@@ -50,6 +53,12 @@ JawMaxPos = 140                 # 25
 JawRestPos = 80                 # 10
 JawVelocity = -1                #
 
+# In the original design, there are only two servos for the
+# eyes, the X and Y servos.  Later, another servo was added
+# for eye lids.
+# In the Advanced Eye Mech by Dakota76, there are 6 servo used
+
+# The Right Eye X-Axis
 EnableRightEyeX = True
 RightEyeXAttachment = "Head"    # "arduinoLeft"
 RightEyeXPin = 15               # 22
@@ -58,6 +67,7 @@ RightEyeXMaxPos = 180           # 120
 RightEyeXRestPos = 90           # 90
 RightEyeXVelocity = 60          #
 
+# The Right Eye Y-Axis
 EnableRightEyeY = True
 RightEyeYAttachment = "Head"    # "arduinoLeft"
 RightEyeYPin = 14               # 24

@@ -31,6 +31,16 @@ EnableBlinking = True           # Set to True or False
 # Moves the eyes to make the robot appear more alive.
 EnableRandomEyeMovements = True # Set to True or False
 
+# Min time between movements
+RandEyeMovementsMinTime = 1000  # int miliSeconds
+
+# Max time between movements
+RandEyeMovementsMaxTime = 5000  # int miliSeconds
+
+# Max amount to move the eyes from last position
+# each time the random function is called.
+RandEyeMovementsMaxRot = 20     # Perecnt of total range
+
 # From time to time, we will want the robot to stop running
 # the life simulations, this is done by putting the robot
 # to sleep after a period of no activity.

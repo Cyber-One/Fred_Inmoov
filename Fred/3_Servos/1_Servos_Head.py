@@ -112,6 +112,9 @@ if EnableJawServo == True:
     # and the target position.  The rate of rotation is set 
     # in degrees per second.  
     # A value of -1 disables speed control.
+    # The setVelocity method used in Manticore has been
+    # depreciated in Nixie, that is it still works, but the
+    # version after Nixie it will be gone.
     if MRL == "Nixie":
         Jaw.setSpeed(JawVelocity)
     else:
@@ -184,7 +187,7 @@ if EnableRightEyeY == True:
 
 if EnableLeftEyeX == True:
     print "--Left Eye X axis"
-    LeftEyeLR = Runtime.createAndStart("LefttEyeLR", "Servo")
+    LeftEyeLR = Runtime.createAndStart("LeftEyeLR", "Servo")
     if LeftEyeXAttachment == "Head":
         LeftEyeLR.attach(Head, LeftEyeXPin)
     if LeftEyeXAttachment == "Back":
