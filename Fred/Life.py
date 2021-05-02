@@ -34,16 +34,16 @@ execfile(RuningFolder+'/1_Configuration/C_Life_Config.py')
 # This function assumes that 0, 0, 0 is facing straight ahead with tilt and roll level.
 def HeadPanTilt(Pan, Tilt, Roll):
     print "PanTilt( ", Pan, ", ", Tilt, ", ", Roll, ")"
-    PanTo = 90 + Pan
+    PanTo = 50 + Pan
     print "Panning To ", PanTo
     if EnableHeadYaw == True:
         HeadYaw.moveTo(PanTo)
     PanRadians = math.radians(Pan)
     print "Thats ", PanRadians, "Radians"
     if EnableHeadPitch == True:
-        HeadPitch.moveTo(90+(Tilt*math.cos(PanRadians) + Roll*math.sin(PanRadians)))
+        HeadPitch.moveTo(50+(Tilt*math.cos(PanRadians) + Roll*math.sin(PanRadians)))
     if EnableHeadRoll == True:
-        HeadRoll.moveTo(90+(Tilt*math.sin(PanRadians) + Roll*math.cos(PanRadians)))
+        HeadRoll.moveTo(50+(Tilt*math.sin(PanRadians) + Roll*math.cos(PanRadians)))
     print "PanTilt finished"
 
 def HeadPan(NewPan):
@@ -62,15 +62,15 @@ def HeadPan(NewPan):
 # position and negative number will look down or left.
 def eyesLR(eyesLRpos):
     if EnableRightEyeX == True:
-        RightEyeLR.moveTo(90+eyesLRpos)
+        RightEyeLR.moveTo(50+eyesLRpos)
     if EnableLeftEyeX == True:
-        LeftEyeLR.moveTo(90+eyesLRpos)
+        LeftEyeLR.moveTo(50+eyesLRpos)
 
 def eyesUD(eyesUDpos):
     if EnableRightEyeY == True:
-        RightEyeUD.moveTo(90+eyesUDpos)
+        RightEyeUD.moveTo(50+eyesUDpos)
     if EnableLeftEyeY == True:
-        LeftEyeUD.moveTo(90+eyesUDpos)
+        LeftEyeUD.moveTo(50+eyesUDpos)
 
 # We want the robot to appear to be more alive, and nothing
 # speaks to being alive more than small random movements.
@@ -103,61 +103,61 @@ if EnableRandomEyeMovements == True:
 
 def UpperEyeLidsOpen():
     if EnableRightUpperEyeLid == True:
-        UpperEyeLidR.moveTo(UpperREyeLidMinPos) # open the right upper eye lid
+        UpperEyeLidR.moveTo(0) # open the right upper eye lid
     if EnableLeftUpperEyeLid == True:
-        UpperEyeLidL.moveTo(UpperLEyeLidMinPos) # open the left upper eye lid
+        UpperEyeLidL.moveTo(0) # open the left upper eye lid
 
 def UpperEyeLidsMidway():
     if EnableRightUpperEyeLid == True:
-        UpperEyeLidR.moveTo((UpperREyeLidMaxPos-UpperREyeLidMinPos)/2+UpperREyeLidMinPos) # Move to mid pos the right upper eye lid
+        UpperEyeLidR.moveTo(50) # Move to mid pos the right upper eye lid
     if EnableLeftUpperEyeLid == True:
-        UpperEyeLidL.moveTo((UpperLEyeLidMaxPos-UpperLEyeLidMinPos)/2+UpperLEyeLidMinPos) # close the upper eye lid
+        UpperEyeLidL.moveTo(50) # close the upper eye lid
 
 def UpperEyeLidsClose():
     if EnableRightUpperEyeLid == True:
-        UpperEyeLidR.moveTo(UpperREyeLidMaxPos) # close the right Upper eye lid
+        UpperEyeLidR.moveTo(100) # close the right Upper eye lid
     if EnableLeftUpperEyeLid == True:
-        UpperEyeLidL.moveTo(UpperLEyeLidMaxPos) # close the left Upper eye lid
+        UpperEyeLidL.moveTo(100) # close the left Upper eye lid
 
 def LowerEyeLidsOpen():
     if EnableRightLowerEyeLid == True:
-        LowerEyeLidR.moveTo(LowerREyeLidMinPos) # open the right Lower eye lid
+        LowerEyeLidR.moveTo(0) # open the right Lower eye lid
     if EnableLeftLowerEyeLid == True:
-        LowerEyeLidL.moveTo(LowerLEyeLidMinPos) # open the left Lower eye lid
+        LowerEyeLidL.moveTo(0) # open the left Lower eye lid
 
 def LowerEyeLidsMidway():
     if EnableRightLowerEyeLid == True:
-        LowerEyeLidR.moveTo((LowerREyeLidMaxPos-LowerREyeLidMinPos)/2+LowerREyeLidMinPos) # Move to mid pos the right upper eye lid
+        LowerEyeLidR.moveTo(50) # Move to mid pos the right upper eye lid
     if EnableLeftLowerEyeLid == True:
-        LowerEyeLidL.moveTo((LowerLEyeLidMaxPos-LowerLEyeLidMinPos)/2+LowerLEyeLidMinPos) # close the upper eye lid
+        LowerEyeLidL.moveTo(50) # close the upper eye lid
 
 def LowerEyeLidsClose():
     if EnableRightLowerEyeLid == True:
-        LowerEyeLidR.moveTo(LowerREyeLidMaxPos) # close the right lower eye lid
+        LowerEyeLidR.moveTo(100) # close the right lower eye lid
     if EnableLeftLowerEyeLid == True:
-        LowerEyeLidL.moveTo(LowerLEyeLidMaxPos) # close the left lower eye lid
+        LowerEyeLidL.moveTo(100) # close the left lower eye lid
 
 def WinkLeftEye():
     if EnableLeftLowerEyeLid == True:
-        LowerEyeLidL.moveTo(LowerLEyeLidMaxPos) # close the left lower eye lid
+        LowerEyeLidL.moveTo(100) # close the left lower eye lid
     if EnableLeftUpperEyeLid == True:
-        UpperEyeLidL.moveTo(UpperLEyeLidMaxPos) # close the left Upper eye lid
+        UpperEyeLidL.moveTo(100) # close the left Upper eye lid
     time.sleep(0.5)
     if EnableLeftLowerEyeLid == True:
-        LowerEyeLidL.moveTo(LowerLEyeLidMinPos) # open the left Lower eye lid
+        LowerEyeLidL.moveTo(0) # open the left Lower eye lid
     if EnableLeftUpperEyeLid == True:
-        UpperEyeLidL.moveTo(UpperLEyeLidMinPos) # open the left upper eye lid
+        UpperEyeLidL.moveTo(0) # open the left upper eye lid
 
 def WinkRightEye():
     if EnableRightLowerEyeLid == True:
-        LowerEyeLidR.moveTo(LowerREyeLidMaxPos) # close the Right lower eye lid
+        LowerEyeLidR.moveTo(100) # close the Right lower eye lid
     if EnableRightUpperEyeLid == True:
-        UpperEyeLidR.moveTo(UpperREyeLidMaxPos) # close the Right Upper eye lid
+        UpperEyeLidR.moveTo(100) # close the Right Upper eye lid
     time.sleep(0.5)
     if EnableRightLowerEyeLid == True:
-        LowerEyeLidR.moveTo(LowerREyeLidMinPos) # open the Right Lower eye lid
+        LowerEyeLidR.moveTo(0) # open the Right Lower eye lid
     if EnableRightUpperEyeLid == True:
-        UpperEyeLidR.moveTo(UpperREyeLidMinPos) # open the Right upper eye lid
+        UpperEyeLidR.moveTo(0) # open the Right upper eye lid
 
 # Routines to create the blinking motion
 # we use the Clock service to provide a regular event that calls the blink procedure.
@@ -284,7 +284,8 @@ if (UseMarySpeech == True or UseMimicSpeech or UseEspeak) and EnableMouthControl
     #mouthcontrol.attach(Mouth)
     mouthcontrol.setMouth(Mouth)
     # We need to set the range of motion for the Jaw
-    mouthcontrol.setmouth(JawMinPos, JawMaxPos)
+    #mouthcontrol.setmouth(JawMinPos, JawMaxPos)
+    mouthcontrol.setmouth(10, 80)
     #mouthcontrol.mouthClosedPos = JawMinPos
     #mouthcontrol.mouthOpenedPos = JawMaxPos
     # next we need to setup the delays for the jaw movement.
