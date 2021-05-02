@@ -40,6 +40,9 @@ print "Creating the Servo Head Config"
 # related Servo.py file.  In this case 1_Servos_Head.py
 # Comments after the setting are for a Nervo Boards based 
 # InMoov configuration as listed on the InMoov web site.
+# In some cases, the direction of travel is sometime in the
+# oposite direction to what we need.  In this case, swap the
+# Min and Max pos, this will swap the direction to what we need.
 
 # The Jaw
 # There are a few different variations on how the mechanics
@@ -58,7 +61,7 @@ JawVelocity = -1                #
 # for eye lids.
 # In the Advanced Eye Mech by Dakota76, there are 6 servo used
 
-# The Right Eye X-Axis
+# The Right Eye X-Axis (Left / Right motion)
 EnableRightEyeX = True
 RightEyeXAttachment = "Head"    # "arduinoLeft"
 RightEyeXPin = 15               # 22
@@ -67,7 +70,7 @@ RightEyeXMaxPos = 180           # 120
 RightEyeXRestPos = 90           # 90
 RightEyeXVelocity = -1          #
 
-# The Right Eye Y-Axis
+# The Right Eye Y-Axis (Up / Down Motion)
 EnableRightEyeY = True
 RightEyeYAttachment = "Head"    # "arduinoLeft"
 RightEyeYPin = 14               # 24
@@ -76,6 +79,8 @@ RightEyeYMaxPos = 180           # 120
 RightEyeYRestPos = 90           # 90
 RightEyeYVelocity = -1          #
 
+# The Left Eye X-Axis (Left / Right motion)
+# The Advance Eye Mech by Dakota76 has servos for both eyes.
 EnableLeftEyeX = True
 LeftEyeXAttachment = "Head"     # Not Present
 LeftEyeXPin = 13                #
@@ -84,14 +89,16 @@ LeftEyeXMaxPos = 180            #
 LeftEyeXRestPos = 90            #
 LeftEyeXVelocity = -1           #
 
+# The Left Eye Y-Axis (Up / Down Motion)
 EnableLeftEyeY = True
 LeftEyeYAttachment = "Head"     # Not Present
 LeftEyeYPin = 12                #
 LeftEyeYMinPos = 0              #
-LeftEyeYMaxPos = 180            #
-LeftEyeYRestPos = 90            #
+LeftEyeYMaxPos = 90             #
+LeftEyeYRestPos = 180           #
 LeftEyeYVelocity = -1           #
 
+# The Right Upper Eye Lid
 EnableRightUpperEyeLid = True
 UpperREyeLidAttachment = "Head" # "arduinoRight"
 UpperREyeLidPin = 11            # 13
@@ -100,6 +107,9 @@ UpperREyeLidMaxPos = 150        # 120
 UpperREyeLidRestPos = 45        # 60
 UpperREyeLidVelocity = -1       #
 
+# The Right Lower Eye Lid
+# The Advance Eye Mech by Dakota76 has both upper
+# and lower Eye Lids controlled a single servo each.
 EnableRightLowerEyeLid = True
 LowerREyeLidAttachment = "Head" # Not Present
 LowerREyeLidPin = 10            #
@@ -108,6 +118,10 @@ LowerREyeLidMaxPos = 120        #
 LowerREyeLidRestPos = 30        #
 LowerREyeLidVelocity = -1       #
 
+# The Left Upper Eye Lid.
+# There is a proposed design that may support Left
+# and right, Upper and Lower eye lids, so provision
+# has been made for them :-)
 EnableLeftUpperEyeLid = False
 UpperLEyeLidAttachment = "Head" # Not Present
 UpperLEyeLidPin = 9             # 
@@ -116,6 +130,10 @@ UpperLEyeLidMaxPos = 150        #
 UpperLEyeLidRestPos = 45        # 
 UpperLEyeLidVelocity = -1       # 
 
+# The Left Lower Eye Lid.
+# There is a proposed design that may support Left
+# and right, Upper and Lower eye lids, so provision
+# has been made for them :-)
 EnableLeftLowerEyeLid = False
 LowerLEyeLidAttachment = "Head" # Not Present
 LowerLEyeLidPin = 8             #
