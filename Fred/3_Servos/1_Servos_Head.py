@@ -78,7 +78,8 @@ if EnableJawServo == True:
     # set Min/Max method.  This method while still working is 
     # being depreciated, it is suggested to use the map 
     # method instead.
-    Jaw.setMinMax(JawMinPos, JawMaxPos)
+    # Jaw.setMinMax(JawMinPos, JawMaxPos)
+    Jaw.setMinMax(0, 100)
     # A lot of servos will have a 180 degree range of motion.
     # however there are some with more range and others with 
     # less range, the servo service cannot tell these types 
@@ -89,7 +90,10 @@ if EnableJawServo == True:
     # In this case, we would map the 0 - 270 as the input to 
     # the 0 - 180 on the output. Then when you adjust the 
     # output by 90 degrees the servo will turn 90 degrees.
-    #Jaw.map(0, 100, JawMinPos, JawMaxPos)
+    if JawMinPos < JawMaxPos:
+        Jaw.map(0, 100, JawMinPos, JawMaxPos)
+    else:
+        Jaw.map(0, 100, JawMaxPos, JawMinPos)
     # The Rest position is a pre-programmed position for the 
     # servo to move to when you call the rest method.
     Jaw.setRest(JawRestPos)
@@ -101,7 +105,10 @@ if EnableJawServo == True:
     # What you will want to do is Invert the direction of one 
     # of the servos so that both are down at 0 degrees.
     # Setting the setInvert to True will invert the servo.
-    Jaw.setInverted(False)
+    if JawMinPos < JawMaxPos:
+        Jaw.setInverted(False)
+    else:
+        Jaw.setInverted(True)
     # Without any speed control, when you change a servos 
     # position, the servo will try and rotate to the new 
     # position as fast as it can.  This can at times be 
@@ -146,10 +153,17 @@ if EnableRightEyeX == True:
         RightEyeLR.attach(arduinoRight, RightEyeXPin)
     if RightEyeXAttachment == "arduinoNano":
         RightEyeLR.attach(arduinoNano, RightEyeXPin)
-    RightEyeLR.setMinMax(RightEyeXMinPos, RightEyeXMaxPos)
-    #RightEyeLR.map(0, 100, RightEyeXMinPos, RightEyeXMaxPos)
+    #RightEyeLR.setMinMax(RightEyeXMinPos, RightEyeXMaxPos)
+    RightEyeLR.setMinMax(0, 100)
+    if RightEyeXMinPos < RightEyeXMaxPos:
+        RightEyeLR.map(0, 100, RightEyeXMinPos, RightEyeXMaxPos)
+    else:
+        RightEyeLR.map(0, 100, RightEyeXMaxPos, RightEyeXMinPos)
     RightEyeLR.setRest(RightEyeXRestPos)
-    RightEyeLR.setInverted(False)
+    if RightEyeXMinPos < RightEyeXMaxPos:
+        RightEyeLR.setInverted(False)
+    else:
+        RightEyeLR.setInverted(True)
     if MRL == "Nixie":
         RightEyeLR.setSpeed(RightEyeXVelocity)
     else:
@@ -174,10 +188,17 @@ if EnableRightEyeY == True:
         RightEyeUD.attach(arduinoRight, RightEyeYPin)
     if RightEyeYAttachment == "arduinoNano":
         RightEyeUD.attach(arduinoNano, RightEyeYPin)
-    RightEyeUD.setMinMax(RightEyeYMinPos, RightEyeYMaxPos)
-    #RightEyeUD.map(0, 100, RightEyeYMinPos, RightEyeYMaxPos)
+    #RightEyeUD.setMinMax(RightEyeYMinPos, RightEyeYMaxPos)
+    RightEyeUD.setMinMax(0, 100)
+    if RightEyeYMinPos < RightEyeYMaxPos:
+        RightEyeUD.map(0, 100, RightEyeYMinPos, RightEyeYMaxPos)
+    else:
+        RightEyeUD.map(0, 100, RightEyeYMinPos, RightEyeYMaxPos)
     RightEyeUD.setRest(RightEyeYRestPos)
-    RightEyeUD.setInverted(False)
+    if RightEyeYMinPos < RightEyeYMaxPos:
+        RightEyeUD.setInverted(False)
+    else:
+        RightEyeUD.setInverted(True)
     if MRL == "Nixie":
         RightEyeUD.setSpeed(RightEyeYVelocity)
     else:
@@ -202,10 +223,17 @@ if EnableLeftEyeX == True:
         LeftEyeLR.attach(arduinoRight, LeftEyeXPin)
     if LeftEyeXAttachment == "arduinoNano":
         LeftEyeLR.attach(arduinoNano, LeftEyeXPin)
-    LeftEyeLR.setMinMax(LeftEyeXMinPos, LeftEyeXMaxPos)
-    #LeftEyeLR.map(0, 100, LeftEyeXMinPos, LeftEyeXMaxPos)
+    #LeftEyeLR.setMinMax(LeftEyeXMinPos, LeftEyeXMaxPos)
+    LeftEyeLR.setMinMax(0, 100)
+    if LeftEyeXMinPos < LeftEyeXMaxPos:
+        LeftEyeLR.map(0, 100, LeftEyeXMinPos, LeftEyeXMaxPos)
+    else:
+        LeftEyeLR.map(0, 100, LeftEyeXMaxPos, LeftEyeXMinPos)
     LeftEyeLR.setRest(LeftEyeXRestPos)
-    LeftEyeLR.setInverted(False)
+    if LeftEyeXMinPos < LeftEyeXMaxPos:
+        LeftEyeLR.setInverted(False)
+    else:
+        LeftEyeLR.setInverted(True)
     if MRL == "Nixie":
         LeftEyeLR.setSpeed(LeftEyeXVelocity)
     else:
@@ -230,10 +258,17 @@ if EnableLeftEyeY == True:
         LeftEyeUD.attach(arduinoRight, LeftEyeYPin)
     if LeftEyeYAttachment == "arduinoNano":
         LeftEyeUD.attach(arduinoNano, LeftEyeYPin)
-    LeftEyeUD.setMinMax(LeftEyeYMinPos, LeftEyeYMaxPos)
-    #LeftEyeUD.map(0, 100, LeftEyeYMinPos, LeftEyeYMaxPos)
+    #LeftEyeUD.setMinMax(LeftEyeYMinPos, LeftEyeYMaxPos)
+    LeftEyeUD.setMinMax(0, 100)
+    if LeftEyeYMinPos < LeftEyeYMaxPos:
+        LeftEyeUD.map(0, 100, LeftEyeYMinPos, LeftEyeYMaxPos)
+    else:
+        LeftEyeUD.map(0, 100, LeftEyeYMaxPos, LeftEyeYMinPos)
     LeftEyeUD.setRest(LeftEyeYRestPos)
-    LeftEyeUD.setInverted(False)
+    if LeftEyeYMinPos < LeftEyeYMaxPos:
+        LeftEyeUD.setInverted(False)
+    else:
+        LeftEyeUD.setInverted(True)
     if MRL == "Nixie":
         LeftEyeUD.setSpeed(LeftEyeYVelocity)
     else:
@@ -258,10 +293,17 @@ if EnableRightUpperEyeLid == True:
         UpperEyeLidR.attach(arduinoRight, UpperREyeLidPin)
     if UpperREyeLidAttachment == "arduinoNano":
         UpperEyeLidR.attach(arduinoNano, UpperREyeLidPin)
-    UpperEyeLidR.setMinMax(UpperREyeLidMinPos, UpperREyeLidMaxPos)
-    #UpperEyeLidR.map(0, 100, UpperREyeLidMinPos, UpperREyeLidMaxPos)
+    #UpperEyeLidR.setMinMax(UpperREyeLidMinPos, UpperREyeLidMaxPos)
+    UpperEyeLidR.setMinMax(0, 100)
+    if UpperREyeLidMinPos < UpperREyeLidMaxPos:
+        UpperEyeLidR.map(0, 100, UpperREyeLidMinPos, UpperREyeLidMaxPos)
+    else:
+        UpperEyeLidR.map(0, 100, UpperREyeLidMaxPos, UpperREyeLidMinPos)
     UpperEyeLidR.setRest(UpperREyeLidRestPos)
-    UpperEyeLidR.setInverted(False)
+    if UpperREyeLidMinPos < UpperREyeLidMaxPos:
+        UpperEyeLidR.setInverted(False)
+    else:
+        UpperEyeLidR.setInverted(True)
     if MRL == "Nixie":
         UpperEyeLidR.setSpeed(UpperREyeLidVelocity)
     else:
@@ -286,10 +328,17 @@ if EnableRightLowerEyeLid == True:
         LowerEyeLidR.attach(arduinoRight, LowerREyeLidPin)
     if LowerREyeLidAttachment == "arduinoNano":
         LowerEyeLidR.attach(arduinoNano, LowerREyeLidPin)
-    LowerEyeLidR.setMinMax(LowerREyeLidMinPos, LowerREyeLidMaxPos)
-    #LowerEyeLidR.map(0, 100, LowerREyeLidMinPos, LowerREyeLidMaxPos)
+    #LowerEyeLidR.setMinMax(LowerREyeLidMinPos, LowerREyeLidMaxPos)
+    LowerEyeLidR.setMinMax(0, 100)
+    if LowerREyeLidMinPos < LowerREyeLidMaxPos:
+        LowerEyeLidR.map(0, 100, LowerREyeLidMinPos, LowerREyeLidMaxPos)
+    else:
+        LowerEyeLidR.map(0, 100, LowerREyeLidMaxPos, LowerREyeLidMinPos)
     LowerEyeLidR.setRest(LowerREyeLidRestPos)
-    LowerEyeLidR.setInverted(False)
+    if LowerREyeLidMinPos < LowerREyeLidMaxPos:
+        LowerEyeLidR.setInverted(False)
+    else:
+        LowerEyeLidR.setInverted(True)
     if MRL == "Nixie":
         LowerEyeLidR.setSpeed(LowerREyeLidVelocity)
     else:
@@ -314,10 +363,17 @@ if EnableLeftUpperEyeLid == True:
         UpperEyeLidL.attach(arduinoRight, UpperLEyeLidPin)
     if UpperREyeLidAttachment == "arduinoNano":
         UpperEyeLidL.attach(arduinoNano, UpperLEyeLidPin)
-    UpperEyeLidL.setMinMax(UpperLEyeLidMinPos, UpperLEyeLidMaxPos)
-    #UpperEyeLidL.map(0, 100, UpperLEyeLidMinPos, UpperLEyeLidMaxPos)
+    #UpperEyeLidL.setMinMax(UpperLEyeLidMinPos, UpperLEyeLidMaxPos)
+    UpperEyeLidL.setMinMax(0, 100)
+    if UpperLEyeLidMinPos < UpperLEyeLidMaxPos:
+        UpperEyeLidL.map(0, 100, UpperLEyeLidMinPos, UpperLEyeLidMaxPos)
+    else:
+        UpperEyeLidL.map(0, 100, UpperLEyeLidMaxPos, UpperLEyeLidMinPos)
     UpperEyeLidL.setRest(UpperLEyeLidRestPos)
-    UpperEyeLidL.setInverted(False)
+    if UpperLEyeLidMinPos < UpperLEyeLidMaxPos:
+        UpperEyeLidL.setInverted(False)
+    else:
+        UpperEyeLidL.setInverted(True)
     if MRL == "Nixie":
         UpperEyeLidL.setSpeed(UpperLEyeLidVelocity)
     else:
@@ -342,10 +398,17 @@ if EnableLeftLowerEyeLid == True:
         LowerEyeLidL.attach(arduinoRight, LowerLEyeLidPin)
     if LowerREyeLidAttachment == "arduinoNano":
         LowerEyeLidL.attach(arduinoNano, LowerLEyeLidPin)
-    LowerEyeLidL.setMinMax(LowerLEyeLidMinPos, LowerLEyeLidMaxPos)
-    #LowerEyeLidL.map(0, 100, LowerLEyeLidMinPos, LowerLEyeLidMaxPos)
+    #LowerEyeLidL.setMinMax(LowerLEyeLidMinPos, LowerLEyeLidMaxPos)
+    LowerEyeLidL.setMinMax(0, 100)
+    if LowerLEyeLidMinPos < LowerLEyeLidMaxPos:
+        LowerEyeLidL.map(0, 100, LowerLEyeLidMinPos, LowerLEyeLidMaxPos)
+    else:
+        LowerEyeLidL.map(0, 100, LowerLEyeLidMaxPos, LowerLEyeLidMinPos)
     LowerEyeLidL.setRest(LowerLEyeLidRestPos)
-    LowerEyeLidL.setInverted(False)
+    if LowerLEyeLidMinPos < LowerLEyeLidMaxPos:
+        LowerEyeLidL.setInverted(False)
+    else:
+        LowerEyeLidL.setInverted(True)
     if MRL == "Nixie":
         LowerEyeLidL.setSpeed(LowerLEyeLidVelocity)
     else:
