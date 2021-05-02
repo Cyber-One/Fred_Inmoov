@@ -65,7 +65,7 @@ RightEyeXPin = 15               # 22
 RightEyeXMinPos = 0             # 60
 RightEyeXMaxPos = 180           # 120
 RightEyeXRestPos = 90           # 90
-RightEyeXVelocity = 60          #
+RightEyeXVelocity = -1          #
 
 # The Right Eye Y-Axis
 EnableRightEyeY = True
@@ -74,7 +74,7 @@ RightEyeYPin = 14               # 24
 RightEyeYMinPos = 0             # 60
 RightEyeYMaxPos = 180           # 120
 RightEyeYRestPos = 90           # 90
-RightEyeYVelocity = 60          #
+RightEyeYVelocity = -1          #
 
 EnableLeftEyeX = True
 LeftEyeXAttachment = "Head"     # Not Present
@@ -82,7 +82,7 @@ LeftEyeXPin = 13                #
 LeftEyeXMinPos = 0              #
 LeftEyeXMaxPos = 180            #
 LeftEyeXRestPos = 90            #
-LeftEyeXVelocity = 60           #
+LeftEyeXVelocity = -1           #
 
 EnableLeftEyeY = True
 LeftEyeYAttachment = "Head"     # Not Present
@@ -90,7 +90,7 @@ LeftEyeYPin = 12                #
 LeftEyeYMinPos = 0              #
 LeftEyeYMaxPos = 180            #
 LeftEyeYRestPos = 90            #
-LeftEyeYVelocity = 60           #
+LeftEyeYVelocity = -1           #
 
 EnableRightUpperEyeLid = True
 UpperREyeLidAttachment = "Head" # "arduinoRight"
