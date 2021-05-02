@@ -1,10 +1,15 @@
-Unlike earlier version of Fred's program, this one has split the program up into different sections to make it easier to find parts.
-It may yet get broken up more.
+# Fred Inmoov V5.0 program
 
-Where possible, lots of comment have been placed in the code to help NOOB's learn how MyRobotLab services work. :-)
+Unlike earlier version of Fred's program, this one has split the program up into different sections to make it easier to find parts.
+It may yet be broken up into more modular files.
+Breaking the project up into a smaller files makes it easier to find and debug issue.
+It also helps with designing new features.
+
+Where possible, lots of comment have been placed in the code to help NOOB's learn how MyRobotLab services work and how this section is supposed to work. :-)
+It can be advantagous when your trying to use service if you can look up and see how it's ment to be called as well.
 
 <b>Start.py </b>
-General start point and is responsible for calling all the other sub files.
+General start point and is responsible for starting the Graphical User Interface (GUI) and calling all the other sub files required to start up the system.
 
 <b>1_Configuration/</b>
 This Folder is where the various configuration files are stored for Fred.

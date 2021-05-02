@@ -39,8 +39,10 @@ print "Starting the Fred MRL OS"
 # This will start the MRL and the Fred scripts with no 
 # Graphical User Interfaces (GUI) at all.
 # To overcome this issue, we will start the GUI here.
-# There are two types of GUI installed in MRL, the SwingGUI 
-# and the WebGUI
+# There are two types of GUI Available in MRL, the SwingGUI 
+# and the WebGUI.  It is possible to run both at the same time.
+# SwingGUI was the first one to be relased, but is being
+# superseeded by the WebGUI.
 if RunSwingGUI == True:
     gui = Runtime.start('gui','SwingGui')
 
@@ -52,6 +54,7 @@ if RunWebGUI == True:
     sleep(1)
     WebGui.set('cli', 400, 400, 999)
     # if you don't want the browser to autostart to homepage
+    # then set the autoStartBrowser to False
     if RunWebGUIbrowser == False:
         WebGui.autoStartBrowser(False)
     # set a different port number to listen to. default is 8888

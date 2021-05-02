@@ -4,6 +4,8 @@
 # Of the Cyber_One YouTube Channel
 #
 # This is version 4.0 
+# NOTE: this version has been supperseeded by V5.0
+#
 # Using a Raspberry Pi 4B+ with 8GB of RAM
 # An Adafruit PCA9685 16 Ch servo drivers in the Head
 # with 6 PDI-1109MG for the eyes plus 
