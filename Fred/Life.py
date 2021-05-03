@@ -103,9 +103,9 @@ if EnableRandomEyeMovements == True:
 
 def UpperEyeLidsOpen():
     if EnableRightUpperEyeLid == True:
-        UpperEyeLidR.moveTo(0) # open the right upper eye lid
+        UpperEyeLidR.moveTo(100) # open the right upper eye lid
     if EnableLeftUpperEyeLid == True:
-        UpperEyeLidL.moveTo(0) # open the left upper eye lid
+        UpperEyeLidL.moveTo(100) # open the left upper eye lid
 
 def UpperEyeLidsMidway():
     if EnableRightUpperEyeLid == True:
@@ -115,15 +115,15 @@ def UpperEyeLidsMidway():
 
 def UpperEyeLidsClose():
     if EnableRightUpperEyeLid == True:
-        UpperEyeLidR.moveTo(100) # close the right Upper eye lid
+        UpperEyeLidR.moveTo(0) # close the right Upper eye lid
     if EnableLeftUpperEyeLid == True:
-        UpperEyeLidL.moveTo(100) # close the left Upper eye lid
+        UpperEyeLidL.moveTo(0) # close the left Upper eye lid
 
 def LowerEyeLidsOpen():
     if EnableRightLowerEyeLid == True:
-        LowerEyeLidR.moveTo(0) # open the right Lower eye lid
+        LowerEyeLidR.moveTo(100) # open the right Lower eye lid
     if EnableLeftLowerEyeLid == True:
-        LowerEyeLidL.moveTo(0) # open the left Lower eye lid
+        LowerEyeLidL.moveTo(100) # open the left Lower eye lid
 
 def LowerEyeLidsMidway():
     if EnableRightLowerEyeLid == True:
@@ -133,31 +133,31 @@ def LowerEyeLidsMidway():
 
 def LowerEyeLidsClose():
     if EnableRightLowerEyeLid == True:
-        LowerEyeLidR.moveTo(100) # close the right lower eye lid
+        LowerEyeLidR.moveTo(0) # close the right lower eye lid
     if EnableLeftLowerEyeLid == True:
-        LowerEyeLidL.moveTo(100) # close the left lower eye lid
+        LowerEyeLidL.moveTo(0) # close the left lower eye lid
 
 def WinkLeftEye():
     if EnableLeftLowerEyeLid == True:
-        LowerEyeLidL.moveTo(100) # close the left lower eye lid
+        LowerEyeLidL.moveTo(0) # close the left lower eye lid
     if EnableLeftUpperEyeLid == True:
-        UpperEyeLidL.moveTo(100) # close the left Upper eye lid
+        UpperEyeLidL.moveTo(0) # close the left Upper eye lid
     time.sleep(0.5)
     if EnableLeftLowerEyeLid == True:
-        LowerEyeLidL.moveTo(0) # open the left Lower eye lid
+        LowerEyeLidL.moveTo(100) # open the left Lower eye lid
     if EnableLeftUpperEyeLid == True:
-        UpperEyeLidL.moveTo(0) # open the left upper eye lid
+        UpperEyeLidL.moveTo(100) # open the left upper eye lid
 
 def WinkRightEye():
     if EnableRightLowerEyeLid == True:
-        LowerEyeLidR.moveTo(100) # close the Right lower eye lid
+        LowerEyeLidR.moveTo(0) # close the Right lower eye lid
     if EnableRightUpperEyeLid == True:
-        UpperEyeLidR.moveTo(100) # close the Right Upper eye lid
+        UpperEyeLidR.moveTo(0) # close the Right Upper eye lid
     time.sleep(0.5)
     if EnableRightLowerEyeLid == True:
-        LowerEyeLidR.moveTo(0) # open the Right Lower eye lid
+        LowerEyeLidR.moveTo(100) # open the Right Lower eye lid
     if EnableRightUpperEyeLid == True:
-        UpperEyeLidR.moveTo(0) # open the Right upper eye lid
+        UpperEyeLidR.moveTo(100) # open the Right upper eye lid
 
 # Routines to create the blinking motion
 # we use the Clock service to provide a regular event that calls the blink procedure.

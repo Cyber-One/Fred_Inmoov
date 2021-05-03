@@ -102,8 +102,8 @@ LeftEyeYVelocity = -1           #
 EnableRightUpperEyeLid = True
 UpperREyeLidAttachment = "Head" # "arduinoRight"
 UpperREyeLidPin = 11            # 13
-UpperREyeLidMinPos = 45         # 60
-UpperREyeLidMaxPos = 150        # 120
+UpperREyeLidMinPos = 150        # 60
+UpperREyeLidMaxPos = 45         # 120
 UpperREyeLidRestPos = 45        # 60
 UpperREyeLidVelocity = -1       #
 
@@ -114,8 +114,8 @@ EnableRightLowerEyeLid = True
 LowerREyeLidAttachment = "Head" # Not Present
 LowerREyeLidPin = 10            #
 LowerREyeLidMinPos = 0          #
-LowerREyeLidMaxPos = 120        #
-LowerREyeLidRestPos = 30        #
+LowerREyeLidMaxPos = 30         #
+LowerREyeLidRestPos = 120       #
 LowerREyeLidVelocity = -1       #
 
 # The Left Upper Eye Lid.
