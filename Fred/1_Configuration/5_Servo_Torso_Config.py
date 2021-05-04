@@ -35,6 +35,7 @@ TopStomachPin = 8                # 27
 TopStomachMinPos = 80            # 60
 TopStomachMaxPos = 135           # 120
 TopStomachRestPos = 100          # 90
+TopStomachMaxSpeed = 120         # -1
 
 # The MidStomach servos, a pair of HS805BB again configured
 # as Master Slave, each drive a worm drive to rotate the body.
@@ -44,6 +45,7 @@ MidStomachPin = 9                # 28
 MidStomachMinPos = 0             # 60
 MidStomachMaxPos = 180           # 120
 MidStomachRestPos = 90           # 90
+MidStomachMaxSpeed = 120         # -1
 
 # Not in the official list of parts, some builders have added
 # the ability to pitch the body back and forward above the
@@ -54,4 +56,5 @@ RollStomachPin = 10              #
 RollStomachMinPos = 0            # 
 RollStomachMaxPos = 180          # 
 RollStomachRestPos = 90          # 
+RollStomachMaxSpeed = 120        # 
 

@@ -42,14 +42,21 @@ if EnableTopStomach == True:
         TopStomach.attach(arduinoRight, TopStomachPin)
     if TopStomachAttachment == "arduinoNano":
         TopStomach.attach(arduinoNano, TopStomachPin)
-    TopStomach.setMinMax(TopStomachMinPos, TopStomachMaxPos)
-    #TopStomach.map(0, 100, TopStomachMinPos, TopStomachMaxPos)
-    TopStomach.setRest(TopStomachRestPos)
-    TopStomach.setInverted(False)
-    if MRL == "Nixie":
-        TopStomach.setSpeed(120)
+    #TopStomach.setMinMax(TopStomachMinPos, TopStomachMaxPos)
+    TopStomach.setMinMax(0, 100)
+    if TopStomachMinPos < TopStomachMaxPos:
+        TopStomach.map(0, 100, TopStomachMinPos, TopStomachMaxPos)
     else:
-        TopStomach.setVelocity(120.0) ## max velocity
+        TopStomach.map(0, 100, TopStomachMaxPos, TopStomachMinPos)
+    TopStomach.setRest(TopStomachRestPos)
+    if TopStomachMinPos < TopStomachMaxPos:
+        TopStomach.setInverted(False)
+    else:
+        TopStomach.setInverted(True)
+    if MRL == "Nixie":
+        TopStomach.setSpeed(TopStomachMaxSpeed)
+    else:
+        TopStomach.setVelocity(TopStomachMaxSpeed) ## max velocity
     TopStomach.setAutoDisable(True)
     TopStomach.rest()
 
@@ -70,14 +77,21 @@ if EnableMidStomach == True:
         MidStomach.attach(arduinoRight, MidStomachPin)
     if MidStomachAttachment == "arduinoNano":
         MidStomach.attach(arduinoNano, MidStomachPin)
-    MidStomach.setMinMax(MidStomachMinPos, MidStomachMaxPos)
-    #MidStomach.map(0, 100, MidStomachMinPos, MidStomachMaxPos)
-    MidStomach.setRest(MidStomachRestPos)
-    MidStomach.setInverted(False)
-    if MRL == "Nixie":
-        MidStomach.setSpeed(120)
+    #MidStomach.setMinMax(MidStomachMinPos, MidStomachMaxPos)
+    MidStomach.setMinMax(0, 100)
+    if MidStomachMinPos < MidStomachMaxPos:
+        MidStomach.map(0, 100, MidStomachMinPos, MidStomachMaxPos)
     else:
-        MidStomach.setVelocity(120.0) ## max velocity
+        MidStomach.map(0, 100, MidStomachMaxPos, MidStomachMinPos)
+    MidStomach.setRest(MidStomachRestPos)
+    if MidStomachMinPos < MidStomachMaxPos:
+        MidStomach.setInverted(False)
+    else:
+        MidStomach.setInverted(True)
+    if MRL == "Nixie":
+        MidStomach.setSpeed(MidStomachMaxSpeed)
+    else:
+        MidStomach.setVelocity(MidStomachMaxSpeed) ## max velocity
     MidStomach.setAutoDisable(True)
     MidStomach.rest()
 
@@ -98,13 +112,20 @@ if EnableRollStomach == True:
         RollStomach.attach(arduinoRight, RollStomachPin)
     if RollStomachAttchment == "arduinoNano":
         RollStomach.attach(arduinoNano, RollStomachPin)
-    RollStomach.setMinMax(RollStomachMinPos, RollStomachMaxPos)
-    #RollStomach.map(0, 100, RollStomachMinPos, RollStomachMaxPos)
-    RollStomach.setRest(RollStomachRestPos)
-    RollStomach.setInverted(False)
-    if MRL == "Nixie":
-        RollStomach.setSpeed(120)
+    #RollStomach.setMinMax(RollStomachMinPos, RollStomachMaxPos)
+    RollStomach.setMinMax(0, 100)
+    if RollStomachMinPos < RollStomachMaxPos:
+        RollStomach.map(0, 100, RollStomachMinPos, RollStomachMaxPos)
     else:
-        RollStomach.setVelocity(120.0) ## max velocity
+        RollStomach.map(0, 100, RollStomachMaxPos, RollStomachMinPos)
+    RollStomach.setRest(RollStomachRestPos)
+    if RollStomachMinPos < RollStomachMaxPos:
+        RollStomach.setInverted(False)
+    else:
+        RollStomach.setInverted(True)
+    if MRL == "Nixie":
+        RollStomach.setSpeed(RollStomachMaxSpeed)
+    else:
+        RollStomach.setVelocity(RollStomachMaxSpeed) ## max velocity
     RollStomach.setAutoDisable(True)
     RollStomach.rest()
