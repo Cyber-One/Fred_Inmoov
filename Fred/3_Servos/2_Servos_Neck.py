@@ -42,14 +42,21 @@ if EnableHeadYaw == True:
         HeadYaw.attach(arduinoRight, HeadYawPin)
     if HeadYawAttachment == "arduinoNano":
         HeadYaw.attach(arduinoNano, HeadYawPin)
-    HeadYaw.setMinMax(HeadYawMinPos, HeadYawMaxPos)
-    #HeadYaw.map(0, 100, HeadYawMinPos, HeadYawMaxPos)
-    HeadYaw.setRest(HeadYawRestPos)
-    HeadYaw.setInverted(False)
-    if MRL == "Nixie":
-        HeadYaw.setSpeed(120)
+    #HeadYaw.setMinMax(HeadYawMinPos, HeadYawMaxPos)
+    HeadYaw.setMinMax(0, 100)
+    if HeadYawMinPos < HeadYawMaxPos:
+        HeadYaw.map(0, 100, HeadYawMinPos, HeadYawMaxPos)
     else:
-        HeadYaw.setVelocity(120.0) ## max velocity
+        HeadYaw.map(0, 100, HeadYawMaxPos, HeadYawMinPos)
+    HeadYaw.setRest(HeadYawRestPos)
+    if HeadYawMinPos < HeadYawMaxPos:
+        HeadYaw.setInverted(False)
+    else:
+        HeadYaw.setInverted(True)
+    if MRL == "Nixie":
+        HeadYaw.setSpeed(HeadYawMaxSpeed)
+    else:
+        HeadYaw.setVelocity(HeadYawMaxSpeed) ## max velocity
     HeadYaw.setAutoDisable(True)
     HeadYaw.rest()
 
@@ -72,14 +79,21 @@ if EnableHeadPitch == True:
         HeadPitch.attach(arduinoRight, HeadPitchPin)
     if HeadPitchAttachment == "arduinoNano":
         HeadPitch.attach(arduinoNano, HeadPitchPin)
-    HeadPitch.setMinMax(HeadPitchMinPos, HeadPitchMaxPos)
-    #HeadPitch.map(0, 100, HeadPitchMinPos, HeadPitchMaxPos)
-    HeadPitch.setRest(HeadPitchRestPos)
-    HeadPitch.setInverted(False)
-    if MRL == "Nixie":
-        HeadPitch.setSpeed(120)
+    #HeadPitch.setMinMax(HeadPitchMinPos, HeadPitchMaxPos)
+    HeadPitch.setMinMax(0, 100)
+    if HeadPitchMinPos < HeadPitchMaxPos:
+        HeadPitch.map(0, 100, HeadPitchMinPos, HeadPitchMaxPos)
     else:
-        HeadPitch.setVelocity(120.0) ## max velocity
+        HeadPitch.map(0, 100, HeadPitchMinPos, HeadPitchMaxPos)
+    HeadPitch.setRest(HeadPitchRestPos)
+    if HeadPitchMinPos < HeadPitchMaxPos:
+        HeadPitch.setInverted(False)
+    else:
+        HeadPitch.setInverted(True)
+    if MRL == "Nixie":
+        HeadPitch.setSpeed(HeadPitchMaxSpeed)
+    else:
+        HeadPitch.setVelocity(HeadPitchMaxSpeed) ## max velocity
     HeadPitch.setAutoDisable(True)
     HeadPitch.rest()
 
@@ -100,13 +114,20 @@ if EnableHeadRoll == True:
         HeadRoll.attach(arduinoRight, HeadRollPin)
     if HeadRollAttachment == "arduinoNano":
         HeadRoll.attach(arduinoNano, HeadRollPin)
-    HeadRoll.setMinMax(HeadRollMinPos, HeadRollMaxPos)
-    #HeadRoll.map(0, 100, HeadRollMinPos, HeadRollMaxPos)
-    HeadRoll.setRest(HeadRollRestPos)
-    HeadRoll.setInverted(False)
-    if MRL == "Nixie":
-        HeadRoll.setSpeed(120)
+    #HeadRoll.setMinMax(HeadRollMinPos, HeadRollMaxPos)
+    HeadRoll.setMinMax(0, 100)
+    if HeadRollMinPos < HeadRollMaxPos:
+        HeadRoll.map(0, 100, HeadRollMinPos, HeadRollMaxPos)
     else:
-        HeadRoll.setVelocity(120.0) ## max velocity
+        HeadRoll.map(0, 100, HeadRollMaxPos, HeadRollMinPos)
+    HeadRoll.setRest(HeadRollRestPos)
+    HeadRoll.setMinMax(0, 100)
+        HeadRoll.setInverted(False)
+    else:
+        HeadRoll.setInverted(False)
+    if MRL == "Nixie":
+        HeadRoll.setSpeed(HeadRollMaxSpeed)
+    else:
+        HeadRoll.setVelocity(HeadRollMaxSpeed) ## max velocity
     HeadRoll.setAutoDisable(True)
     HeadRoll.rest()

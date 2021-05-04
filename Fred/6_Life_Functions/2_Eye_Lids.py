@@ -33,11 +33,11 @@ def UpperEyeLidsOpen():
     if EnableLeftUpperEyeLid == True:
         UpperEyeLidL.moveTo(100) # open the left upper eye lid
 
-def UpperEyeLidsMidway():
+def UpperEyeLidsMidway(midPos):
     if EnableRightUpperEyeLid == True:
-        UpperEyeLidR.moveTo(50) # Move to mid pos the right upper eye lid
+        UpperEyeLidR.moveTo(midPos) # Move to mid pos the right upper eye lid
     if EnableLeftUpperEyeLid == True:
-        UpperEyeLidL.moveTo(50) # close the upper eye lid
+        UpperEyeLidL.moveTo(midPos) # close the upper eye lid
 
 def UpperEyeLidsClose():
     if EnableRightUpperEyeLid == True:
@@ -51,11 +51,11 @@ def LowerEyeLidsOpen():
     if EnableLeftLowerEyeLid == True:
         LowerEyeLidL.moveTo(100) # open the left Lower eye lid
 
-def LowerEyeLidsMidway():
+def LowerEyeLidsMidway(midPos):
     if EnableRightLowerEyeLid == True:
-        LowerEyeLidR.moveTo(50) # Move to mid pos the right upper eye lid
+        LowerEyeLidR.moveTo(midPos) # Move to mid pos the right upper eye lid
     if EnableLeftLowerEyeLid == True:
-        LowerEyeLidL.moveTo(50) # close the upper eye lid
+        LowerEyeLidL.moveTo(midPos) # close the upper eye lid
 
 def LowerEyeLidsClose():
     if EnableRightLowerEyeLid == True:
@@ -132,8 +132,8 @@ def WakeUpEvent():
             SleepTimer.restartClock(True)
     if Awake == False:
         print "Waking Up"
-        UpperEyeLidsMidway()
-        LowerEyeLidsMidway()
+        UpperEyeLidsMidway(50)
+        LowerEyeLidsMidway(50)
         eyesLR(0)
         eyesUD(0)
         if EnableSleepTimer==True:
