@@ -122,6 +122,13 @@ if EnableJawServo == True:
     # The setVelocity method used in Manticore has been
     # depreciated in Nixie, that is it still works, but the
     # version after Nixie it will be gone.
+    # When I asked the lead developer about this change,
+    # he pointed out, Velocity is a Vector, since most servos
+    # are a rotation or a linera motion and we are not given
+    # the 3 components of the vector, then speed in more
+    # apropriate.  Lets face it, in your car when you want to
+    # know how fast you are traveling, you check the
+    # Speedometer, not the Velociometer
     if MRL == "Nixie":
         Jaw.setSpeed(JawVelocity)
     else:
