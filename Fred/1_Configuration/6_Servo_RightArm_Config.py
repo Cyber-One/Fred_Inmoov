@@ -30,6 +30,7 @@ RightOmoPlatePin = 1            # 11
 RightOmoPlateMinPos = 0         # 10
 RightOmoPlateMaxPos = 180       # 80
 RightOmoPlateRestPos = 90       # 10
+RightOmoPlateMaxSpeed = 120     # 
 
 EnableRightShoulder = False
 RightShoulderAttachment="Back"  # "arduionRight"
@@ -37,6 +38,7 @@ RightShoulderPin = 2            # 10
 RightShoulderMinPos = 0         # 0
 RightShoulderMaxPos = 180       # 180
 RightShoulderRestPos = 90       # 30
+RightShoulderMaxSpeed = 120     # 
 
 EnableRightRotate = False
 RightRotateAttachment = "Back"  # "arduionRight"
@@ -44,10 +46,12 @@ RightRotatePin = 3              # 9
 RightRotateMinPos = 0           # 40
 RightRotateMaxPin = 180         # 180
 RightRotateRestPOs = 90         # 90
+RightRotateMaxSpeed = 120         # 
 
 EnableRightBicep = False
 RightBicepAttachment ="RightArm"# "arduioRight"
 RightBicepPin = 1               # 8
 RightBicepMinPos = 0            # 0
 RightBicepMaxPos = 180          # 90
-RightBicepRestPos = 90          # 0
+RightBicepRestPos = 90          # 
+RightBicepMaxSpeed = 120          # 

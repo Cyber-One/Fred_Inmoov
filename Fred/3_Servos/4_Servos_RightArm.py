@@ -42,11 +42,19 @@ if EnableRightOmoPlate == True:
         RightOmoPlate.attach(arduinoRight, RightOmoPlatePin)
     if RightOmoPlateAttachment == "arduinoNano":
         RightOmoPlate.attach(arduinoNano, RightOmoPlatePin)
-    RightOmoPlate.setMinMax(RightOmoPlateMinPos, RightOmoPlateMaxPos)
-    #RightOmoPlate.map(0, 100, RightOmoPlateMinPos, RightOmoPlateMaxPos)
+    #RightOmoPlate.setMinMax(RightOmoPlateMinPos, RightOmoPlateMaxPos)
+    RightOmoPlate.setMinMax(0, 100)
+    if RightOmoPlateMinPos < RightOmoPlateMaxPos:
+        RightOmoPlate.map(0, 100, RightOmoPlateMinPos, RightOmoPlateMaxPos)
+        RightOmoPlate.setInverted(False)
+    else:
+        RightOmoPlate.map(0, 100, RightOmoPlateMaxPos, RightOmoPlateMinPos)
+        RightOmoPlate.setInverted(True)
     RightOmoPlate.setRest(RightOmoPlateRestPos)
-    RightOmoPlate.setInverted(False)
-    RightOmoPlate.setSpeed(120)
+    if MRL == "Nixie":
+        RightOmoPlate.setSpeed(RightOmoPlateMaxSpeed)
+    else:
+        RightOmoPlate.setVelocity(RightOmoPlateMaxSpeed) ## max velocity
     RightOmoPlate.setAutoDisable(True)
     RightOmoPlate.rest()
 
@@ -67,11 +75,19 @@ if EnableRightShoulder == True:
         RightShoulder.attach(arduinoRight, RightShoulderPin)
     if RightShoulderAttachment == "arduinoNano":
         RightShoulder.attach(arduinoNano, RightShoulderPin)
-    RightShoulder.setMinMax(RightShoulderMinPos, RightShoulderMaxPos)
-    #RightShoulder.map(0, 100, RightShoulderMinPos, RightShoulderMaxPos)
+    #RightShoulder.setMinMax(RightShoulderMinPos, RightShoulderMaxPos)
+    RightShoulder.setMinMax(0, 100)
+    if RightShoulderMinPos < RightShoulderMaxPos:
+        RightShoulder.map(0, 100, RightShoulderMinPos, RightShoulderMaxPos)
+        RightShoulder.setInverted(False)
+    else:
+        RightShoulder.map(0, 100, RightShoulderMaxPos, RightShoulderMinPos)
+        RightShoulder.setInverted(True)
     RightShoulder.setRest(RightShoulderRestPos)
-    RightShoulder.setInverted(False)
-    RightShoulder.setSpeed(120)
+    if MRL == "Nixie":
+        RightShoulder.setSpeed(RightShoulderMaxSpeed)
+    else:
+        RightShoulder.setVelocity(RightShoulderMaxSpeed) ## max velocity
     RightShoulder.setAutoDisable(True)
     RightShoulder.rest()
 
@@ -92,11 +108,19 @@ if EnableRightRotate == True:
         RightRotate.attach(arduinoRight, RightRotatePin)
     if RightRotateAttachment == "arduinoNano":
         RightRotate.attach(arduinoNano, RightRotatePin)
-    RightRotate.setMinMax(RightRotateMinPos, RightRotateMaxPos)
-    #RightRotate.map(0, 100, RightRotateMinPos, RightRotateMaxPos)
+    #RightRotate.setMinMax(RightRotateMinPos, RightRotateMaxPos)
+    RightRotate.setMinMax(0, 100)
+    if RightRotateMinPos < RightRotateMaxPos:
+        RightRotate.map(0, 100, RightRotateMinPos, RightRotateMaxPos)
+        RightRotate.setInverted(False)
+    else:
+        RightRotate.map(0, 100, RightRotateMaxPos, RightRotateMinPos)
+        RightRotate.setInverted(True)
     RightRotate.setRest(RightRotateRestPos)
-    RightRotate.setInverted(False)
-    RightRotate.setSpeed(120)
+    if MRL == "Nixie":
+        RightRotate.setSpeed(RightRotateMaxSpeed)
+    else:
+        RightRotate.setVelocity(RightRotateMaxSpeed) ## max velocity
     RightRotate.setAutoDisable(True)
     RightRotate.rest()
 
@@ -117,10 +141,18 @@ if EnableRightBicep == True:
         RightBicep.attach(arduinoRight, RightBicepPin)
     if RightBicepAttachment == "arduinoNano":
         RightBicep.attach(arduinoNano, RightBicepPin)
-    RightBicep.setMinMax(RightBicepMinPos, RightBicepMaxPos)
-    #RightBicep.map(0, 100, RightBicepMinPos, RightBicepMaxPos)
+    #RightBicep.setMinMax(RightBicepMinPos, RightBicepMaxPos)
+    RightBicep.setMinMax(0, 100)
+    if RightBicepMinPos < RightBicepMaxPos:
+        RightBicep.map(0, 100, RightBicepMinPos, RightBicepMaxPos)
+        RightBicep.setInverted(False)
+    else:
+        RightBicep.map(0, 100, RightBicepMaxPos, RightBicepMinPos)
+        RightBicep.setInverted(True)
     RightBicep.setRest(RightBicepRestPos)
-    RightBicep.setInverted(False)
-    RightBicep.setSpeed(120)
+    if MRL == "Nixie":
+        RightBicep.setSpeed(RightBicepMaxSpeed)
+    else:
+        RightBicep.setVelocity(RightBicepMaxSpeed) ## max velocity
     RightBicep.setAutoDisable(True)
     RightBicep.rest()
