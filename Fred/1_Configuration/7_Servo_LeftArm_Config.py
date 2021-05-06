@@ -13,17 +13,15 @@
 # origonal files on the Inmoov web site. http://inmoov.fr/   #
 #                                                            #
 # 7.Servo_LeftArm_Config.py                                  #
-# This is where the configuration settings live for the      #
-# varoius controllers.                                       #
+# This is where the configuration settings for the Left      #
+# Arm Servos are located.                                    #
 #                                                            #
 ##############################################################
-print "Creating the Servo Head Config"
-##############################################################
-#                                                            #
-# Servo Left Arm Group                                       #
-#                                                            #
-##############################################################
+print "Creating the Servo Left Arm Config"
 
+# The Left OmoPlate lifts the arm at the shoulder out away
+# from the body, this servo is located into the torso cavity
+# and drives a rotary Piston setup in the Official InMoov Build.
 EnableLeftOmoPlate = False
 LeftOmoPlateAttachment = "Back" # "arduioLeft"
 LeftOmoPlatePin = 15            # 11
@@ -31,6 +29,8 @@ LeftOmoPlateMinPos = 0          # 10
 LeftOmoPlateMaxPos = 180        # 80
 LeftOmoPlateRestPos = 90        # 10
 
+# The left shoulder is a worm drive setup the pitches the
+# left arm up in a forward direction.
 EnableLeftShoulder = False
 LeftShoulderAttachment = "Back" # "arduioLeft"
 LeftShoulderPin = 14            # 10
@@ -38,6 +38,8 @@ LeftShoulderMinPos = 0          # 0
 LeftShoulderMaxPos = 180        # 180
 LeftShoulderRestPos = 90        # 30
 
+# This servo is located near the shoulder servo and rotates
+# the arm
 EnableLeftRotate = False
 LeftRotateAttachment = "Back"   # "arduioLeft"
 LeftRotatePin = 13              # 9
@@ -45,6 +47,7 @@ LeftRotateMinPos = 0            # 40
 LeftRotateMaxPin = 180          # 180
 LeftRotateRestPOs = 90          # 90
 
+# This servo is located in the bicep and operates the elbow.
 EnableLeftBicep = False
 LeftBicepAttachment = "LeftArm" # "arduioLeft"
 LeftBicepPin = 1                # 8
