@@ -22,6 +22,9 @@ print "Starting the various Servos Services"
 # Servo Neck Group                                           #
 #                                                            #
 ##############################################################
+# Refer to the /1_Configuration/4_Servo_Neck_Config.py for
+# more information on what each of these servos are for.
+
 # Load the configuration for the Servos_Head.
 execfile(RuningFolder+'/1_Configuration/4_Servo_Neck_Config.py')
 
@@ -44,15 +47,14 @@ if EnableHeadYaw == True:
         HeadYaw.attach(arduinoNano, HeadYawPin)
     #HeadYaw.setMinMax(HeadYawMinPos, HeadYawMaxPos)
     HeadYaw.setMinMax(0, 100)
+    # This next if statement is looking for an inverted servo
     if HeadYawMinPos < HeadYawMaxPos:
         HeadYaw.map(0, 100, HeadYawMinPos, HeadYawMaxPos)
-    else:
-        HeadYaw.map(0, 100, HeadYawMaxPos, HeadYawMinPos)
-    HeadYaw.setRest(HeadYawRestPos)
-    if HeadYawMinPos < HeadYawMaxPos:
         HeadYaw.setInverted(False)
     else:
+        HeadYaw.map(0, 100, HeadYawMaxPos, HeadYawMinPos)
         HeadYaw.setInverted(True)
+    HeadYaw.setRest(HeadYawRestPos)
     if MRL == "Nixie":
         HeadYaw.setSpeed(HeadYawMaxSpeed)
     else:
@@ -83,13 +85,11 @@ if EnableHeadPitch == True:
     HeadPitch.setMinMax(0, 100)
     if HeadPitchMinPos < HeadPitchMaxPos:
         HeadPitch.map(0, 100, HeadPitchMinPos, HeadPitchMaxPos)
-    else:
-        HeadPitch.map(0, 100, HeadPitchMinPos, HeadPitchMaxPos)
-    HeadPitch.setRest(HeadPitchRestPos)
-    if HeadPitchMinPos < HeadPitchMaxPos:
         HeadPitch.setInverted(False)
     else:
+        HeadPitch.map(0, 100, HeadPitchMinPos, HeadPitchMaxPos)
         HeadPitch.setInverted(True)
+    HeadPitch.setRest(HeadPitchRestPos)
     if MRL == "Nixie":
         HeadPitch.setSpeed(HeadPitchMaxSpeed)
     else:
@@ -118,13 +118,11 @@ if EnableHeadRoll == True:
     HeadRoll.setMinMax(0, 100)
     if HeadRollMinPos < HeadRollMaxPos:
         HeadRoll.map(0, 100, HeadRollMinPos, HeadRollMaxPos)
+        HeadRoll.setInverted(False)
     else:
         HeadRoll.map(0, 100, HeadRollMaxPos, HeadRollMinPos)
+        HeadRoll.setInverted(False)
     HeadRoll.setRest(HeadRollRestPos)
-    HeadRoll.setMinMax(0, 100)
-        HeadRoll.setInverted(False)
-    else:
-        HeadRoll.setInverted(False)
     if MRL == "Nixie":
         HeadRoll.setSpeed(HeadRollMaxSpeed)
     else:
