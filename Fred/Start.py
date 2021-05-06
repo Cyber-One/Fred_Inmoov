@@ -43,6 +43,14 @@ print "Starting the Fred MRL OS"
 # and the WebGUI.  It is possible to run both at the same time.
 # SwingGUI was the first one to be relased, but is being
 # superseeded by the WebGUI.
+#
+# Python uses indentation or white space to show each of the
+# lines to be executed as part of an if statement.
+# In the first if statement, there is only one indented line
+# following, then we have a blank line (for clarity) before
+# we have another if statement.  The second If statement needs
+# to execute a number of line, and you can see these lines are
+# all indented.  There is also one nested if statement.
 if RunSwingGUI == True:
     gui = Runtime.start('gui','SwingGui')
 
