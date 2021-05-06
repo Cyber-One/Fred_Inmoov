@@ -13,20 +13,19 @@
 # origonal files on the Inmoov web site. http://inmoov.fr/   #
 #                                                            #
 # 1_Servos_Head.py                                           #
-# This file is to start all the servos used in the Robot     #
+# This file is to start all the servos used in the Robots    #
+# Head other than the Neck servo.                            #
 #                                                            #
 ##############################################################
-print "Starting the various Servos Services"
+print "Starting the various Head Servos Services"
+
+# For more information on what each of the servos do, refer
+# to the /1_Configuration/3_Servo_Head_Config.py file
 
 ##############################################################
-#                                                            #
-# Servo Head Group                                           #
-#                                                            #
-##############################################################
-
-print "-Head Group"
 # Load the configuration for the Servos_Head.
 execfile(RuningFolder+'/1_Configuration/3_Servo_Head_Config.py')
+
 
 if EnableJawServo == True:
     print "--The Jaw"
@@ -94,9 +93,6 @@ if EnableJawServo == True:
         Jaw.map(0, 100, JawMinPos, JawMaxPos)
     else:
         Jaw.map(0, 100, JawMaxPos, JawMinPos)
-    # The Rest position is a pre-programmed position for the 
-    # servo to move to when you call the rest method.
-    Jaw.setRest(JawRestPos)
     # On occasion you may need to reverse the direction of a 
     # servo. You may have an arm on each side of the robot, 
     # where 90 degree it pointing forward, but 0 degrees has 
@@ -109,6 +105,9 @@ if EnableJawServo == True:
         Jaw.setInverted(False)
     else:
         Jaw.setInverted(True)
+    # The Rest position is a pre-programmed position for the 
+    # servo to move to when you call the rest method.
+    Jaw.setRest(JawRestPos)
     # Without any speed control, when you change a servos 
     # position, the servo will try and rotate to the new 
     # position as fast as it can.  This can at times be 
@@ -164,13 +163,11 @@ if EnableRightEyeX == True:
     RightEyeLR.setMinMax(0, 100)
     if RightEyeXMinPos < RightEyeXMaxPos:
         RightEyeLR.map(0, 100, RightEyeXMinPos, RightEyeXMaxPos)
-    else:
-        RightEyeLR.map(0, 100, RightEyeXMaxPos, RightEyeXMinPos)
-    RightEyeLR.setRest(RightEyeXRestPos)
-    if RightEyeXMinPos < RightEyeXMaxPos:
         RightEyeLR.setInverted(False)
     else:
+        RightEyeLR.map(0, 100, RightEyeXMaxPos, RightEyeXMinPos)
         RightEyeLR.setInverted(True)
+    RightEyeLR.setRest(RightEyeXRestPos)
     if MRL == "Nixie":
         RightEyeLR.setSpeed(RightEyeXVelocity)
     else:
@@ -199,13 +196,11 @@ if EnableRightEyeY == True:
     RightEyeUD.setMinMax(0, 100)
     if RightEyeYMinPos < RightEyeYMaxPos:
         RightEyeUD.map(0, 100, RightEyeYMinPos, RightEyeYMaxPos)
-    else:
-        RightEyeUD.map(0, 100, RightEyeYMinPos, RightEyeYMaxPos)
-    RightEyeUD.setRest(RightEyeYRestPos)
-    if RightEyeYMinPos < RightEyeYMaxPos:
         RightEyeUD.setInverted(False)
     else:
+        RightEyeUD.map(0, 100, RightEyeYMinPos, RightEyeYMaxPos)
         RightEyeUD.setInverted(True)
+    RightEyeUD.setRest(RightEyeYRestPos)
     if MRL == "Nixie":
         RightEyeUD.setSpeed(RightEyeYVelocity)
     else:
@@ -234,13 +229,11 @@ if EnableLeftEyeX == True:
     LeftEyeLR.setMinMax(0, 100)
     if LeftEyeXMinPos < LeftEyeXMaxPos:
         LeftEyeLR.map(0, 100, LeftEyeXMinPos, LeftEyeXMaxPos)
-    else:
-        LeftEyeLR.map(0, 100, LeftEyeXMaxPos, LeftEyeXMinPos)
-    LeftEyeLR.setRest(LeftEyeXRestPos)
-    if LeftEyeXMinPos < LeftEyeXMaxPos:
         LeftEyeLR.setInverted(False)
     else:
+        LeftEyeLR.map(0, 100, LeftEyeXMaxPos, LeftEyeXMinPos)
         LeftEyeLR.setInverted(True)
+    LeftEyeLR.setRest(LeftEyeXRestPos)
     if MRL == "Nixie":
         LeftEyeLR.setSpeed(LeftEyeXVelocity)
     else:
@@ -269,13 +262,11 @@ if EnableLeftEyeY == True:
     LeftEyeUD.setMinMax(0, 100)
     if LeftEyeYMinPos < LeftEyeYMaxPos:
         LeftEyeUD.map(0, 100, LeftEyeYMinPos, LeftEyeYMaxPos)
-    else:
-        LeftEyeUD.map(0, 100, LeftEyeYMaxPos, LeftEyeYMinPos)
-    LeftEyeUD.setRest(LeftEyeYRestPos)
-    if LeftEyeYMinPos < LeftEyeYMaxPos:
         LeftEyeUD.setInverted(False)
     else:
+        LeftEyeUD.map(0, 100, LeftEyeYMaxPos, LeftEyeYMinPos)
         LeftEyeUD.setInverted(True)
+    LeftEyeUD.setRest(LeftEyeYRestPos)
     if MRL == "Nixie":
         LeftEyeUD.setSpeed(LeftEyeYVelocity)
     else:
@@ -304,13 +295,11 @@ if EnableRightUpperEyeLid == True:
     UpperEyeLidR.setMinMax(0, 100)
     if UpperREyeLidMinPos < UpperREyeLidMaxPos:
         UpperEyeLidR.map(0, 100, UpperREyeLidMinPos, UpperREyeLidMaxPos)
-    else:
-        UpperEyeLidR.map(0, 100, UpperREyeLidMaxPos, UpperREyeLidMinPos)
-    UpperEyeLidR.setRest(UpperREyeLidRestPos)
-    if UpperREyeLidMinPos < UpperREyeLidMaxPos:
         UpperEyeLidR.setInverted(False)
     else:
+        UpperEyeLidR.map(0, 100, UpperREyeLidMaxPos, UpperREyeLidMinPos)
         UpperEyeLidR.setInverted(True)
+    UpperEyeLidR.setRest(UpperREyeLidRestPos)
     if MRL == "Nixie":
         UpperEyeLidR.setSpeed(UpperREyeLidVelocity)
     else:
@@ -339,13 +328,11 @@ if EnableRightLowerEyeLid == True:
     LowerEyeLidR.setMinMax(0, 100)
     if LowerREyeLidMinPos < LowerREyeLidMaxPos:
         LowerEyeLidR.map(0, 100, LowerREyeLidMinPos, LowerREyeLidMaxPos)
-    else:
-        LowerEyeLidR.map(0, 100, LowerREyeLidMaxPos, LowerREyeLidMinPos)
-    LowerEyeLidR.setRest(LowerREyeLidRestPos)
-    if LowerREyeLidMinPos < LowerREyeLidMaxPos:
         LowerEyeLidR.setInverted(False)
     else:
+        LowerEyeLidR.map(0, 100, LowerREyeLidMaxPos, LowerREyeLidMinPos)
         LowerEyeLidR.setInverted(True)
+    LowerEyeLidR.setRest(LowerREyeLidRestPos)
     if MRL == "Nixie":
         LowerEyeLidR.setSpeed(LowerREyeLidVelocity)
     else:
@@ -374,13 +361,11 @@ if EnableLeftUpperEyeLid == True:
     UpperEyeLidL.setMinMax(0, 100)
     if UpperLEyeLidMinPos < UpperLEyeLidMaxPos:
         UpperEyeLidL.map(0, 100, UpperLEyeLidMinPos, UpperLEyeLidMaxPos)
-    else:
-        UpperEyeLidL.map(0, 100, UpperLEyeLidMaxPos, UpperLEyeLidMinPos)
-    UpperEyeLidL.setRest(UpperLEyeLidRestPos)
-    if UpperLEyeLidMinPos < UpperLEyeLidMaxPos:
         UpperEyeLidL.setInverted(False)
     else:
+        UpperEyeLidL.map(0, 100, UpperLEyeLidMaxPos, UpperLEyeLidMinPos)
         UpperEyeLidL.setInverted(True)
+    UpperEyeLidL.setRest(UpperLEyeLidRestPos)
     if MRL == "Nixie":
         UpperEyeLidL.setSpeed(UpperLEyeLidVelocity)
     else:
@@ -409,13 +394,11 @@ if EnableLeftLowerEyeLid == True:
     LowerEyeLidL.setMinMax(0, 100)
     if LowerLEyeLidMinPos < LowerLEyeLidMaxPos:
         LowerEyeLidL.map(0, 100, LowerLEyeLidMinPos, LowerLEyeLidMaxPos)
-    else:
-        LowerEyeLidL.map(0, 100, LowerLEyeLidMaxPos, LowerLEyeLidMinPos)
-    LowerEyeLidL.setRest(LowerLEyeLidRestPos)
-    if LowerLEyeLidMinPos < LowerLEyeLidMaxPos:
         LowerEyeLidL.setInverted(False)
     else:
+        LowerEyeLidL.map(0, 100, LowerLEyeLidMaxPos, LowerLEyeLidMinPos)
         LowerEyeLidL.setInverted(True)
+    LowerEyeLidL.setRest(LowerLEyeLidRestPos)
     if MRL == "Nixie":
         LowerEyeLidL.setSpeed(LowerLEyeLidVelocity)
     else:
