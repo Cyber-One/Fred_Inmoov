@@ -48,7 +48,7 @@ RightRotatePin = 3              # 9
 RightRotateMinPos = 0           # 40
 RightRotateMaxPin = 180         # 180
 RightRotateRestPOs = 90         # 90
-RightRotateMaxSpeed = 120         # 
+RightRotateMaxSpeed = 120       # 
 
 # This servo is located in the bicep and operates the elbow.
 EnableRightBicep = False
@@ -57,4 +57,4 @@ RightBicepPin = 1               # 8
 RightBicepMinPos = 0            # 0
 RightBicepMaxPos = 180          # 90
 RightBicepRestPos = 90          # 
-RightBicepMaxSpeed = 120          # 
+RightBicepMaxSpeed = 120        # 
