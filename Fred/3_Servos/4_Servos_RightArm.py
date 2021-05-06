@@ -13,15 +13,15 @@
 # origonal files on the Inmoov web site. http://inmoov.fr/   #
 #                                                            #
 # 4_Servos_RightArm.py                                       #
-# This file is to start all the servos used in the Robot     #
+# This file is to start all the servos used in the Robots    #
+# Right Arm.                                                 #
 #                                                            #
 ##############################################################
-print "Starting the various Servos Services"
-##############################################################
-#                                                            #
-# Servo Right Arm Group                                      #
-#                                                            #
-##############################################################
+print "Starting the Right Arm Servos Services"
+
+# Refer to /1_Configuration/6_Servo_RightArm_Config.py for
+# more information on what these servos are for.
+
 # Load the configuration for the Servos_Head.
 execfile(RuningFolder+'/1_Configuration/6_Servo_RightArm_Config.py')
 
