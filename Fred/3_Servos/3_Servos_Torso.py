@@ -22,6 +22,9 @@ print "Starting the various Servos Services"
 # Servo Torso Group                                          #
 #                                                            #
 ##############################################################
+# Refer to the /1_Configuration/5_Servo_Torso_Config.py file
+# for an explenation of what these servo are for.
+
 # Load the configuration for the Servos_Head.
 execfile(RuningFolder+'/1_Configuration/5_Servo_Torso_Config.py')
 
@@ -46,13 +49,11 @@ if EnableTopStomach == True:
     TopStomach.setMinMax(0, 100)
     if TopStomachMinPos < TopStomachMaxPos:
         TopStomach.map(0, 100, TopStomachMinPos, TopStomachMaxPos)
-    else:
-        TopStomach.map(0, 100, TopStomachMaxPos, TopStomachMinPos)
-    TopStomach.setRest(TopStomachRestPos)
-    if TopStomachMinPos < TopStomachMaxPos:
         TopStomach.setInverted(False)
     else:
+        TopStomach.map(0, 100, TopStomachMaxPos, TopStomachMinPos)
         TopStomach.setInverted(True)
+    TopStomach.setRest(TopStomachRestPos)
     if MRL == "Nixie":
         TopStomach.setSpeed(TopStomachMaxSpeed)
     else:
@@ -81,13 +82,11 @@ if EnableMidStomach == True:
     MidStomach.setMinMax(0, 100)
     if MidStomachMinPos < MidStomachMaxPos:
         MidStomach.map(0, 100, MidStomachMinPos, MidStomachMaxPos)
-    else:
-        MidStomach.map(0, 100, MidStomachMaxPos, MidStomachMinPos)
-    MidStomach.setRest(MidStomachRestPos)
-    if MidStomachMinPos < MidStomachMaxPos:
         MidStomach.setInverted(False)
     else:
+        MidStomach.map(0, 100, MidStomachMaxPos, MidStomachMinPos)
         MidStomach.setInverted(True)
+    MidStomach.setRest(MidStomachRestPos)
     if MRL == "Nixie":
         MidStomach.setSpeed(MidStomachMaxSpeed)
     else:
@@ -116,13 +115,11 @@ if EnableRollStomach == True:
     RollStomach.setMinMax(0, 100)
     if RollStomachMinPos < RollStomachMaxPos:
         RollStomach.map(0, 100, RollStomachMinPos, RollStomachMaxPos)
-    else:
-        RollStomach.map(0, 100, RollStomachMaxPos, RollStomachMinPos)
-    RollStomach.setRest(RollStomachRestPos)
-    if RollStomachMinPos < RollStomachMaxPos:
         RollStomach.setInverted(False)
     else:
+        RollStomach.map(0, 100, RollStomachMaxPos, RollStomachMinPos)
         RollStomach.setInverted(True)
+    RollStomach.setRest(RollStomachRestPos)
     if MRL == "Nixie":
         RollStomach.setSpeed(RollStomachMaxSpeed)
     else:
