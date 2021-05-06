@@ -161,6 +161,9 @@ if EnableRightEyeX == True:
         RightEyeLR.attach(arduinoNano, RightEyeXPin)
     #RightEyeLR.setMinMax(RightEyeXMinPos, RightEyeXMaxPos)
     RightEyeLR.setMinMax(0, 100)
+    # In the prefious servo service, I used a seperate If
+    # statment for the map and inverted methods, from now
+    # on i will combine them in to a singel if statement.
     if RightEyeXMinPos < RightEyeXMaxPos:
         RightEyeLR.map(0, 100, RightEyeXMinPos, RightEyeXMaxPos)
         RightEyeLR.setInverted(False)
