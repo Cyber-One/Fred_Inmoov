@@ -201,7 +201,7 @@ if EnableRightEyeY == True:
         RightEyeUD.map(0, 100, RightEyeYMinPos, RightEyeYMaxPos)
         RightEyeUD.setInverted(False)
     else:
-        RightEyeUD.map(0, 100, RightEyeYMinPos, RightEyeYMaxPos)
+        RightEyeUD.map(0, 100, RightEyeYMaxPos, RightEyeYMinPos)
         RightEyeUD.setInverted(True)
     RightEyeUD.setRest(RightEyeYRestPos)
     if MRL == "Nixie":
