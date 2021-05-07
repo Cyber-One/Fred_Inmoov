@@ -69,28 +69,24 @@ execfile(RuningFolder+'/6_Life_Functions/1_Eye_Movements.py')
 # The Eye Lids are controlled from this sub program
 execfile(RuningFolder+'/6_Life_Functions/2_Eye_Lids.py')
 
+# We don't want our robot being active all the time, so we
+# need to put the robot to sleep when it's been idel for a
+# while and wake it up when a sense event occurs.
+execfile(RuningFolder+'/6_Life_Functions/Wake_Up_And_Sleep')
 
 # Use the PIR sensor to wake up or keep awake
 if EnablePIR == True:
-    if EnableSleepTimer==True:
-        SleepTimer =Runtime.createAndStart("SleepTimer", "Clock")
-        print "Sleep Timer Adding Listner"
-        SleepTimer.addListener("pulse", python.name, "GoToSleepEvent")
-        print "Sleep Timer Setting Sleep Time"
-        SleepTimer.setInterval(TimeToSleep)
-        print "Sleep Timer Starting Clock"
-        SleepTimer.startClock(False)
-        print "Sleep Timer Running"
-    def PirLifeEvent(event):
+    def PirLifeEvent(Sense):
         global Awake
-        if event:
+        if Sense:
             print "Warm body movement detected !!!"
             if EnableSleepTimer==True:
                 WakeUpEvent()
     pir.addListener("publishSense",python.name,"PirLifeEvent")
 
 # Jaw control based on MarySpeech.
-if (UseMarySpeech == True or UseMimicSpeech or UseEspeak) and EnableMouthControl == True:
+# This section will cause the jaw to open and close as the robot is speaking.
+if (UseMarySpeech or UseMimicSpeech or UseEspeak) and EnableMouthControl and EnableJawServo:
     # Before we can use this feature, we first need to create it :-)
     mouthcontrol = Runtime.create("mouthcontrol","MouthControl")
     #mouthcontrol = Runtime.start("mouthcontrol","MouthControl")
