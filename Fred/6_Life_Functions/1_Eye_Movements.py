@@ -49,11 +49,11 @@ def MoveEyes(timedata):
         eyesLR(random.uniform(-20,20))
         eyesUD(random.uniform(-20,20))
 
-def MoveEyesStart(timedata):
+def MoveEyesStart():
     if isTalking:
         MoveEyesTimer.stopClock()
 
-def MoveEyesStop(timedata):
+def MoveEyesStop():
     eyesLR(0)
     eyesUD(0)
 
