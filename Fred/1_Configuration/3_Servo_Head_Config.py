@@ -93,9 +93,9 @@ LeftEyeXVelocity = -1           #
 EnableLeftEyeY = True
 LeftEyeYAttachment = "Head"     # Not Present
 LeftEyeYPin = 12                #
-LeftEyeYMinPos = 0              #
-LeftEyeYMaxPos = 90             #
-LeftEyeYRestPos = 180           #
+LeftEyeYMinPos = 180            #
+LeftEyeYMaxPos = 0              #
+LeftEyeYRestPos = 90            #
 LeftEyeYVelocity = -1           #
 
 # The Right Upper Eye Lid
