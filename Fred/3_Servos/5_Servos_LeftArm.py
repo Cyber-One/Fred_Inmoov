@@ -42,11 +42,16 @@ if EnableLeftOmoPlate == True:
         LeftOmoPlate.attach(arduinoRight, LeftOmoPlatePin)
     if LeftOmoPlateAttachment == "arduinoNano":
         LeftOmoPlate.attach(arduinoNano, LeftOmoPlatePin)
-    LeftOmoPlate.setMinMax(LeftOmoPlateMinPos, LeftOmoPlateMaxPos)
-    #LeftOmoPlate.map(0, 100, LeftOmoPlateMinPos, LeftOmoPlateMaxPos)
+    #LeftOmoPlate.setMinMax(LeftOmoPlateMinPos, LeftOmoPlateMaxPos)
+    LeftOmoPlate.setMinMax(0, 100)
+    if LeftOmoPlateMinPos < LeftOmoPlateMaxPos:
+        LeftOmoPlate.map(0, 100, LeftOmoPlateMinPos, LeftOmoPlateMaxPos)
+        LeftOmoPlate.setInverted(False)
+    else:
+        LeftOmoPlate.map(0, 100, LeftOmoPlateMaxPos, LeftOmoPlateMinPos)
+        LeftOmoPlate.setInverted(True)
     LeftOmoPlate.setRest(LeftOmoPlateRestPos)
-    LeftOmoPlate.setInverted(False)
-    LeftOmoPlate.setSpeed(120)
+    LeftOmoPlate.setSpeed(LeftOmoPlateMaxSpeed)
     LeftOmoPlate.setAutoDisable(True)
     LeftOmoPlate.rest()
 
@@ -67,11 +72,16 @@ if EnableLeftShoulder == True:
         LeftShoulder.attach(arduinoRight, LeftShoulderPin)
     if LeftShoulderAttachment == "arduinoNano":
         LeftShoulder.attach(arduinoNano, LeftShoulderPin)
-    LeftShoulder.setMinMax(LeftShoulderMinPos, LeftShoulderMaxPos)
-    #LeftShoulder.map(0, 100, LeftShoulderMinPos, LeftShoulderMaxPos)
+    #LeftShoulder.setMinMax(LeftShoulderMinPos, LeftShoulderMaxPos)
+    LeftShoulder.setMinMax(0, 100)
+    if LeftShoulderMinPos < LeftShoulderMaxPos:
+        LeftShoulder.map(0, 100, LeftShoulderMinPos, LeftShoulderMaxPos)
+        LeftShoulder.setInverted(False)
+    else:
+        LeftShoulder.map(0, 100, LeftShoulderMaxPos, LeftShoulderMinPos)
+        LeftShoulder.setInverted(True)
     LeftShoulder.setRest(LeftShoulderRestPos)
-    LeftShoulder.setInverted(False)
-    LeftShoulder.setSpeed(120)
+    LeftShoulder.setSpeed(LeftShoulderMaxSpeed)
     LeftShoulder.setAutoDisable(True)
     LeftShoulder.rest()
 
@@ -92,11 +102,16 @@ if EnableLeftRotate == True:
         LeftRotate.attach(arduinoRight, LeftRotatePin)
     if LeftRotateAttachment == "arduinoNano":
         LeftRotate.attach(arduinoNano, LeftRotatePin)
-    LeftRotate.setMinMax(LeftRotateMinPos, LeftRotateMaxPos)
-    #LeftRotate.map(0, 100, LeftRotateMinPos, LeftRotateMaxPos)
+    #LeftRotate.setMinMax(LeftRotateMinPos, LeftRotateMaxPos)
+    LeftRotate.setMinMax(0, 100)
+    if LeftRotateMinPos < LeftRotateMaxPos:
+        LeftRotate.map(0, 100, LeftRotateMinPos, LeftRotateMaxPos)
+        LeftRotate.setInverted(False)
+    else:
+        LeftRotate.map(0, 100, LeftRotateMaxPos, LeftRotateMinPos)
+        LeftRotate.setInverted(True)
     LeftRotate.setRest(RightRotateRestPos)
-    LeftRotate.setInverted(False)
-    LeftRotate.setSpeed(120)
+    LeftRotate.setSpeed(LeftRotateMaxSpeed)
     LeftRotate.setAutoDisable(True)
     LeftRotate.rest()
 
@@ -117,10 +132,15 @@ if EnableLeftBicep == True:
         LeftBicep.attach(arduinoRight, LeftBicepPin)
     if LeftBicepAttachment == "arduinoNano":
         LeftBicep.attach(arduinoNano, LeftBicepPin)
-    LeftBicep.setMinMax(LeftBicepMinPos, LeftBicepMaxPos)
-    #LeftBicep.map(0, 100, LeftBicepMinPos, LeftBicepMaxPos)
+    #LeftBicep.setMinMax(LeftBicepMinPos, LeftBicepMaxPos)
+    LeftBicep.setMinMax(0, 100)
+    if LeftBicepMinPos < LeftBicepMaxPos:
+        LeftBicep.map(0, 100, LeftBicepMinPos, LeftBicepMaxPos)
+        LeftBicep.setInverted(False)
+    else:
+        LeftBicep.map(0, 100, LeftBicepMaxPos, LeftBicepMinPos)
+        LeftBicep.setInverted(True)
     LeftBicep.setRest(LeftBicepRestPos)
-    LeftBicep.setInverted(False)
-    LeftBicep.setSpeed(120)
+    LeftBicep.setSpeed(LeftBicepMaxSpeed)
     LeftBicep.setAutoDisable(True)
     LeftBicep.rest()
