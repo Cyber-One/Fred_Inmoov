@@ -49,5 +49,18 @@ LastPingLeft = False
 # Time between Pings in milli-seconds.
 PingTime = 2000
 
+# These are the last values recorded with the Ultrasonic sensors
 LastLeftPing = 0
 LastRightPing = 0
+
+# This is a global direction for looking with the range
+# -50 - +50 the position of 0 is centred with reference
+# to the lower stomach of the standard Inmoov build.
+# the full range of motion of the -50 - +50 or 100 units
+# includes all 3 of the servos for Pan, (Eyes-X,
+# Neck-Yaw and Lower-Stomach) and the 2 servos for the
+# Tilt, (Eyes-Y and Neck-Pitch)
+# These variables are used for the microgesture controllers
+# positioning system.
+LookPositionPan = 0
+LookPositionTilt = 0
