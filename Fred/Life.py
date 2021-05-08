@@ -72,7 +72,7 @@ execfile(RuningFolder+'/6_Life_Functions/2_Eye_Lids.py')
 # We don't want our robot being active all the time, so we
 # need to put the robot to sleep when it's been idel for a
 # while and wake it up when a sense event occurs.
-execfile(RuningFolder+'/6_Life_Functions/Wake_Up_And_Sleep')
+execfile(RuningFolder+'/6_Life_Functions/Wake_Up_And_Sleep.py')
 
 # Use the PIR sensor to wake up or keep awake
 if EnablePIR:
@@ -90,16 +90,23 @@ if EnablePIR:
 # There is provision for two Ultrasonic sensors, Left and right.
 if EnableLeftUltrasonic or EnableRightUltraSonic:
 # Here we define the Ping Event handler
-    def PingTimeEvent(timedata)
+    def PingTimeEvent(timedata):
+        global LastLeftPing
+        global LastRightPing
+        global LastPingLeft
         if LastPingLeft:
             LastPingLeft = False
             if EnableLeftUltrasonic:
-                LastLeftPing = LeftUltraSonic.ping()
+                LastLeftPing = LeftUltraSonic.range()
+                if LastLeftPing > 10 and LastLeftPing < 200:
+                    WakeUpEvent()
         else:
             LastPingLeft = True
             if EnableRightUltraSonic:
-                LastRightPing = RightUltraSonic.ping()
-        print "Left Ping = " + LastLeftPing + ", Last Right Ping = " + LastRightPing
+                LastRightPing = RightUltraSonic.range()
+                if LastRightPing > 10 and LastRightPing < 200:
+                    WakeUpEvent()
+        print "Left Ping = ", LastLeftPing, ", Last Right Ping = ", LastRightPing
     PingTimer = Runtime.createAndStart("PingTimer", "Clock")
     PingTimer.addListener("pulse", python.name, "PingTimeEvent")
     PingTimer.setInterval(PingTime)

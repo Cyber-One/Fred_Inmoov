@@ -26,7 +26,7 @@ print "Creating the Common Variables"
 
 # This is how much quiet time must elapse for the robot 
 # goes to sleep. The time is in mili-seconds.
-TimeToSleep = 15 * 60000    
+TimeToSleep = 5 * 60000    
 
 # when the sleep timer is enabled, this allows the program to
 # know when the robot is sleeping and when it's awake.

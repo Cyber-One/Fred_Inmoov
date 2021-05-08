@@ -66,12 +66,22 @@ if EnablePIR == True:
 #######################################################
 if EnableLeftUltrasonic == True:
     LeftUltraSonic = Runtime.start("LeftUltraSonic", "UltrasonicSensor")
-    LeftUltraSonic.attach(LeftUltrasonicAttachment, LeftUltrasonicPin1, LeftUltrasonicPin2)
+    if LeftUltrasonicAttachment == "arduinoNano":
+        LeftUltraSonic.attach(arduinoNano, LeftUltrasonicPin1, LeftUltrasonicPin2)
+    if LeftUltrasonicAttachment == "arduinoLeft":
+        LeftUltraSonic.attach(arduinoLeft, LeftUltrasonicPin1, LeftUltrasonicPin2)
+    if LeftUltrasonicAttachment == "arduinoRight":
+        LeftUltraSonic.attach(arduinoRight, LeftUltrasonicPin1, LeftUltrasonicPin2)
     LeftUltraSonic.addRangeListener(python)
 
 if EnableRightUltraSonic == True:
     RightUltraSonic = Runtime.start("RightUltraSonic", "UltrasonicSensor")
-    RightUltraSonic.attach(RightUltrasonicAttachment, RightUltrasonicPin1, RightUltrasonicPin2)
+    if RightUltrasonicAttachment == "arduinoNano":
+        RightUltraSonic.attach(arduinoNano, RightUltrasonicPin1, RightUltrasonicPin2)
+    if RightUltrasonicAttachment == "arduinoLeft":
+        RightUltraSonic.attach(arduinoLeft, RightUltrasonicPin1, RightUltrasonicPin2)
+    if RightUltrasonicAttachment == "arduinoRight":
+        RightUltraSonic.attach(arduinoRight, RightUltrasonicPin1, RightUltrasonicPin2)
     RightUltraSonic.addRangeListener(python)
 
 # Both the Ultra-Sonic sensor service will call the same 
