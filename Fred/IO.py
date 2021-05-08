@@ -72,7 +72,7 @@ if EnableLeftUltrasonic == True:
         LeftUltraSonic.attach(arduinoLeft, LeftUltrasonicPin1, LeftUltrasonicPin2)
     if LeftUltrasonicAttachment == "arduinoRight":
         LeftUltraSonic.attach(arduinoRight, LeftUltrasonicPin1, LeftUltrasonicPin2)
-    LeftUltraSonic.addRangeListener(python)
+    #LeftUltraSonic.addRangeListener(python)
 
 if EnableRightUltraSonic == True:
     RightUltraSonic = Runtime.start("RightUltraSonic", "UltrasonicSensor")
@@ -82,7 +82,7 @@ if EnableRightUltraSonic == True:
         RightUltraSonic.attach(arduinoLeft, RightUltrasonicPin1, RightUltrasonicPin2)
     if RightUltrasonicAttachment == "arduinoRight":
         RightUltraSonic.attach(arduinoRight, RightUltrasonicPin1, RightUltrasonicPin2)
-    RightUltraSonic.addRangeListener(python)
+    #RightUltraSonic.addRangeListener(python)
 
 # Both the Ultra-Sonic sensor service will call the same 
 # onRange function in Python.
