@@ -47,7 +47,7 @@ def MoveEyes(timedata):
     if Awake:
         #need to look at speed settings
         eyesLR(random.uniform(-20,20))
-        eyesUD(random.uniform(-20,20))
+        eyesUD(random.uniform(-10,10))
 
 def MoveEyesStart():
     if isTalking:

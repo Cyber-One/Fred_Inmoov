@@ -75,7 +75,9 @@ execfile(RuningFolder+'/6_Life_Functions/2_Eye_Lids.py')
 execfile(RuningFolder+'/6_Life_Functions/Wake_Up_And_Sleep')
 
 # Use the PIR sensor to wake up or keep awake
-if EnablePIR == True:
+if EnablePIR:
+    # Here if we are using the PIR sensor, we create the method 
+    # for the PIR event handler.
     def PirLifeEvent(Sense):
         global Awake
         if Sense:
@@ -83,6 +85,25 @@ if EnablePIR == True:
             if EnableSleepTimer==True:
                 WakeUpEvent()
     pir.addListener("publishSense",python.name,"PirLifeEvent")
+
+    
+# There is provision for two Ultrasonic sensors, Left and right.
+if EnableLeftUltrasonic or EnableRightUltraSonic:
+# Here we define the Ping Event handler
+    def PingTimeEvent(timedata)
+        if LastPingLeft:
+            LastPingLeft = False
+            if EnableLeftUltrasonic:
+                LastLeftPing = LeftUltraSonic.ping()
+        else:
+            LastPingLeft = True
+            if EnableRightUltraSonic:
+                LastRightPing = RightUltraSonic.ping()
+        print "Left Ping = " + LastLeftPing + ", Last Right Ping = " + LastRightPing
+    PingTimer = Runtime.createAndStart("PingTimer", "Clock")
+    PingTimer.addListener("pulse", python.name, "PingTimeEvent")
+    PingTimer.setInterval(PingTime)
+    PingTimer.startClock(False)
 
 # Jaw control based on MarySpeech.
 # This section will cause the jaw to open and close as the robot is speaking.

@@ -28,7 +28,8 @@ print "Creating the Common Variables"
 # goes to sleep. The time is in mili-seconds.
 TimeToSleep = 15 * 60000    
 
-# when the sleep timer is enabled, this allows the robot to sleep.
+# when the sleep timer is enabled, this allows the program to
+# know when the robot is sleeping and when it's awake.
 Awake = True                
 
 # to help with some life functions, we turn on this value while
@@ -40,3 +41,13 @@ isTalking = False
 HeadPanPos = 0
 HeadTiltPos = 0
 HeadRollRos = 0
+
+# when using a pair of Ultrasonic sensors, we are best to test
+# one side then the other, not the two together.
+LastPingLeft = False
+
+# Time between Pings in milli-seconds.
+PingTime = 2000
+
+LastLeftPing = 0
+LastRightPing = 0
