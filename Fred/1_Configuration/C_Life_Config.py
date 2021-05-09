@@ -24,6 +24,12 @@ print "Loading the Life Simulation System Config"
 #                                                            #
 ##############################################################
 
+# This is how much quiet time must elapse for the robot 
+# goes to sleep.  There are various events that will restart
+# the timer, including talking or proximity sensors avtivating
+# The time is in mili-seconds.
+TimeToSleep = 5 * 60000    
+
 # The Blinking feature can be very anoying, 
 # so the option to turn it of is here.
 EnableBlinking = True           # Set to True or False

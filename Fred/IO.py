@@ -64,6 +64,24 @@ if EnablePIR == True:
 #######################################################
 # Create the Ultrasonic services                      #
 #######################################################
+# the Ultrasonic services has a couple of option on how you
+# can use it. In anycase the max range from a software
+# perspective is 5 meters.
+# 1) ping()         This returns the time of flight in
+#                   milli-seconds each time you call it.
+#                   This is a On-Demand method.
+# 2) range()        This gives you the distance in 
+#                   centimeters each time you call it.
+#                   This is a On-Demand method.
+# 3) startRanging() The start and stop ranging methods
+#    stopRanging()  produce a series of pulses with the
+#                   results returning on the callback
+#                   method, the default being onRange.
+#                   This is normally setup using
+#                   UltraSonic.addRangeListener(python)
+#                   But we will use the subscribe method
+#                   from the python service so we can 
+#                   seperate the two sensors returns.
 if EnableLeftUltrasonic == True:
     LeftUltraSonic = Runtime.start("LeftUltraSonic", "UltrasonicSensor")
     if LeftUltrasonicAttachment == "arduinoNano":
@@ -73,6 +91,9 @@ if EnableLeftUltrasonic == True:
     if LeftUltrasonicAttachment == "arduinoRight":
         LeftUltraSonic.attach(arduinoRight, LeftUltrasonicPin1, LeftUltrasonicPin2)
     #LeftUltraSonic.addRangeListener(python)
+    def onRangeLeft(distance):
+        print "Left distance ", distance, " cm"
+    python.subscribe('LeftUltraSonic', 'onRange', 'python', 'onRangeLeft')
 
 if EnableRightUltraSonic == True:
     RightUltraSonic = Runtime.start("RightUltraSonic", "UltrasonicSensor")
@@ -83,11 +104,14 @@ if EnableRightUltraSonic == True:
     if RightUltrasonicAttachment == "arduinoRight":
         RightUltraSonic.attach(arduinoRight, RightUltrasonicPin1, RightUltrasonicPin2)
     #RightUltraSonic.addRangeListener(python)
+    def onRangeRight(distance):
+        print "Right distance ", distance, " cm"
+    python.subscribe('RightUltraSonic', 'onRange', 'python', 'onRangeRight')
 
 # Both the Ultra-Sonic sensor service will call the same 
 # onRange function in Python.
-def onRange(distance):
-  print "distance ", distance, " cm"
+#def onRange(distance):
+#  print "distance ", distance, " cm"
 
 # we can use the blocking call 
 

@@ -37,3 +37,6 @@ EnableRightUltraSonic = True
 RightUltrasonicAttachment = "arduinoNano"
 RightUltrasonicPin1 = 10
 RightUltrasonicPin2 = 9
+
+# Time between Pings in milli-seconds.
+PingTime = 1000

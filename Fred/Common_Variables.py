@@ -24,10 +24,6 @@ print "Creating the Common Variables"
 #                                                            #
 ##############################################################
 
-# This is how much quiet time must elapse for the robot 
-# goes to sleep. The time is in mili-seconds.
-TimeToSleep = 5 * 60000    
-
 # when the sleep timer is enabled, this allows the program to
 # know when the robot is sleeping and when it's awake.
 Awake = True                
@@ -35,23 +31,6 @@ Awake = True
 # to help with some life functions, we turn on this value while
 # our robot is busy talking.
 isTalking = False
-
-# To simplify the head movements, we need to keep track of
-# where the head is pointed, for that we use following variables
-HeadPanPos = 0
-HeadTiltPos = 0
-HeadRollRos = 0
-
-# when using a pair of Ultrasonic sensors, we are best to test
-# one side then the other, not the two together.
-LastPingLeft = False
-
-# Time between Pings in milli-seconds.
-PingTime = 2000
-
-# These are the last values recorded with the Ultrasonic sensors
-LastLeftPing = 0
-LastRightPing = 0
 
 # This is a global direction for looking with the range
 # -50 - +50 the position of 0 is centred with reference
@@ -64,3 +43,17 @@ LastRightPing = 0
 # positioning system.
 LookPositionPan = 0
 LookPositionTilt = 0
+
+# To simplify the head movements, we need to keep track of
+# where the head is pointed, for that we use following variables
+HeadPanPos = 0
+HeadTiltPos = 0
+HeadRollRos = 0
+
+# when using a pair of Ultrasonic sensors, we are best to test
+# one side then the other, not the two together.
+LastPingLeft = False
+
+# These are the last values recorded with the Ultrasonic sensors
+LastLeftPing = 0
+LastRightPing = 0
