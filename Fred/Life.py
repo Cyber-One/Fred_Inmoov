@@ -35,33 +35,6 @@ execfile(RuningFolder+'/1_Configuration/C_Life_Config.py')
 # living being and in some cases provide simplified interface
 # for controlling the robot.
 
-# Pan and Tilt are the common methods of controlling a camera.
-# normally, you would have a rotating base and the place a tilt mechinism on the pan base.
-# we have a Pitch and Roll with the Yaw on top of that.
-# When we look up at 20 and then turn the head 90 to the left,
-# the head will end up with a tilt of 0 but the head will roll 20
-# to overcome this we need a Pan and Tilt translation.
-# This function assumes that 0, 0, 0 is facing straight ahead with tilt and roll level.
-def HeadPanTilt(Pan, Tilt, Roll):
-    print "PanTilt( ", Pan, ", ", Tilt, ", ", Roll, ")"
-    PanTo = 50 + Pan
-    print "Panning To ", PanTo
-    if EnableHeadYaw == True:
-        HeadYaw.moveTo(PanTo)
-    PanRadians = math.radians(Pan)
-    print "Thats ", PanRadians, "Radians"
-    if EnableHeadPitch == True:
-        HeadPitch.moveTo(50+(Tilt*math.cos(PanRadians) + Roll*math.sin(PanRadians)))
-    if EnableHeadRoll == True:
-        HeadRoll.moveTo(50+(Tilt*math.sin(PanRadians) + Roll*math.cos(PanRadians)))
-    print "PanTilt finished"
-
-def HeadPan(NewPan):
-    global HeadPanPos
-    global HeadTiltPos
-    global HeadRollRos
-    HeadPanPos = NewPan
-    HeadPanTilt(HeadPanTilt, HeadTiltPos, HeadRollRos)
 
 # The Eye Balls are controlled from this sub program
 execfile(RuningFolder+'/6_Life_Functions/1_Eye_Movements.py')
@@ -69,13 +42,16 @@ execfile(RuningFolder+'/6_Life_Functions/1_Eye_Movements.py')
 # The Eye Lids are controlled from this sub program
 execfile(RuningFolder+'/6_Life_Functions/2_Eye_Lids.py')
 
+# The neck is controlled from this sub program
+execfile(RuningFolder+'/6_Life_Functions/3_Neck_Control.py')
+
 # We don't want our robot being active all the time, so we
 # need to put the robot to sleep when it's been idel for a
 # while and wake it up when a sense event occurs.
 execfile(RuningFolder+'/6_Life_Functions/Wake_Up_And_Sleep.py')
 
 # Use the PIR sensor to wake up or keep awake
-if EnablePIR:
+if EnablePIR: # /1_Configuration/A_IO_Config.py
     # Here if we are using the PIR sensor, we create the method 
     # for the PIR event handler.
     def PirLifeEvent(Sense):
@@ -88,7 +64,7 @@ if EnablePIR:
 
     
 # There is provision for two Ultrasonic sensors, Left and right.
-if EnableLeftUltrasonic or EnableRightUltraSonic:
+if EnableLeftUltrasonic or EnableRightUltraSonic: # /1_Configuration/A_IO_Config.py
 # Here we define the Ping Event handler
     def PingTimeEvent(timedata):
         global LastLeftPing
@@ -109,7 +85,7 @@ if EnableLeftUltrasonic or EnableRightUltraSonic:
         print "Left Ping = ", LastLeftPing, ", Last Right Ping = ", LastRightPing
     PingTimer = Runtime.createAndStart("PingTimer", "Clock")
     PingTimer.addListener("pulse", python.name, "PingTimeEvent")
-    PingTimer.setInterval(PingTime)
+    PingTimer.setInterval(PingTime) # /1_Configuration/A_IO_Config.py
     PingTimer.startClock(False)
 
 # Jaw control based on MarySpeech.
