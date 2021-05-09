@@ -108,32 +108,3 @@ if EnableRightUltraSonic == True:
         print "Right distance ", distance, " cm"
     python.subscribe('RightUltraSonic', 'onRange', 'python', 'onRangeRight')
 
-# Both the Ultra-Sonic sensor service will call the same 
-# onRange function in Python.
-#def onRange(distance):
-#  print "distance ", distance, " cm"
-
-# we can use the blocking call 
-
-# print "on demand range is ", LeftUltraSonic.range()
-# print "on demand range is ", RightUltraSonic.range()
-
-# you can also ping - ping does not do any calculations
-# it simply returns the duration in microseconds of the ping
-
-# print "ping ", LeftUltraSonic.ping(), " microseconds"
-# print "ping ", RightUltraSonic.ping(), " microseconds"
-
-# event driven ranging
-# start ranging for 5 seconds - the publishRange(distance) will be
-# called for every attempt to range - this SHOULD NOT INTERFERE WITH SERVOS
-# YAY !
-# the even ranging DOES NOT USE Arduino's pulseIn() method -
-# at the moment range() & ping() do
-
-# LeftUltraSonic.startRanging()
-# sleep(5)
-# LeftUltraSonic.stopRanging()
-# RightUltraSonic.startRanging()
-# sleep(5)
-# RightUltraSonic.stopRanging()
