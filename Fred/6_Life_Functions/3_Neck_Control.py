@@ -14,7 +14,7 @@
 #                                                            #
 # 6_Life_Functions/3_Neck_Control.py                         #
 # This file is to Simulate life movements associated with    #
-# the eye lids                                               #
+# the Neck                                                   #
 #                                                            #
 ##############################################################
 import math

@@ -24,6 +24,12 @@ print "Loading the Life Simulation System Config"
 #                                                            #
 ##############################################################
 
+# This setting is only valid if the third torso servo is fitted.  
+# In this case, the default will be Bob Houstons design in which
+# case the setting is False.
+# When Bartoz diferential control is used, set this to True.
+TorsoType = False
+
 # This is how much quiet time must elapse for the robot 
 # goes to sleep.  There are various events that will restart
 # the timer, including talking or proximity sensors avtivating

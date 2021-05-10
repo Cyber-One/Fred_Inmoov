@@ -50,6 +50,12 @@ HeadPanPos = 0
 HeadTiltPos = 0
 HeadRollRos = 0
 
+# To simplify the torso movements, we need to keep track of
+# where the torso is pointed, for that we use following variables
+TorsoPanPos = 0
+TorsoTiltPos = 0
+TorsoRollRos = 0
+
 # when using a pair of Ultrasonic sensors, we are best to test
 # one side then the other, not the two together.
 LastPingLeft = False
