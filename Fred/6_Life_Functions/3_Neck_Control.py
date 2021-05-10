@@ -12,7 +12,7 @@
 # Fred in a modified Inmmov robot, you can find all the      #
 # origonal files on the Inmoov web site. http://inmoov.fr/   #
 #                                                            #
-# 6_Life_Functions/3_Neck_Control.py                             #
+# 6_Life_Functions/3_Neck_Control.py                         #
 # This file is to Simulate life movements associated with    #
 # the eye lids                                               #
 #                                                            #
@@ -42,11 +42,18 @@ def HeadPanTilt(Pan, Tilt, Roll):
         HeadRoll.moveTo(50+(Tilt*math.sin(PanRadians) + Roll*math.cos(PanRadians)))
     print "PanTilt finished"
 
+# This group of methods allow you to control one virtual axis
+# at a time, you pass the new value and it grabs the last
+# known positions of the other axis.
 def HeadPanTo(NewPan):
     global HeadPanPos
     global HeadTiltPos
     global HeadRollRos
     HeadPanPos = NewPan
+    if HeadPanPos < -50: 
+        HeadPanPos = -50
+    if HeadPanPos > 50: 
+        HeadPanPos = 50
     HeadPanTilt(HeadPanTilt, HeadTiltPos, HeadRollRos)
 
 def HeadTiltTo(NewTilt):
@@ -54,6 +61,10 @@ def HeadTiltTo(NewTilt):
     global HeadTiltPos
     global HeadRollRos
     HeadTiltPos = NewTilt
+    if HeadTiltPos < -50: 
+        HeadTiltPos = -50
+    if HeadTiltPos > 50: 
+        HeadTiltPos = 50
     HeadPanTilt(HeadPanTilt, HeadTiltPos, HeadRollRos)
 
 def HeadRollTo(NewRoll):
@@ -61,4 +72,44 @@ def HeadRollTo(NewRoll):
     global HeadTiltPos
     global HeadRollRos
     HeadRollRos = NewRoll
+    if HeadRollRos < -50: 
+        HeadRollRos = -50
+    if HeadRollRos > 50: 
+        HeadRollRos = 50
+    HeadPanTilt(HeadPanTilt, HeadTiltPos, HeadRollRos)
+
+# This group of Methods will add a value to the current
+# virtual axis one at a time.  The other values are grabbed
+# from memory
+def HeadPan(NewPan):
+    global HeadPanPos
+    global HeadTiltPos
+    global HeadRollRos
+    HeadPanPos = HeadPanPos + NewPan
+    if HeadPanPos < -50: 
+        HeadPanPos = -50
+    if HeadPanPos > 50: 
+        HeadPanPos = 50
+    HeadPanTilt(HeadPanTilt, HeadTiltPos, HeadRollRos)
+
+def HeadTilt(NewTilt):
+    global HeadPanPos
+    global HeadTiltPos
+    global HeadRollRos
+    HeadTiltPos = HeadTiltPos + NewTilt
+    if HeadTiltPos < -50: 
+        HeadTiltPos = -50
+    if HeadTiltPos > 50: 
+        HeadTiltPos = 50
+    HeadPanTilt(HeadPanTilt, HeadTiltPos, HeadRollRos)
+
+def HeadRoll(NewRoll):
+    global HeadPanPos
+    global HeadTiltPos
+    global HeadRollRos
+    HeadRollRos = HeadRollRos + NewRoll
+    if HeadRollRos < -50: 
+        HeadRollRos = -50
+    if HeadRollRos > 50: 
+        HeadRollRos = 50
     HeadPanTilt(HeadPanTilt, HeadTiltPos, HeadRollRos)
