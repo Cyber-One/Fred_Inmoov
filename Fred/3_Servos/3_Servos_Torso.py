@@ -94,35 +94,35 @@ if EnableMidStomach == True:
     MidStomach.setAutoDisable(True)
     MidStomach.rest()
 
-if EnableRollStomach == True:
+if EnablePitchStomach == True:
     print "--Top Stomach"
-    RollStomach = Runtime.createAndStart("RollStomach", "Servo")
-    if RollStomachAttchment == "Head":
-        RollStomach.attach(Head, RollStomachPin)
-    if RollStomachAttchment == "Back":
-        RollStomach.attach(Back, RollStomachPin)
-    if RollStomachAttchment == "RightArm":
-        RollStomach.attach(RightArm, RollStomachPin)
-    if RollStomachAttchment == "LeftArm":
-        RollStomach.attach(LeftArm, RollStomachPin)
-    if RollStomachAttchment == "arduinoLeft":
-        RollStomach.attach(arduinoLeft, RollStomachPin)
-    if RollStomachAttchment == "arduinoRight":
-        RollStomach.attach(arduinoRight, RollStomachPin)
-    if RollStomachAttchment == "arduinoNano":
-        RollStomach.attach(arduinoNano, RollStomachPin)
-    #RollStomach.setMinMax(RollStomachMinPos, RollStomachMaxPos)
-    RollStomach.setMinMax(0, 100)
-    if RollStomachMinPos < RollStomachMaxPos:
-        RollStomach.map(0, 100, RollStomachMinPos, RollStomachMaxPos)
-        RollStomach.setInverted(False)
+    PitchStomach = Runtime.createAndStart("PitchStomach", "Servo")
+    if PitchStomachAttchment == "Head":
+        PitchStomach.attach(Head, PitchStomachPin)
+    if PitchStomachAttchment == "Back":
+        PitchStomach.attach(Back, PitchStomachPin)
+    if PitchStomachAttchment == "RightArm":
+        PitchStomach.attach(RightArm, PitchStomachPin)
+    if PitchStomachAttchment == "LeftArm":
+        PitchStomach.attach(LeftArm, PitchStomachPin)
+    if PitchStomachAttchment == "arduinoLeft":
+        PitchStomach.attach(arduinoLeft, PitchStomachPin)
+    if PitchStomachAttchment == "arduinoRight":
+        PitchStomach.attach(arduinoRight, PitchStomachPin)
+    if PitchStomachAttchment == "arduinoNano":
+        PitchStomach.attach(arduinoNano, PitchStomachPin)
+    #PitchStomach.setMinMax(PitchStomachMinPos, PitchStomachMaxPos)
+    PitchStomach.setMinMax(0, 100)
+    if PitchStomachMinPos < PitchStomachMaxPos:
+        PitchStomach.map(0, 100, PitchStomachMinPos, PitchStomachMaxPos)
+        PitchStomach.setInverted(False)
     else:
-        RollStomach.map(0, 100, RollStomachMaxPos, RollStomachMinPos)
-        RollStomach.setInverted(True)
-    RollStomach.setRest(RollStomachRestPos)
+        PitchStomach.map(0, 100, PitchStomachMaxPos, PitchStomachMinPos)
+        PitchStomach.setInverted(True)
+    PitchStomach.setRest(PitchStomachRestPos)
     if MRL == "Nixie":
-        RollStomach.setSpeed(RollStomachMaxSpeed)
+        PitchStomach.setSpeed(PitchStomachMaxSpeed)
     else:
-        RollStomach.setVelocity(RollStomachMaxSpeed) ## max velocity
-    RollStomach.setAutoDisable(True)
-    RollStomach.rest()
+        PitchStomach.setVelocity(PitchStomachMaxSpeed) ## max velocity
+    PitchStomach.setAutoDisable(True)
+    PitchStomach.rest()

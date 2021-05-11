@@ -50,11 +50,11 @@ MidStomachMaxSpeed = 120         # -1
 # Not in the official list of parts, some builders have added
 # the ability to pitch the body back and forward above the
 # MidStomach rotator.
-EnableRollStomach = False
-RollStomachAttchment = "Back"    # Not Present
-RollStomachPin = 10              # 
-RollStomachMinPos = 0            # 
-RollStomachMaxPos = 180          # 
-RollStomachRestPos = 90          # 
-RollStomachMaxSpeed = 120        # 
+EnablePitchStomach = False
+PitchStomachAttchment = "Back"    # Not Present
+PitchStomachPin = 10              # 
+PitchStomachMinPos = 0            # 
+PitchStomachMaxPos = 180          # 
+PitchStomachRestPos = 90          # 
+PitchStomachMaxSpeed = 120        # 
 

@@ -45,13 +45,13 @@ def TorsoPanTilt(Pan, Tilt, Roll):
     print "Panning Torso To ", PanTo
     if EnableMidStomach == True:
         MidStomach.moveTo(PanTo)
-    if TorsoType and EnableRollStomach:
+    if TorsoType and EnablePitchStomach:
         Print "Still working on this :-)"
     else:
         if EnableTopStomach:
             RollTo = 50 + Roll
             TopStomach.moveTo(RollTo)
-        if EnableRollStomach:
+        if EnablePitchStomach:
             TiltTo = 50 + Tilt
-            RollStomach.moveTo(TiltTo)
+            PitchStomach.moveTo(TiltTo)
     print "TorsoPanTilt finished"

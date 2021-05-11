@@ -460,30 +460,30 @@ if EnableMidStomach == True:
     MidStomach.setAutoDisable(True)
     MidStomach.rest()
 
-if EnableRollStomach == True:
+if EnablePitchStomach == True:
     print "--Top Stomach"
-    RollStomach = Runtime.createAndStart("RollStomach", "Servo")
-    if RollStomachAttchment == "Head":
-        RollStomach.attach(Head, RollStomachPin)
-    if RollStomachAttchment == "Back":
-        RollStomach.attach(Back, RollStomachPin)
-    if RollStomachAttchment == "RightArm":
-        RollStomach.attach(RightArm, RollStomachPin)
-    if RollStomachAttchment == "LeftArm":
-        RollStomach.attach(LeftArm, RollStomachPin)
-    if RollStomachAttchment == "arduinoLeft":
-        RollStomach.attach(arduinoLeft, RollStomachPin)
-    if RollStomachAttchment == "arduinoRight":
-        RollStomach.attach(arduinoRight, RollStomachPin)
-    if RollStomachAttchment == "arduinoNano":
-        RollStomach.attach(arduinoNano, RollStomachPin)
-    RollStomach.setMinMax(RollStomachMinPos, RollStomachMaxPos)
-    #RollStomach.map(0, 100, RollStomachMinPos, RollStomachMaxPos)
-    RollStomach.setRest(RollStomachRestPos)
-    RollStomach.setInverted(False)
-    RollStomach.setSpeed(120)
-    RollStomach.setAutoDisable(True)
-    RollStomach.rest()
+    PitchStomach = Runtime.createAndStart("PitchStomach", "Servo")
+    if PitchStomachAttchment == "Head":
+        PitchStomach.attach(Head, PitchStomachPin)
+    if PitchStomachAttchment == "Back":
+        PitchStomach.attach(Back, PitchStomachPin)
+    if PitchStomachAttchment == "RightArm":
+        PitchStomach.attach(RightArm, PitchStomachPin)
+    if PitchStomachAttchment == "LeftArm":
+        PitchStomach.attach(LeftArm, PitchStomachPin)
+    if PitchStomachAttchment == "arduinoLeft":
+        PitchStomach.attach(arduinoLeft, PitchStomachPin)
+    if PitchStomachAttchment == "arduinoRight":
+        PitchStomach.attach(arduinoRight, PitchStomachPin)
+    if PitchStomachAttchment == "arduinoNano":
+        PitchStomach.attach(arduinoNano, PitchStomachPin)
+    PitchStomach.setMinMax(PitchStomachMinPos, PitchStomachMaxPos)
+    #PitchStomach.map(0, 100, PitchStomachMinPos, PitchStomachMaxPos)
+    PitchStomach.setRest(PitchStomachRestPos)
+    PitchStomach.setInverted(False)
+    PitchStomach.setSpeed(120)
+    PitchStomach.setAutoDisable(True)
+    PitchStomach.rest()
 
 ##############################################################
 #                                                            #
