@@ -48,35 +48,35 @@ def HeadPanTilt(Pan, Tilt, Roll):
 def HeadPanTo(NewPan):
     global HeadPanPos
     global HeadTiltPos
-    global HeadRollRos
+    global HeadRollPos
     HeadPanPos = NewPan
     if HeadPanPos < -50: 
         HeadPanPos = -50
     if HeadPanPos > 50: 
         HeadPanPos = 50
-    HeadPanTilt(HeadPanTilt, HeadTiltPos, HeadRollRos)
+    HeadPanTilt(HeadPanTilt, HeadTiltPos, HeadRollPos)
 
 def HeadTiltTo(NewTilt):
     global HeadPanPos
     global HeadTiltPos
-    global HeadRollRos
+    global HeadRollPos
     HeadTiltPos = NewTilt
     if HeadTiltPos < -50: 
         HeadTiltPos = -50
     if HeadTiltPos > 50: 
         HeadTiltPos = 50
-    HeadPanTilt(HeadPanTilt, HeadTiltPos, HeadRollRos)
+    HeadPanTilt(HeadPanTilt, HeadTiltPos, HeadRollPos)
 
 def HeadRollTo(NewRoll):
     global HeadPanPos
     global HeadTiltPos
-    global HeadRollRos
-    HeadRollRos = NewRoll
-    if HeadRollRos < -50: 
-        HeadRollRos = -50
-    if HeadRollRos > 50: 
-        HeadRollRos = 50
-    HeadPanTilt(HeadPanTilt, HeadTiltPos, HeadRollRos)
+    global HeadRollPos
+    HeadRollPos = NewRoll
+    if HeadRollPos < -50: 
+        HeadRollPos = -50
+    if HeadRollPos > 50: 
+        HeadRollPos = 50
+    HeadPanTilt(HeadPanTilt, HeadTiltPos, HeadRollPos)
 
 # This group of Methods will add a value to the current
 # virtual axis one at a time.  The other values are grabbed
@@ -84,32 +84,32 @@ def HeadRollTo(NewRoll):
 def HeadPan(NewPan):
     global HeadPanPos
     global HeadTiltPos
-    global HeadRollRos
+    global HeadRollPos
     HeadPanPos = HeadPanPos + NewPan
     if HeadPanPos < -50: 
         HeadPanPos = -50
     if HeadPanPos > 50: 
         HeadPanPos = 50
-    HeadPanTilt(HeadPanTilt, HeadTiltPos, HeadRollRos)
+    HeadPanTilt(HeadPanTilt, HeadTiltPos, HeadRollPos)
 
 def HeadTilt(NewTilt):
     global HeadPanPos
     global HeadTiltPos
-    global HeadRollRos
+    global HeadRollPos
     HeadTiltPos = HeadTiltPos + NewTilt
     if HeadTiltPos < -50: 
         HeadTiltPos = -50
     if HeadTiltPos > 50: 
         HeadTiltPos = 50
-    HeadPanTilt(HeadPanTilt, HeadTiltPos, HeadRollRos)
+    HeadPanTilt(HeadPanTilt, HeadTiltPos, HeadRollPos)
 
 def HeadRoll(NewRoll):
     global HeadPanPos
     global HeadTiltPos
-    global HeadRollRos
-    HeadRollRos = HeadRollRos + NewRoll
-    if HeadRollRos < -50: 
-        HeadRollRos = -50
-    if HeadRollRos > 50: 
-        HeadRollRos = 50
-    HeadPanTilt(HeadPanTilt, HeadTiltPos, HeadRollRos)
+    global HeadRollPos
+    HeadRollPos = HeadRollPos + NewRoll
+    if HeadRollPos < -50: 
+        HeadRollPos = -50
+    if HeadRollPos > 50: 
+        HeadRollPos = 50
+    HeadPanTilt(HeadPanTilt, HeadTiltPos, HeadRollPos)

@@ -46,6 +46,7 @@ def TorsoPanTilt(Pan, Tilt, Roll):
     if EnableMidStomach == True:
         MidStomach.moveTo(PanTo)
     if TorsoType and EnablePitchStomach:
+        # This option is a mixing type control.
         Print "Still working on this :-)"
     else:
         if EnableTopStomach:
@@ -55,3 +56,75 @@ def TorsoPanTilt(Pan, Tilt, Roll):
             TiltTo = 50 + Tilt
             PitchStomach.moveTo(TiltTo)
     print "TorsoPanTilt finished"
+
+# This group of methods allow you to control one virtual axis
+# at a time, you pass the new value and it grabs the last
+# known positions of the other axis.
+def TorsoPanTo(NewPan):
+    global TorsoPanPos
+    global TorsoTiltPos
+    global TorsoRollPos
+    TorsoPanPos = NewPan
+    if TorsoPanPos < -50: 
+        TorsoPanPos = -50
+    if TorsoPanPos > 50: 
+        TorsoPanPos = 50
+    TorsoPanTilt(TorsoPanTilt, TorsoTiltPos, TorsoRollPos)
+
+def TorsoTiltTo(NewTilt):
+    global TorsoPanPos
+    global TorsoTiltPos
+    global TorsoRollPos
+    TorsoTiltPos = NewTilt
+    if TorsoTiltPos < -50: 
+        TorsoTiltPos = -50
+    if TorsoTiltPos > 50: 
+        TorsoTiltPos = 50
+    TorsoPanTilt(TorsoPanTilt, TorsoTiltPos, TorsoRollPos)
+
+def TorsoRollTo(NewRoll):
+    global TorsoPanPos
+    global TorsoTiltPos
+    global TorsoRollPos
+    TorsoRollPos = NewRoll
+    if TorsoRollPos < -50: 
+        TorsoRollPos = -50
+    if TorsoRollPos > 50: 
+        TorsoRollPos = 50
+    TorsoPanTilt(TorsoPanTilt, TorsoTiltPos, TorsoRollPos)
+
+# This group of Methods will add a value to the current
+# virtual axis one at a time.  The other values are grabbed
+# from memory
+def TorsoPan(NewPan):
+    global TorsoPanPos
+    global TorsoTiltPos
+    global TorsoRollPos
+    TorsoPanPos = TorsoPanPos + NewPan
+    if TorsoPanPos < -50: 
+        TorsoPanPos = -50
+    if TorsoPanPos > 50: 
+        TorsoPanPos = 50
+    TorsoPanTilt(TorsoPanTilt, TorsoTiltPos, TorsoRollPos)
+
+def TorsoTilt(NewTilt):
+    global TorsoPanPos
+    global TorsoTiltPos
+    global TorsoRollPos
+    TorsoTiltPos = TorsoTiltPos + NewTilt
+    if TorsoTiltPos < -50: 
+        TorsoTiltPos = -50
+    if TorsoTiltPos > 50: 
+        TorsoTiltPos = 50
+    TorsoPanTilt(TorsoPanTilt, TorsoTiltPos, TorsoRollPos)
+
+def TorsoRoll(NewRoll):
+    global TorsoPanPos
+    global TorsoTiltPos
+    global TorsoRollPos
+    TorsoRollPos = TorsoRollPos + NewRoll
+    if TorsoRollPos < -50: 
+        TorsoRollPos = -50
+    if TorsoRollPos > 50: 
+        TorsoRollPos = 50
+    TorsoPanTilt(TorsoPanTilt, TorsoTiltPos, TorsoRollPos)
