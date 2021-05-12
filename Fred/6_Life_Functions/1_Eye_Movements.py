@@ -40,6 +40,56 @@ def eyesUD(eyesUDpos):
     if EnableLeftEyeY == True:
         LeftEyeUD.moveTo(50+eyesUDpos)
 
+# This method mostly makes sure you dont exceed the valid range.
+def EyesPanTo(NewPan):
+    global EyesPanPos
+    global EyesTiltPos
+    EyesPanPos = NewPan
+    if EyesPanPos < -50: 
+        EyesPanPos = -50
+    if EyesPanPos > 50: 
+        EyesPanPos = 50
+    eyesLR(EyesPanPos)
+    eyesUD(EyesTiltPos)
+
+# This method mostly makes sure you dont exceed the valid range.
+def EyesTiltTo(NewTilt):
+    global EyesPanPos
+    global EyesTiltPos
+    EyesTiltPos = NewTilt
+    if EyesTiltPos < -50: 
+        EyesTiltPos = -50
+    if EyesTiltPos > 50: 
+        EyesTiltPos = 50
+    eyesLR(EyesPanPos)
+    eyesUD(EyesTiltPos)
+
+# This group of Methods will add a value to the current
+# virtual axis one at a time.  The other values are grabbed
+# from memory
+def EyesPan(NewPan):
+    global EyesPanPos
+    global EyesTiltPos
+    EyesPanPos = EyesPanPos + NewPan
+    if EyesPanPos < -50: 
+        EyesPanPos = -50
+    if EyesPanPos > 50: 
+        EyesPanPos = 50
+    eyesLR(EyesPanPos)
+    eyesUD(EyesTiltPos)
+
+def EyesTilt(NewTilt):
+    global EyesPanPos
+    global EyesTiltPos
+    EyesTiltPos = EyesTiltPos + NewTilt
+    if EyesTiltPos < -50: 
+        EyesTiltPos = -50
+    if EyesTiltPos > 50: 
+        EyesTiltPos = 50
+    eyesLR(EyesPanPos)
+    eyesUD(EyesTiltPos)
+
+
 # We want the robot to appear to be more alive, and nothing
 # speaks to being alive more than small random movements.
 def MoveEyes(timedata):

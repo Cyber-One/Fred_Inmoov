@@ -46,6 +46,11 @@ LookPositionTilt = 0
 
 # To simplify the head movements, we need to keep track of
 # where the head is pointed, for that we use following variables
+EyesPanPos = 0
+EyesTiltPos = 0
+
+# To simplify the head movements, we need to keep track of
+# where the head is pointed, for that we use following variables
 HeadPanPos = 0
 HeadTiltPos = 0
 HeadRollPos = 0
