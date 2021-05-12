@@ -67,7 +67,7 @@ RightEyeXAttachment = "Head"    # "arduinoLeft"
 RightEyeXPin = 15               # 22
 RightEyeXMinPos = 0             # 60
 RightEyeXMaxPos = 180           # 120
-RightEyeXRestPos = 90           # 90
+RightEyeXRestPos = 50           # 90
 RightEyeXVelocity = -1          #
 
 # The Right Eye Y-Axis (Up / Down Motion)
@@ -76,7 +76,7 @@ RightEyeYAttachment = "Head"    # "arduinoLeft"
 RightEyeYPin = 14               # 24
 RightEyeYMinPos = 0             # 60
 RightEyeYMaxPos = 180           # 120
-RightEyeYRestPos = 90           # 90
+RightEyeYRestPos = 50           # 90
 RightEyeYVelocity = -1          #
 
 # The Left Eye X-Axis (Left / Right motion)
@@ -86,7 +86,7 @@ LeftEyeXAttachment = "Head"     # Not Present
 LeftEyeXPin = 13                #
 LeftEyeXMinPos = 0              #
 LeftEyeXMaxPos = 180            #
-LeftEyeXRestPos = 90            #
+LeftEyeXRestPos = 50            #
 LeftEyeXVelocity = -1           #
 
 # The Left Eye Y-Axis (Up / Down Motion)
@@ -95,7 +95,7 @@ LeftEyeYAttachment = "Head"     # Not Present
 LeftEyeYPin = 12                #
 LeftEyeYMinPos = 180            #
 LeftEyeYMaxPos = 0              #
-LeftEyeYRestPos = 90            #
+LeftEyeYRestPos = 50            #
 LeftEyeYVelocity = -1           #
 
 # The Right Upper Eye Lid
@@ -104,7 +104,7 @@ UpperREyeLidAttachment = "Head" # "arduinoRight"
 UpperREyeLidPin = 11            # 13
 UpperREyeLidMinPos = 150        # 60
 UpperREyeLidMaxPos = 45         # 120
-UpperREyeLidRestPos = 45        # 60
+UpperREyeLidRestPos = 50        # 60
 UpperREyeLidVelocity = -1       #
 
 # The Right Lower Eye Lid
@@ -115,7 +115,7 @@ LowerREyeLidAttachment = "Head" # Not Present
 LowerREyeLidPin = 10            #
 LowerREyeLidMinPos = 0          #
 LowerREyeLidMaxPos = 30         #
-LowerREyeLidRestPos = 120       #
+LowerREyeLidRestPos = 50        #
 LowerREyeLidVelocity = -1       #
 
 # The Left Upper Eye Lid.
@@ -127,7 +127,7 @@ UpperLEyeLidAttachment = "Head" # Not Present
 UpperLEyeLidPin = 9             # 
 UpperLEyeLidMinPos = 45         # 
 UpperLEyeLidMaxPos = 150        # 
-UpperLEyeLidRestPos = 45        # 
+UpperLEyeLidRestPos = 50        # 
 UpperLEyeLidVelocity = -1       # 
 
 # The Left Lower Eye Lid.
@@ -139,6 +139,6 @@ LowerLEyeLidAttachment = "Head" # Not Present
 LowerLEyeLidPin = 8             #
 LowerLEyeLidMinPos = 0          #
 LowerLEyeLidMaxPos = 120        #
-LowerLEyeLidRestPos = 30        #
+LowerLEyeLidRestPos = 50        #
 LowerLEyeLidVelocity = -1       #
 
