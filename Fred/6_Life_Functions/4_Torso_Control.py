@@ -17,9 +17,6 @@
 # the body of the robot                                      #
 #                                                            #
 ##############################################################
-import math
-import time
-import random
 
 # There are are two servos in the standard build of the
 # Inmoov robot, the upper set of servos for the side to side

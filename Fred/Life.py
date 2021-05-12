@@ -48,6 +48,9 @@ execfile(RuningFolder+'/6_Life_Functions/3_Neck_Control.py')
 # The Torso is controlled from this sub program
 execfile(RuningFolder+'/6_Life_Functions/4_Torso_Control.py')
 
+# The Look set of methods are controlled from this sub program
+execfile(RuningFolder+'/6_Life_Functions/Look_Control.py')
+
 # We don't want our robot being active all the time, so we
 # need to put the robot to sleep when it's been idel for a
 # while and wake it up when a sense event occurs.

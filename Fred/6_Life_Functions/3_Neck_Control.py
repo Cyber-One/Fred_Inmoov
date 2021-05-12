@@ -19,7 +19,6 @@
 ##############################################################
 import math
 import time
-import random
 
 # Pan and Tilt are the common methods of controlling a camera.
 # normally, you would have a rotating base and the place a tilt mechinism on the pan base.
