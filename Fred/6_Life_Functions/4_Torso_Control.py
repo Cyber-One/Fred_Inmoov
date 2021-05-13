@@ -42,10 +42,7 @@ def TorsoPanTilt(Pan, Tilt, Roll):
     print "Panning Torso To ", PanTo
     if EnableMidStomach == True:
         MidStomach.moveTo(PanTo)
-    if TorsoType and EnablePitchStomach:
-        # This option is a mixing type control.
-        Print "Still working on this :-)"
-    else:
+    if not (TorsoType and EnablePitchStomach):
         if EnableTopStomach:
             RollTo = 50 + Roll
             TopStomach.moveTo(RollTo)
