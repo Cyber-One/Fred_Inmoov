@@ -53,7 +53,7 @@ JawAttachment = "Head"          # "arduinoLeft"
 JawPin = 9                      # 26
 JawMinPos = 70                  # 10
 JawMaxPos = 140                 # 25
-JawRestPos = 80                 # 10
+JawRestPos = 10                 # 10
 JawVelocity = -1                #
 
 # In the original design, there are only two servos for the
@@ -67,7 +67,7 @@ RightEyeXAttachment = "Head"    # "arduinoLeft"
 RightEyeXPin = 15               # 22
 RightEyeXMinPos = 0             # 60
 RightEyeXMaxPos = 180           # 120
-RightEyeXRestPos = 50           # 90
+RightEyeXRestPos = 50           # 50
 RightEyeXVelocity = -1          #
 
 # The Right Eye Y-Axis (Up / Down Motion)
@@ -76,7 +76,7 @@ RightEyeYAttachment = "Head"    # "arduinoLeft"
 RightEyeYPin = 14               # 24
 RightEyeYMinPos = 0             # 60
 RightEyeYMaxPos = 180           # 120
-RightEyeYRestPos = 50           # 90
+RightEyeYRestPos = 50           # 50
 RightEyeYVelocity = -1          #
 
 # The Left Eye X-Axis (Left / Right motion)
@@ -104,7 +104,7 @@ UpperREyeLidAttachment = "Head" # "arduinoRight"
 UpperREyeLidPin = 11            # 13
 UpperREyeLidMinPos = 150        # 60
 UpperREyeLidMaxPos = 45         # 120
-UpperREyeLidRestPos = 50        # 60
+UpperREyeLidRestPos = 50        # 0
 UpperREyeLidVelocity = -1       #
 
 # The Right Lower Eye Lid
