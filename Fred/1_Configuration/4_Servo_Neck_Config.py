@@ -45,8 +45,8 @@ HeadYawMaxSpeed = 120           # -1
 EnableHeadPitch = True
 HeadPitchAttachment = "Back"    # "arduinoLeft"
 HeadPitchPin = 7                # 12
-HeadPitchMinPos = 0             # 20
-HeadPitchMaxPos = 180           # 160
+HeadPitchMinPos = 180           # 20
+HeadPitchMaxPos = 0             # 160
 HeadPitchRestPos = 50           # 90
 HeadPitchMaxSpeed = 120         # -1
 
