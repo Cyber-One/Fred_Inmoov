@@ -85,37 +85,3 @@ def WinkRightEye():
     if EnableRightUpperEyeLid == True:
         UpperEyeLidR.moveTo(100) # open the Right upper eye lid
 
-# Routines to create the blinking motion
-# we use the Clock service to provide a regular event that calls the blink procedure.
-# one of the things we do within the blink routine is to change the blink interval to a random number between 5 and 10 seconds.
-# future enhancements may include shifting the random range based on the current light levels and the average light levels,
-# blink more often when the light levels increase until an average value has been reached.
-print "-Eye blinking"
-
-# We need a function that does the blink when the timer expires
-# or if we want to simulate a blink for some reason.
-# timedata is not used but is required by the timer service.
-def blink(timedata):
-    UpperEyeLidsClose() # close the upper eye lid
-    LowerEyeLidsClose() # close the lower eye lid
-    time.sleep(0.5)
-    UpperEyeLidsOpen() # Open the upper eye lid
-    LowerEyeLidsOpen() # Open the lower eye lid
-    if EnableBlinking == True:
-        BlinkInterval = random.randint(5000, 10000) # But this random one is more life like.
-        print "BlinkInterval of ", BlinkInterval, " miliseconds"
-        BlinkClock.setInterval(BlinkInterval) # Set a new random time for the next blink
-
-# To make the robot appear alive, we create the blink timer
-# which in turn calls the blink method.
-if EnableBlinking == True:
-    # For the Blink to work, we need a timer to control the interval between blinks
-    BlinkClock = Runtime.createAndStart("BlinkClock", "Clock")
-    # the addListener() call will run the python routine "blink" whenever the pulse event occurs.
-    BlinkClock.addListener("pulse", python.name, "blink")
-    # Initially, we will set the blink interval at 10 seconds.
-    BlinkClock.setInterval(10000)
-    # Then we start the clock running.
-    print "--Start Blink Clock"
-    BlinkClock.startClock()
-

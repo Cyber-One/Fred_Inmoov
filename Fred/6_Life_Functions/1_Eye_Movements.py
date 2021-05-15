@@ -90,30 +90,3 @@ def EyesTilt(NewTilt):
     eyesUD(EyesTiltPos)
 
 
-# We want the robot to appear to be more alive, and nothing
-# speaks to being alive more than small random movements.
-def MoveEyes(timedata):
-    MoveEyesTimer.setInterval(random.randint(1000,2000))
-    if Awake:
-        #need to look at speed settings
-        eyesLR(random.uniform(-20,20))
-        eyesUD(random.uniform(-10,10))
-
-def MoveEyesStart():
-    if isTalking:
-        MoveEyesTimer.stopClock()
-
-def MoveEyesStop():
-    eyesLR(0)
-    eyesUD(0)
-
-# The Clock service in MyRobotLab is designed to provide a
-# repetative pulse type output each time the preset time
-# has elapsed.  This is done 
-if EnableRandomEyeMovements == True:
-    MoveEyesTimer = Runtime.createAndStart("MoveEyesTimer","Clock")
-    MoveEyesTimer.setInterval(random.randint(1000,2000))
-    MoveEyesTimer.addListener("pulse", python.name, "MoveEyes")
-    MoveEyesTimer.addListener("clockStarted", python.name, "MoveEyesStart")  
-    MoveEyesTimer.addListener("clockStopped", python.name, "MoveEyesStop")
-

@@ -48,8 +48,19 @@ execfile(RuningFolder+'/6_Life_Functions/3_Neck_Control.py')
 # The Torso is controlled from this sub program
 execfile(RuningFolder+'/6_Life_Functions/4_Torso_Control.py')
 
+# The Torso is controlled from this sub program
+execfile(RuningFolder+'/6_Life_Functions/5_RightArm_Control.py')
+
+# The Torso is controlled from this sub program
+execfile(RuningFolder+'/6_Life_Functions/6_LeftArm_Control.py')
+
+# Haven't worked out what Function 7 will be fore yet :-)
+
 # The Look set of methods are controlled from this sub program
-execfile(RuningFolder+'/6_Life_Functions/Look_Control.py')
+execfile(RuningFolder+'/6_Life_Functions/8_Look_Control.py')
+
+# This is where our life simulation functions live
+execfile(RuningFolder+'/6_Life_Functions/9_Random_Movements.py')
 
 # We don't want our robot being active all the time, so we
 # need to put the robot to sleep when it's been idel for a
