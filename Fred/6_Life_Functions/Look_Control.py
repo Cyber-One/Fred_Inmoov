@@ -56,6 +56,7 @@ def LookHeadTiltTo(LookTilt):
 # I can scale the input to move the eye balls to move to say
 # to 75 pos and try and move the head to 3.125 to get the
 # total desired movement.
+
 def LookHeadPan(LookPan):
     if LookPan > 0:
         if (HeadPanPos + LookPan) > 25:
@@ -75,3 +76,23 @@ def LookHeadPan(LookPan):
         LookPositionPan = -50
     EyesPanTo(HeadPanPos)
     HeadPanTo(LookPositionPan)
+
+def LookHeadTilt(LookTilt):
+    if LookTilt > 0:
+        if (HeadTiltPos + LookTilt) > 25:
+            LookPositionTilt = LookPositionTilt + (((HeadTiltPos + LookTilt) - 25) * 0.625)
+            HeadTiltPos = 25
+        else:
+            HeadTiltPos = HeadTiltPos + LookTilt
+    else:
+        if (HeadTiltPos + LookTilt) < -25:
+            LookPositionTilt = LookPositionTilt + (((HeadTiltPos + LookTilt) + 25) * 0.625)
+            HeadTiltPos = -25
+        else:
+            HeadTiltPos = HeadTiltPos + LookTilt
+    if LookPositionTilt > 50:
+        LookPositionTilt = 50
+    if LookPositionTilt < -50:
+        LookPositionTilt = -50
+    EyesTiltTo(HeadTiltPos)
+    HeadTiltTo(LookPositionTilt)
