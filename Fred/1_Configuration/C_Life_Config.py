@@ -30,25 +30,20 @@ print "Loading the Life Simulation System Config"
 # When Bartoz diferential control is used, set this to True.
 TorsoType = False
 
-# This is how much quiet time must elapse for the robot 
-# goes to sleep.  There are various events that will restart
-# the timer, including talking or proximity sensors avtivating
-# The time is in mili-seconds.
-TimeToSleep = 5 * 60000    
-
 # The Blinking feature can be very anoying, 
 # so the option to turn it of is here.
 EnableBlinking = True           # Set to True or False
+# Minimum time between blinks
+RandBlinkMinTime = 5000         # int milliSeconds
+# Maximum time between blinks
+RandBlinkMaxTime = 10000        # int milliSeconds
 
 # Moves the eyes to make the robot appear more alive.
 EnableRandomEyeMovements = True # Set to True or False
-
 # Min time between movements
 RandEyeMovementsMinTime = 1000  # int miliSeconds
-
 # Max time between movements
 RandEyeMovementsMaxTime = 5000  # int miliSeconds
-
 # Max amount to move the eyes from last position
 # each time the random function is called.
 RandEyeMovementsMaxRot = 20     # Perecnt of total range
@@ -60,13 +55,18 @@ RandEyeMovementsMaxRot = 20     # Perecnt of total range
 # back up again, This auto sleep can be disabled by disabling
 # the Sleep Timer
 EnableSleepTimer = True         # Set to True or False
-
-# There are times when setting up your robot, you don't want
-# the jaw to move, this is where you can disable this feature.
-EnableMouthControl = True       # Set to True or False
-
+# This is how much quiet time must elapse for the robot 
+# goes to sleep.  There are various events that will restart
+# the timer, including talking or proximity sensors avtivating
+# The time is in mili-seconds.
+TimeToSleep = 5 * 60000    
 # Wakeup Message
 # This message is spoken whenever the robot wakes up
 # Set the message to OFF if you don't want this message.
 WakeupMessage = u"Hello, How are you"
 #WakeupMessage = "OFF"
+
+# There are times when setting up your robot, you don't want
+# the jaw to move, this is where you can disable this feature.
+EnableMouthControl = True       # Set to True or False
+
