@@ -59,26 +59,27 @@ def LookHeadTiltTo(LookTilt):
 
 def LookHeadPan(LookPan):
     global HeadPanPos
+    global EyesPanPos
     global LookPositionPan
     if LookPan > 0:
-        if (HeadPanPos + LookPan) > 25:
-            LookPositionPan = LookPositionPan + (((HeadPanPos + LookPan) - 25) * 0.625)
-            HeadPanPos = 25
+        if (EyesPanPos + LookPan) > 25:
+            HeadPanPos = HeadPanPos + (((EyesPanPos + LookPan) - 25) * 0.625)
+            EyesPanPos = 25
         else:
-            HeadPanPos = HeadPanPos + LookPan
+            EyesPanPos = EyesPanPos + LookPan
     else:
-        if (HeadPanPos + LookPan) < -25:
-            LookPositionPan = LookPositionPan + (((HeadPanPos + LookPan) + 25) * 0.625)
-            HeadPanPos = -25
+        if (EyesPanPos + LookPan) < -25:
+            HeadPanPos = HeadPanPos + (((EyesPanPos + LookPan) + 25) * 0.625)
+            EyesPanPos = -25
         else:
-            HeadPanPos = HeadPanPos + LookPan
-    if LookPositionPan > 50:
-        LookPositionPan = 50
-    if LookPositionPan < -50:
-        LookPositionPan = -50
-    print "LookHeadPan( ", LookPositionPan, ", ", HeadPanPos, ", ", LookPan, ")"
-    EyesPanTo(HeadPanPos)
-    HeadPanTo(LookPositionPan)
+            EyesPanPos = EyesPanPos + LookPan
+    if HeadPanPos > 50:
+        HeadPanPos = 50
+    if HeadPanPos < -50:
+        HeadPanPos = -50
+    print "LookHeadPan( ", HeadPanPos, ", ", EyesPanPos, ", ", LookPan, ")"
+    EyesPanTo(EyesPanPos)
+    HeadPanTo(HeadPanPos)
 
 def LookHeadTilt(LookTilt):
     global HeadTiltPos
