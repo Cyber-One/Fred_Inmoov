@@ -1,4 +1,5 @@
 # Fred_Inmoov #
+![Untitled 77](https://user-images.githubusercontent.com/29687261/118383244-765e0480-b63f-11eb-90a0-80c4d70c4611.jpg)
 
 Frequently Re-Engineered Device (FRED)
 Fred is a modified InMoov Robot.
@@ -13,6 +14,8 @@ Because I like to be different, I used the PCA9685 I2C 16 channel PWM driver boa
 4 of these in various places throughout the robot provide the servo control while reducing the nuber of wires running about the robot.
 
 Lets look at Fred in more detail.
+![Snapshot - 8](https://user-images.githubusercontent.com/29687261/118383346-495e2180-b640-11eb-8e78-205152f2de94.png)
+
 The head is where most of the modifications have been made.
 The large Hitech 805BB servo was replaced by a smaller JX Servo PDI6221MG and moved to the back of the skull and turned sideways.
 The Jaw servo was relocated turning it over and also moving it sideways.
@@ -26,6 +29,8 @@ The result is a bit taller neck than normal, this adds close to an inch of heigh
 Another PCA9685 is located in the back to driver the servos in this area.
 Because a lot of these servos are of the larger type, I've used a 20A SMPA to drop the 20Vdc to the 6Vdc for the servos.
 I also have a smaller 3A SMPS to power a small 5 port network switch and a second Raspberry Pi located on the back of a 7" LCD touch screen mounted where the original 8" tablet was.
+![Untitled 81](https://user-images.githubusercontent.com/29687261/118383334-229feb00-b640-11eb-9f88-083c458d3499.jpg)
+
 
 I will be adding two more 20A SMPS, one in each arm to power the servos in the elbow and hands.
 
