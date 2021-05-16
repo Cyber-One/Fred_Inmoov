@@ -58,6 +58,8 @@ def LookHeadTiltTo(LookTilt):
 # total desired movement.
 
 def LookHeadPan(LookPan):
+    global HeadPanPos
+    global LookPositionPan
     if LookPan > 0:
         if (HeadPanPos + LookPan) > 25:
             LookPositionPan = LookPositionPan + (((HeadPanPos + LookPan) - 25) * 0.625)
@@ -78,6 +80,8 @@ def LookHeadPan(LookPan):
     HeadPanTo(LookPositionPan)
 
 def LookHeadTilt(LookTilt):
+    global HeadTiltPos
+    global LookPositionTilt
     if LookTilt > 0:
         if (HeadTiltPos + LookTilt) > 25:
             LookPositionTilt = LookPositionTilt + (((HeadTiltPos + LookTilt) - 25) * 0.625)
