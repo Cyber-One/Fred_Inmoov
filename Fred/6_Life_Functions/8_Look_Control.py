@@ -76,6 +76,7 @@ def LookHeadPan(LookPan):
         LookPositionPan = 50
     if LookPositionPan < -50:
         LookPositionPan = -50
+    print "NeckPan( ", LookPositionPan, ", ", HeadPanPos, ")"
     EyesPanTo(HeadPanPos)
     HeadPanTo(LookPositionPan)
 
