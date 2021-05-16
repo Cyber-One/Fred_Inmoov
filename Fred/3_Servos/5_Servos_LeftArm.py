@@ -50,7 +50,7 @@ if EnableLeftOmoPlate == True:
     else:
         LeftOmoPlate.map(0, 100, LeftOmoPlateMaxPos, LeftOmoPlateMinPos)
         LeftOmoPlate.setInverted(True)
-    LeftOmoPlate.setRest(LeftOmoPlateRestPos)
+    LeftOmoPlate.setRest(0)
     LeftOmoPlate.setSpeed(LeftOmoPlateMaxSpeed)
     LeftOmoPlate.setAutoDisable(True)
     LeftOmoPlate.rest()
@@ -80,7 +80,7 @@ if EnableLeftShoulder == True:
     else:
         LeftShoulder.map(0, 100, LeftShoulderMaxPos, LeftShoulderMinPos)
         LeftShoulder.setInverted(True)
-    LeftShoulder.setRest(LeftShoulderRestPos)
+    LeftShoulder.setRest(16)
     LeftShoulder.setSpeed(LeftShoulderMaxSpeed)
     LeftShoulder.setAutoDisable(True)
     LeftShoulder.rest()
@@ -110,7 +110,7 @@ if EnableLeftRotate == True:
     else:
         LeftRotate.map(0, 100, LeftRotateMaxPos, LeftRotateMinPos)
         LeftRotate.setInverted(True)
-    LeftRotate.setRest(RightRotateRestPos)
+    LeftRotate.setRest(50)
     LeftRotate.setSpeed(LeftRotateMaxSpeed)
     LeftRotate.setAutoDisable(True)
     LeftRotate.rest()
@@ -140,7 +140,7 @@ if EnableLeftBicep == True:
     else:
         LeftBicep.map(0, 100, LeftBicepMaxPos, LeftBicepMinPos)
         LeftBicep.setInverted(True)
-    LeftBicep.setRest(LeftBicepRestPos)
+    LeftBicep.setRest(10)
     LeftBicep.setSpeed(LeftBicepMaxSpeed)
     LeftBicep.setAutoDisable(True)
     LeftBicep.rest()

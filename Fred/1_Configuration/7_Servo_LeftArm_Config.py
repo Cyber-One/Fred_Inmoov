@@ -27,7 +27,6 @@ LeftOmoPlateAttachment = "Back" # "arduioLeft"
 LeftOmoPlatePin = 15            # 11
 LeftOmoPlateMinPos = 0          # 10
 LeftOmoPlateMaxPos = 180        # 80
-LeftOmoPlateRestPos = 50        # 10
 LeftOmoPlateMaxSpeed = 120      # 
 
 # The left shoulder is a worm drive setup the pitches the
@@ -37,7 +36,6 @@ LeftShoulderAttachment = "Back" # "arduioLeft"
 LeftShoulderPin = 14            # 10
 LeftShoulderMinPos = 0          # 0
 LeftShoulderMaxPos = 180        # 180
-LeftShoulderRestPos = 50        # 30
 LeftShoulderMaxSpeed = 120      # 
 
 # This servo is located near the shoulder servo and rotates
@@ -47,7 +45,6 @@ LeftRotateAttachment = "Back"   # "arduioLeft"
 LeftRotatePin = 13              # 9
 LeftRotateMinPos = 0            # 40
 LeftRotateMaxPin = 180          # 180
-LeftRotateRestPOs = 50          # 90
 LeftRotateMaxSpeed = 120        # 
 
 # This servo is located in the bicep and operates the elbow.
@@ -56,5 +53,4 @@ LeftBicepAttachment = "LeftArm" # "arduioLeft"
 LeftBicepPin = 1                # 8
 LeftBicepMinPos = 0             # 0
 LeftBicepMaxPos = 180           # 90
-LeftBicepRestPos = 50           # 0
 LeftBicepMaxSpeed = 120         # 

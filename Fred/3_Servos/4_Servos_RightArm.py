@@ -50,7 +50,7 @@ if EnableRightOmoPlate == True:
     else:
         RightOmoPlate.map(0, 100, RightOmoPlateMaxPos, RightOmoPlateMinPos)
         RightOmoPlate.setInverted(True)
-    RightOmoPlate.setRest(RightOmoPlateRestPos)
+    RightOmoPlate.setRest(0)
     if MRL == "Nixie":
         RightOmoPlate.setSpeed(RightOmoPlateMaxSpeed)
     else:
@@ -83,7 +83,7 @@ if EnableRightShoulder == True:
     else:
         RightShoulder.map(0, 100, RightShoulderMaxPos, RightShoulderMinPos)
         RightShoulder.setInverted(True)
-    RightShoulder.setRest(RightShoulderRestPos)
+    RightShoulder.setRest(16)
     if MRL == "Nixie":
         RightShoulder.setSpeed(RightShoulderMaxSpeed)
     else:
@@ -118,7 +118,7 @@ if EnableRightRotate == True:
         RightRotate.setInverted(True)
     RightRotate.setRest(RightRotateRestPos)
     if MRL == "Nixie":
-        RightRotate.setSpeed(RightRotateMaxSpeed)
+        RightRotate.setSpeed(50)
     else:
         RightRotate.setVelocity(RightRotateMaxSpeed) ## max velocity
     RightRotate.setAutoDisable(True)
@@ -149,7 +149,7 @@ if EnableRightBicep == True:
     else:
         RightBicep.map(0, 100, RightBicepMaxPos, RightBicepMinPos)
         RightBicep.setInverted(True)
-    RightBicep.setRest(RightBicepRestPos)
+    RightBicep.setRest(10)
     if MRL == "Nixie":
         RightBicep.setSpeed(RightBicepMaxSpeed)
     else:

@@ -53,7 +53,7 @@ if EnableTopStomach == True:
     else:
         TopStomach.map(0, 100, TopStomachMaxPos, TopStomachMinPos)
         TopStomach.setInverted(True)
-    TopStomach.setRest(TopStomachRestPos)
+    TopStomach.setRest(50)
     if MRL == "Nixie":
         TopStomach.setSpeed(TopStomachMaxSpeed)
     else:
@@ -86,7 +86,7 @@ if EnableMidStomach == True:
     else:
         MidStomach.map(0, 100, MidStomachMaxPos, MidStomachMinPos)
         MidStomach.setInverted(True)
-    MidStomach.setRest(MidStomachRestPos)
+    MidStomach.setRest(50)
     if MRL == "Nixie":
         MidStomach.setSpeed(MidStomachMaxSpeed)
     else:
@@ -119,7 +119,7 @@ if EnablePitchStomach == True:
     else:
         PitchStomach.map(0, 100, PitchStomachMaxPos, PitchStomachMinPos)
         PitchStomach.setInverted(True)
-    PitchStomach.setRest(PitchStomachRestPos)
+    PitchStomach.setRest(50)
     if MRL == "Nixie":
         PitchStomach.setSpeed(PitchStomachMaxSpeed)
     else:

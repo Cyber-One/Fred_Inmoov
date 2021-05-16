@@ -34,7 +34,6 @@ HeadYawAttachment = "Head"      # "arduinoLeft"
 HeadYawPin = 8                  # 13
 HeadYawMinPos = 0               # 30
 HeadYawMaxPos = 180             # 150
-HeadYawRestPos = 50             # 90
 HeadYawMaxSpeed = 60            # -1
 
 # The HeadPitch is used to move the head up and down, this is 
@@ -47,7 +46,6 @@ HeadPitchAttachment = "Back"    # "arduinoLeft"
 HeadPitchPin = 7                # 12
 HeadPitchMinPos = 180           # 20
 HeadPitchMaxPos = 0             # 160
-HeadPitchRestPos = 50           # 90
 HeadPitchMaxSpeed = 60          # -1
 
 # In the original version, this servo did not exist. 
@@ -63,6 +61,5 @@ HeadRollAttachment = "Back"     # "arduinoRight"
 HeadRollPin = 6                 # 13
 HeadRollMinPos = 30             # 60
 HeadRollMaxPos = 180            # 130
-HeadRollRestPos = 50            # 90
 HeadRollMaxSpeed = 60           # -1
 

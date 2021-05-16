@@ -34,7 +34,6 @@ TopStomachAttachment = "Back"    # "arduinoLeft"
 TopStomachPin = 8                # 27
 TopStomachMinPos = 80            # 60
 TopStomachMaxPos = 135           # 120
-TopStomachRestPos = 50           # 90
 TopStomachMaxSpeed = 120         # -1
 
 # The MidStomach servos, a pair of HS805BB again configured
@@ -44,7 +43,6 @@ MidStomachAttchment = "Back"     # "arduinoLeft"
 MidStomachPin = 9                # 28
 MidStomachMinPos = 0             # 60
 MidStomachMaxPos = 180           # 120
-MidStomachRestPos = 50           # 90
 MidStomachMaxSpeed = 120         # -1
 
 # Not in the official list of parts, some builders have added
@@ -55,6 +53,5 @@ PitchStomachAttchment = "Back"    # Not Present
 PitchStomachPin = 10              # 
 PitchStomachMinPos = 0            # 
 PitchStomachMaxPos = 180          # 
-PitchStomachRestPos = 50          # 
 PitchStomachMaxSpeed = 120        # 
 

@@ -49,12 +49,19 @@ print "Creating the Servo Head Config"
 # of this works, but essentially, rotating the servo closes
 # the jaw while rotating it the other way opens it.
 EnableJawServo = True # True or False
+# This is the controller the Jaw Servo is attached to
 JawAttachment = "Head"          # "arduinoLeft"
+# The controller will have a number of pis, this is the pin 
+# this servo is connected to.
 JawPin = 9                      # 26
+# The is the value from testing where the Jaw is all the way closed.
 JawMinPos = 70                  # 10
+# This is the value from testing where the jaw is all the way open
 JawMaxPos = 140                 # 25
-JawRestPos = 10                 # 10
+# This is the speed that the moves at. -1 is no speed limit,
+# the jaw will move as fast as possible.
 JawVelocity = -1                #
+
 
 # In the original design, there are only two servos for the
 # eyes, the X and Y servos.  Later, another servo was added
@@ -67,7 +74,6 @@ RightEyeXAttachment = "Head"    # "arduinoLeft"
 RightEyeXPin = 15               # 22
 RightEyeXMinPos = 0             # 60
 RightEyeXMaxPos = 180           # 120
-RightEyeXRestPos = 50           # 50
 RightEyeXVelocity = -1          #
 
 # The Right Eye Y-Axis (Up / Down Motion)
@@ -76,7 +82,6 @@ RightEyeYAttachment = "Head"    # "arduinoLeft"
 RightEyeYPin = 14               # 24
 RightEyeYMinPos = 0             # 60
 RightEyeYMaxPos = 180           # 120
-RightEyeYRestPos = 50           # 50
 RightEyeYVelocity = -1          #
 
 # The Left Eye X-Axis (Left / Right motion)
@@ -86,7 +91,6 @@ LeftEyeXAttachment = "Head"     # Not Present
 LeftEyeXPin = 13                #
 LeftEyeXMinPos = 0              #
 LeftEyeXMaxPos = 180            #
-LeftEyeXRestPos = 50            #
 LeftEyeXVelocity = -1           #
 
 # The Left Eye Y-Axis (Up / Down Motion)
@@ -95,7 +99,6 @@ LeftEyeYAttachment = "Head"     # Not Present
 LeftEyeYPin = 12                #
 LeftEyeYMinPos = 180            #
 LeftEyeYMaxPos = 0              #
-LeftEyeYRestPos = 50            #
 LeftEyeYVelocity = -1           #
 
 # The Right Upper Eye Lid
@@ -104,7 +107,6 @@ UpperREyeLidAttachment = "Head" # "arduinoRight"
 UpperREyeLidPin = 11            # 13
 UpperREyeLidMinPos = 150        # 60
 UpperREyeLidMaxPos = 45         # 120
-UpperREyeLidRestPos = 50        # 0
 UpperREyeLidVelocity = -1       #
 
 # The Right Lower Eye Lid
@@ -115,7 +117,6 @@ LowerREyeLidAttachment = "Head" # Not Present
 LowerREyeLidPin = 10            #
 LowerREyeLidMinPos = 0          #
 LowerREyeLidMaxPos = 30         #
-LowerREyeLidRestPos = 50        #
 LowerREyeLidVelocity = -1       #
 
 # The Left Upper Eye Lid.
@@ -127,7 +128,6 @@ UpperLEyeLidAttachment = "Head" # Not Present
 UpperLEyeLidPin = 9             # 
 UpperLEyeLidMinPos = 45         # 
 UpperLEyeLidMaxPos = 150        # 
-UpperLEyeLidRestPos = 50        # 
 UpperLEyeLidVelocity = -1       # 
 
 # The Left Lower Eye Lid.
@@ -139,6 +139,5 @@ LowerLEyeLidAttachment = "Head" # Not Present
 LowerLEyeLidPin = 8             #
 LowerLEyeLidMinPos = 0          #
 LowerLEyeLidMaxPos = 120        #
-LowerLEyeLidRestPos = 50        #
 LowerLEyeLidVelocity = -1       #
 
