@@ -56,9 +56,12 @@ execfile(RuningFolder+'/6_Life_Functions/6_LeftArm_Control.py')
 
 # Haven't worked out what Function 7 will be fore yet :-)
 
+
 # The Look set of methods are controlled from this sub program
+
 execfile(RuningFolder+'/6_Life_Functions/8_Look_Control.py')
 
+#
 # This is where our life simulation functions live
 execfile(RuningFolder+'/6_Life_Functions/9_Random_Movements.py')
 
