@@ -36,9 +36,13 @@ def HeadPanTilt(Pan, Tilt, Roll):
     PanRadians = math.radians(Pan)
     print "Thats ", PanRadians, "Radians"
     if EnableHeadPitch == True:
-        HeadPitch.moveTo(50+(Tilt*math.cos(PanRadians) + Roll*math.sin(PanRadians)))
+        PitchMath = (Tilt*math.cos(PanRadians) + Roll*math.sin(PanRadians))
+        print "PitchMath = ", PitchMath
+        HeadPitch.moveTo(50+PitchMath)
     if EnableHeadRoll == True:
-        HeadRoll.moveTo(50+(Tilt*math.sin(PanRadians) + Roll*math.cos(PanRadians)))
+        RollMath = (Tilt*math.sin(PanRadians) + Roll*math.cos(PanRadians))
+        print "RollMath = ", RollMath
+        HeadRoll.moveTo(50+RollMath)
     print "PanTilt finished"
 
 # This group of methods allow you to control one virtual axis
