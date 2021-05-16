@@ -29,7 +29,7 @@ import time
 # This function assumes that 0, 0, 0 is facing straight ahead with tilt and roll level.
 def HeadPanTilt(Pan, Tilt, Roll):
     print "PanTilt( ", Pan, ", ", Tilt, ", ", Roll, ")"
-    PanTo = 50 + Pan
+    PanTo = Pan + 50.0
     print "Panning To ", PanTo
     if EnableHeadYaw == True:
         HeadYaw.moveTo(PanTo)
