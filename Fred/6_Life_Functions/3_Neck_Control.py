@@ -84,7 +84,7 @@ def HeadRollTo(NewRoll):
 # This group of Methods will add a value to the current
 # virtual axis one at a time.  The other values are grabbed
 # from memory
-def HeadPan(NewPan):
+def NeckPan(NewPan):
     global HeadPanPos
     global HeadTiltPos
     global HeadRollPos
@@ -95,7 +95,7 @@ def HeadPan(NewPan):
         HeadPanPos = 50
     HeadPanTilt(HeadPanPos, HeadTiltPos, HeadRollPos)
 
-def HeadTilt(NewTilt):
+def NeckTilt(NewTilt):
     global HeadPanPos
     global HeadTiltPos
     global HeadRollPos
@@ -106,7 +106,7 @@ def HeadTilt(NewTilt):
         HeadTiltPos = 50
     HeadPanTilt(HeadPanPos, HeadTiltPos, HeadRollPos)
 
-def HeadRoll(NewRoll):
+def NeckRoll(NewRoll):
     global HeadPanPos
     global HeadTiltPos
     global HeadRollPos
