@@ -42,15 +42,15 @@ def LookHeadTiltTo(LookTilt):
     HeadTiltTo(LookTilt)
 
 # So looking at my particular build, the head has about
-# 160° - 170° degrees of rotation.
+# 160 - 170 degrees of rotation.
 # This results in the head auto centering regardless of what
 # the RestPos is as I'm not calling that method anyway.
 # I'm using 50 for the center as the input map on the servo
 # is 0-100
-# The eye ball has a rotational range of between 40° and 60°
+# The eye ball has a rotational range of between 40 and 60
 # Keep in mind my servo output config is currently in the
-# rage 0° - 180° that means with the head movement combined
-# with the Eye movement we get between 200° and 230° of rotation
+# rage 0 - 180 that means with the head movement combined
+# with the Eye movement we get between 200 and 230 of rotation
 # That means when I do a LookHeadPan(+10), with the Head at
 # 0 pos, which translates to 50% and the eye balls at 70 pos,
 # I can scale the input to move the eye balls to move to say
