@@ -140,7 +140,7 @@ if EnableJawServo == True:
     # The rest method will send to servo to the pre-programmed 
     # position as set by the setRest method or if not set, to 
     # the default position of 90 degrees.
-    #Jaw.rest()
+    Jaw.rest()
 
 if EnableRightEyeX == True:
     print "--Right Eye X axis"
@@ -308,7 +308,7 @@ if EnableRightUpperEyeLid == True:
     else:
         UpperEyeLidR.setVelocity(UpperREyeLidVelocity) ## max velocity
     UpperEyeLidR.setAutoDisable(False)
-    # UpperEyeLidR.rest()
+    UpperEyeLidR.rest()
 
 if EnableRightLowerEyeLid == True:
     print "--Lower Right Eyelid"
@@ -341,7 +341,7 @@ if EnableRightLowerEyeLid == True:
     else:
         LowerEyeLidR.setVelocity(LowerREyeLidVelocity) ## max velocity
     LowerEyeLidR.setAutoDisable(False)
-    # LowerEyeLidR.rest()
+    LowerEyeLidR.rest()
 
 if EnableLeftUpperEyeLid == True:
     print "--Upper Left Eyelid"
@@ -374,7 +374,7 @@ if EnableLeftUpperEyeLid == True:
     else:
         UpperEyeLidL.setVelocity(UpperLEyeLidVelocity) ## max velocity
     UpperEyeLidL.setAutoDisable(False)
-    # UpperEyeLidL.rest()
+    UpperEyeLidL.rest()
 
 if EnableLeftLowerEyeLid == True:
     print "--Lower Left Eyelid"
@@ -407,4 +407,4 @@ if EnableLeftLowerEyeLid == True:
     else:
         LowerEyeLidL.setVelocity(LowerLEyeLidVelocity) ## max velocity
     LowerEyeLidL.setAutoDisable(False)
-    # LowerEyeLidL.rest()
+    LowerEyeLidL.rest()

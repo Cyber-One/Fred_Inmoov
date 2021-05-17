@@ -34,7 +34,7 @@ HeadYawAttachment = "Head"      # "arduinoLeft"
 HeadYawPin = 8                  # 13
 HeadYawMinPos = 0               # 30
 HeadYawMaxPos = 180             # 150
-HeadYawMaxSpeed = 60            # -1
+HeadYawMaxSpeed = 30            # -1
 
 # The HeadPitch is used to move the head up and down, this is 
 # located in the center of the torso between the front and 
@@ -46,7 +46,7 @@ HeadPitchAttachment = "Back"    # "arduinoLeft"
 HeadPitchPin = 7                # 12
 HeadPitchMinPos = 180           # 20
 HeadPitchMaxPos = 0             # 160
-HeadPitchMaxSpeed = 60          # -1
+HeadPitchMaxSpeed = 30          # -1
 
 # In the original version, this servo did not exist. 
 # The roll neck allows the neck plate to roll left and right
@@ -61,5 +61,5 @@ HeadRollAttachment = "Back"     # "arduinoRight"
 HeadRollPin = 6                 # 13
 HeadRollMinPos = 30             # 60
 HeadRollMaxPos = 180            # 130
-HeadRollMaxSpeed = 60           # -1
+HeadRollMaxSpeed = 30           # -1
 
