@@ -42,11 +42,19 @@ if EnableRightThumb == True:
         RightThumb.attach(arduinoRight, RightThumbPin)
     if RightThumbAttachment == "arduinoNano":
         RightThumb.attach(arduinoNano, RightThumbPin)
-    RightThumb.setMinMax(RightThumbMinPos, RightThumbMaxPos)
-    #RightThumb.map(0, 100, RightThumbMinPos, RightThumbMaxPos)
-    RightThumb.setRest(RightThumbRestPos)
-    RightThumb.setInverted(False)
-    RightThumb.setSpeed(120)
+    #RightThumb.setMinMax(RightThumbMinPos, RightThumbMaxPos)
+    RightThumb.setMinMax(0, 100)
+    if RightThumbMinPos < RightThumbMaxPos:
+        RightThumb.map(0, 100, RightThumbMinPos, RightThumbMaxPos)
+        RightThumb.setInverted(False)
+    else:
+        RightThumb.map(0, 100, RightThumbMaxPos, RightThumbMinPos)
+        RightThumb.setInverted(True)
+    RightThumb.setRest(10)
+    if MRL == "Nixie":
+        RightThumb.setSpeed(RightThumbMaxSpeed)
+    else:
+        RightThumb.setVelocity(RightThumbMaxSpeed)
     RightThumb.setAutoDisable(True)
     RightThumb.rest()
 
@@ -67,11 +75,19 @@ if EnableRightIndex == True:
         RightIndex.attach(arduinoRight, RightIndexPin)
     if RightIndexAttachment == "arduinoNano":
         RightIndex.attach(arduinoNano, RightIndexPin)
-    RightIndex.setMinMax(RightIndexMinPos, RightIndexMaxPos)
-    #RightIndex.map(0, 100, RightIndexMinPos, RightIndexMaxPos)
-    RightIndex.setRest(RightIndexRestPos)
-    RightIndex.setInverted(False)
-    RightIndex.setSpeed(120)
+    #RightIndex.setMinMax(RightIndexMinPos, RightIndexMaxPos)
+    RightIndex.setMinMax(0, 100)
+    if RightIndexMinPos < RightIndexMaxPos:
+        RightIndex.map(0, 100, RightIndexMinPos, RightIndexMaxPos)
+        RightIndex.setInverted(False)
+    else:
+        RightIndex.map(0, 100, RightIndexMaxPos, RightIndexMinPos)
+        RightIndex.setInverted(True)
+    RightIndex.setRest(10)
+    if MRL == "Nixie":
+        RightIndex.setSpeed(RightIndexMaxSpeed)
+    else:
+        RightIndex.setVelocity(RightIndexMaxSpeed)
     RightIndex.setAutoDisable(True)
     RightIndex.rest()
 
@@ -92,11 +108,19 @@ if EnableRightMajor == True:
         RightMajor.attach(arduinoRight, RightMajorPin)
     if RightMajorAttachment == "arduinoNano":
         RightMajor.attach(arduinoNano, RightMajorPin)
-    RightMajor.setMinMax(RightMajorMinPos, RightMajorMaxPos)
-    #RightMajor.map(0, 100, RightMajorMinPos, RightMajorMaxPos)
-    RightMajor.setRest(RightMajorRestPos)
-    RightMajor.setInverted(False)
-    RightMajor.setSpeed(120)
+    #RightMajor.setMinMax(RightMajorMinPos, RightMajorMaxPos)
+    RightMajor.setMinMax(0, 100)
+    if RightMajorMinPos < RightMajorMaxPos:
+        RightMajor.map(0, 100, RightMajorMinPos, RightMajorMaxPos)
+        RightMajor.setInverted(False)
+    else:
+        RightMajor.map(0, 100, RightMajorMaxPos, RightMajorMinPos)
+        RightMajor.setInverted(True)
+    RightMajor.setRest(10)
+    if MRL == "Nixie":
+        RightMajor.setSpeed(RightMajorMaxSpeed)
+    else:
+        RightMajor.setVelocity(RightMajorMaxSpeed)
     RightMajor.setAutoDisable(True)
     RightMajor.rest()
 
@@ -117,11 +141,19 @@ if EnableRightRing == True:
         RightRing.attach(arduinoRight, RightRingPin)
     if RightRingAttachment == "arduinoNano":
         RightRing.attach(arduinoNano, RightRingPin)
-    RightRing.setMinMax(RightRingMinPos, RightRingMaxPos)
-    #RightRing.map(0, 100, RightRingMinPos, RightRingMaxPos)
-    RightRing.setRest(RightRingRestPos)
-    RightRing.setInverted(False)
-    RightRing.setSpeed(120)
+    #RightRing.setMinMax(RightRingMinPos, RightRingMaxPos)
+    RightRing.setMinMax(0, 100)
+    if RightRingMinPos < RightRingMaxPos:
+        RightRing.map(0, 100, RightRingMinPos, RightRingMaxPos)
+        RightRing.setInverted(False)
+    else:
+        RightRing.map(0, 100, RightRingMaxPos, RightRingMinPos)
+        RightRing.setInverted(True)
+    RightRing.setRest(10)
+    if MRL == "Nixie":
+        RightRing.setSpeed(RightRingMaxSpeed)
+    else:
+        RightRing.setVelocity(RightRingMaxSpeed)
     RightRing.setAutoDisable(True)
     RightRing.rest()
 
@@ -142,11 +174,19 @@ if EnableRightPinky == True:
         RightPinky.attach(arduinoRight, RightPinkyPin)
     if RightPinkyAttachment == "arduinoNano":
         RightPinky.attach(arduinoNano, RightPinkyPin)
-    RightPinky.setMinMax(RightPinkyMinPos, RightPinkyMaxPos)
-    #RightPinky.map(0, 100, RightPinkyMinPos, RightPinkyMaxPos)
+    #RightPinky.setMinMax(RightPinkyMinPos, RightPinkyMaxPos)
+    RightPinky.setMinMax(0, 100)
+    if RightPinkyMinPos < RightPinkyMaxPos:
+        RightPinky.map(0, 100, RightPinkyMinPos, RightPinkyMaxPos)
+        RightPinky.setInverted(False)
+    else:
+        RightPinky.map(0, 100, RightPinkyMaxPos, RightPinkyMinPos)
+        RightPinky.setInverted(True)
     RightPinky.setRest(RightPinkyRestPos)
-    RightPinky.setInverted(False)
-    RightPinky.setSpeed(120)
+    if MRL == "Nixie":
+        RightPinky.setSpeed(RightPinkyMaxSpeed)
+    else:
+        RightPinky.setVelocity(RightPinkyMaxSpeed)
     RightPinky.setAutoDisable(True)
     RightPinky.rest()
 
@@ -167,10 +207,18 @@ if EnableRightWrist == True:
         RightWrist.attach(arduinoRight, RightWristPin)
     if RightWristAttachment == "arduinoNano":
         RightWrist.attach(arduinoNano, RightWristPin)
-    RightWrist.setMinMax(RightWristMinPos, RightWristMaxPos)
-    #RightWrist.map(0, 100, RightWristMinPos, RightWristMaxPos)
+    #RightWrist.setMinMax(RightWristMinPos, RightWristMaxPos)
+    RightWrist.setMinMax(0, 100)
+    if RightWristMinPos < RightWristMaxPos:
+        RightWrist.map(0, 100, RightWristMinPos, RightWristMaxPos)
+        RightWrist.setInverted(False)
+    else:
+        RightWrist.map(0, 100, RightWristMaxPos, RightWristMinPos)
+        RightWrist.setInverted(True)
     RightWrist.setRest(RightWristRestPos)
-    RightWrist.setInverted(False)
-    RightWrist.setSpeed(120)
+    if MRL == "Nixie":
+        RightWrist.setSpeed(RightWristMaxSpeed)
+    else:
+        RightWrist.setVelocity(RightWristMaxSpeed)
     RightWrist.setAutoDisable(True)
     RightWrist.rest()

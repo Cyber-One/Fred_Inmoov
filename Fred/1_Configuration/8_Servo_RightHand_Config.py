@@ -29,39 +29,39 @@ RightThumbAttachment ="RightArm"# "arduioRight"
 RightThumbPin = 2               # 2
 RightThumbMinPos = 0            # 0
 RightThumbMaxPos = 180          # 180
-RightThumbRestPos = 0           # 0
+RightThumbMaxSpeed = 120        # 
 
 EnableRightIndex = False
 RightIndexAttachment ="RightArm"# "arduioRight"
 RightIndexPin = 2               # 3
 RightIndexMinPos = 0            # 0
 RightIndexMaxPos = 180          # 180
-RightIndexRestPos = 0           # 0
+RightIndexMaxSpeed = 120        # 
 
 EnableRightMajor = False
 RightMajorAttachment ="RightArm"# "arduioRight"
 RightMajorPin = 2               # 4
 RightMajorMinPos = 0            # 0
 RightMajorMaxPos = 180          # 180
-RightMajorRestPos = 0           # 0
+RightMajorMaxSpeed = 120        # 
 
 EnableRightRing = False
 RightRingAttachment = "RightArm"# "arduioRight"
 RightRingPin = 2                # 5
 RightRingMinPos = 0             # 0
 RightRingMaxPos = 180           # 180
-RightRingRestPos = 0            # 0
+RightRingMaxSpeed = 120         # 
 
 EnableRightPinky = False
 RightPinkyAttachment ="RightArm"# "arduioRight"
 RightPinkyPin = 2               # 6
 RightPinkyMinPos = 0            # 0
 RightPinkyMaxPos = 180          # 180
-RightPinkyRestPos = 0           # 0
+RightPinkyMaxSpeed = 120        # 
 
 EnableRightWrist = False
 RightWristAttachment ="RightArm"# "arduioRight"
 RightWristPin = 2               # 7
 RightWristMinPos = 0            # 0
 RightWristMaxPos = 180          # 180
-RightWristRestPos = 0           # 0
+RightWristMaxSpeed = 120        # 
