@@ -51,7 +51,10 @@ if EnableLeftOmoPlate == True:
         LeftOmoPlate.map(0, 100, LeftOmoPlateMaxPos, LeftOmoPlateMinPos)
         LeftOmoPlate.setInverted(True)
     LeftOmoPlate.setRest(0)
-    LeftOmoPlate.setSpeed(LeftOmoPlateMaxSpeed)
+    if MRL == "Nixie":
+        LeftOmoPlate.setSpeed(LeftOmoPlateMaxSpeed)
+    else:
+        LeftOmoPlate.setVelocity(LeftOmoPlateMaxSpeed)
     LeftOmoPlate.setAutoDisable(True)
     LeftOmoPlate.rest()
 
@@ -81,7 +84,10 @@ if EnableLeftShoulder == True:
         LeftShoulder.map(0, 100, LeftShoulderMaxPos, LeftShoulderMinPos)
         LeftShoulder.setInverted(True)
     LeftShoulder.setRest(16)
-    LeftShoulder.setSpeed(LeftShoulderMaxSpeed)
+    if MRL == "Nixie":
+        LeftShoulder.setSpeed(LeftShoulderMaxSpeed)
+    else:
+        LeftShoulder.setVelocity(LeftShoulderMaxSpeed)
     LeftShoulder.setAutoDisable(True)
     LeftShoulder.rest()
 
@@ -111,7 +117,10 @@ if EnableLeftRotate == True:
         LeftRotate.map(0, 100, LeftRotateMaxPos, LeftRotateMinPos)
         LeftRotate.setInverted(True)
     LeftRotate.setRest(50)
-    LeftRotate.setSpeed(LeftRotateMaxSpeed)
+    if MRL == "Nixie":
+        LeftRotate.setSpeed(LeftRotateMaxSpeed)
+    else:
+        LeftRotate.setVelocity(LeftRotateMaxSpeed)
     LeftRotate.setAutoDisable(True)
     LeftRotate.rest()
 
@@ -141,6 +150,9 @@ if EnableLeftBicep == True:
         LeftBicep.map(0, 100, LeftBicepMaxPos, LeftBicepMinPos)
         LeftBicep.setInverted(True)
     LeftBicep.setRest(10)
-    LeftBicep.setSpeed(LeftBicepMaxSpeed)
+    if MRL == "Nixie":
+        LeftBicep.setSpeed(LeftBicepMaxSpeed)
+    else:
+        LeftBicep.setVelocity(LeftBicepMaxSpeed)
     LeftBicep.setAutoDisable(True)
     LeftBicep.rest()
