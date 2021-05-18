@@ -46,8 +46,12 @@ if EnableRandomEyeMovements == True:
     MoveEyesTimer = Runtime.createAndStart("MoveEyesTimer","Clock")
     MoveEyesTimer.setInterval(random.randint(RandEyeMovementsMinTime,RandEyeMovementsMaxTime))
     MoveEyesTimer.addListener("pulse", python.name, "MoveEyes")
-    MoveEyesTimer.addListener("clockStarted", python.name, "MoveEyesStart")  
-    MoveEyesTimer.addListener("clockStopped", python.name, "MoveEyesStop")
+    if MRL == "Nixie":
+        MoveEyesTimer.addListener("publishClockStarted", python.name, "MoveEyesStart")  
+        MoveEyesTimer.addListener("publishClockStopped", python.name, "MoveEyesStop")
+    else:
+        MoveEyesTimer.addListener("clockStarted", python.name, "MoveEyesStart")  
+        MoveEyesTimer.addListener("clockStopped", python.name, "MoveEyesStop")
 
 # Routines to create the blinking motion
 # we use the Clock service to provide a regular event that calls the blink procedure.
