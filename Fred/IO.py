@@ -24,7 +24,11 @@ execfile(RuningFolder+'/1_Configuration/A_IO_Config.py')
 #######################################################
 # Create the PIR service                              #
 #######################################################
-if EnablePIR == True:
+# Test to make sure the configured controller is enabled.
+if  not ((PirAttachment == "arduinoNano" and EnableArduinoNano) or (PirAttachment == "arduinoLeft" and EnableArduinoLeft) or (PirAttachment == "arduinoRight" and EnableArduinoRight)):
+    EnablePIR = False
+
+if EnablePIR:
     # Passive Inrea Red (PIR) works on the principle that a 
     # warm body emits Infra Red (IR) light. The level of this 
     # light can indicate the current temperature.
@@ -82,7 +86,12 @@ if EnablePIR == True:
 #                   But we will use the subscribe method
 #                   from the python service so we can 
 #                   seperate the two sensors returns.
-if EnableLeftUltrasonic == True:
+
+# Test to make sure the configured controller is enabled.
+if  not ((LeftUltrasonicAttachment == "arduinoNano" and EnableArduinoNano) or (LeftUltrasonicAttachment == "arduinoLeft" and EnableArduinoLeft) or (LeftUltrasonicAttachment == "arduinoRight" and EnableArduinoRight)):
+    EnableLeftUltrasonic = False
+
+if EnableLeftUltrasonic:
     LeftUltraSonic = Runtime.start("LeftUltraSonic", "UltrasonicSensor")
     if LeftUltrasonicAttachment == "arduinoNano":
         LeftUltraSonic.attach(arduinoNano, LeftUltrasonicPin1, LeftUltrasonicPin2)
@@ -95,7 +104,11 @@ if EnableLeftUltrasonic == True:
         print "Left distance ", distance, " cm"
     python.subscribe('LeftUltraSonic', 'onRange', 'python', 'onRangeLeft')
 
-if EnableRightUltraSonic == True:
+# Test to make sure the configured controller is enabled.
+if not ((RightUltrasonicAttachment == "arduinoNano" and EnableArduinoNano) or (RightUltrasonicAttachment == "arduinoLeft" and EnableArduinoLeft) or (RightUltrasonicAttachment == "arduinoRight" and EnableArduinoRight)):
+    EnableRightUltraSonic = False
+    
+if EnableRightUltraSonic:
     RightUltraSonic = Runtime.start("RightUltraSonic", "UltrasonicSensor")
     if RightUltrasonicAttachment == "arduinoNano":
         RightUltraSonic.attach(arduinoNano, RightUltrasonicPin1, RightUltrasonicPin2)
