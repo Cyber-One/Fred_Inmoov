@@ -28,22 +28,22 @@ import time
 # to overcome this we need a Pan and Tilt translation.
 # This function assumes that 0, 0, 0 is facing straight ahead with tilt and roll level.
 def HeadPanTilt(Pan, Tilt, Roll):
-    print "PanTilt( ", Pan, ", ", Tilt, ", ", Roll, ")"
+    #print "PanTilt( ", Pan, ", ", Tilt, ", ", Roll, ")"
     PanTo = Pan + 50.0
-    print "Panning To ", PanTo
+    #print "Panning To ", PanTo
     if EnableHeadYaw == True:
         HeadYaw.moveTo(PanTo)
     PanRadians = math.radians(Pan)
-    print "Thats ", PanRadians, "Radians"
+    #print "Thats ", PanRadians, "Radians"
     if EnableHeadPitch == True:
         PitchMath = (Tilt*math.cos(PanRadians) + Roll*math.sin(PanRadians))
-        print "PitchMath = ", PitchMath
+        #print "PitchMath = ", PitchMath
         HeadPitch.moveTo(50+PitchMath)
     if EnableHeadRoll == True:
         RollMath = (Tilt*math.sin(PanRadians) + Roll*math.cos(PanRadians))
-        print "RollMath = ", RollMath
+        #print "RollMath = ", RollMath
         HeadRoll.moveTo(50+RollMath)
-    print "PanTilt finished"
+    #print "PanTilt finished"
 
 # This group of methods allow you to control one virtual axis
 # at a time, you pass the new value and it grabs the last

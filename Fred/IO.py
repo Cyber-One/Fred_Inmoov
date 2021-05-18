@@ -99,10 +99,9 @@ if EnableLeftUltrasonic:
         LeftUltraSonic.attach(arduinoLeft, LeftUltrasonicPin1, LeftUltrasonicPin2)
     if LeftUltrasonicAttachment == "arduinoRight":
         LeftUltraSonic.attach(arduinoRight, LeftUltrasonicPin1, LeftUltrasonicPin2)
-    #LeftUltraSonic.addRangeListener(python)
     def onRangeLeft(distance):
         print "Left distance ", distance, " cm"
-    python.subscribe('LeftUltraSonic', 'onRange', 'python', 'onRangeLeft')
+    #python.subscribe('LeftUltraSonic', 'onRange', 'python', 'onRangeLeft')
 
 # Test to make sure the configured controller is enabled.
 if not ((RightUltrasonicAttachment == "arduinoNano" and EnableArduinoNano) or (RightUltrasonicAttachment == "arduinoLeft" and EnableArduinoLeft) or (RightUltrasonicAttachment == "arduinoRight" and EnableArduinoRight)):
@@ -116,8 +115,7 @@ if EnableRightUltraSonic:
         RightUltraSonic.attach(arduinoLeft, RightUltrasonicPin1, RightUltrasonicPin2)
     if RightUltrasonicAttachment == "arduinoRight":
         RightUltraSonic.attach(arduinoRight, RightUltrasonicPin1, RightUltrasonicPin2)
-    #RightUltraSonic.addRangeListener(python)
     def onRangeRight(distance):
         print "Right distance ", distance, " cm"
-    python.subscribe('RightUltraSonic', 'onRange', 'python', 'onRangeRight')
+    #python.subscribe('RightUltraSonic', 'onRange', 'python', 'onRangeRight')
 
