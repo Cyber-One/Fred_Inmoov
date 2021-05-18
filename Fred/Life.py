@@ -116,16 +116,16 @@ if (UseMarySpeech or UseMimicSpeech or UseEspeak) and EnableMouthControl and Ena
     #mouthcontrol = Runtime.start("mouthcontrol","MouthControl")
     # Once created we need to link it to the servo that controls the mouth opening and closing
     # in out case we called that Jaw back in the Servo.py file.
-    #mouthcontrol.attach(Jaw)
-    mouthcontrol.setJaw(Jaw)
-    # Next we need to link it to the TTS service, we called that Mouth
-    #mouthcontrol.attach(Mouth)
-    mouthcontrol.setMouth(Mouth)
+    if MRL == "Nixie":
+        mouthcontrol.attach(Jaw)
+        # Next we need to link it to the TTS service, we called that Mouth
+        mouthcontrol.attach(Mouth)
+    else:
+        mouthcontrol.setJaw(Jaw)
+        # Next we need to link it to the TTS service, we called that Mouth
+        mouthcontrol.setMouth(Mouth)
     # We need to set the range of motion for the Jaw
-    #mouthcontrol.setmouth(JawMinPos, JawMaxPos)
     mouthcontrol.setmouth(10, 80)
-    #mouthcontrol.mouthClosedPos = JawMinPos
-    #mouthcontrol.mouthOpenedPos = JawMaxPos
     # next we need to setup the delays for the jaw movement.
     # Thanks to Steve Rayner for explaining this group of settings
     # on his YouTube Channel https://www.youtube.com/watch?v=jswk8lDtGOc
