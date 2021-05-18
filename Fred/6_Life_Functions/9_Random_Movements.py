@@ -74,6 +74,14 @@ def blink(timedata):
         print "BlinkInterval of ", BlinkInterval, " miliseconds"
         BlinkClock.setInterval(BlinkInterval) # Set a new random time for the next blink
 
+def startBlink()
+        UpperEyeLidsMidway(50)
+        LowerEyeLidsMidway(50)
+
+def stopBlink()
+    UpperEyeLidsClose() # close the upper eye lid
+    LowerEyeLidsClose() # close the lower eye lid
+
 # To make the robot appear alive, we create the blink timer
 # which in turn calls the blink method.
 if EnableBlinking == True:
@@ -81,6 +89,12 @@ if EnableBlinking == True:
     BlinkClock = Runtime.createAndStart("BlinkClock", "Clock")
     # the addListener() call will run the python routine "blink" whenever the pulse event occurs.
     BlinkClock.addListener("pulse", python.name, "blink")
+    if MRL == "Nixie":
+        BlinkClock.addListener("publishClockStarted", python.name, "startBlink")
+        BlinkClock.addListener("publishClockStopped", python.name, "stopBlink")
+    else:
+        BlinkClock.addListener("clockStarted", python.name, "startBlink")
+        BlinkClock.addListener("clockStopped", python.name, "stopBlink")
     # Initially, we will set the blink interval at 10 seconds.
     BlinkClock.setInterval(10000)
     # Then we start the clock running.
