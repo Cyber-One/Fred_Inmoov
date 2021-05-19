@@ -76,4 +76,4 @@ PingTime = 1000
 EnableStomachNeoPixel = True
 StomachNeoPixelAttachment = "arduinoNano"
 StomachNeoPixelPin = 8
-StomachNeoPixelsNumber = 16
+StomachNeoPixelsNumber = 23
