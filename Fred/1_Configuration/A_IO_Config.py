@@ -36,7 +36,7 @@ print "Creating the Input/Output Config"
 # another, there is a large change in the IR levels 
 # detected, when this change occurs the output of the PIR 
 # sensor is turned on.
-EnablePIR = False
+EnablePIR = True
 PirAttachment = "arduinoNano"               # "arduioLeft"
 PirPin = 2                                  # 23
 
@@ -67,3 +67,9 @@ RightUltrasonicPin2 = 9                     # 63
 
 # Time between Pings in milli-seconds.
 PingTime = 1000
+
+##############################################################
+#                                                            #
+# The NeoPixel Ring                                          #
+#                                                            #
+##############################################################

@@ -27,8 +27,8 @@ print "Creating the System Config"
 # Manticore was released back in late December 2017
 # At the time of writing this, Nixie is still in developement
 # Choose one only of these systems.
-MRL = "Manticore"
-#MRL = "Nixie"
+#MRL = "Manticore"
+MRL = "Nixie"
 ##############################################################
 #                                                            #
 # The Graphical User Interface (GUI)                         #
