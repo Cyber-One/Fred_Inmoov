@@ -72,12 +72,12 @@ def blink(timedata):
         BlinkInterval = random.randint(5000, 10000) # But this random one is more life like.
         BlinkClock.setInterval(BlinkInterval) # Set a new random time for the next blink
 
-def startBlink()
+def startBlink():
     UpperEyeLidsMidway(50)
     LowerEyeLidsMidway(50)
     print "Blink Clock Started."
 
-def stopBlink()
+def stopBlink():
     UpperEyeLidsClose() # close the upper eye lid
     LowerEyeLidsClose() # close the lower eye lid
     print "Blink Clock Stopped."
