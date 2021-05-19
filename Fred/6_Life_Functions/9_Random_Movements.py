@@ -58,7 +58,6 @@ if EnableRandomEyeMovements == True:
 # one of the things we do within the blink routine is to change the blink interval to a random number between 5 and 10 seconds.
 # future enhancements may include shifting the random range based on the current light levels and the average light levels,
 # blink more often when the light levels increase until an average value has been reached.
-print "-Eye blinking"
 
 # We need a function that does the blink when the timer expires
 # or if we want to simulate a blink for some reason.
@@ -71,16 +70,17 @@ def blink(timedata):
     LowerEyeLidsOpen() # Open the lower eye lid
     if EnableBlinking == True:
         BlinkInterval = random.randint(5000, 10000) # But this random one is more life like.
-        print "BlinkInterval of ", BlinkInterval, " miliseconds"
         BlinkClock.setInterval(BlinkInterval) # Set a new random time for the next blink
 
 def startBlink()
-        UpperEyeLidsMidway(50)
-        LowerEyeLidsMidway(50)
+    UpperEyeLidsMidway(50)
+    LowerEyeLidsMidway(50)
+    print "Blink Clock Started."
 
 def stopBlink()
     UpperEyeLidsClose() # close the upper eye lid
     LowerEyeLidsClose() # close the lower eye lid
+    print "Blink Clock Stopped."
 
 # To make the robot appear alive, we create the blink timer
 # which in turn calls the blink method.
@@ -98,6 +98,5 @@ if EnableBlinking == True:
     # Initially, we will set the blink interval at 10 seconds.
     BlinkClock.setInterval(10000)
     # Then we start the clock running.
-    print "--Start Blink Clock"
     BlinkClock.startClock()
 

@@ -32,13 +32,10 @@ import random
 # while anyway :-)
 def WakeUpEvent():
     global Awake
-    print "Wake Up Event Occured"
     if Awake == True:
-        print "Keep Awake"
         if EnableSleepTimer==True:
             SleepTimer.restartClock(True)
     if Awake == False:
-        print "Waking Up"
         UpperEyeLidsMidway(50)
         LowerEyeLidsMidway(50)
         eyesLR(0)
@@ -52,13 +49,11 @@ def WakeUpEvent():
         Awake = True
         if not WakeupMessage == "OFF" and not isTalking:
             Mouth.speak(WakeupMessage)
-        print "Fully Awake"
 
 # We might not want our robot to be awake all the time.
 # this method will put it to sleep, or at least simulate it.
 def GoToSleepEvent(timedata):
     global Awake
-    print "Going to Sleep"
     if EnableSleepTimer==True:
         SleepTimer.stopClock()
     Awake = False
@@ -68,7 +63,6 @@ def GoToSleepEvent(timedata):
         MoveEyesTimer.stopClock()
     UpperEyeLidsClose() # close the upper eye lid
     LowerEyeLidsClose() # close the lower eye lid
-    print "Sleeping"
 
 # Or robot has two major methods used to wake up the robot and
 # to put the robot to sleep.  We will add a number of calls to
@@ -77,13 +71,9 @@ def GoToSleepEvent(timedata):
 # put the robot to sleep.
 if EnableSleepTimer==True:
     SleepTimer =Runtime.createAndStart("SleepTimer", "Clock")
-    print "Sleep Timer Adding Listner"
     SleepTimer.addListener("pulse", python.name, "GoToSleepEvent")
-    print "Sleep Timer Setting Sleep Time"
     SleepTimer.setInterval(TimeToSleep)
-    print "Sleep Timer Starting Clock"
     SleepTimer.startClock(False)
-    print "Sleep Timer Running"
 
 def StartSpeaking(Text):
     if EnableSleepTimer==True:
@@ -91,8 +81,7 @@ def StartSpeaking(Text):
         if not Awake:
             WakeUpEvent();
     isTalking = True
-    print Text
-
+    
 def StopSpeaking(Text):
     if EnableSleepTimer==True:
         SleepTimer.restartClock(True)

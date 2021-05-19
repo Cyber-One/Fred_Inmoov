@@ -63,6 +63,11 @@ def LowerEyeLidsClose():
     if EnableLeftLowerEyeLid == True:
         LowerEyeLidL.moveTo(0) # close the left lower eye lid
 
+# The wink function only work if the left and right eye lids
+# are driven by different servos.
+# if for example you are using the Dakota76 Advance eyes, then
+# WinkRightEye will blink and WinkLeftEye will have no action
+# at all.
 def WinkLeftEye():
     if EnableLeftLowerEyeLid == True:
         LowerEyeLidL.moveTo(0) # close the left lower eye lid

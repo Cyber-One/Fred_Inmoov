@@ -102,7 +102,7 @@ if EnableLeftUltrasonic or EnableRightUltraSonic: # /1_Configuration/A_IO_Config
                 LastRightPing = RightUltraSonic.range()
                 if LastRightPing > 10 and LastRightPing < 200:
                     WakeUpEvent()
-        print "Left Ping = ", LastLeftPing, ", Last Right Ping = ", LastRightPing
+        #print "Left Ping = ", LastLeftPing, ", Last Right Ping = ", LastRightPing
     PingTimer = Runtime.createAndStart("PingTimer", "Clock")
     PingTimer.addListener("pulse", python.name, "PingTimeEvent")
     PingTimer.setInterval(PingTime) # /1_Configuration/A_IO_Config.py
