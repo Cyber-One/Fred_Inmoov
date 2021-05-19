@@ -137,7 +137,7 @@ if EnableStomachNeoPixel:
         StomachNeoPixel.attach(arduinoLeft, StomachNeoPixelPin, StomachNeoPixelsNumber)
     if StomachNeoPixelAttachment == "arduinoRight":
         StomachNeoPixel.attach(arduinoRight, StomachNeoPixelPin, StomachNeoPixelsNumber)
-    neopixel.setAnimation("Theater Chase", 255, 0, 0, 1) #running Theater Chase with color red at full speed
+    StomachNeoPixel.setAnimation("Theater Chase", 255, 0, 0, 1) #running Theater Chase with color red at full speed
     #sleep(10)
     #neopixel.animationStop()
 #Animations;
