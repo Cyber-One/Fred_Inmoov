@@ -75,6 +75,7 @@ if EnableSleepTimer==True:
     SleepTimer.setInterval(TimeToSleep)
     SleepTimer.startClock(False)
 
+# this section disables the sleep timer while the robot is talking.
 def StartSpeaking(Text):
     if EnableSleepTimer==True:
         SleepTimer.stopClock()
@@ -93,5 +94,9 @@ if (UseMarySpeech or UseEspeak or UseMimicSpeech):
     # here are the "startSpeaking" and the "stopSpeaking".
     # To use these call back methods, we need to Subscribe 
     # to the events, this is done using the addListener method.
-    Mouth.addListener("startSpeaking",python.name,"StartSpeaking")
-    Mouth.addListener("stopSpeaking",python.name,"StopSpeaking")
+    if MRL == "Nixie":
+        Mouth.addListener("publishStartSpeaking",python.name,"StartSpeaking")
+        Mouth.addListener("publishEndSpeaking",python.name,"StopSpeaking")
+    else:
+        Mouth.addListener("startSpeaking",python.name,"StartSpeaking")
+        Mouth.addListener("stopSpeaking",python.name,"StopSpeaking")
