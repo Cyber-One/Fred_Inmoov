@@ -119,3 +119,51 @@ if EnableRightUltraSonic:
         print "Right distance ", distance, " cm"
     #python.subscribe('RightUltraSonic', 'onRange', 'python', 'onRangeRight')
 
+##############################################################
+#                                                            #
+# The NeoPixel Ring                                          #
+#                                                            #
+##############################################################
+
+# Test to make sure the configured controller is enabled.
+if not ((StomachNeoPixelAttachment == "arduinoNano" and EnableArduinoNano) or (StomachNeoPixelAttachment == "arduinoLeft" and EnableArduinoLeft) or (StomachNeoPixelAttachment == "arduinoRight" and EnableArduinoRight)):
+    EnableStomachNeoPixel = False
+
+if EnableStomachNeoPixel:
+    StomachNeoPixel = Runtime.start("StomachNeoPixel","NeoPixel")
+    if StomachNeoPixelAttachment == "arduinoNano":
+        StomachNeoPixel.attach(arduinoNano, StomachNeoPixelPin, StomachNeoPixelsNumber)
+    if StomachNeoPixelAttachment == "arduinoLeft":
+        StomachNeoPixel.attach(arduinoLeft, StomachNeoPixelPin, StomachNeoPixelsNumber)
+    if StomachNeoPixelAttachment == "arduinoRight":
+        StomachNeoPixel.attach(arduinoRight, StomachNeoPixelPin, StomachNeoPixelsNumber)
+    neopixel.setAnimation("Theater Chase", 255, 0, 0, 1) #running Theater Chase with color red at full speed
+    #sleep(10)
+    #neopixel.animationStop()
+#Animations;
+#"Color Wipe"
+#"Larson Scanner"
+#"Theater Chase"
+#"Theater Chase Rainbow"
+#"Rainbow"
+#"Rainbow Cycle"
+#"Flash Random"
+#"Ironman"
+ 
+#speed: 1-65535   1=full speed, 2=2x slower than 1, 10=10x slower than 1
+#starting a animation
+#neopixel.setAnimation("Animation Name", red, green, blue, speed)
+#run an animation with python script
+
+#turn off all the pixels
+#for pixel in range (1,neopixel.numPixel + 1):
+#  neopixel.setPixel(pixel, 0, 0, 0)  #setPixel(pixel, red, green, blue)
+#neopixel.writeMatrix() #send the pixel data to the Neopixel hardware 
+#for loop in range(0,10): #do 10 loop
+#  for pixel in range(1, neopixel.numPixel +1):
+#    neopixel.setPixel(pixel, 255, 0, 0) #set the pixel to red
+#    neopixel.writeMatrix()
+#    sleep(0.03) #give a bit of delay before next step
+#    neopixel.setPixel(pixel, 0, 0, 0) #turn off the pixel
+#neopixel.writeMatrix()
+

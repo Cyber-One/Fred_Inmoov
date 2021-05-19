@@ -73,3 +73,7 @@ PingTime = 1000
 # The NeoPixel Ring                                          #
 #                                                            #
 ##############################################################
+EnableStomachNeoPixel = True
+StomachNeoPixelAttachment = "arduinoNano"
+StomachNeoPixelPin = 8
+StomachNeoPixelsNumber = 16
