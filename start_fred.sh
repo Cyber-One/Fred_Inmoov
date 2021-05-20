@@ -31,7 +31,7 @@ echo "------------------------------------------------------"
 # program to use the python service and execute the file with the 
 # path starting in the current directory look in the sub 
 # directory "Fred" for the file "Start.py"
-#java -jar myrobotlab.jar -m 4g --service python Python --invoke python execFile ./Fred/Start.py
+java -jar myrobotlab.jar -m 4g --service python Python --invoke python execFile ./Fred/Start.py
 
 # with the older Manitocre version the startup command line is a little bit different.
-java -jar myrobotlab.jar -m 4g -service python Python -invoke python execFile ./Fred/Start.py
+#java -jar myrobotlab.jar -m 4g -service python Python -invoke python execFile ./Fred/Start.py

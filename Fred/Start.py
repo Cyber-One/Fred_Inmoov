@@ -30,9 +30,20 @@ RuningFolder="Fred"
 # This file is the system configuration file.
 execfile(RuningFolder+'/1_Configuration/1_Sys_Config.py')
 
-# Just to help with diagnostics, 
-# we will write out we are starting the system.
-print "Starting the Fred MRL OS"
+##############################################################
+#                                                            #
+# The Operating System Version                               #
+#                                                            #
+##############################################################
+# Manticore was released back in late December 2017
+# At the time of writing this, Nixie is still in developement
+# We can ask the system what the version number is and test that.
+if Runtime.getVersion() < "1.1.200":
+    MRL = "Manticore"
+    print "Starting the MyRobotLab Manticore Version"
+else:
+    MRL = "Nixie"
+    print "Starting the MyRobotLab Nixie Version"
 
 # Before we get too carried away, I plan to start Fred using a 
 # shell script called start_fred.sh
