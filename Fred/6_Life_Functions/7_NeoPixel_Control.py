@@ -24,27 +24,27 @@ if EnableStomachNeoPixel:
     if StomachNeoPixelMode == 0:
         for Pixel in range(len(NeoPixelDiagConfig)):
             if NeoPixelDiagConfig[Pixel][0] == 0:       # Not Used
-                StomachNeoPixel.setPixel(pixel, 0, 0, 0)
+                StomachNeoPixel.setPixel(Pixel, 0, 0, 0)
             elif NeoPixelDiagConfig[Pixel][0] == 1:     # Left UltraSonic Range
                 if LastLeftPing < NeoPixelDiagConfig[Pixel][1]:
-                    StomachNeoPixel.setPixel(pixel, NeoPixelDiagConfig[Pixel][2], NeoPixelDiagConfig[Pixel][3], NeoPixelDiagConfig[Pixel][4])
+                    StomachNeoPixel.setPixel(Pixel, NeoPixelDiagConfig[Pixel][2], NeoPixelDiagConfig[Pixel][3], NeoPixelDiagConfig[Pixel][4])
                 else:
-                    StomachNeoPixel.setPixel(pixel, NeoPixelDiagConfig[Pixel][5], NeoPixelDiagConfig[Pixel][6], NeoPixelDiagConfig[Pixel][7])
+                    StomachNeoPixel.setPixel(Pixel, NeoPixelDiagConfig[Pixel][5], NeoPixelDiagConfig[Pixel][6], NeoPixelDiagConfig[Pixel][7])
             elif NeoPixelDiagConfig[Pixel][0] == 2:     # Right UltraSonic Range
                 if LastRightPing < NeoPixelDiagConfig[Pixel][1]:
-                    StomachNeoPixel.setPixel(pixel, NeoPixelDiagConfig[Pixel][2], NeoPixelDiagConfig[Pixel][3], NeoPixelDiagConfig[Pixel][4])
+                    StomachNeoPixel.setPixel(Pixel, NeoPixelDiagConfig[Pixel][2], NeoPixelDiagConfig[Pixel][3], NeoPixelDiagConfig[Pixel][4])
                 else:
-                    StomachNeoPixel.setPixel(pixel, NeoPixelDiagConfig[Pixel][5], NeoPixelDiagConfig[Pixel][6], NeoPixelDiagConfig[Pixel][7])
+                    StomachNeoPixel.setPixel(Pixel, NeoPixelDiagConfig[Pixel][5], NeoPixelDiagConfig[Pixel][6], NeoPixelDiagConfig[Pixel][7])
             elif NeoPixelDiagConfig[Pixel][0] == 3:     # PIR Detection
                 if not PIRstate:
-                    StomachNeoPixel.setPixel(pixel, NeoPixelDiagConfig[Pixel][2], NeoPixelDiagConfig[Pixel][3], NeoPixelDiagConfig[Pixel][4])
+                    StomachNeoPixel.setPixel(Pixel, NeoPixelDiagConfig[Pixel][2], NeoPixelDiagConfig[Pixel][3], NeoPixelDiagConfig[Pixel][4])
                 else:
-                    StomachNeoPixel.setPixel(pixel, NeoPixelDiagConfig[Pixel][5], NeoPixelDiagConfig[Pixel][6], NeoPixelDiagConfig[Pixel][7])
+                    StomachNeoPixel.setPixel(Pixel, NeoPixelDiagConfig[Pixel][5], NeoPixelDiagConfig[Pixel][6], NeoPixelDiagConfig[Pixel][7])
             elif NeoPixelDiagConfig[Pixel][0] == 4:     # Battery Voltage
                 if BatteryLevel < NeoPixelDiagConfig[Pixel][1]:
-                    StomachNeoPixel.setPixel(pixel, NeoPixelDiagConfig[Pixel][2], NeoPixelDiagConfig[Pixel][3], NeoPixelDiagConfig[Pixel][4])
+                    StomachNeoPixel.setPixel(Pixel, NeoPixelDiagConfig[Pixel][2], NeoPixelDiagConfig[Pixel][3], NeoPixelDiagConfig[Pixel][4])
                 else:
-                    StomachNeoPixel.setPixel(pixel, NeoPixelDiagConfig[Pixel][5], NeoPixelDiagConfig[Pixel][6], NeoPixelDiagConfig[Pixel][7])
+                    StomachNeoPixel.setPixel(Pixel, NeoPixelDiagConfig[Pixel][5], NeoPixelDiagConfig[Pixel][6], NeoPixelDiagConfig[Pixel][7])
     else:
         StomachNeoPixel.setAnimation("Rainbow Cycle", 255, 0, 0, 1) #running Theater Chase with color red at full speed
 
