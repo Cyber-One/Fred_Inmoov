@@ -61,6 +61,10 @@ TorsoPanPos = 0
 TorsoTiltPos = 0
 TorsoRollPos = 0
 
+# When using the PIR Sensor this value gets turned on while it
+# is sensing movement.
+PIRstate = False
+
 # when using a pair of Ultrasonic sensors, we are best to test
 # one side then the other, not the two together.
 LastPingLeft = False

@@ -70,3 +70,23 @@ WakeupMessage = u"Hello, How are you"
 # the jaw to move, this is where you can disable this feature.
 EnableMouthControl = True       # Set to True or False
 
+# NeoPixel Diagnostic Mode Config
+# We use a multi dimensional array to configure the NeoPixels
+# configuration. 
+# Each pixel needs to have is configuration defined.
+# We start with the function:
+# 0 = not used
+# 1 = Left UltraSonic Range
+# 2 = Right UltraSonic Range
+# 3 = PIR, this is on or off, so the preset value is ignored.
+# Next the preset value, The Neopixel will change color based
+# on this value.  Then the colour when above and the colour
+# when below the preset value.
+# Each colour consists of 3 values, Red, Green and Blue with a
+# range of 0 - 255, all 0 = off
+# [[Function, Value, R_low, G_Low, B_Low, R_High, G_High, B_High]]
+NeoPixelDiagConfig = [[1, 200, 0, 0, 200, 0, 0, 0], # pixel 0
+    [1, 150, 0, 0, 200, 0, 0, 0],                   # Pixel 1
+    [1, 100, 0, 0, 200, 0, 0, 0],                   # Pixel 2
+    [1, 050, 0, 0, 200, 0, 0, 0]]                   # Pixel 3
+

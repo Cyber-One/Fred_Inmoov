@@ -48,20 +48,18 @@ execfile(RuningFolder+'/6_Life_Functions/3_Neck_Control.py')
 # The Torso is controlled from this sub program
 execfile(RuningFolder+'/6_Life_Functions/4_Torso_Control.py')
 
-# The Torso is controlled from this sub program
+# The Right Arm is controlled from this sub program
 execfile(RuningFolder+'/6_Life_Functions/5_RightArm_Control.py')
 
-# The Torso is controlled from this sub program
+# The Left Arm is controlled from this sub program
 execfile(RuningFolder+'/6_Life_Functions/6_LeftArm_Control.py')
 
-# Haven't worked out what Function 7 will be fore yet :-)
-
+# The NeoPixels are controlled from this sub program
+execfile(RuningFolder+'/6_Life_Functions/7_NeoPixel_Control.py')
 
 # The Look set of methods are controlled from this sub program
-
 execfile(RuningFolder+'/6_Life_Functions/8_Look_Control.py')
 
-#
 # This is where our life simulation functions live
 execfile(RuningFolder+'/6_Life_Functions/9_Random_Movements.py')
 
@@ -77,9 +75,12 @@ if EnablePIR: # /1_Configuration/A_IO_Config.py
     def PirLifeEvent(Sense):
         global Awake
         if Sense:
+            PIRstate = True
             print "Warm body movement detected !!!"
             if EnableSleepTimer==True:
                 WakeUpEvent()
+        else:
+            PIRstate = False
     pir.addListener("publishSense",python.name,"PirLifeEvent")
 
     
