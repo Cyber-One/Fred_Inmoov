@@ -47,6 +47,7 @@ if EnableStomachNeoPixel:
                         StomachNeoPixel.setPixel(Pixel, NeoPixelDiagConfig[Pixel][2], NeoPixelDiagConfig[Pixel][3], NeoPixelDiagConfig[Pixel][4])
                     else:
                         StomachNeoPixel.setPixel(Pixel, NeoPixelDiagConfig[Pixel][5], NeoPixelDiagConfig[Pixel][6], NeoPixelDiagConfig[Pixel][7])
+            StomachNeoPixel.writeMatrix()
         else:
             StomachNeoPixel.setAnimation("Rainbow Cycle", 255, 0, 0, 1) #running Theater Chase with color red at full speed
     NeoPixelTimer =Runtime.createAndStart("NeoPixelTimer", "Clock")
