@@ -92,13 +92,13 @@ if EnableLeftUltrasonic or EnableRightUltraSonic: # /1_Configuration/A_IO_Config
         global LastRightPing
         global LastPingLeft
         if LastPingLeft:
-            LastPingLeft = False
+            LastPingLeft = not LastPingLeft
             if EnableLeftUltrasonic:
                 LastLeftPing = LeftUltraSonic.range()
                 if LastLeftPing > 10 and LastLeftPing < 200:
                     WakeUpEvent()
         else:
-            LastPingLeft = True
+            LastPingLeft = not LastPingLeft
             if EnableRightUltraSonic:
                 LastRightPing = RightUltraSonic.range()
                 if LastRightPing > 10 and LastRightPing < 200:

@@ -25,6 +25,7 @@ if EnableStomachNeoPixel:
         if StomachNeoPixelMode == 0:
             StomachNeoPixel.animationStop()
             for Pixel in range(len(NeoPixelDiagConfig)):
+                print "Pixel: ", Pixel, " Function: ", NeoPixelDiagConfig[Pixel][0], " Value: ", NeoPixelDiagConfig[Pixel][1]
                 if NeoPixelDiagConfig[Pixel][0] == 0:       # Not Used
                     StomachNeoPixel.setPixel(Pixel, 0, 0, 0)
                 elif NeoPixelDiagConfig[Pixel][0] == 1:     # Left UltraSonic Range
@@ -48,6 +49,7 @@ if EnableStomachNeoPixel:
                     else:
                         StomachNeoPixel.setPixel(Pixel, NeoPixelDiagConfig[Pixel][5], NeoPixelDiagConfig[Pixel][6], NeoPixelDiagConfig[Pixel][7])
             StomachNeoPixel.writeMatrix()
+            print "NeoPixel Data, LUS = ", LastLeftPing, " RUS = ", LastRightPing, " PIR = ", PIRstate, " Battery Level =", BatteryLevel
         else:
             StomachNeoPixel.setAnimation("Rainbow Cycle", 255, 0, 0, 1) #running Theater Chase with color red at full speed
     NeoPixelTimer =Runtime.createAndStart("NeoPixelTimer", "Clock")
