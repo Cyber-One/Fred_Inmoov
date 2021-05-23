@@ -95,12 +95,16 @@ if EnableLeftUltrasonic or EnableRightUltraSonic: # /1_Configuration/A_IO_Config
             LastPingLeft = not LastPingLeft
             if EnableLeftUltrasonic:
                 LastLeftPing = LeftUltraSonic.range()
+                if LastLeftPing < 1 or LastLeftPing > 450: 
+                    LastLeftPing = 450
                 if LastLeftPing > 10 and LastLeftPing < 200:
                     WakeUpEvent()
         else:
             LastPingLeft = not LastPingLeft
             if EnableRightUltraSonic:
                 LastRightPing = RightUltraSonic.range()
+                if LastRightPing < 1 or LastRightPing > 450: 
+                    LastRightPing = 450
                 if LastRightPing > 10 and LastRightPing < 200:
                     WakeUpEvent()
         #print "Left Ping = ", LastLeftPing, ", Last Right Ping = ", LastRightPing
