@@ -22,8 +22,12 @@ print '6_Life_Functions/7_NeoPixel_Control.py Still to be programmed'
 
 if EnableStomachNeoPixel:
     def NeoPixelTimerEvent(timedata):
+        global LastLeftPing
+        global LastRightPing
+        global PIRstate
+        global BatteryLevel
         if StomachNeoPixelMode == 0:
-            StomachNeoPixel.animationStop()
+            #StomachNeoPixel.animationStop()
             for Pixel in range(len(NeoPixelDiagConfig)):
                 print "Pixel: ", Pixel, " Function: ", NeoPixelDiagConfig[Pixel][0], " Value: ", NeoPixelDiagConfig[Pixel][1]
                 if NeoPixelDiagConfig[Pixel][0] == 0:       # Not Used
