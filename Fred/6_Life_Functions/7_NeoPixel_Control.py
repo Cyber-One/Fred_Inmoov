@@ -20,7 +20,27 @@
 
 print '6_Life_Functions/7_NeoPixel_Control.py Still to be programmed'
 
+# The NeoPixel is a serial controlled RGB LED that can be
+# stringed together to allow upwards of 100 pixels to be used.
+# More importantly, with the one digital output, each NeoPixel
+# can be controlled seperatly.
+# In MyRobotLab, there are two ways to control the NeoPixels.
+# First is with Animations.  With this method, you specify the
+# animation you wish to use, selecting from a list of
+# available animations.
+# The second method is to individually set the color of each
+# NeoPixel.
+# As part of the Fred Control Program, I have added a number
+# of modes to the robot for controlling the NeoPixels.
+# The first mode is a debug mode of sorts and can be
+# configured in the /1_Configuration/C_Life_Config.py file
+
+# Before we do anything with the NeoPixels, we need to make
+# sure they are enabled.  Even is a user enables the NeoPixels,
+# the controller that is selected also needs to be enabled.
 if EnableStomachNeoPixel:
+    # Knowing that the service is enabled, we need to create
+    # the call back routing for our periodic timer to call.
     def NeoPixelTimerEvent(timedata):
         global LastNeoPixelMode
         global StomachNeoPixelMode
@@ -39,7 +59,6 @@ if EnableStomachNeoPixel:
                     StomachNeoPixel.setPixel(Pixel+1, 0, 0, 0)
                     StomachNeoPixel.writeMatrix()
             for Pixel in range(0, min(len(NeoPixelDiagConfig), StomachNeoPixelNumber)):
-                print "Pixel: ", Pixel, " Function: ", NeoPixelDiagConfig[Pixel][0], " Value: ", NeoPixelDiagConfig[Pixel][1]
                 if NeoPixelDiagConfig[Pixel][0] == 0:       # Not Used
                     StomachNeoPixel.setPixel(Pixel+1, 0, 0, 0)
                 elif NeoPixelDiagConfig[Pixel][0] == 1:     # Left UltraSonic Range
@@ -65,26 +84,32 @@ if EnableStomachNeoPixel:
                 elif NeoPixelDiagConfig[Pixel][0] == 5:     # Set Pixel Color
                     StomachNeoPixel.setPixel(Pixel+1, NeoPixelDiagConfig[Pixel][2], NeoPixelDiagConfig[Pixel][3], NeoPixelDiagConfig[Pixel][4])
                 StomachNeoPixel.writeMatrix()
-            print "NeoPixel Data, LUS = ", LastLeftPing, " RUS = ", LastRightPing, " PIR = ", PIRstate, " Battery Level =", BatteryLevel
         elif StomachNeoPixelMode == 1:
             if LastNeoPixelMode <> StomachNeoPixelMode:
                 LastNeoPixelMode = StomachNeoPixelMode
-                StomachNeoPixel.setAnimation("Rainbow Cycle", 255, 0, 0, 1) #running Theater Chase with color red at full speed
+                StomachNeoPixel.setAnimation("Rainbow Cycle", 255, 0, 0, 1) #running Rainbow Cycle at full speed
         elif StomachNeoPixelMode == 2:
             if LastNeoPixelMode <> StomachNeoPixelMode:
                 LastNeoPixelMode = StomachNeoPixelMode
-                StomachNeoPixel.setAnimation("Larson Scanner", 255, 0, 0, 1) #running Theater Chase with color red at full speed
+                StomachNeoPixel.setAnimation("Larson Scanner", 255, 0, 0, 1) #running Larson Scanner with color red at full speed
         elif StomachNeoPixelMode == 3:
             if LastNeoPixelMode <> StomachNeoPixelMode:
                 LastNeoPixelMode = StomachNeoPixelMode
-                StomachNeoPixel.setAnimation("Theater Chase Rainbow", 255, 0, 0, 1) #running Theater Chase with color red at full speed
+                StomachNeoPixel.setAnimation("Theater Chase Rainbow", 255, 0, 0, 1) #running Theater Chase Rainbow at full speed
         else:
             if LastNeoPixelMode <> StomachNeoPixelMode:
                 LastNeoPixelMode = StomachNeoPixelMode
-                StomachNeoPixel.setAnimation("Flash Random", 255, 0, 0, 1) #running Theater Chase with color red at full speed
+                StomachNeoPixel.setAnimation("Flash Random", 255, 0, 0, 1) #running Flash Random with color red at full speed
+    # Now that we have created the call back method, we need 
+    # to create the timer that will be updating the NeoPixels.
     NeoPixelTimer =Runtime.createAndStart("NeoPixelTimer", "Clock")
+    # Adding the listener is how we tell the timer to call
+    # our call back method.
     NeoPixelTimer.addListener("pulse", python.name, "NeoPixelTimerEvent")
+    # Next we need to tell the time how often to call the 
+    # method, this is in mill-seconds.
     NeoPixelTimer.setInterval(1000)
+    # Finally we start the clock.
     NeoPixelTimer.startClock(False)
 
 
