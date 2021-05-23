@@ -22,13 +22,17 @@ print '6_Life_Functions/7_NeoPixel_Control.py Still to be programmed'
 
 if EnableStomachNeoPixel:
     def NeoPixelTimerEvent(timedata):
+        global LastNeoPixelMode
+        global StomachNeoPixelMode
         global LastLeftPing
         global LastRightPing
         global PIRstate
         global BatteryLevel
         if StomachNeoPixelMode == 0:
-            #StomachNeoPixel.animationStop()
-            for Pixel in range(len(NeoPixelDiagConfig)):
+            if LastNeoPixelMode <> StomachNeoPixelMode:
+                StomachNeoPixel.animationStop()
+                LastNeoPixelMode = StomachNeoPixelMode
+            for Pixel in range(min(len(NeoPixelDiagConfig), StomachNeoPixelNumber)):
                 print "Pixel: ", Pixel, " Function: ", NeoPixelDiagConfig[Pixel][0], " Value: ", NeoPixelDiagConfig[Pixel][1]
                 if NeoPixelDiagConfig[Pixel][0] == 0:       # Not Used
                     StomachNeoPixel.setPixel(Pixel, 0, 0, 0)
@@ -54,8 +58,22 @@ if EnableStomachNeoPixel:
                         StomachNeoPixel.setPixel(Pixel, NeoPixelDiagConfig[Pixel][5], NeoPixelDiagConfig[Pixel][6], NeoPixelDiagConfig[Pixel][7])
             StomachNeoPixel.writeMatrix()
             print "NeoPixel Data, LUS = ", LastLeftPing, " RUS = ", LastRightPing, " PIR = ", PIRstate, " Battery Level =", BatteryLevel
+        elif StomachNeoPixelMode == 1:
+            if LastNeoPixelMode <> StomachNeoPixelMode:
+                LastNeoPixelMode = StomachNeoPixelMode
+                StomachNeoPixel.setAnimation("Rainbow Cycle", 255, 0, 0, 1) #running Theater Chase with color red at full speed
+        elif StomachNeoPixelMode == 2:
+            if LastNeoPixelMode <> StomachNeoPixelMode:
+                LastNeoPixelMode = StomachNeoPixelMode
+                StomachNeoPixel.setAnimation("Larson Scanner", 255, 0, 0, 1) #running Theater Chase with color red at full speed
+        elif StomachNeoPixelMode == 3:
+            if LastNeoPixelMode <> StomachNeoPixelMode:
+                LastNeoPixelMode = StomachNeoPixelMode
+                StomachNeoPixel.setAnimation("Theater Chase Rainbow", 255, 0, 0, 1) #running Theater Chase with color red at full speed
         else:
-            StomachNeoPixel.setAnimation("Rainbow Cycle", 255, 0, 0, 1) #running Theater Chase with color red at full speed
+            if LastNeoPixelMode <> StomachNeoPixelMode:
+                LastNeoPixelMode = StomachNeoPixelMode
+                StomachNeoPixel.setAnimation("Flash Random", 255, 0, 0, 1) #running Theater Chase with color red at full speed
     NeoPixelTimer =Runtime.createAndStart("NeoPixelTimer", "Clock")
     NeoPixelTimer.addListener("pulse", python.name, "NeoPixelTimerEvent")
     NeoPixelTimer.setInterval(1000)

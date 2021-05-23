@@ -72,3 +72,7 @@ LastPingLeft = False
 # These are the last values recorded with the Ultrasonic sensors
 LastLeftPing = 0
 LastRightPing = 0
+
+# This is used to detect when the NeoPixel mode is being changed
+# and allow appropriot actions to be taken.
+LastNeoPixelMode = 0
