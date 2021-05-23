@@ -35,28 +35,30 @@ if EnableStomachNeoPixel:
             for Pixel in range(min(len(NeoPixelDiagConfig), StomachNeoPixelNumber)):
                 print "Pixel: ", Pixel, " Function: ", NeoPixelDiagConfig[Pixel][0], " Value: ", NeoPixelDiagConfig[Pixel][1]
                 if NeoPixelDiagConfig[Pixel][0] == 0:       # Not Used
-                    StomachNeoPixel.setPixel(Pixel, 0, 0, 0)
+                    StomachNeoPixel.setPixel(Pixel+1, 0, 0, 0)
                 elif NeoPixelDiagConfig[Pixel][0] == 1:     # Left UltraSonic Range
                     if LastLeftPing < NeoPixelDiagConfig[Pixel][1]:
-                        StomachNeoPixel.setPixel(Pixel, NeoPixelDiagConfig[Pixel][2], NeoPixelDiagConfig[Pixel][3], NeoPixelDiagConfig[Pixel][4])
+                        StomachNeoPixel.setPixel(Pixel+1, NeoPixelDiagConfig[Pixel][2], NeoPixelDiagConfig[Pixel][3], NeoPixelDiagConfig[Pixel][4])
                     else:
-                        StomachNeoPixel.setPixel(Pixel, NeoPixelDiagConfig[Pixel][5], NeoPixelDiagConfig[Pixel][6], NeoPixelDiagConfig[Pixel][7])
+                        StomachNeoPixel.setPixel(Pixel+1, NeoPixelDiagConfig[Pixel][5], NeoPixelDiagConfig[Pixel][6], NeoPixelDiagConfig[Pixel][7])
                 elif NeoPixelDiagConfig[Pixel][0] == 2:     # Right UltraSonic Range
                     if LastRightPing < NeoPixelDiagConfig[Pixel][1]:
-                        StomachNeoPixel.setPixel(Pixel, NeoPixelDiagConfig[Pixel][2], NeoPixelDiagConfig[Pixel][3], NeoPixelDiagConfig[Pixel][4])
+                        StomachNeoPixel.setPixel(Pixel+1, NeoPixelDiagConfig[Pixel][2], NeoPixelDiagConfig[Pixel][3], NeoPixelDiagConfig[Pixel][4])
                     else:
-                        StomachNeoPixel.setPixel(Pixel, NeoPixelDiagConfig[Pixel][5], NeoPixelDiagConfig[Pixel][6], NeoPixelDiagConfig[Pixel][7])
+                        StomachNeoPixel.setPixel(Pixel+1, NeoPixelDiagConfig[Pixel][5], NeoPixelDiagConfig[Pixel][6], NeoPixelDiagConfig[Pixel][7])
                 elif NeoPixelDiagConfig[Pixel][0] == 3:     # PIR Detection
                     if not PIRstate:
-                        StomachNeoPixel.setPixel(Pixel, NeoPixelDiagConfig[Pixel][2], NeoPixelDiagConfig[Pixel][3], NeoPixelDiagConfig[Pixel][4])
+                        StomachNeoPixel.setPixel(Pixel+1, NeoPixelDiagConfig[Pixel][2], NeoPixelDiagConfig[Pixel][3], NeoPixelDiagConfig[Pixel][4])
                     else:
-                        StomachNeoPixel.setPixel(Pixel, NeoPixelDiagConfig[Pixel][5], NeoPixelDiagConfig[Pixel][6], NeoPixelDiagConfig[Pixel][7])
+                        StomachNeoPixel.setPixel(Pixel+1, NeoPixelDiagConfig[Pixel][5], NeoPixelDiagConfig[Pixel][6], NeoPixelDiagConfig[Pixel][7])
                 elif NeoPixelDiagConfig[Pixel][0] == 4:     # Battery Voltage
                     if BatteryLevel < NeoPixelDiagConfig[Pixel][1]:
-                        StomachNeoPixel.setPixel(Pixel, NeoPixelDiagConfig[Pixel][2], NeoPixelDiagConfig[Pixel][3], NeoPixelDiagConfig[Pixel][4])
+                        StomachNeoPixel.setPixel(Pixel+1, NeoPixelDiagConfig[Pixel][2], NeoPixelDiagConfig[Pixel][3], NeoPixelDiagConfig[Pixel][4])
                     else:
-                        StomachNeoPixel.setPixel(Pixel, NeoPixelDiagConfig[Pixel][5], NeoPixelDiagConfig[Pixel][6], NeoPixelDiagConfig[Pixel][7])
-            StomachNeoPixel.writeMatrix()
+                        StomachNeoPixel.setPixel(Pixel+1, NeoPixelDiagConfig[Pixel][5], NeoPixelDiagConfig[Pixel][6], NeoPixelDiagConfig[Pixel][7])
+                elif NeoPixelDiagConfig[Pixel][0] == 5:     # Set Pixel Color
+                    StomachNeoPixel.setPixel(Pixel+1, NeoPixelDiagConfig[Pixel][2], NeoPixelDiagConfig[Pixel][3], NeoPixelDiagConfig[Pixel][4])
+                StomachNeoPixel.writeMatrix()
             print "NeoPixel Data, LUS = ", LastLeftPing, " RUS = ", LastRightPing, " PIR = ", PIRstate, " Battery Level =", BatteryLevel
         elif StomachNeoPixelMode == 1:
             if LastNeoPixelMode <> StomachNeoPixelMode:

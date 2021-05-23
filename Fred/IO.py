@@ -147,9 +147,9 @@ if EnableStomachNeoPixel:
     if StomachNeoPixelAttachment == "arduinoRight":
         StomachNeoPixel.attach(arduinoRight, StomachNeoPixelPin, StomachNeoPixelNumber)
     #StomachNeoPixel.attach(arduino, 2, 16)
-    if StomachNeoPixelMode == 0:
-        StomachNeoPixel.setAnimation("Color Wipe", 0, 0, 0, 1) #running Theater Chase with color red at full speed
-    else:
-        StomachNeoPixel.setAnimation("Rainbow Cycle", 255, 0, 0, 1) #running Theater Chase with color red at full speed
+    #if StomachNeoPixelMode == 0:
+    #    StomachNeoPixel.setAnimation("Color Wipe", 0, 0, 0, 1) #running Theater Chase with color red at full speed
+    #else:
+    #    StomachNeoPixel.setAnimation("Rainbow Cycle", 255, 0, 0, 1) #running Theater Chase with color red at full speed
     #sleep(10)
 
