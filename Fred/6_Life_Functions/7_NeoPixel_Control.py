@@ -32,7 +32,13 @@ if EnableStomachNeoPixel:
             if LastNeoPixelMode <> StomachNeoPixelMode:
                 StomachNeoPixel.animationStop()
                 LastNeoPixelMode = StomachNeoPixelMode
-            for Pixel in range(min(len(NeoPixelDiagConfig), StomachNeoPixelNumber)):
+                for Pixel in range(0, min(len(NeoPixelDiagConfig), StomachNeoPixelNumber)):
+                    StomachNeoPixel.setPixel(Pixel+1, 100, 100, 100)
+                    StomachNeoPixel.writeMatrix()
+                for Pixel in range(0, min(len(NeoPixelDiagConfig), StomachNeoPixelNumber)):
+                    StomachNeoPixel.setPixel(Pixel+1, 0, 0, 0)
+                    StomachNeoPixel.writeMatrix()
+            for Pixel in range(0, min(len(NeoPixelDiagConfig), StomachNeoPixelNumber)):
                 print "Pixel: ", Pixel, " Function: ", NeoPixelDiagConfig[Pixel][0], " Value: ", NeoPixelDiagConfig[Pixel][1]
                 if NeoPixelDiagConfig[Pixel][0] == 0:       # Not Used
                     StomachNeoPixel.setPixel(Pixel+1, 0, 0, 0)
