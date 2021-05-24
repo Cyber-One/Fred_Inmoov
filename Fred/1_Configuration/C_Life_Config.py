@@ -75,12 +75,18 @@ EnableMouthControl = True       # Set to True or False
 # configuration. 
 # Each pixel needs to have is configuration defined.
 # We start with the function:
-# 0 = not used
-# 1 = Left UltraSonic Range
-# 2 = Right UltraSonic Range
+# 0 = Set Pixel color static, Value is ignored and only the
+#     first set of colors are used.
+# 1 = Left UltraSonic Range, when the distance is less than the
+#     value in centimeters, the the first set of LED are used,
+#     when greater, the second set are used. Remember, the
+#     closer an object is the lower the distance.
+# 2 = Right UltraSonic Range, As per the Left Ultrasonic sensor.
 # 3 = PIR, this is on or off, so the preset value is ignored.
-# 4 = Battery Level
-# 5 = Set Pixel color static, Value is ignored and only the first set of colors are used.
+#     Off uses the first set of colors, on uses the second set.
+# 4 = Battery Level, below the value the first est of colors
+#     are used, above that the second set of colours are used.
+# 5 = Not yet defined, Please make reasonable suggestions :-)
 # Next the preset value, The Neopixel will change color based
 # on this value.  Then the colour when above and the colour
 # when below the preset value.
@@ -104,10 +110,10 @@ NeoPixelDiagConfig = [[1, 200,   0,   0, 200,  10,   0,   0], # pixel 1
     [2, 150,   0,   0, 200,  10,   0,   0],                   # Pixel 15
     [2, 200,   0,   0, 200,  10,   0,   0],                   # Pixel 16
     [4, 050,  50,   0,   0,  20,  50,   0],                   # Pixel 17
-    [5,   0,  10,   0,   0,   0,   0,   0],                   # Pixel 18
-    [5,   0,   0,  10,   0,   0,   0,   0],                   # Pixel 19
-    [5,   0,   0,   0,  10,   0,   0,   0],                   # Pixel 20
-    [5,   0,  10,   0,  10,   0,   0,   0],                   # Pixel 21
-    [5,   0,   0,  10,  10,   0,   0,   0],                   # Pixel 22
-    [5,   0,  10,  10,  10,   0,   0,   0]]                   # Pixel 23
+    [0,   0,  10,   0,   0,   0,   0,   0],                   # Pixel 18
+    [0,   0,   0,  10,   0,   0,   0,   0],                   # Pixel 19
+    [0,   0,   0,   0,  10,   0,   0,   0],                   # Pixel 20
+    [0,   0,  10,   0,  10,   0,   0,   0],                   # Pixel 21
+    [0,   0,   0,  10,  10,   0,   0,   0],                   # Pixel 22
+    [0,   0,  10,  10,  10,   0,   0,   0]]                   # Pixel 23
 

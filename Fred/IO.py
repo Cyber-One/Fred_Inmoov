@@ -95,9 +95,9 @@ if EnableLeftUltrasonic:
     LeftUltraSonic = Runtime.start("LeftUltraSonic", "UltrasonicSensor")
     if LeftUltrasonicAttachment == "arduinoNano":
         LeftUltraSonic.attach(arduinoNano, LeftUltrasonicPin1, LeftUltrasonicPin2)
-    if LeftUltrasonicAttachment == "arduinoLeft":
+    elif LeftUltrasonicAttachment == "arduinoLeft":
         LeftUltraSonic.attach(arduinoLeft, LeftUltrasonicPin1, LeftUltrasonicPin2)
-    if LeftUltrasonicAttachment == "arduinoRight":
+    elif LeftUltrasonicAttachment == "arduinoRight":
         LeftUltraSonic.attach(arduinoRight, LeftUltrasonicPin1, LeftUltrasonicPin2)
     def onRangeLeft(distance):
         print "Left distance ", distance, " cm"
@@ -111,9 +111,9 @@ if EnableRightUltraSonic:
     RightUltraSonic = Runtime.start("RightUltraSonic", "UltrasonicSensor")
     if RightUltrasonicAttachment == "arduinoNano":
         RightUltraSonic.attach(arduinoNano, RightUltrasonicPin1, RightUltrasonicPin2)
-    if RightUltrasonicAttachment == "arduinoLeft":
+    elif RightUltrasonicAttachment == "arduinoLeft":
         RightUltraSonic.attach(arduinoLeft, RightUltrasonicPin1, RightUltrasonicPin2)
-    if RightUltrasonicAttachment == "arduinoRight":
+    elif RightUltrasonicAttachment == "arduinoRight":
         RightUltraSonic.attach(arduinoRight, RightUltrasonicPin1, RightUltrasonicPin2)
     def onRangeRight(distance):
         print "Right distance ", distance, " cm"
@@ -125,9 +125,56 @@ if EnableRightUltraSonic:
 #                                                            #
 ##############################################################
 BatteryLevel = 0
-if EnableBatteryMonitor:
-    BatteryLevel = 1
+# Test to make sure the configured controller is enabled.
+if not ((BatteryMonitorAttachment == "arduinoNano" and EnableArduinoNano) or (BatteryMonitorAttachment == "arduinoLeft" and EnableArduinoLeft) or (BatteryMonitorAttachment == "arduinoRight" and EnableArduinoRight)):
+    EnableBatteryMonitor = False
 
+if EnableBatteryMonitor:
+    # Lets set a default value for the Battery Monitor value
+    # Once the forst poll sequence is complete, this will be more accurate
+    BatteryLevel = 1
+    # Because we are dealing with the controller itself, we 
+    # need to reference the controller directly.
+    # That means creating the control program for each of 
+    # the variations that may be used in the config.
+    if BatteryMonitorAttachment == "arduinoNano":
+        arduinoLeft.setAref("DEFAULT")
+        def BattMonPublishedPins(pins):
+            BatteryLevel = pins[pin].value
+            arduinoLeft.disablePin(BatteryMonitorPin)
+        arduinoLeft.addListener("publishPinArray","python","BattMonPublishedPins")
+        def BattMonTimerPulse(timedata):
+            arduinoLeft.enablePin(BatteryMonitorPin, 1)
+    elif BatteryMonitorAttachment == "arduinoLeft":
+        arduinoRight.setAref("DEFAULT")
+        def BattMonPublishedPins(pins):
+            BatteryLevel = pins[pin].value
+            arduinoRight.disablePin(BatteryMonitorPin)
+        arduinoRight.addListener("publishPinArray","python","BattMonPublishedPins")
+        def BattMonTimerPulse(timedata):
+            arduinoRight.enablePin(BatteryMonitorPin, 1)
+    elif BatteryMonitorAttachment == "arduinoRight":
+        arduinoNano.setAref("DEFAULT")
+        def BattMonPublishedPins(pins):
+            BatteryLevel = pins[pin].value
+            arduinoNano.disablePin(BatteryMonitorPin)
+        arduinoNano.addListener("publishPinArray","python","BattMonPublishedPins")
+        def BattMonTimerPulse(timedata):
+            arduinoNano.enablePin(BatteryMonitorPin, 1)
+    # For the Battery Monitor to work, we need a timer to control the interval between tests
+    BatteryMonitorTime = Runtime.createAndStart("BatteryMonitorTime", "Clock")
+    # the addListener() call will run the python routine "BattMonTimerPulse" whenever the pulse event occurs.
+    BatteryMonitorTime.addListener("pulse", python.name, "BattMonTimerPulse")
+    # Initially, we will set the test interval at BatteryMonitorPollInterval milli-seconds.
+    BatteryMonitorTime.setInterval(BatteryMonitorPollInterval)
+    # Then we start the clock running.
+    BatteryMonitorTime.startClock()
+ 
+print "start to poll pin input"
+arduino.enablePin(inputPin, 1)
+sleep(5)
+print "stop to poll pin input"
+arduino.disablePin(inputPin)
 ##############################################################
 #                                                            #
 # The NeoPixel Ring                                          #
@@ -138,18 +185,18 @@ if EnableBatteryMonitor:
 if not ((StomachNeoPixelAttachment == "arduinoNano" and EnableArduinoNano) or (StomachNeoPixelAttachment == "arduinoLeft" and EnableArduinoLeft) or (StomachNeoPixelAttachment == "arduinoRight" and EnableArduinoRight)):
     EnableStomachNeoPixel = False
 
+# Before we even think about starting the NeoPixel Service,
+# we need to make sure it's enabled.  The previous bit will
+# disable the service if the controller is not available
 if EnableStomachNeoPixel:
+    # We use the standard method of starting a service in MRL
     StomachNeoPixel = Runtime.start("StomachNeoPixel","NeoPixel")
+    # Next we attach the NeoPixel service to the configured controller.
     if StomachNeoPixelAttachment == "arduinoNano":
         StomachNeoPixel.attach(arduinoNano, StomachNeoPixelPin, StomachNeoPixelNumber)
     if StomachNeoPixelAttachment == "arduinoLeft":
         StomachNeoPixel.attach(arduinoLeft, StomachNeoPixelPin, StomachNeoPixelNumber)
     if StomachNeoPixelAttachment == "arduinoRight":
         StomachNeoPixel.attach(arduinoRight, StomachNeoPixelPin, StomachNeoPixelNumber)
-    #StomachNeoPixel.attach(arduino, 2, 16)
-    #if StomachNeoPixelMode == 0:
-    #    StomachNeoPixel.setAnimation("Color Wipe", 0, 0, 0, 1) #running Theater Chase with color red at full speed
-    #else:
-    #    StomachNeoPixel.setAnimation("Rainbow Cycle", 255, 0, 0, 1) #running Theater Chase with color red at full speed
-    #sleep(10)
-
+# Thats it for this part of setting up the neo Pixels.
+# The rest is done in the 6_Life_Functions/7_NeoPixel_Control.py program

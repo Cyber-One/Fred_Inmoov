@@ -18,7 +18,7 @@
 #                                                            #
 ##############################################################
 
-print '6_Life_Functions/7_NeoPixel_Control.py Still to be programmed'
+print '6_Life_Functions/7_NeoPixel_Control.py'
 
 # The NeoPixel is a serial controlled RGB LED that can be
 # stringed together to allow upwards of 100 pixels to be used.
@@ -42,25 +42,44 @@ if EnableStomachNeoPixel:
     # Knowing that the service is enabled, we need to create
     # the call back routing for our periodic timer to call.
     def NeoPixelTimerEvent(timedata):
+        # Global variavle are variable defined outside of this
+        # method that we need to read and update.
         global LastNeoPixelMode
         global StomachNeoPixelMode
         global LastLeftPing
         global LastRightPing
         global PIRstate
         global BatteryLevel
+        # Next we work out what mode we will be running our 
+        # NeoPixels in.
         if StomachNeoPixelMode == 0:
             if LastNeoPixelMode <> StomachNeoPixelMode:
+                # If the NeoPixels were running in a different 
+                #mode, then we need to stop the running animation 
+                #and reset all the NeoPixels so that we can 
+                #control them, this is done by first issuing 
+                #the animationStop() command.
                 StomachNeoPixel.animationStop()
+                # we also need to update the last mode used.
                 LastNeoPixelMode = StomachNeoPixelMode
+                # To reset the NeoPixels, we need to write a
+                # value to them and write that out to the controller
+                # for each pixel in the chain.
                 for Pixel in range(0, min(len(NeoPixelDiagConfig), StomachNeoPixelNumber)):
                     StomachNeoPixel.setPixel(Pixel+1, 100, 100, 100)
                     StomachNeoPixel.writeMatrix()
+                # After seting the pixels to a value, we now 
+                # need to clear them the same way we set them.
                 for Pixel in range(0, min(len(NeoPixelDiagConfig), StomachNeoPixelNumber)):
                     StomachNeoPixel.setPixel(Pixel+1, 0, 0, 0)
                     StomachNeoPixel.writeMatrix()
+            # Assuming the neoPixels are all ready to work, we 
+            # need to cycle through the config settings and set 
+            #each NeoPixel accordin to the function selected 
+            # and that functions status.
             for Pixel in range(0, min(len(NeoPixelDiagConfig), StomachNeoPixelNumber)):
-                if NeoPixelDiagConfig[Pixel][0] == 0:       # Not Used
-                    StomachNeoPixel.setPixel(Pixel+1, 0, 0, 0)
+                if NeoPixelDiagConfig[Pixel][0] == 0:       # Set Pixel Color
+                    StomachNeoPixel.setPixel(Pixel+1, NeoPixelDiagConfig[Pixel][2], NeoPixelDiagConfig[Pixel][3], NeoPixelDiagConfig[Pixel][4])
                 elif NeoPixelDiagConfig[Pixel][0] == 1:     # Left UltraSonic Range
                     if LastLeftPing < NeoPixelDiagConfig[Pixel][1]:
                         StomachNeoPixel.setPixel(Pixel+1, NeoPixelDiagConfig[Pixel][2], NeoPixelDiagConfig[Pixel][3], NeoPixelDiagConfig[Pixel][4])
@@ -96,6 +115,14 @@ if EnableStomachNeoPixel:
             if LastNeoPixelMode <> StomachNeoPixelMode:
                 LastNeoPixelMode = StomachNeoPixelMode
                 StomachNeoPixel.setAnimation("Theater Chase Rainbow", 255, 0, 0, 1) #running Theater Chase Rainbow at full speed
+        elif StomachNeoPixelMode == 4:
+            if LastNeoPixelMode <> StomachNeoPixelMode:
+                LastNeoPixelMode = StomachNeoPixelMode
+                StomachNeoPixel.setAnimation("Color Wipe", 255, 0, 0, 1) #running Color Wipe at full speed
+        elif StomachNeoPixelMode == 5:
+            if LastNeoPixelMode <> StomachNeoPixelMode:
+                LastNeoPixelMode = StomachNeoPixelMode
+                StomachNeoPixel.setAnimation("Ironman", 255, 0, 0, 1) #running Ironman at full speed
         else:
             if LastNeoPixelMode <> StomachNeoPixelMode:
                 LastNeoPixelMode = StomachNeoPixelMode
