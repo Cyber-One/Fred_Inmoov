@@ -170,11 +170,6 @@ if EnableBatteryMonitor:
     # Then we start the clock running.
     BatteryMonitorTime.startClock()
  
-print "start to poll pin input"
-arduino.enablePin(inputPin, 1)
-sleep(5)
-print "stop to poll pin input"
-arduino.disablePin(inputPin)
 ##############################################################
 #                                                            #
 # The NeoPixel Ring                                          #
