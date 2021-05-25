@@ -85,12 +85,17 @@ if RunWebGUI == True:
     # and attempts to autostart browser unless it was disabled
     WebGui.startService();
 
+# Load in the Common Variables used to help track and control various functions
+execfile(RuningFolder+'/Common_Variables.py')
 
 # Controllers.py starts the major controller interface services
 # such as the Raspberry Pi service and the Adafruit Servo controller services
 # This is also where you would start any Arduino services you might want to add
 # Like the Nano for the Ultra-Sonic sensors or the PIR sensor.
 execfile(RuningFolder+'/Controllers.py')
+
+# The IO services are for things like the PIR, Ultrasonic range finders and NeoPixel rings ect.
+execfile(RuningFolder+'/IO.py')
 
 # The next is for the different servos we will be running.
 # This set of files are responsible for starting and configuring each of the servos throughout the robot.
@@ -101,12 +106,6 @@ execfile(RuningFolder+'/3_Servos/4_Servos_RightArm.py')
 execfile(RuningFolder+'/3_Servos/5_Servos_LeftArm.py')
 execfile(RuningFolder+'/3_Servos/6_Servos_RightHand.py')
 execfile(RuningFolder+'/3_Servos/7_Servos_LeftHand.py')
-
-# Load in the Common Variables used to help track and control various functions
-execfile(RuningFolder+'/Common_Variables.py')
-
-# The IO services are for things like the PIR, Ultrasonic range finders and NeoPixel rings ect.
-execfile(RuningFolder+'/IO.py')
 
 # There are a number of options for Text To Speech (TTS) and Speech To Text (STT) service.
 # You will need to have a look in this file to select which ones you want to use.

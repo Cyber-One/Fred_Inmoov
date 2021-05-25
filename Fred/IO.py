@@ -136,27 +136,27 @@ if EnableBatteryMonitor:
     # Because we are dealing with the controller itself, we 
     # need to reference the controller directly.
     # That means creating the control program for each of 
-    # the variations that may be used in the config.
-    if BatteryMonitorAttachment == "arduinoNano":
+    # the variations that may be used in the config. 
+    if BatteryMonitorAttachment == "arduinoLeft":
         arduinoLeft.setAref("DEFAULT")
         def BattMonPublishedPins(pins):
-            BatteryLevel = pins[pin].value
+            BatteryLevel = pins[0].value
             arduinoLeft.disablePin(BatteryMonitorPin)
         arduinoLeft.addListener("publishPinArray","python","BattMonPublishedPins")
         def BattMonTimerPulse(timedata):
             arduinoLeft.enablePin(BatteryMonitorPin, 1)
-    elif BatteryMonitorAttachment == "arduinoLeft":
+    elif BatteryMonitorAttachment == "arduinoRight":
         arduinoRight.setAref("DEFAULT")
         def BattMonPublishedPins(pins):
-            BatteryLevel = pins[pin].value
+            BatteryLevel = pins[0].value
             arduinoRight.disablePin(BatteryMonitorPin)
         arduinoRight.addListener("publishPinArray","python","BattMonPublishedPins")
         def BattMonTimerPulse(timedata):
             arduinoRight.enablePin(BatteryMonitorPin, 1)
-    elif BatteryMonitorAttachment == "arduinoRight":
+    elif BatteryMonitorAttachment == "arduinoNano":
         arduinoNano.setAref("DEFAULT")
         def BattMonPublishedPins(pins):
-            BatteryLevel = pins[pin].value
+            BatteryLevel = pins[0].value
             arduinoNano.disablePin(BatteryMonitorPin)
         arduinoNano.addListener("publishPinArray","python","BattMonPublishedPins")
         def BattMonTimerPulse(timedata):
@@ -195,3 +195,22 @@ if EnableStomachNeoPixel:
         StomachNeoPixel.attach(arduinoRight, StomachNeoPixelPin, StomachNeoPixelNumber)
 # Thats it for this part of setting up the neo Pixels.
 # The rest is done in the 6_Life_Functions/7_NeoPixel_Control.py program
+
+##############################################################
+#                                                            #
+# MPU6050 Inertial Measurment Unit (IMU)                     #
+#                                                            #
+##############################################################
+# The first parameter is the service we want to attach it to, 
+# normally either the RasPi or one of the Arduinos
+# in our case it will be the Raspi4.
+#
+# The second parameter is the bus, This is normally 1 for the 
+# RasPi or 0 for an Arduino.
+if EnableMPU6050A == True:
+    MPU6050A = Runtime.createAndStart("MPU6050A","Mpu6050")
+    mpu6050A.attach(MPU6050AAttached, MPU6050APort, "0x68")
+
+if EnableMPU6050B == True:
+    MPU6050B = Runtime.createAndStart("MPU6050B","Mpu6050")
+    mpu6050B.attach(MPU6050AAttached, MPU6050BPort, "0x69")

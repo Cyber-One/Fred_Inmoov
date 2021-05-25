@@ -116,14 +116,3 @@ RightArmServoDriverAddr = "0x43"        # Refer to notes above
 RightArmServoDriverPort = "1"           # Refer to notes above
 RightArmServoDriverAttached = "raspi"   # Refer to notes above
 
-# It would be good to know when the head was level.
-# This can achived by installing an Inertial Measurment Unit (IMU).
-# The IMU we can use here is the MPU6050, a reasonably cheap 
-# I2C device that provides acelleration in 3 axis of the linear
-# direction as well as 3 axis of rotational motion.
-EnableMPU6050A = False                   # True or False
-MPU6050AAttached = "raspi"
-MPU6050APort = "1"
-EnableMPU6050B = False                   # True or False
-MPU6050BAttached = "raspi"
-MPU6050bPort = "1"

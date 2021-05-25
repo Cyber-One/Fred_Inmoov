@@ -105,4 +105,22 @@ EnableStomachNeoPixel = True
 StomachNeoPixelAttachment = "arduinoNano"   # This was attached to a secondary board
 StomachNeoPixelPin = 8                      # 2
 StomachNeoPixelNumber = 23                  # 16
-StomachNeoPixelMode = 0                     # This is how we will use the Neopixel ring/s
+StomachNeoPixelMode = 0                     # This is how we will use the Neopixel ring/s at startup
+
+##############################################################
+#                                                            #
+# MPU6050 Inertial Measurment Unit (IMU)                     #
+#                                                            #
+##############################################################
+# It would be good to know when the head was level.
+# This can achived by installing an Inertial Measurment Unit (IMU).
+# The IMU we can use here is the MPU6050, a reasonably cheap 
+# I2C device that provides acelleration in 3 axis of the linear
+# direction as well as 3 axis of rotational motion.
+EnableMPU6050A = False                   # True or False
+MPU6050AAttached = "raspi"
+MPU6050APort = "1"
+
+EnableMPU6050B = False                   # True or False
+MPU6050BAttached = "raspi"
+MPU6050bPort = "1"
