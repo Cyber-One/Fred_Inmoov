@@ -138,5 +138,5 @@ if UseWebKit == True:
 # prevent infinite loop - this will suppress the
 # recognition when speaking - default behavior
 # by attaching an Ear to a Mouth :-)
-if UseSphinx or UseWebKit:
+if (UseSphinx or UseWebKit) and (UseMarySpeech or UseMimicSpeech or UseEspeak):
     Ear.attach(Mouth)
