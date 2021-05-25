@@ -89,7 +89,7 @@ PingTime = 1000
 # 33Vdc
 EnableBatteryMonitor = False
 BatteryMonitorAttachment = "arduinoNano"
-BatteryMonitorPin = "A0"
+BatteryMonitorPin = 14  # On the Arduino Nano, this = A0
 BatteryMonitorPollInterval = 10000 # milli-seconds
 
 ##############################################################

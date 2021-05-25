@@ -209,8 +209,8 @@ if EnableStomachNeoPixel:
 # RasPi or 0 for an Arduino.
 if EnableMPU6050A == True:
     MPU6050A = Runtime.createAndStart("MPU6050A","Mpu6050")
-    mpu6050A.attach(MPU6050AAttached, MPU6050APort, "0x68")
+    MPU6050A.attach(MPU6050AAttached, MPU6050APort, "0x68")
 
 if EnableMPU6050B == True:
     MPU6050B = Runtime.createAndStart("MPU6050B","Mpu6050")
-    mpu6050B.attach(MPU6050AAttached, MPU6050BPort, "0x69")
+    MPU6050B.attach(MPU6050AAttached, MPU6050BPort, "0x69")
