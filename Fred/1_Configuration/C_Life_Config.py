@@ -24,12 +24,27 @@ print "Loading the Life Simulation System Config"
 #                                                            #
 ##############################################################
 
-# This setting is only valid if the third torso servo is fitted.  
-# In this case, the default will be Bob Houstons design in which
-# case the setting is False.
+##############################################################
+#                                                            #
+# Torso Type Setting                                         #
+#                                                            #
+##############################################################
+# This setting is only valid if the third torso servo is
+# fitted.  In this case, the default will be Bob Houstons
+# design in which case the setting is False.
 # When Bartoz diferential control is used, set this to True.
 TorsoType = False
 
+##############################################################
+#                                                            #
+# Eye Lids Blinking Controls                                 #
+#                                                            #
+##############################################################
+# Having a robot stationary just looking at you with no
+# movement is not very life like, so where eye lids are fitted
+# we have the blink action.  This action wil close the eye
+# lids for a short ime at random intervals between
+# RandBlinkMinTime and RandBlinkMaxTime time intervals.
 # The Blinking feature can be very anoying, 
 # so the option to turn it of is here.
 EnableBlinking = True           # Set to True or False
@@ -38,7 +53,17 @@ RandBlinkMinTime = 5000         # int milliSeconds
 # Maximum time between blinks
 RandBlinkMaxTime = 10000        # int milliSeconds
 
-# Moves the eyes to make the robot appear more alive.
+##############################################################
+#                                                            #
+# Random Eye Movement Controls                               #
+#                                                            #
+##############################################################
+# while it's good to have the robot blinking above, a living
+# creature will tend to get bored and start to move it eyes
+# around looking to see what there is.  The section configures
+# those movements, if enabled. 
+# If servos to move the eyes are not installed, the function
+# will still run, but will affect the whole of the head.
 EnableRandomEyeMovements = True # Set to True or False
 # Min time between movements
 RandEyeMovementsMinTime = 1000  # int miliSeconds
@@ -48,6 +73,11 @@ RandEyeMovementsMaxTime = 5000  # int miliSeconds
 # each time the random function is called.
 RandEyeMovementsMaxRot = 20     # Perecnt of total range
 
+##############################################################
+#                                                            #
+# Sleep and Wake up  Controls                                #
+#                                                            #
+##############################################################
 # From time to time, we will want the robot to stop running
 # the life simulations, this is done by putting the robot
 # to sleep after a period of no activity.
@@ -66,11 +96,24 @@ TimeToSleep = 5 * 60000
 WakeupMessage = u"Hello, How are you"
 #WakeupMessage = "OFF"
 
+##############################################################
+#                                                            #
+# Mouth Control                                              #
+#                                                            #
+##############################################################
+# Mouth control syncronises the Jaw movement with the Speech
+# that is spoken using the TTS services.
 # There are times when setting up your robot, you don't want
 # the jaw to move, this is where you can disable this feature.
+# If there are no TTS services enabled or the Jaw is disabled
+# then this control has no effect.
 EnableMouthControl = True       # Set to True or False
 
-# NeoPixel Diagnostic Mode Config
+##############################################################
+#                                                            #
+# NeoPixel Diagnostic Mode Config.                           #
+#                                                            #
+##############################################################
 # We use a multi dimensional array to configure the NeoPixels
 # configuration. 
 # Each pixel needs to have is configuration defined.
