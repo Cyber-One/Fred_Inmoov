@@ -210,7 +210,12 @@ if EnableStomachNeoPixel:
 if EnableMPU6050A == True:
     MPU6050A = Runtime.createAndStart("MPU6050A","Mpu6050")
     MPU6050A.attach(MPU6050AAttached, MPU6050APort, "0x68")
-    MPU6050A.refresh()
+    MPU6050A.initialize()
+    MPU6050A.dmpInitialize()
+    MPU6050A.getRaw() 
+    #MPU6050A.startOrientationTracking()
+    #MPU6050A.stopOrientationTracking()
+    #publishOrientation(Orientation data) 
 
 if EnableMPU6050B == True:
     MPU6050B = Runtime.createAndStart("MPU6050B","Mpu6050")

@@ -57,13 +57,13 @@ PirPin = 2                                  # 23
 # Speed = 331.3 + (0.606 * airTemp) m/s
 EnableLeftUltrasonic = True                 #
 LeftUltrasonicAttachment = "arduinoNano"    # "arduioLeft"
-LeftUltrasonicPin1 = 12                     # 64
-LeftUltrasonicPin2 = 11                     # 63
+LeftUltrasonicPin1 = 10                     # 64
+LeftUltrasonicPin2 = 9                      # 63
 
 EnableRightUltraSonic = True                #
 RightUltrasonicAttachment = "arduinoNano"   # "arduioRight"
-RightUltrasonicPin1 = 10                    # 64
-RightUltrasonicPin2 = 9                     # 63
+RightUltrasonicPin1 = 12                    # 64
+RightUltrasonicPin2 = 11                    # 63
 
 # Time between Pings in milli-seconds.
 PingTime = 1000

@@ -68,6 +68,11 @@ execfile(RuningFolder+'/6_Life_Functions/9_Random_Movements.py')
 # while and wake it up when a sense event occurs.
 execfile(RuningFolder+'/6_Life_Functions/Wake_Up_And_Sleep.py')
 
+##############################################################
+#                                                            #
+# PIR Sensor Control.                                        #
+#                                                            #
+##############################################################
 # Use the PIR sensor to wake up or keep awake
 if EnablePIR: # /1_Configuration/A_IO_Config.py
     # Here if we are using the PIR sensor, we create the method 
@@ -83,7 +88,12 @@ if EnablePIR: # /1_Configuration/A_IO_Config.py
             PIRstate = False
     pir.addListener("publishSense",python.name,"PirLifeEvent")
 
-    
+##############################################################
+#                                                            #
+# Ultrasonic Sensor Control.                                 #
+#                                                            #
+##############################################################
+
 # There is provision for two Ultrasonic sensors, Left and right.
 if EnableLeftUltrasonic or EnableRightUltraSonic: # /1_Configuration/A_IO_Config.py
 # Here we define the Ping Event handler
@@ -113,7 +123,11 @@ if EnableLeftUltrasonic or EnableRightUltraSonic: # /1_Configuration/A_IO_Config
     PingTimer.setInterval(PingTime) # /1_Configuration/A_IO_Config.py
     PingTimer.startClock(False)
 
-# Jaw control based on MarySpeech.
+##############################################################
+#                                                            #
+# Jaw control based on MarySpeech                            #
+#                                                            #
+##############################################################
 # This section will cause the jaw to open and close as the robot is speaking.
 if (UseMarySpeech or UseMimicSpeech or UseEspeak) and EnableMouthControl and EnableJawServo:
     # Before we can use this feature, we first need to create it :-)
