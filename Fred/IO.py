@@ -207,6 +207,10 @@ if EnableStomachNeoPixel:
 #
 # The second parameter is the bus, This is normally 1 for the 
 # RasPi or 0 for an Arduino.
+# First lets make sure there is a I2C controller enabled
+if not ((MPU6050AAttached == "raspi" and EnableRaspberryPi) or (MPU6050AAttached == "arduinoNano" and EnableArduinoNano) or (MPU6050AAttached == "arduinoLeft" and EnableArduinoLeft) or (MPU6050AAttached == "arduinoRight" and EnableArduinoRight)):
+    EnableMPU6050A = False
+
 if EnableMPU6050A == True:
     MPU6050A = Runtime.createAndStart("MPU6050A","Mpu6050")
     MPU6050A.attach(MPU6050AAttached, MPU6050APort, "0x68")
@@ -215,9 +219,13 @@ if EnableMPU6050A == True:
     MPU6050A.getRaw() 
     MPU6050A.startOrientationTracking()
     #MPU6050A.stopOrientationTracking()
+    #python.subscribe('MPU6050A', 'publishOrientation', 'python', 'MPU6050Head')
     #publishOrientation(Orientation data) 
+
+if not ((MPU6050BAttached == "raspi" and EnableRaspberryPi) or (MPU6050BAttached == "arduinoNano" and EnableArduinoNano) or (MPU6050BAttached == "arduinoLeft" and EnableArduinoLeft) or (MPU6050BAttached == "arduinoRight" and EnableArduinoRight)):
+    EnableMPU6050B = False
 
 if EnableMPU6050B == True:
     MPU6050B = Runtime.createAndStart("MPU6050B","Mpu6050")
-    MPU6050B.attach(MPU6050AAttached, MPU6050BPort, "0x69")
+    MPU6050B.attach(MPU6050BAttached, MPU6050BPort, "0x69")
     MPU6050B.refresh()

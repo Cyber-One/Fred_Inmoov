@@ -103,4 +103,10 @@ def LookHeadTilt(LookTilt):
     EyesTiltTo(HeadTiltPos)
     HeadTiltTo(LookPositionTilt)
 
-
+if EnableMPU6050A
+    def MPU6050Head(OrentationData):
+        print "MPU_Pitch", OrentationData.pitch
+        print "MPU_Roll", OrentationData.roll
+        print "MPU_Yaw", OrentationData.yaw
+    python.subscribe('MPU6050A', 'publishOrientation', 'python', 'MPU6050Head')
+    

@@ -117,7 +117,7 @@ StomachNeoPixelMode = 0                     # This is how we will use the Neopix
 # The IMU we can use here is the MPU6050, a reasonably cheap 
 # I2C device that provides acelleration in 3 axis of the linear
 # direction as well as 3 axis of rotational motion.
-EnableMPU6050A = False                   # True or False
+EnableMPU6050A = True                   # True or False
 MPU6050AAttached = "raspi"
 MPU6050APort = "1"
 
