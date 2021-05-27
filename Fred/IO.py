@@ -207,7 +207,8 @@ if EnableStomachNeoPixel:
 #
 # The second parameter is the bus, This is normally 1 for the 
 # RasPi or 0 for an Arduino.
-# First lets make sure there is a I2C controller enabled
+
+# First lets make sure the I2C controller enabled
 if not ((MPU6050AAttached == "raspi" and EnableRaspberryPi) or (MPU6050AAttached == "arduinoNano" and EnableArduinoNano) or (MPU6050AAttached == "arduinoLeft" and EnableArduinoLeft) or (MPU6050AAttached == "arduinoRight" and EnableArduinoRight)):
     EnableMPU6050A = False
 
@@ -222,6 +223,7 @@ if EnableMPU6050A == True:
     #python.subscribe('MPU6050A', 'publishOrientation', 'python', 'MPU6050Head')
     #publishOrientation(Orientation data) 
 
+# First lets make sure the I2C controller enabled
 if not ((MPU6050BAttached == "raspi" and EnableRaspberryPi) or (MPU6050BAttached == "arduinoNano" and EnableArduinoNano) or (MPU6050BAttached == "arduinoLeft" and EnableArduinoLeft) or (MPU6050BAttached == "arduinoRight" and EnableArduinoRight)):
     EnableMPU6050B = False
 

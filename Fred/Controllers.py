@@ -97,20 +97,37 @@ if EnableArduinoNano == True:
 # Just be aware of any other I2C devices you have on the bus
 # and what their address are, some device can not be changed
 # or have a very limited number of selectable addresses.
+
+# First lets make sure the I2C controller enabled
+if not ((HeadServoDriverAttached == "raspi" and EnableRaspberryPi) or (HeadServoDriverAttached == "arduinoNano" and EnableArduinoNano) or (HeadServoDriverAttached == "arduinoLeft" and EnableArduinoLeft) or (HeadServoDriverAttached == "arduinoRight" and EnableArduinoRight)):
+    EnableAdafruit16CServoDriverHead = False
+
 if EnableAdafruit16CServoDriverHead == True:
     print "--Starting the Adafruit16CServoDriver for the Head"
     Head = Runtime.createAndStart("Head","Adafruit16CServoDriver")
     Head.attach(HeadServoDriverAttached, HeadServoDriverPort, HeadServoDriverAddr)
+
+# First lets make sure the I2C controller enabled
+if not ((BackServoDriverAttached == "raspi" and EnableRaspberryPi) or (BackServoDriverAttached == "arduinoNano" and EnableArduinoNano) or (BackServoDriverAttached == "arduinoLeft" and EnableArduinoLeft) or (BackServoDriverAttached == "arduinoRight" and EnableArduinoRight)):
+    EnableAdafruit16CServoDriverBack = False
 
 if EnableAdafruit16CServoDriverBack == True:
     print "--Starting the Adafruit16CServoDriver for the Back"
     Back = Runtime.createAndStart("Back", "Adafruit16CServoDriver")
     Back.attach(BackServoDriverAttached, BackServoDriverPort, BackServoDriverAddr)
 
+# First lets make sure the I2C controller enabled
+if not ((LeftArmServoDriverAttached == "raspi" and EnableRaspberryPi) or (LeftArmServoDriverAttached == "arduinoNano" and EnableArduinoNano) or (LeftArmServoDriverAttached == "arduinoLeft" and EnableArduinoLeft) or (LeftArmServoDriverAttached == "arduinoRight" and EnableArduinoRight)):
+    EnableAdafruit16CServoDriverLeftArm = False
+
 if EnableAdafruit16CServoDriverLeftArm == True:
     print "--Starting the Adafruit16CServoDriver for the Right Arm"
     RightArm = Runtime.createAndStart("RightArm", "Adafruit16CServoDriver")
     RightArm.attach(LeftArmServoDriverAttached, LeftArmServoDriverPort, LeftArmServoDriverAddr)
+
+# First lets make sure the I2C controller enabled
+if not ((RightArmServoDriverAttached == "raspi" and EnableRaspberryPi) or (RightArmServoDriverAttached == "arduinoNano" and EnableArduinoNano) or (RightArmServoDriverAttached == "arduinoLeft" and EnableArduinoLeft) or (RightArmServoDriverAttached == "arduinoRight" and EnableArduinoRight)):
+    EnableAdafruit16CServoDriverRightArm = False
 
 if EnableAdafruit16CServoDriverRightArm == True:
     print "--Starting the Adafruit16CServoDriver for the Left Arm"
