@@ -215,7 +215,7 @@ if not ((MPU6050AAttached == "raspi" and EnableRaspberryPi) or (MPU6050AAttached
 if EnableMPU6050A == True:
     MPU6050A = Runtime.createAndStart("MPU6050A","Mpu6050")
     MPU6050A.attach(MPU6050AAttached, MPU6050APort, "0x68")
-    MPU6050A.initialize()
+    #MPU6050A.initialize()
     MPU6050A.dmpInitialize()
     #MPU6050A.getRaw() 
     #MPU6050A.startOrientationTracking()
