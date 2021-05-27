@@ -213,7 +213,7 @@ if EnableMPU6050A == True:
     MPU6050A.initialize()
     MPU6050A.dmpInitialize()
     MPU6050A.getRaw() 
-    #MPU6050A.startOrientationTracking()
+    MPU6050A.startOrientationTracking()
     #MPU6050A.stopOrientationTracking()
     #publishOrientation(Orientation data) 
 
