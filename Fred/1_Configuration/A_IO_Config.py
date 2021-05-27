@@ -101,7 +101,7 @@ BatteryMonitorPollInterval = 10000 # milli-seconds
 # data line, these can be cascaded allowing strings of
 # NeoPixels to be connected with each pixel being able to be
 # controlled.  This can make for some fantastic displays.
-EnableStomachNeoPixel = True
+EnableStomachNeoPixel = False
 StomachNeoPixelAttachment = "arduinoNano"   # This was attached to a secondary board
 StomachNeoPixelPin = 8                      # 2
 StomachNeoPixelNumber = 23                  # 16

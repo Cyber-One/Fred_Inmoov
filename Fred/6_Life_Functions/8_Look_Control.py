@@ -109,4 +109,5 @@ if EnableMPU6050A
         print "MPU_Roll", OrentationData.roll
         print "MPU_Yaw", OrentationData.yaw
     python.subscribe('MPU6050A', 'publishOrientation', 'python', 'MPU6050Head')
+    SMPU6050A.startOrientationTracking()
     
