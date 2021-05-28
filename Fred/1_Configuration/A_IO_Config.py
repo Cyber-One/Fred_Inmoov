@@ -87,9 +87,15 @@ PingTime = 1000
 # 10K resistor between gnd and the input and a 56K resistor
 # between the input and the battery, we should be safe up to
 # 33Vdc
-EnableBatteryMonitor = False
+EnableBatteryMonitor1 = False
+EnableBatteryMonitor2 = False
+EnableBatteryMonitor3 = False
+EnableBatteryMonitor4 = False
 BatteryMonitorAttachment = "arduinoNano"
-BatteryMonitorPin = 14  # On the Arduino Nano, this = A0
+BatteryMonitorPin1 = 14 # On the Arduino Nano, this = A0
+BatteryMonitorPin2 = 15 # On the Arduino Nano, this = A0
+BatteryMonitorPin3 = 16 # On the Arduino Nano, this = A0
+BatteryMonitorPin4 = 17 # On the Arduino Nano, this = A0
 BatteryMonitorPollInterval = 10000 # milli-seconds
 
 ##############################################################
@@ -120,7 +126,9 @@ StomachNeoPixelMode = 0                     # This is how we will use the Neopix
 EnableMPU6050A = True                   # True or False
 MPU6050AAttached = "raspi"
 MPU6050APort = "1"
+MPU6050AAddr = "0x68"
 
-EnableMPU6050B = False                   # True or False
-MPU6050BAttached = "raspi"
-MPU6050bPort = "1"
+EnableMPU6050B = True                   # True or False
+MPU6050BAttached = "arduinoNano"
+MPU6050BPort = "0"
+MPU6050BAddr = "0x68"

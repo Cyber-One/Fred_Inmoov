@@ -124,15 +124,22 @@ if EnableRightUltraSonic:
 # The Battery Voltage Monitor                                #
 #                                                            #
 ##############################################################
-BatteryLevel = 0
+BatteryLevel = [0, 0, 0, 0]
 # Test to make sure the configured controller is enabled.
 if not ((BatteryMonitorAttachment == "arduinoNano" and EnableArduinoNano) or (BatteryMonitorAttachment == "arduinoLeft" and EnableArduinoLeft) or (BatteryMonitorAttachment == "arduinoRight" and EnableArduinoRight)):
     EnableBatteryMonitor = False
 
-if EnableBatteryMonitor:
+if EnableBatteryMonitor1 or EnableBatteryMonitor2 or EnableBatteryMonitor3 or EnableBatteryMonitor4:
     # Lets set a default value for the Battery Monitor value
     # Once the forst poll sequence is complete, this will be more accurate
-    BatteryLevel = 1
+    if EnableBatteryMonitor1
+        BatteryLevel[0] = 1
+    if EnableBatteryMonitor2
+        BatteryLevel[1] = 1
+    if EnableBatteryMonitor3
+        BatteryLevel[2] = 1
+    if EnableBatteryMonitor4
+        BatteryLevel[3] = 1
     # Because we are dealing with the controller itself, we 
     # need to reference the controller directly.
     # That means creating the control program for each of 
@@ -214,9 +221,10 @@ if not ((MPU6050AAttached == "raspi" and EnableRaspberryPi) or (MPU6050AAttached
 
 if EnableMPU6050A == True:
     MPU6050A = Runtime.createAndStart("MPU6050A","Mpu6050")
-    MPU6050A.attach(MPU6050AAttached, MPU6050APort, "0x68")
+    MPU6050A.attach(MPU6050AAttached, MPU6050APort, MPU6050AAddr)
     #MPU6050A.initialize()
     MPU6050A.dmpInitialize()
+    #MPU6050A.refresh()
     #MPU6050A.getRaw() 
     #MPU6050A.startOrientationTracking()
     #MPU6050A.stopOrientationTracking()
@@ -229,5 +237,12 @@ if not ((MPU6050BAttached == "raspi" and EnableRaspberryPi) or (MPU6050BAttached
 
 if EnableMPU6050B == True:
     MPU6050B = Runtime.createAndStart("MPU6050B","Mpu6050")
-    MPU6050B.attach(MPU6050BAttached, MPU6050BPort, "0x69")
-    MPU6050B.refresh()
+    MPU6050B.attach(MPU6050BAttached, MPU6050BPort, MPU6050BAddr)
+    #MPU6050B.initialize()
+    MPU6050B.dmpInitialize()
+    #MPU6050B.refresh()
+    #MPU6050B.getRaw() 
+    #MPU6050B.startOrientationTracking()
+    #MPU6050B.stopOrientationTracking()
+    #python.subscribe('MPU6050B', 'publishOrientation', 'python', 'MPU6050Body')
+    #publishOrientation(Orientation data) 
