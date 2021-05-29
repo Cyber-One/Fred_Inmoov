@@ -28,6 +28,16 @@ print "Starting the various Servos Services"
 # Load the configuration for the Servos_Head.
 execfile(RuningFolder+'/1_Configuration/4_Servo_Neck_Config.py')
 
+# Test to make sure the configured controller is enabled.
+if not ((HeadYawAttachment == "Head" and EnableAdafruit16CServoDriverHead) 
+    or (HeadYawAttachment == "Back" and EnableAdafruit16CServoDriverBack) 
+    or (HeadYawAttachment == "RightArm" and EnableAdafruit16CServoDriverRightArm)
+    or (HeadYawAttachment == "LeftArm" and EnableAdafruit16CServoDriverLeftArm)
+    or (HeadYawAttachment == "arduinoNano" and EnableArduinoNano) 
+    or (HeadYawAttachment == "arduinoLeft" and EnableArduinoLeft) 
+    or (HeadYawAttachment == "arduinoRight" and EnableArduinoRight)):
+    EnableHeadYaw = False
+
 if EnableHeadYaw == True:
     print "Head Yaw"
     HeadYaw = Runtime.createAndStart("HeadYaw", "Servo")
@@ -62,7 +72,15 @@ if EnableHeadYaw == True:
     HeadYaw.setAutoDisable(True)
     HeadYaw.rest()
 
-print "-Back Servo Group"
+# Test to make sure the configured controller is enabled.
+if not ((HeadPitchAttachment == "Head" and EnableAdafruit16CServoDriverHead) 
+    or (HeadPitchAttachment == "Back" and EnableAdafruit16CServoDriverBack) 
+    or (HeadPitchAttachment == "RightArm" and EnableAdafruit16CServoDriverRightArm)
+    or (HeadPitchAttachment == "LeftArm" and EnableAdafruit16CServoDriverLeftArm)
+    or (HeadPitchAttachment == "arduinoNano" and EnableArduinoNano) 
+    or (HeadPitchAttachment == "arduinoLeft" and EnableArduinoLeft) 
+    or (HeadPitchAttachment == "arduinoRight" and EnableArduinoRight)):
+    EnableHeadPitch = False
 
 if EnableHeadPitch == True:
     print "--Head Pitch"
@@ -96,6 +114,16 @@ if EnableHeadPitch == True:
         HeadPitch.setVelocity(HeadPitchMaxSpeed) ## max velocity
     HeadPitch.setAutoDisable(True)
     HeadPitch.rest()
+
+# Test to make sure the configured controller is enabled.
+if not ((HeadRollAttachment == "Head" and EnableAdafruit16CServoDriverHead) 
+    or (HeadRollAttachment == "Back" and EnableAdafruit16CServoDriverBack) 
+    or (HeadRollAttachment == "RightArm" and EnableAdafruit16CServoDriverRightArm)
+    or (HeadRollAttachment == "LeftArm" and EnableAdafruit16CServoDriverLeftArm)
+    or (HeadRollAttachment == "arduinoNano" and EnableArduinoNano) 
+    or (HeadRollAttachment == "arduinoLeft" and EnableArduinoLeft) 
+    or (HeadRollAttachment == "arduinoRight" and EnableArduinoRight)):
+    EnableHeadRoll = False
 
 if EnableHeadRoll == True:
     print "--Head Roll"
