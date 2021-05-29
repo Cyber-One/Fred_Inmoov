@@ -135,7 +135,7 @@ if EnableStomachNeoPixel:
     NeoPixelTimer.addListener("pulse", python.name, "NeoPixelTimerEvent")
     # Next we need to tell the time how often to call the 
     # method, this is in mill-seconds.
-    NeoPixelTimer.setInterval(1000)
+    NeoPixelTimer.setInterval(NeoPixelUpdateRate)
     # Finally we start the clock.
     NeoPixelTimer.startClock(False)
 

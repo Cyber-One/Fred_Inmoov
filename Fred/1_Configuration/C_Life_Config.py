@@ -116,6 +116,7 @@ EnableMouthControl = True       # Set to True or False
 ##############################################################
 # We use a multi dimensional array to configure the NeoPixels
 # configuration. 
+NeoPixelUpdateRate = 500    # mili-Seconds
 # Each pixel needs to have is configuration defined.
 # We start with the function:
 # 0 = Set Pixel color static, Value is ignored and only the
