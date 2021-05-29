@@ -150,10 +150,10 @@ if EnableBatteryMonitor > 0 and EnableBatteryMonitor < 5:
                 BatteryLevel[2] = pins[2].value
             if (EnableBatteryMonitor > 3) and (len(pins) > 3):
                 BatteryLevel[3] = pins[3].value
-            arduinoLeft.disablePin(BatteryMonitorPin)
+            #arduinoLeft.disablePin(BatteryMonitorPin)
         arduinoLeft.addListener("publishPinArray","python","BattMonPublishedPins")
-        def BattMonTimerPulse(timedata):
-            arduinoLeft.enablePin(BatteryMonitorPin, 1)
+     #   def BattMonTimerPulse(timedata):
+     #       arduinoLeft.enablePin(BatteryMonitorPin, 1)
     elif BatteryMonitorAttachment == "arduinoRight":
         arduinoRight.setAref("DEFAULT")
         def BattMonPublishedPins(pins):
@@ -164,10 +164,10 @@ if EnableBatteryMonitor > 0 and EnableBatteryMonitor < 5:
                 BatteryLevel[2] = pins[2].value
             if (EnableBatteryMonitor > 3) and (len(pins) > 3):
                 BatteryLevel[3] = pins[3].value
-            arduinoRight.disablePin(BatteryMonitorPin)
+            #arduinoRight.disablePin(BatteryMonitorPin)
         arduinoRight.addListener("publishPinArray","python","BattMonPublishedPins")
-        def BattMonTimerPulse(timedata):
-            arduinoRight.enablePin(BatteryMonitorPin, 1)
+    #    def BattMonTimerPulse(timedata):
+    #        arduinoRight.enablePin(BatteryMonitorPin, 1)
     elif BatteryMonitorAttachment == "arduinoNano":
         arduinoNano.setAref("DEFAULT")
         def BattMonPublishedPins(pins):
@@ -178,18 +178,25 @@ if EnableBatteryMonitor > 0 and EnableBatteryMonitor < 5:
                 BatteryLevel[2] = pins[2].value
             if (EnableBatteryMonitor > 3) and (len(pins) > 3):
                 BatteryLevel[3] = pins[3].value
-            arduinoNano.disablePin(BatteryMonitorPin)
+            #arduinoNano.disablePin(BatteryMonitorPin)
         arduinoNano.addListener("publishPinArray","python","BattMonPublishedPins")
-        def BattMonTimerPulse(timedata):
-            arduinoNano.enablePin(BatteryMonitorPin, 1)
+        arduinoNano.enablePin(BatteryMonitorPin1, 1)
+        if EnableBatteryMonitor > 1:
+            arduinoNano.enablePin(BatteryMonitorPin2, 1)
+        if EnableBatteryMonitor > 2:
+            arduinoNano.enablePin(BatteryMonitorPin3, 1)
+        if EnableBatteryMonitor > 3:
+            arduinoNano.enablePin(BatteryMonitorPin4, 1)
+    #    def BattMonTimerPulse(timedata):
+    #        arduinoNano.enablePin(BatteryMonitorPin1, 1)
     # For the Battery Monitor to work, we need a timer to control the interval between tests
-    BatteryMonitorTime = Runtime.createAndStart("BatteryMonitorTime", "Clock")
+    #BatteryMonitorTime = Runtime.createAndStart("BatteryMonitorTime", "Clock")
     # the addListener() call will run the python routine "BattMonTimerPulse" whenever the pulse event occurs.
-    BatteryMonitorTime.addListener("pulse", python.name, "BattMonTimerPulse")
+    #BatteryMonitorTime.addListener("pulse", python.name, "BattMonTimerPulse")
     # Initially, we will set the test interval at BatteryMonitorPollInterval milli-seconds.
-    BatteryMonitorTime.setInterval(BatteryMonitorPollInterval)
+    #BatteryMonitorTime.setInterval(BatteryMonitorPollInterval)
     # Then we start the clock running.
-    BatteryMonitorTime.startClock()
+    #BatteryMonitorTime.startClock()
  
 ##############################################################
 #                                                            #
