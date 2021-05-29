@@ -124,8 +124,8 @@ if EnableRightUltraSonic:
 # The Battery Voltage Monitor                                #
 #                                                            #
 ##############################################################
-BatteryLevel = [0, 0, 0, 0]
-BatteryPin = ["0", "0", "0", "0"]
+BatteryLevel = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+BatteryPin = ["0", "0", "0", "0", "0", "0", "0", "0", "0", "0"]
 # Test to make sure the configured controller is enabled.
 if not ((BatteryMonitorAttachment == "arduinoNano" and EnableArduinoNano) or (BatteryMonitorAttachment == "arduinoLeft" and EnableArduinoLeft) or (BatteryMonitorAttachment == "arduinoRight" and EnableArduinoRight)):
     EnableBatteryMonitor = 0
@@ -178,26 +178,26 @@ if EnableBatteryMonitor > 0 and EnableBatteryMonitor < 5:
         arduinoNano.setBoardNano() 
         arduinoNano.setAref("DEFAULT")
         def BattMonPublishedPins(pins):
-            BatteryLevel[0] = pins[0].value
-            BatteryPin[0] = pins[0].pin
-            if (EnableBatteryMonitor > 1) and (len(pins) > 1):
-                BatteryLevel[1] = pins[1].value
-                BatteryPin[1] = pins[1].pin
-            if (EnableBatteryMonitor > 2) and (len(pins) > 2):
-                BatteryLevel[2] = pins[2].value
-                BatteryPin[2] = pins[2].pin
-            if (EnableBatteryMonitor > 3) and (len(pins) > 3):
-                BatteryLevel[3] = pins[3].value
-                BatteryPin[3] = pins[3].pin
-            #arduinoNano.disablePin(BatteryMonitorPin)
+            for pin in range(0, len(pins)):
+                BatteryLevel[pin] = pins[pin].value
+                BatteryPin[pin] = pins[pin].pin
+            #if (EnableBatteryMonitor > 1) and (len(pins) > 1):
+            #    BatteryLevel[1] = pins[1].value
+            #    BatteryPin[1] = pins[1].pin
+            #if (EnableBatteryMonitor > 2) and (len(pins) > 2):
+            #    BatteryLevel[2] = pins[2].value
+            #    BatteryPin[2] = pins[2].pin
+            #if (EnableBatteryMonitor > 3) and (len(pins) > 3):
+            #    BatteryLevel[3] = pins[3].value
+            #    BatteryPin[3] = pins[3].pin
         arduinoNano.addListener("publishPinArray","python","BattMonPublishedPins")
         arduinoNano.enablePin(BatteryMonitorPin1, 1)
         if EnableBatteryMonitor > 1:
-            arduinoNano.enablePin(BatteryMonitorPin2, 2)
+            arduinoNano.enablePin(BatteryMonitorPin2, 1)
         if EnableBatteryMonitor > 2:
-            arduinoNano.enablePin(BatteryMonitorPin3, 3)
+            arduinoNano.enablePin(BatteryMonitorPin3, 1)
         if EnableBatteryMonitor > 3:
-            arduinoNano.enablePin(BatteryMonitorPin4, 4)
+            arduinoNano.enablePin(BatteryMonitorPin4, 1)
     #    def BattMonTimerPulse(timedata):
     #        arduinoNano.enablePin(BatteryMonitorPin1, 1)
     # For the Battery Monitor to work, we need a timer to control the interval between tests
