@@ -26,6 +26,15 @@ print "Starting the various Head Servos Services"
 # Load the configuration for the Servos_Head.
 execfile(RuningFolder+'/1_Configuration/3_Servo_Head_Config.py')
 
+# Test to make sure the configured controller is enabled.
+if not ((JawAttachment == "Head" and EnableAdafruit16CServoDriverHead) 
+    or (JawAttachment == "Back" and EnableAdafruit16CServoDriverBack) 
+    or (JawAttachment == "RightArm" and EnableAdafruit16CServoDriverRightArm)
+    or (JawAttachment == "LeftArm" and EnableAdafruit16CServoDriverLeftArm)
+    or (JawAttachment == "arduinoNano" and EnableArduinoNano) 
+    or (JawAttachment == "arduinoLeft" and EnableArduinoLeft) 
+    or (JawAttachment == "arduinoRight" and EnableArduinoRight)):
+    EnableJawServo = False
 
 if EnableJawServo == True:
     print "--The Jaw"
@@ -142,6 +151,16 @@ if EnableJawServo == True:
     # the default position of 90 degrees.
     Jaw.rest()
 
+# Test to make sure the configured controller is enabled.
+if not ((RightEyeXAttachment == "Head" and EnableAdafruit16CServoDriverHead) 
+    or (RightEyeXAttachment == "Back" and EnableAdafruit16CServoDriverBack) 
+    or (RightEyeXAttachment == "RightArm" and EnableAdafruit16CServoDriverRightArm)
+    or (RightEyeXAttachment == "LeftArm" and EnableAdafruit16CServoDriverLeftArm)
+    or (RightEyeXAttachment == "arduinoNano" and EnableArduinoNano) 
+    or (RightEyeXAttachment == "arduinoLeft" and EnableArduinoLeft) 
+    or (RightEyeXAttachment == "arduinoRight" and EnableArduinoRight)):
+    EnableRightEyeX = False
+
 if EnableRightEyeX == True:
     print "--Right Eye X axis"
     RightEyeLR = Runtime.createAndStart("RightEyeLR", "Servo")
@@ -178,6 +197,16 @@ if EnableRightEyeX == True:
     RightEyeLR.setAutoDisable(True)
     RightEyeLR.rest()
 
+# Test to make sure the configured controller is enabled.
+if not ((RightEyeYAttachment == "Head" and EnableAdafruit16CServoDriverHead) 
+    or (RightEyeYAttachment == "Back" and EnableAdafruit16CServoDriverBack) 
+    or (RightEyeYAttachment == "RightArm" and EnableAdafruit16CServoDriverRightArm)
+    or (RightEyeYAttachment == "LeftArm" and EnableAdafruit16CServoDriverLeftArm)
+    or (RightEyeYAttachment == "arduinoNano" and EnableArduinoNano) 
+    or (RightEyeYAttachment == "arduinoLeft" and EnableArduinoLeft) 
+    or (RightEyeYAttachment == "arduinoRight" and EnableArduinoRight)):
+    EnableRightEyeY = False
+
 if EnableRightEyeY == True:
     print "--Right Eye Y axis"
     RightEyeUD = Runtime.createAndStart("RightEyeUD", "Servo")
@@ -210,6 +239,16 @@ if EnableRightEyeY == True:
         RightEyeUD.setVelocity(RightEyeYVelocity) ## max velocity
     RightEyeUD.setAutoDisable(True)
     RightEyeUD.rest()
+
+# Test to make sure the configured controller is enabled.
+if not ((LeftEyeXAttachment == "Head" and EnableAdafruit16CServoDriverHead) 
+    or (LeftEyeXAttachment == "Back" and EnableAdafruit16CServoDriverBack) 
+    or (LeftEyeXAttachment == "RightArm" and EnableAdafruit16CServoDriverRightArm)
+    or (LeftEyeXAttachment == "LeftArm" and EnableAdafruit16CServoDriverLeftArm)
+    or (LeftEyeXAttachment == "arduinoNano" and EnableArduinoNano) 
+    or (LeftEyeXAttachment == "arduinoLeft" and EnableArduinoLeft) 
+    or (LeftEyeXAttachment == "arduinoRight" and EnableArduinoRight)):
+    EnableLeftEyeX = False
 
 if EnableLeftEyeX == True:
     print "--Left Eye X axis"
@@ -244,6 +283,16 @@ if EnableLeftEyeX == True:
     LeftEyeLR.setAutoDisable(True)
     LeftEyeLR.rest()
 
+# Test to make sure the configured controller is enabled.
+if not ((LeftEyeYAttachment == "Head" and EnableAdafruit16CServoDriverHead) 
+    or (LeftEyeYAttachment == "Back" and EnableAdafruit16CServoDriverBack) 
+    or (LeftEyeYAttachment == "RightArm" and EnableAdafruit16CServoDriverRightArm)
+    or (LeftEyeYAttachment == "LeftArm" and EnableAdafruit16CServoDriverLeftArm)
+    or (LeftEyeYAttachment == "arduinoNano" and EnableArduinoNano) 
+    or (LeftEyeYAttachment == "arduinoLeft" and EnableArduinoLeft) 
+    or (LeftEyeYAttachment == "arduinoRight" and EnableArduinoRight)):
+    EnableLeftEyeY = False
+
 if EnableLeftEyeY == True:
     print "--Left Eye Y axis"
     LeftEyeUD = Runtime.createAndStart("LeftEyeUD", "Servo")
@@ -276,6 +325,16 @@ if EnableLeftEyeY == True:
         LeftEyeUD.setVelocity(LeftEyeYVelocity) ## max velocity
     LeftEyeUD.setAutoDisable(True)
     LeftEyeUD.rest()
+
+# Test to make sure the configured controller is enabled.
+if not ((UpperREyeLidAttachment == "Head" and EnableAdafruit16CServoDriverHead) 
+    or (UpperREyeLidAttachment == "Back" and EnableAdafruit16CServoDriverBack) 
+    or (UpperREyeLidAttachment == "RightArm" and EnableAdafruit16CServoDriverRightArm)
+    or (UpperREyeLidAttachment == "LeftArm" and EnableAdafruit16CServoDriverLeftArm)
+    or (UpperREyeLidAttachment == "arduinoNano" and EnableArduinoNano) 
+    or (UpperREyeLidAttachment == "arduinoLeft" and EnableArduinoLeft) 
+    or (UpperREyeLidAttachment == "arduinoRight" and EnableArduinoRight)):
+    EnableRightUpperEyeLid = False
 
 if EnableRightUpperEyeLid == True:
     print "--Upper Right Eyelid"
@@ -310,6 +369,16 @@ if EnableRightUpperEyeLid == True:
     UpperEyeLidR.setAutoDisable(False)
     UpperEyeLidR.rest()
 
+# Test to make sure the configured controller is enabled.
+if not ((LowerREyeLidAttachment == "Head" and EnableAdafruit16CServoDriverHead) 
+    or (LowerREyeLidAttachment == "Back" and EnableAdafruit16CServoDriverBack) 
+    or (LowerREyeLidAttachment == "RightArm" and EnableAdafruit16CServoDriverRightArm)
+    or (LowerREyeLidAttachment == "LeftArm" and EnableAdafruit16CServoDriverLeftArm)
+    or (LowerREyeLidAttachment == "arduinoNano" and EnableArduinoNano) 
+    or (LowerREyeLidAttachment == "arduinoLeft" and EnableArduinoLeft) 
+    or (LowerREyeLidAttachment == "arduinoRight" and EnableArduinoRight)):
+    EnableRightLowerEyeLid = False
+
 if EnableRightLowerEyeLid == True:
     print "--Lower Right Eyelid"
     LowerEyeLidR = Runtime.createAndStart("LowerEyeLidR", "Servo")
@@ -343,22 +412,32 @@ if EnableRightLowerEyeLid == True:
     LowerEyeLidR.setAutoDisable(False)
     LowerEyeLidR.rest()
 
+# Test to make sure the configured controller is enabled.
+if not ((UpperLEyeLidAttachment == "Head" and EnableAdafruit16CServoDriverHead) 
+    or (UpperLEyeLidAttachment == "Back" and EnableAdafruit16CServoDriverBack) 
+    or (UpperLEyeLidAttachment == "RightArm" and EnableAdafruit16CServoDriverRightArm)
+    or (UpperLEyeLidAttachment == "LeftArm" and EnableAdafruit16CServoDriverLeftArm)
+    or (UpperLEyeLidAttachment == "arduinoNano" and EnableArduinoNano) 
+    or (UpperLEyeLidAttachment == "arduinoLeft" and EnableArduinoLeft) 
+    or (UpperLEyeLidAttachment == "arduinoRight" and EnableArduinoRight)):
+    EnableLeftUpperEyeLid = False
+
 if EnableLeftUpperEyeLid == True:
     print "--Upper Left Eyelid"
     UpperEyeLidL = Runtime.createAndStart("UpperEyeLidL", "Servo")
-    if UpperREyeLidAttachment == "Head":
+    if UpperLEyeLidAttachment == "Head":
         UpperEyeLidL.attach(Head, UpperLEyeLidPin)
-    if UpperREyeLidAttachment == "Back":
+    if UpperLEyeLidAttachment == "Back":
         UpperEyeLidL.attach(Back, UpperLEyeLidPin)
-    if UpperREyeLidAttachment == "RightArm":
+    if UpperLEyeLidAttachment == "RightArm":
         UpperEyeLidL.attach(RightArm, UpperLEyeLidPin)
-    if UpperREyeLidAttachment == "LeftArm":
+    if UpperLEyeLidAttachment == "LeftArm":
         UpperEyeLidL.attach(LeftArm, UpperLEyeLidPin)
-    if UpperREyeLidAttachment == "arduinoLeft":
+    if UpperLEyeLidAttachment == "arduinoLeft":
         UpperEyeLidL.attach(arduinoLeft, UpperLEyeLidPin)
-    if UpperREyeLidAttachment == "arduinoRight":
+    if UpperLEyeLidAttachment == "arduinoRight":
         UpperEyeLidL.attach(arduinoRight, UpperLEyeLidPin)
-    if UpperREyeLidAttachment == "arduinoNano":
+    if UpperLEyeLidAttachment == "arduinoNano":
         UpperEyeLidL.attach(arduinoNano, UpperLEyeLidPin)
     #UpperEyeLidL.setMinMax(UpperLEyeLidMinPos, UpperLEyeLidMaxPos)
     UpperEyeLidL.setMinMax(0, 100)
@@ -376,22 +455,32 @@ if EnableLeftUpperEyeLid == True:
     UpperEyeLidL.setAutoDisable(False)
     UpperEyeLidL.rest()
 
+# Test to make sure the configured controller is enabled.
+if not ((LowerLEyeLidAttachment == "Head" and EnableAdafruit16CServoDriverHead) 
+    or (LowerLEyeLidAttachment == "Back" and EnableAdafruit16CServoDriverBack) 
+    or (LowerLEyeLidAttachment == "RightArm" and EnableAdafruit16CServoDriverRightArm)
+    or (LowerLEyeLidAttachment == "LeftArm" and EnableAdafruit16CServoDriverLeftArm)
+    or (LowerLEyeLidAttachment == "arduinoNano" and EnableArduinoNano) 
+    or (LowerLEyeLidAttachment == "arduinoLeft" and EnableArduinoLeft) 
+    or (LowerLEyeLidAttachment == "arduinoRight" and EnableArduinoRight)):
+    EnableLeftLowerEyeLid = False
+
 if EnableLeftLowerEyeLid == True:
     print "--Lower Left Eyelid"
     LowerEyeLidL = Runtime.createAndStart("LowerEyeLidL", "Servo")
-    if LowerREyeLidAttachment == "Head":
+    if LowerLEyeLidAttachment == "Head":
         LowerEyeLidL.attach(Head, LowerLEyeLidPin)
-    if LowerREyeLidAttachment == "Back":
+    if LowerLEyeLidAttachment == "Back":
         LowerEyeLidL.attach(Back, LowerLEyeLidPin)
-    if LowerREyeLidAttachment == "RightArm":
+    if LowerLEyeLidAttachment == "RightArm":
         LowerEyeLidL.attach(RightArm, LowerLEyeLidPin)
-    if LowerREyeLidAttachment == "LeftArm":
+    if LowerLEyeLidAttachment == "LeftArm":
         LowerEyeLidL.attach(LeftArm, LowerLEyeLidPin)
-    if LowerREyeLidAttachment == "arduinoLeft":
+    if LowerLEyeLidAttachment == "arduinoLeft":
         LowerEyeLidL.attach(arduinoLeft, LowerLEyeLidPin)
-    if LowerREyeLidAttachment == "arduinoRight":
+    if LowerLEyeLidAttachment == "arduinoRight":
         LowerEyeLidL.attach(arduinoRight, LowerLEyeLidPin)
-    if LowerREyeLidAttachment == "arduinoNano":
+    if LowerLEyeLidAttachment == "arduinoNano":
         LowerEyeLidL.attach(arduinoNano, LowerLEyeLidPin)
     #LowerEyeLidL.setMinMax(LowerLEyeLidMinPos, LowerLEyeLidMaxPos)
     LowerEyeLidL.setMinMax(0, 100)
