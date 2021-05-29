@@ -87,15 +87,14 @@ PingTime = 1000
 # 10K resistor between gnd and the input and a 56K resistor
 # between the input and the battery, we should be safe up to
 # 33Vdc
-EnableBatteryMonitor1 = False
-EnableBatteryMonitor2 = False
-EnableBatteryMonitor3 = False
-EnableBatteryMonitor4 = False
+# To enable, the Enable Battery monitor must be set to a value
+# between 1 and 4, with each of the inputs defined below.
+EnableBatteryMonitor = 0
 BatteryMonitorAttachment = "arduinoNano"
 BatteryMonitorPin1 = 14 # On the Arduino Nano, this = A0
-BatteryMonitorPin2 = 15 # On the Arduino Nano, this = A0
-BatteryMonitorPin3 = 16 # On the Arduino Nano, this = A0
-BatteryMonitorPin4 = 17 # On the Arduino Nano, this = A0
+BatteryMonitorPin2 = 15 # On the Arduino Nano, this = A1
+BatteryMonitorPin3 = 16 # On the Arduino Nano, this = A2
+BatteryMonitorPin4 = 17 # On the Arduino Nano, this = A3
 BatteryMonitorPollInterval = 10000 # milli-seconds
 
 ##############################################################
