@@ -182,15 +182,17 @@ if EnableBatteryMonitor > 0 and EnableBatteryMonitor < 5:
                 if pins[pin].pin == BatteryMonitorPin1:
                     BatteryLevel[0] = pins[pin].value
                     BatteryPin[0] = pins[pin].pin
-                if pins[pin].pin == BatteryMonitorPin2:
+                elif pins[pin].pin == BatteryMonitorPin2:
                     BatteryLevel[1] = pins[pin].value
                     BatteryPin[1] = pins[pin].pin
-                if pins[pin].pin == BatteryMonitorPin3:
+                elif pins[pin].pin == BatteryMonitorPin3:
                     BatteryLevel[2] = pins[pin].value
                     BatteryPin[2] = pins[pin].pin
-                if pins[pin].pin == BatteryMonitorPin4:
+                elif pins[pin].pin == BatteryMonitorPin4:
                     BatteryLevel[3] = pins[pin].value
                     BatteryPin[3] = pins[pin].pin
+                else
+                    BatteryPin[4] = pins[pin].pin
             #if (EnableBatteryMonitor > 1) and (len(pins) > 1):
             #    BatteryLevel[1] = pins[1].value
             #    BatteryPin[1] = pins[1].pin
