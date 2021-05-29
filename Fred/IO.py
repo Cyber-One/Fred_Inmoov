@@ -179,8 +179,14 @@ if EnableBatteryMonitor > 0 and EnableBatteryMonitor < 5:
         arduinoNano.setAref("DEFAULT")
         def BattMonPublishedPins(pins):
             for pin in range(0, len(pins)):
-                BatteryLevel[pin] = pins[pin].value
-                BatteryPin[pin] = pins[pin].pin
+                if pins[pin].pin == BatteryMonitorPin1:
+                    BatteryLevel[0] = pins[pin].value
+                if pins[pin].pin == BatteryMonitorPin2:
+                    BatteryLevel[1] = pins[pin].value
+                if pins[pin].pin == BatteryMonitorPin3:
+                    BatteryLevel[2] = pins[pin].value
+                if pins[pin].pin == BatteryMonitorPin4:
+                    BatteryLevel[3] = pins[pin].value
             #if (EnableBatteryMonitor > 1) and (len(pins) > 1):
             #    BatteryLevel[1] = pins[1].value
             #    BatteryPin[1] = pins[1].pin
