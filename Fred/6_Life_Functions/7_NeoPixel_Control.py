@@ -96,7 +96,7 @@ if EnableStomachNeoPixel:
                     else:
                         StomachNeoPixel.setPixel(Pixel+1, NeoPixelDiagConfig[Pixel][5], NeoPixelDiagConfig[Pixel][6], NeoPixelDiagConfig[Pixel][7])
                 elif NeoPixelDiagConfig[Pixel][0] == 4:     # Battery Voltage
-                    if BatteryLevel < NeoPixelDiagConfig[Pixel][1]:
+                    if BatteryLevel[0] < NeoPixelDiagConfig[Pixel][1]:
                         StomachNeoPixel.setPixel(Pixel+1, NeoPixelDiagConfig[Pixel][2], NeoPixelDiagConfig[Pixel][3], NeoPixelDiagConfig[Pixel][4])
                     else:
                         StomachNeoPixel.setPixel(Pixel+1, NeoPixelDiagConfig[Pixel][5], NeoPixelDiagConfig[Pixel][6], NeoPixelDiagConfig[Pixel][7])
