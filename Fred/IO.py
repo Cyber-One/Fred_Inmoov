@@ -124,15 +124,14 @@ if EnableRightUltraSonic:
 # The Battery Voltage Monitor                                #
 #                                                            #
 ##############################################################
-BatteryLevel = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-BatteryPin = ["-", "-", "-", "-", "-", "-", "-", "-", "-", "-"]
+BatteryLevel = [0, 0, 0, 0]
 # Test to make sure the configured controller is enabled.
 if not ((BatteryMonitorAttachment == "arduinoNano" and EnableArduinoNano) or (BatteryMonitorAttachment == "arduinoLeft" and EnableArduinoLeft) or (BatteryMonitorAttachment == "arduinoRight" and EnableArduinoRight)):
     EnableBatteryMonitor = 0
 
 if EnableBatteryMonitor > 0 and EnableBatteryMonitor < 5:
     # Lets set a default value for the Battery Monitor value
-    # Once the forst poll sequence is complete, this will be more accurate
+    # Once the first poll sequence is complete, this will be more accurate
     BatteryLevel[0] = 1
     if EnableBatteryMonitor > 1:
         BatteryLevel[1] = 1
@@ -140,6 +139,16 @@ if EnableBatteryMonitor > 0 and EnableBatteryMonitor < 5:
         BatteryLevel[2] = 1
     if EnableBatteryMonitor > 3:
         BatteryLevel[3] = 1
+    def BattMonPublishedPins(pins):
+        for pin in range(0, len(pins)):
+            if pins[pin].pin == BatteryMonitorPin1:
+                BatteryLevel[0] = pins[pin].value
+            elif pins[pin].pin == BatteryMonitorPin2:
+                BatteryLevel[1] = pins[pin].value
+            elif pins[pin].pin == BatteryMonitorPin3:
+                BatteryLevel[2] = pins[pin].value
+            elif pins[pin].pin == BatteryMonitorPin4:
+                BatteryLevel[3] = pins[pin].value
     # Because we are dealing with the controller itself, we 
     # need to reference the controller directly.
     # That means creating the control program for each of 
@@ -147,61 +156,14 @@ if EnableBatteryMonitor > 0 and EnableBatteryMonitor < 5:
     if BatteryMonitorAttachment == "arduinoLeft":
         arduinoLeft.setBoardMega() 
         arduinoLeft.setAref("DEFAULT")
-        def BattMonPublishedPins(pins):
-            BatteryLevel[0] = pins[0].value
-            if (EnableBatteryMonitor > 1) and (len(pins) > 1):
-                BatteryLevel[1] = pins[1].value
-            if (EnableBatteryMonitor > 2) and (len(pins) > 2):
-                BatteryLevel[2] = pins[2].value
-            if (EnableBatteryMonitor > 3) and (len(pins) > 3):
-                BatteryLevel[3] = pins[3].value
-            #arduinoLeft.disablePin(BatteryMonitorPin)
         arduinoLeft.addListener("publishPinArray","python","BattMonPublishedPins")
-     #   def BattMonTimerPulse(timedata):
-     #       arduinoLeft.enablePin(BatteryMonitorPin, 1)
     elif BatteryMonitorAttachment == "arduinoRight":
         arduinoRight.setBoardMega() 
         arduinoRight.setAref("DEFAULT")
-        def BattMonPublishedPins(pins):
-            BatteryLevel[0] = pins[0].value
-            if (EnableBatteryMonitor > 1) and (len(pins) > 1):
-                BatteryLevel[1] = pins[1].value
-            if (EnableBatteryMonitor > 2) and (len(pins) > 2):
-                BatteryLevel[2] = pins[2].value
-            if (EnableBatteryMonitor > 3) and (len(pins) > 3):
-                BatteryLevel[3] = pins[3].value
-            #arduinoRight.disablePin(BatteryMonitorPin)
         arduinoRight.addListener("publishPinArray","python","BattMonPublishedPins")
-    #    def BattMonTimerPulse(timedata):
-    #        arduinoRight.enablePin(BatteryMonitorPin, 1)
     elif BatteryMonitorAttachment == "arduinoNano":
         arduinoNano.setBoardNano() 
         arduinoNano.setAref("DEFAULT")
-        def BattMonPublishedPins(pins):
-            for pin in range(0, len(pins)):
-                if pins[pin].pin == BatteryMonitorPin1:
-                    BatteryLevel[0] = pins[pin].value
-                    BatteryPin[0] = pins[pin].pin
-                elif pins[pin].pin == BatteryMonitorPin2:
-                    BatteryLevel[1] = pins[pin].value
-                    BatteryPin[1] = pins[pin].pin
-                elif pins[pin].pin == BatteryMonitorPin3:
-                    BatteryLevel[2] = pins[pin].value
-                    BatteryPin[2] = pins[pin].pin
-                elif pins[pin].pin == BatteryMonitorPin4:
-                    BatteryLevel[3] = pins[pin].value
-                    BatteryPin[3] = pins[pin].pin
-                else
-                    BatteryPin[4] = pins[pin].pin
-            #if (EnableBatteryMonitor > 1) and (len(pins) > 1):
-            #    BatteryLevel[1] = pins[1].value
-            #    BatteryPin[1] = pins[1].pin
-            #if (EnableBatteryMonitor > 2) and (len(pins) > 2):
-            #    BatteryLevel[2] = pins[2].value
-            #    BatteryPin[2] = pins[2].pin
-            #if (EnableBatteryMonitor > 3) and (len(pins) > 3):
-            #    BatteryLevel[3] = pins[3].value
-            #    BatteryPin[3] = pins[3].pin
         arduinoNano.addListener("publishPinArray","python","BattMonPublishedPins")
         arduinoNano.enablePin(BatteryMonitorPin1, 1)
         if EnableBatteryMonitor > 1:
@@ -210,16 +172,6 @@ if EnableBatteryMonitor > 0 and EnableBatteryMonitor < 5:
             arduinoNano.enablePin(BatteryMonitorPin3, 1)
         if EnableBatteryMonitor > 3:
             arduinoNano.enablePin(BatteryMonitorPin4, 1)
-    #    def BattMonTimerPulse(timedata):
-    #        arduinoNano.enablePin(BatteryMonitorPin1, 1)
-    # For the Battery Monitor to work, we need a timer to control the interval between tests
-    #BatteryMonitorTime = Runtime.createAndStart("BatteryMonitorTime", "Clock")
-    # the addListener() call will run the python routine "BattMonTimerPulse" whenever the pulse event occurs.
-    #BatteryMonitorTime.addListener("pulse", python.name, "BattMonTimerPulse")
-    # Initially, we will set the test interval at BatteryMonitorPollInterval milli-seconds.
-    #BatteryMonitorTime.setInterval(BatteryMonitorPollInterval)
-    # Then we start the clock running.
-    #BatteryMonitorTime.startClock()
  
 ##############################################################
 #                                                            #
