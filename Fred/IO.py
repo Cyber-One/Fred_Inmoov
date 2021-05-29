@@ -133,9 +133,12 @@ if EnableBatteryMonitor > 0 and EnableBatteryMonitor < 5:
     # Lets set a default value for the Battery Monitor value
     # Once the forst poll sequence is complete, this will be more accurate
     BatteryLevel[0] = 1
-    BatteryLevel[1] = 1
-    BatteryLevel[2] = 1
-    BatteryLevel[3] = 1
+    if EnableBatteryMonitor > 1:
+        BatteryLevel[1] = 1
+    if EnableBatteryMonitor > 2:
+        BatteryLevel[2] = 1
+    if EnableBatteryMonitor > 3:
+        BatteryLevel[3] = 1
     # Because we are dealing with the controller itself, we 
     # need to reference the controller directly.
     # That means creating the control program for each of 
