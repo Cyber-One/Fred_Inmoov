@@ -91,10 +91,10 @@ PingTime = 1000
 # between 1 and 4, with each of the inputs defined below.
 EnableBatteryMonitor = 4
 BatteryMonitorAttachment = "arduinoNano"
-BatteryMonitorPin1 = "A0"#14 # On the Arduino Nano, this = A0
-BatteryMonitorPin2 = 15 # On the Arduino Nano, this = A1
-BatteryMonitorPin3 = 16 # On the Arduino Nano, this = A2
-BatteryMonitorPin4 = 17 # On the Arduino Nano, this = A3
+BatteryMonitorPin1 = "A0" # On the Arduino Nano, this = A0
+BatteryMonitorPin2 = "A1" # On the Arduino Nano, this = A1
+BatteryMonitorPin3 = "A2" # On the Arduino Nano, this = A2
+BatteryMonitorPin4 = "A3" # On the Arduino Nano, this = A3
 BatteryMonitorPollInterval = 10000 # milli-seconds
 
 ##############################################################
