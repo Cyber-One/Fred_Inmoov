@@ -141,6 +141,7 @@ if EnableBatteryMonitor > 0 and EnableBatteryMonitor < 5:
     # That means creating the control program for each of 
     # the variations that may be used in the config. 
     if BatteryMonitorAttachment == "arduinoLeft":
+        arduinoLeft.setBoardMega() 
         arduinoLeft.setAref("DEFAULT")
         def BattMonPublishedPins(pins):
             BatteryLevel[0] = pins[0].value
@@ -155,6 +156,7 @@ if EnableBatteryMonitor > 0 and EnableBatteryMonitor < 5:
      #   def BattMonTimerPulse(timedata):
      #       arduinoLeft.enablePin(BatteryMonitorPin, 1)
     elif BatteryMonitorAttachment == "arduinoRight":
+        arduinoRight.setBoardMega() 
         arduinoRight.setAref("DEFAULT")
         def BattMonPublishedPins(pins):
             BatteryLevel[0] = pins[0].value
@@ -169,6 +171,7 @@ if EnableBatteryMonitor > 0 and EnableBatteryMonitor < 5:
     #    def BattMonTimerPulse(timedata):
     #        arduinoRight.enablePin(BatteryMonitorPin, 1)
     elif BatteryMonitorAttachment == "arduinoNano":
+        arduinoNano.setBoardNano() 
         arduinoNano.setAref("DEFAULT")
         def BattMonPublishedPins(pins):
             BatteryLevel[0] = pins[0].value
