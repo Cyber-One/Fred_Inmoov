@@ -28,6 +28,16 @@ print "Starting the various Servos Services"
 # Load the configuration for the Servos_Head.
 execfile(RuningFolder+'/1_Configuration/5_Servo_Torso_Config.py')
 
+# Test to make sure the configured controller is enabled.
+if not ((TopStomachAttachment == "Head" and EnableAdafruit16CServoDriverHead) 
+    or (TopStomachAttachment == "Back" and EnableAdafruit16CServoDriverBack) 
+    or (TopStomachAttachment == "RightArm" and EnableAdafruit16CServoDriverRightArm)
+    or (TopStomachAttachment == "LeftArm" and EnableAdafruit16CServoDriverLeftArm)
+    or (TopStomachAttachment == "arduinoNano" and EnableArduinoNano) 
+    or (TopStomachAttachment == "arduinoLeft" and EnableArduinoLeft) 
+    or (TopStomachAttachment == "arduinoRight" and EnableArduinoRight)):
+    EnableTopStomach = False
+
 if EnableTopStomach == True:
     print "--Top Stomach"
     TopStomach = Runtime.createAndStart("TopStomach", "Servo")
@@ -61,6 +71,16 @@ if EnableTopStomach == True:
     TopStomach.setAutoDisable(True)
     TopStomach.rest()
 
+# Test to make sure the configured controller is enabled.
+if not ((MidStomachAttachment == "Head" and EnableAdafruit16CServoDriverHead) 
+    or (MidStomachAttachment == "Back" and EnableAdafruit16CServoDriverBack) 
+    or (MidStomachAttachment == "RightArm" and EnableAdafruit16CServoDriverRightArm)
+    or (MidStomachAttachment == "LeftArm" and EnableAdafruit16CServoDriverLeftArm)
+    or (MidStomachAttachment == "arduinoNano" and EnableArduinoNano) 
+    or (MidStomachAttachment == "arduinoLeft" and EnableArduinoLeft) 
+    or (MidStomachAttachment == "arduinoRight" and EnableArduinoRight)):
+    EnableMidStomach = False
+
 if EnableMidStomach == True:
     print "--Top Stomach"
     MidStomach = Runtime.createAndStart("MidStomach", "Servo")
@@ -93,6 +113,16 @@ if EnableMidStomach == True:
         MidStomach.setVelocity(MidStomachMaxSpeed) ## max velocity
     MidStomach.setAutoDisable(True)
     MidStomach.rest()
+
+# Test to make sure the configured controller is enabled.
+if not ((PitchStomachAttchment == "Head" and EnableAdafruit16CServoDriverHead) 
+    or (PitchStomachAttchment == "Back" and EnableAdafruit16CServoDriverBack) 
+    or (PitchStomachAttchment == "RightArm" and EnableAdafruit16CServoDriverRightArm)
+    or (PitchStomachAttchment == "LeftArm" and EnableAdafruit16CServoDriverLeftArm)
+    or (PitchStomachAttchment == "arduinoNano" and EnableArduinoNano) 
+    or (PitchStomachAttchment == "arduinoLeft" and EnableArduinoLeft) 
+    or (PitchStomachAttchment == "arduinoRight" and EnableArduinoRight)):
+    EnablePitchStomach = False
 
 if EnablePitchStomach == True:
     print "--Top Stomach"
