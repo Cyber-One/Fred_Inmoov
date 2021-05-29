@@ -25,6 +25,16 @@ print "Starting the various Servos Services"
 # Load the configuration for the Servos_Head.
 execfile(RuningFolder+'/1_Configuration/9_Servo_LeftHand_Config.py')
 
+# Test to make sure the configured controller is enabled.
+if not ((LeftThumbAttachment == "Head" and EnableAdafruit16CServoDriverHead) 
+    or (LeftThumbAttachment == "Back" and EnableAdafruit16CServoDriverBack) 
+    or (LeftThumbAttachment == "RightArm" and EnableAdafruit16CServoDriverRightArm)
+    or (LeftThumbAttachment == "LeftArm" and EnableAdafruit16CServoDriverLeftArm)
+    or (LeftThumbAttachment == "arduinoNano" and EnableArduinoNano) 
+    or (LeftThumbAttachment == "arduinoLeft" and EnableArduinoLeft) 
+    or (LeftThumbAttachment == "arduinoRight" and EnableArduinoRight)):
+    EnableLeftThumb = False
+
 if EnableLeftThumb == True:
     print "--Left Thumb"
     LeftThumb = Runtime.createAndStart("LeftThumb", "Servo")
@@ -57,6 +67,16 @@ if EnableLeftThumb == True:
         LeftThumb.setVelocity(LeftThumbMaxSpeed)
     LeftThumb.setAutoDisable(True)
     LeftThumb.rest()
+
+# Test to make sure the configured controller is enabled.
+if not ((LeftIndexAttachment == "Head" and EnableAdafruit16CServoDriverHead) 
+    or (LeftIndexAttachment == "Back" and EnableAdafruit16CServoDriverBack) 
+    or (LeftIndexAttachment == "RightArm" and EnableAdafruit16CServoDriverRightArm)
+    or (LeftIndexAttachment == "LeftArm" and EnableAdafruit16CServoDriverLeftArm)
+    or (LeftIndexAttachment == "arduinoNano" and EnableArduinoNano) 
+    or (LeftIndexAttachment == "arduinoLeft" and EnableArduinoLeft) 
+    or (LeftIndexAttachment == "arduinoRight" and EnableArduinoRight)):
+    EnableLeftIndex = False
 
 if EnableLeftIndex == True:
     print "--Left Index"
@@ -91,6 +111,16 @@ if EnableLeftIndex == True:
     LeftIndex.setAutoDisable(True)
     LeftIndex.rest()
 
+# Test to make sure the configured controller is enabled.
+if not ((LeftMajorAttachment == "Head" and EnableAdafruit16CServoDriverHead) 
+    or (LeftMajorAttachment == "Back" and EnableAdafruit16CServoDriverBack) 
+    or (LeftMajorAttachment == "RightArm" and EnableAdafruit16CServoDriverRightArm)
+    or (LeftMajorAttachment == "LeftArm" and EnableAdafruit16CServoDriverLeftArm)
+    or (LeftMajorAttachment == "arduinoNano" and EnableArduinoNano) 
+    or (LeftMajorAttachment == "arduinoLeft" and EnableArduinoLeft) 
+    or (LeftMajorAttachment == "arduinoRight" and EnableArduinoRight)):
+    EnableLeftMajor = False
+
 if EnableLeftMajor == True:
     print "--Left Major"
     LeftMajor = Runtime.createAndStart("LeftMajor", "Servo")
@@ -123,6 +153,16 @@ if EnableLeftMajor == True:
         LeftMajor.setVelocity(LeftMajorMaxSpeed)
     LeftMajor.setAutoDisable(True)
     LeftMajor.rest()
+
+# Test to make sure the configured controller is enabled.
+if not ((LeftRingAttachment == "Head" and EnableAdafruit16CServoDriverHead) 
+    or (LeftRingAttachment == "Back" and EnableAdafruit16CServoDriverBack) 
+    or (LeftRingAttachment == "RightArm" and EnableAdafruit16CServoDriverRightArm)
+    or (LeftRingAttachment == "LeftArm" and EnableAdafruit16CServoDriverLeftArm)
+    or (LeftRingAttachment == "arduinoNano" and EnableArduinoNano) 
+    or (LeftRingAttachment == "arduinoLeft" and EnableArduinoLeft) 
+    or (LeftRingAttachment == "arduinoRight" and EnableArduinoRight)):
+    EnableLeftRing = False
 
 if EnableLeftRing == True:
     print "--Left Ring"
@@ -157,6 +197,16 @@ if EnableLeftRing == True:
     LeftRing.setAutoDisable(True)
     LeftRing.rest()
 
+# Test to make sure the configured controller is enabled.
+if not ((LeftPinkyAttachment == "Head" and EnableAdafruit16CServoDriverHead) 
+    or (LeftPinkyAttachment == "Back" and EnableAdafruit16CServoDriverBack) 
+    or (LeftPinkyAttachment == "RightArm" and EnableAdafruit16CServoDriverRightArm)
+    or (LeftPinkyAttachment == "LeftArm" and EnableAdafruit16CServoDriverLeftArm)
+    or (LeftPinkyAttachment == "arduinoNano" and EnableArduinoNano) 
+    or (LeftPinkyAttachment == "arduinoLeft" and EnableArduinoLeft) 
+    or (LeftPinkyAttachment == "arduinoRight" and EnableArduinoRight)):
+    EnableLeftPinky = False
+
 if EnableLeftPinky == True:
     print "--Left Pinky"
     LeftPinky = Runtime.createAndStart("LeftPinky", "Servo")
@@ -189,6 +239,16 @@ if EnableLeftPinky == True:
         LeftPinky.setVelocity(LeftPinkyMaxSpeed)
     LeftPinky.setAutoDisable(True)
     LeftPinky.rest()
+
+# Test to make sure the configured controller is enabled.
+if not ((LeftWristAttachment == "Head" and EnableAdafruit16CServoDriverHead) 
+    or (LeftWristAttachment == "Back" and EnableAdafruit16CServoDriverBack) 
+    or (LeftWristAttachment == "RightArm" and EnableAdafruit16CServoDriverRightArm)
+    or (LeftWristAttachment == "LeftArm" and EnableAdafruit16CServoDriverLeftArm)
+    or (LeftWristAttachment == "arduinoNano" and EnableArduinoNano) 
+    or (LeftWristAttachment == "arduinoLeft" and EnableArduinoLeft) 
+    or (LeftWristAttachment == "arduinoRight" and EnableArduinoRight)):
+    EnableLeftWrist = False
 
 if EnableLeftWrist == True:
     print "--Left Wrist"
