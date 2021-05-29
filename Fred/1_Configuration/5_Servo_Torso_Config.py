@@ -39,7 +39,7 @@ TopStomachMaxSpeed = 120         # -1
 # The MidStomach servos, a pair of HS805BB again configured
 # as Master Slave, each drive a worm drive to rotate the body.
 EnableMidStomach = False
-MidStomachAttchment = "Back"     # "arduinoLeft"
+MidStomachAttachment = "Back"    # "arduinoLeft"
 MidStomachPin = 9                # 28
 MidStomachMinPos = 0             # 60
 MidStomachMaxPos = 180           # 120
