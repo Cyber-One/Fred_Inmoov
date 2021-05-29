@@ -33,11 +33,11 @@ if EnableOpenCV:
         # check for a bounding box
         if data.getBoundingBoxArray() != None:
             for box in data.getBoundingBoxArray():
-                print("bounding box:", box.x, box.y, box.width, box.height, "|"(box.width/2)+box.x, (box.height/2)+box.y)
+                print("bounding box:", box.x, box.y, box.width, box.height, "|", (box.width/2)+box.x, (box.height/2)+box.y)
             print("----")
     python.subscribe("opencv", "publishOpenCVData")
     opencv.setCameraIndex(0)
     opencv.capture()
     opencv.addFilter("FaceDetect")
-    opencv.addOptionFindBiggestObject()
     opencv.setDisplayFilter("FaceDetect")
+    #opencv.addOptionFindBiggestObject()
