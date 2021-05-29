@@ -39,4 +39,5 @@ if EnableOpenCV:
     opencv.setCameraIndex(0)
     opencv.capture()
     opencv.addFilter("FaceDetect")
+    opencv.addOptionFindBiggestObject(
     opencv.setDisplayFilter("FaceDetect")
