@@ -38,6 +38,11 @@ if EnableOpenCV:
     python.subscribe("opencv", "publishOpenCVData")
     opencv.setCameraIndex(0)
     opencv.capture()
+    #### PyramidDown ####################
+    # scale the view down - faster since updating the screen is 
+    # relatively slow
+    opencv.addFilter("PyramidDown")
+    opencv.setDisplayFilter("PyramidDown")
     opencv.addFilter("FaceDetect")
     opencv.setDisplayFilter("FaceDetect")
     #opencv.addOptionFindBiggestObject()
