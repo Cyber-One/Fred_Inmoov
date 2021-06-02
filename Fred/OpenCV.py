@@ -33,7 +33,7 @@ if EnableOpenCV:
         # check for a bounding box
         if data.getBoundingBoxArray() != None:
             for box in data.getBoundingBoxArray():
-                print("bounding box:", box.x, box.y, "|", (box.width/2)+box.x, (box.height/2)+box.y, box.width*box.height, "|", data.getBufferedImage.getWidth(), data.getBufferedImage.getHeight())
+                print("bounding box:", box.x, box.y, "|", (box.width/2)+box.x, (box.height/2)+box.y, box.width*box.height)
             print("----")
     python.subscribe("opencv", "publishOpenCVData")
     opencv.setCameraIndex(0)
