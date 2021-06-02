@@ -140,15 +140,16 @@ if EnableBatteryMonitor > 0 and EnableBatteryMonitor < 5:
     if EnableBatteryMonitor > 3:
         BatteryLevel[3] = 1
     def BattMonPublishedPins(pins):
-        for pin in range(0, len(pins)):
-            if pins[pin].pin == BatteryMonitorPin1:
-                BatteryLevel[0] = pins[pin].value
-            elif pins[pin].pin == BatteryMonitorPin2:
-                BatteryLevel[1] = pins[pin].value
-            elif pins[pin].pin == BatteryMonitorPin3:
-                BatteryLevel[2] = pins[pin].value
-            elif pins[pin].pin == BatteryMonitorPin4:
-                BatteryLevel[3] = pins[pin].value
+        if pins != None:
+            for pin in range(0, len(pins)):
+                if pins[pin].pin == BatteryMonitorPin1:
+                    BatteryLevel[0] = pins[pin].value
+                elif pins[pin].pin == BatteryMonitorPin2:
+                    BatteryLevel[1] = pins[pin].value
+                elif pins[pin].pin == BatteryMonitorPin3:
+                    BatteryLevel[2] = pins[pin].value
+                elif pins[pin].pin == BatteryMonitorPin4:
+                    BatteryLevel[3] = pins[pin].value
     # Because we are dealing with the controller itself, we 
     # need to reference the controller directly.
     # That means creating the control program for each of 
