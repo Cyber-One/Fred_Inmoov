@@ -25,7 +25,9 @@ execfile(RuningFolder+'/1_Configuration/A_IO_Config.py')
 # Create the PIR service                              #
 #######################################################
 # Test to make sure the configured controller is enabled.
-if  not ((PirAttachment == "arduinoNano" and EnableArduinoNano) or (PirAttachment == "arduinoLeft" and EnableArduinoLeft) or (PirAttachment == "arduinoRight" and EnableArduinoRight)):
+if  not ((PirAttachment == "arduinoNano" and EnableArduinoNano) or 
+    (PirAttachment == "arduinoLeft" and EnableArduinoLeft) or 
+    (PirAttachment == "arduinoRight" and EnableArduinoRight)):
     EnablePIR = False
 
 if EnablePIR:
@@ -88,7 +90,9 @@ if EnablePIR:
 #                   seperate the two sensors returns.
 
 # Test to make sure the configured controller is enabled.
-if  not ((LeftUltrasonicAttachment == "arduinoNano" and EnableArduinoNano) or (LeftUltrasonicAttachment == "arduinoLeft" and EnableArduinoLeft) or (LeftUltrasonicAttachment == "arduinoRight" and EnableArduinoRight)):
+if  not ((LeftUltrasonicAttachment == "arduinoNano" and EnableArduinoNano) or 
+    (LeftUltrasonicAttachment == "arduinoLeft" and EnableArduinoLeft) or 
+    (LeftUltrasonicAttachment == "arduinoRight" and EnableArduinoRight)):
     EnableLeftUltrasonic = False
 
 if EnableLeftUltrasonic:
@@ -104,7 +108,9 @@ if EnableLeftUltrasonic:
     #python.subscribe('LeftUltraSonic', 'onRange', 'python', 'onRangeLeft')
 
 # Test to make sure the configured controller is enabled.
-if not ((RightUltrasonicAttachment == "arduinoNano" and EnableArduinoNano) or (RightUltrasonicAttachment == "arduinoLeft" and EnableArduinoLeft) or (RightUltrasonicAttachment == "arduinoRight" and EnableArduinoRight)):
+if not ((RightUltrasonicAttachment == "arduinoNano" and EnableArduinoNano) or 
+    (RightUltrasonicAttachment == "arduinoLeft" and EnableArduinoLeft) or 
+    (RightUltrasonicAttachment == "arduinoRight" and EnableArduinoRight)):
     EnableRightUltraSonic = False
     
 if EnableRightUltraSonic:
@@ -126,7 +132,9 @@ if EnableRightUltraSonic:
 ##############################################################
 BatteryLevel = [0, 0, 0, 0]
 # Test to make sure the configured controller is enabled.
-if not ((BatteryMonitorAttachment == "arduinoNano" and EnableArduinoNano) or (BatteryMonitorAttachment == "arduinoLeft" and EnableArduinoLeft) or (BatteryMonitorAttachment == "arduinoRight" and EnableArduinoRight)):
+if not ((BatteryMonitorAttachment == "arduinoNano" and EnableArduinoNano) or 
+    (BatteryMonitorAttachment == "arduinoLeft" and EnableArduinoLeft) or 
+    (BatteryMonitorAttachment == "arduinoRight" and EnableArduinoRight)):
     EnableBatteryMonitor = 0
 
 if EnableBatteryMonitor > 0 and EnableBatteryMonitor < 5:
@@ -158,10 +166,24 @@ if EnableBatteryMonitor > 0 and EnableBatteryMonitor < 5:
         arduinoLeft.setBoardMega() 
         arduinoLeft.setAref("DEFAULT")
         arduinoLeft.addListener("publishPinArray","python","BattMonPublishedPins")
+        arduinoLeft.enablePin(BatteryMonitorPin1, 1)
+        if EnableBatteryMonitor > 1:
+            arduinoLeft.enablePin(BatteryMonitorPin2, 1)
+        if EnableBatteryMonitor > 2:
+            arduinoLeft.enablePin(BatteryMonitorPin3, 1)
+        if EnableBatteryMonitor > 3:
+            arduinoLeft.enablePin(BatteryMonitorPin4, 1)
     elif BatteryMonitorAttachment == "arduinoRight":
         arduinoRight.setBoardMega() 
         arduinoRight.setAref("DEFAULT")
         arduinoRight.addListener("publishPinArray","python","BattMonPublishedPins")
+        arduinoRight.enablePin(BatteryMonitorPin1, 1)
+        if EnableBatteryMonitor > 1:
+            arduinoRight.enablePin(BatteryMonitorPin2, 1)
+        if EnableBatteryMonitor > 2:
+            arduinoRight.enablePin(BatteryMonitorPin3, 1)
+        if EnableBatteryMonitor > 3:
+            arduinoRight.enablePin(BatteryMonitorPin4, 1)
     elif BatteryMonitorAttachment == "arduinoNano":
         arduinoNano.setBoardNano() 
         arduinoNano.setAref("DEFAULT")
@@ -181,7 +203,9 @@ if EnableBatteryMonitor > 0 and EnableBatteryMonitor < 5:
 ##############################################################
 
 # Test to make sure the configured controller is enabled.
-if not ((StomachNeoPixelAttachment == "arduinoNano" and EnableArduinoNano) or (StomachNeoPixelAttachment == "arduinoLeft" and EnableArduinoLeft) or (StomachNeoPixelAttachment == "arduinoRight" and EnableArduinoRight)):
+if not ((StomachNeoPixelAttachment == "arduinoNano" and EnableArduinoNano) or 
+    (StomachNeoPixelAttachment == "arduinoLeft" and EnableArduinoLeft) or 
+    (StomachNeoPixelAttachment == "arduinoRight" and EnableArduinoRight)):
     EnableStomachNeoPixel = False
 
 # Before we even think about starting the NeoPixel Service,
