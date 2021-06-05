@@ -237,7 +237,10 @@ if EnableStomachNeoPixel:
 # RasPi or 0 for an Arduino.
 
 # First lets make sure the I2C controller enabled
-if not ((MPU6050AAttached == "raspi" and EnableRaspberryPi) or (MPU6050AAttached == "arduinoNano" and EnableArduinoNano) or (MPU6050AAttached == "arduinoLeft" and EnableArduinoLeft) or (MPU6050AAttached == "arduinoRight" and EnableArduinoRight)):
+if not ((MPU6050AAttached == "raspi" and EnableRaspberryPi) or 
+    (MPU6050AAttached == "arduinoNano" and EnableArduinoNano) or 
+    (MPU6050AAttached == "arduinoLeft" and EnableArduinoLeft) or 
+    (MPU6050AAttached == "arduinoRight" and EnableArduinoRight)):
     EnableMPU6050A = False
 
 if EnableMPU6050A == True:
@@ -253,7 +256,10 @@ if EnableMPU6050A == True:
     #publishOrientation(Orientation data) 
 
 # First lets make sure the I2C controller enabled
-if not ((MPU6050BAttached == "raspi" and EnableRaspberryPi) or (MPU6050BAttached == "arduinoNano" and EnableArduinoNano) or (MPU6050BAttached == "arduinoLeft" and EnableArduinoLeft) or (MPU6050BAttached == "arduinoRight" and EnableArduinoRight)):
+if not ((MPU6050BAttached == "raspi" and EnableRaspberryPi) or 
+    (MPU6050BAttached == "arduinoNano" and EnableArduinoNano) or 
+    (MPU6050BAttached == "arduinoLeft" and EnableArduinoLeft) or 
+    (MPU6050BAttached == "arduinoRight" and EnableArduinoRight)):
     EnableMPU6050B = False
 
 if EnableMPU6050B == True:

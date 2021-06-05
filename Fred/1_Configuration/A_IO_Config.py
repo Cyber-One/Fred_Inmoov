@@ -24,7 +24,7 @@ print "Creating the Input/Output Config"
 # The PIR                                                    #
 #                                                            #
 ##############################################################
-# Passive Inrea Red (PIR) works on the principle that a 
+# Passive Infra Red (PIR) works on the principle that a 
 # warm body emits Infra Red (IR) light. The level of this 
 # light can indicate the current temperature.
 # PIR sensors, use a single sensing element to measure the 
@@ -55,6 +55,14 @@ PirPin = 2                                  # 23
 # or 1,235 km/h; 1,125 ft/s; 767 mph.
 # The speed of sound however will vary with temperature.
 # Speed = 331.3 + (0.606 * airTemp) m/s
+# Our robot use a Ultrasonic module to do the above, but we
+# need to handle the time measurement.
+# MRL offloads this to the Arduino, It starts the pulse
+# transmission using the transmit pin, the times how long it
+# takes for the receive pin to be pulsed high.
+# From there it can do the math to get a distance.
+# Pin 1 is used for the Transmit of the pulse.
+# Pin 2 is used for the receive of the return pulse.
 EnableLeftUltrasonic = True                 #
 LeftUltrasonicAttachment = "arduinoNano"    # "arduioLeft"
 LeftUltrasonicPin1 = 10                     # 64
