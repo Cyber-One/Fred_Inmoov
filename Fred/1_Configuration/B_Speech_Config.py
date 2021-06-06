@@ -64,3 +64,4 @@ UseSphinx = False
 # list have a look here: https://cloud.google.com/speech/docs/languages
 UseWebKit = True
 WebkitLanguage = "en-AU"
+WebKitWakeWord = ""

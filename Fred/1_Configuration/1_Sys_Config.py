@@ -24,6 +24,9 @@ print "Creating the System Config"
 # The Graphical User Interface (GUI)                         #
 #                                                            #
 ##############################################################
+# This is the name the robot will use in some sections of the
+# program such as WebKitSpeechRecognition.
+RobotsName = "Fred"
 
 # SwingGUI was the origonal one and still my prefference 
 # until the rest of the WebGUI pages are conpleted.

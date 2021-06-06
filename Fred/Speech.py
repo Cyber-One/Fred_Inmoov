@@ -128,6 +128,8 @@ if UseWebKit == True:
         Ear.setcurrentWebkitLanguage(WebkitLanguage)
     else:
         Ear.setLanguage(WebkitLanguage)
+    if WebKitWakeWord = "":
+        WebKitWakeWord = RobotsName
     # If setAutoListen is True, webkitspeech red microphone will auto rearm. 
     # microphone will shutdown too if mouth is activated. 
     # Careful if this is set to True : You cannot control red microphone from webgui anymore
@@ -137,6 +139,7 @@ if UseWebKit == True:
     # If setContinuous is True, you have some time to speak again, in case of error
     # in this case we will use False
     Ear.setContinuous(False)
+    Ear.setWakeWord(WebKitWakeWord)
 
 # prevent infinite loop - this will suppress the
 # recognition when speaking - default behavior
