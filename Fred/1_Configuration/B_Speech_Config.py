@@ -60,4 +60,7 @@ UseSphinx = False
 # WebkitSpeechRecognition is a very capable service recognising most spoken 
 # words with a number of different accents.
 # The down side is it does require an Internet access to reach the cloud.
-UseWebKit = False
+# the cloud service does support quite a number of languages, for a full
+# list have a look here: https://cloud.google.com/speech/docs/languages
+UseWebKit = True
+WebkitLanguage = "en-AU"

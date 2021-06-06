@@ -19,6 +19,6 @@
 ##############################################################
 print "Loading the Open Computer Vision System Config"
 
-EnableOpenCV = True
+EnableOpenCV = False
 OpenCVFrameX = 640
 OpenCVFrameY = 480

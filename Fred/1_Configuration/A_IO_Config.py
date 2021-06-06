@@ -139,3 +139,23 @@ EnableMPU6050B = True                   # True or False
 MPU6050BAttached = "arduinoNano"
 MPU6050BPort = "0"
 MPU6050BAddr = "0x68"
+
+##############################################################
+#                                                            #
+# Ibus Remotoe Control Service                               #
+#                                                            #
+##############################################################
+# Not yet available :-(
+EnableIBus = False
+IbusAttach = "arduinoLeft"
+IbuSerial = "Serial1"
+
+#All Methods Static Methods Instance Methods Concrete Methods 
+#Modifier and Type  Method  Description
+#void               attach​(SerialDevice serial) 
+#static void        main​(String[] args) 
+#void               onBytes​(byte[] bytes) 
+#void               onConnect​(String portName) 
+#void               onDisconnect​(String portName) 
+#int[]              publishChanel​(int[] channel) 
+#int                readChannel​(int channelNr)
