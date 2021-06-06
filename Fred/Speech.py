@@ -32,6 +32,9 @@ execfile(RuningFolder+'/1_Configuration/B_Speech_Config.py')
 # MarySpeech TTS
 if UseMarySpeech == True:
     Mouth = Runtime.createAndStart("Mouth", "MarySpeech")
+    print Mouth.getVoices()
+    # The next line will allow you to select which voice we use. The default appears to be "slt"
+    Mouth.setVoice("cmu-bdl-hsmm")
     Mouth.setVolume(100.0)
 
 # MimicSpeech TTS
@@ -50,7 +53,7 @@ if UseMimicSpeech == True:
     # note, thesetVoice command does not work until after you have list of voices.
     print Mouth.getVoices()
     # The next line will allow you to select which voice we use. The default appears to be "slt"
-    Mouth.setVoice("cmu-bdl-hsmm")
+    Mouth.setVoice("rms")
     # the set the volume that your robot will speak at use the setVolume command, the value is a float, so remember the .0
     Mouth.setVolume(100.0)
 
