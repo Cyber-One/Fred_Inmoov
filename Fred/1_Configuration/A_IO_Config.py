@@ -12,7 +12,7 @@
 # Fred in a modified Inmmov robot, you can find all the      #
 # origonal files on the Inmoov web site. http://inmoov.fr/   #
 #                                                            #
-# A_IO_Config.py                                 #
+# A_IO_Config.py                                             #
 # This is where the configuration settings live for the      #
 # varoius devices that don't fit in the other catagories.    #
 #                                                            #
@@ -145,17 +145,18 @@ MPU6050BAddr = "0x68"
 # Ibus Remotoe Control Service                               #
 #                                                            #
 ##############################################################
-# Not yet available :-(
+# Not yet available
 EnableIBus = False
 IbusAttach = "arduinoLeft"
 IbuSerial = "Serial1"
 
 #All Methods Static Methods Instance Methods Concrete Methods 
 #Modifier and Type  Method  Description
-#void               attach​(SerialDevice serial) 
-#static void        main​(String[] args) 
-#void               onBytes​(byte[] bytes) 
-#void               onConnect​(String portName) 
-#void               onDisconnect​(String portName) 
-#int[]              publishChanel​(int[] channel) 
-#int                readChannel​(int channelNr)
+#void               attach(SerialDevice serial) 
+#static void        main(String[] args) 
+#void               onBytes(byte[] bytes) 
+#void               onConnect(String portName) 
+#void               onDisconnect(String portName) 
+#int[]              publishChanel(int[] channel) 
+#int                readChannel(int channelNr)
+
