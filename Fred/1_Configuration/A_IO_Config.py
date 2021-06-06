@@ -150,13 +150,3 @@ EnableIBus = False
 IbusAttach = "arduinoLeft"
 IbuSerial = "Serial1"
 
-#All Methods Static Methods Instance Methods Concrete Methods 
-#Modifier and Type  Method  Description
-#void               attach(SerialDevice serial) 
-#static void        main(String[] args) 
-#void               onBytes(byte[] bytes) 
-#void               onConnect(String portName) 
-#void               onDisconnect(String portName) 
-#int[]              publishChanel(int[] channel) 
-#int                readChannel(int channelNr)
-
