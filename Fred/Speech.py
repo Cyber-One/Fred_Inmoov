@@ -128,7 +128,7 @@ if UseWebKit == True:
         Ear.setcurrentWebkitLanguage(WebkitLanguage)
     else:
         Ear.setLanguage(WebkitLanguage)
-    if WebKitWakeWord = "":
+    if WebKitWakeWord == "":
         WebKitWakeWord = RobotsName
     # If setAutoListen is True, webkitspeech red microphone will auto rearm. 
     # microphone will shutdown too if mouth is activated. 
