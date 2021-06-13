@@ -63,6 +63,7 @@ With a bit of luck you will be able to follow along and learn more about how MRL
 All of the programming I've done is in Python which will make it easier if you want to use this program and need to add to it.
 
 If you have any questions regarding any of the files here, drop into my Discord and ask your questions, hopefully I will be able to answer the questions or implement changes if needed. :-)
+https://discord.gg/WzrBUTkthQ
 
 You can download the latest development version of MRL from the MRL website, while your there don't forget to say hello to the developers in the shoutbox.
-
+http://myrobotlab.org/
