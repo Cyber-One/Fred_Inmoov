@@ -28,6 +28,33 @@ execfile(RuningFolder+'/1_Configuration/B_Speech_Config.py')
 # Text To Speech (TTS) services                       #
 #                                                     #
 #######################################################
+#
+# Notes for when running on the Raspberry Pi.
+#
+#When using Java 11 OpenJDK, you may find the audio from the
+# Text To Speech coming out the HDMI port instead of the
+# selected 3.5mm Audio socket on the side of the Raspberry Pi.
+# This is caused by Pulse Audio not following the requested
+# settings and routing the audio from the Java apps to a
+# different output.
+# The solution is to edit the Java sound.properties file.
+# sudo nano /etc/java-11-openjdk/sound.properties
+# You will need to add in the following lines into the config:
+# javax.sound.sampled.Clip=com.sun.media.sound.DirectAudioDeviceProvider
+# javax.sound.sampled.Port=com.sun.media.sound.PortMixerProvider
+# javax.sound.sampled.SourceDataLine=com.sun.media.sound.DirectAudioDeviceProvider
+# javax.sound.sampled.TargetDataLine=com.sun.media.sound.DirectAudioDeviceProvider
+#
+# Make sure you don't have the # in front of the lines.
+# Reboot the Raspberry Pi.
+# sudo reboot
+# Make sure you selected the 3.5mm Audio jack as your output
+# device:
+# alsamixer
+# press F6 to select the sound card you want as the output.
+# Select 1 Headphones.
+# now change into your MRL directory and start MRL the way you
+# normally would.
 
 # MarySpeech TTS
 if UseMarySpeech == True:
