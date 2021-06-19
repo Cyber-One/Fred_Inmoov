@@ -45,16 +45,6 @@ else:
     MRL = "Nixie"
     print "Starting the MyRobotLab Nixie Version"
 
-# Next lets find out what the base system OS is.
-# This can affect the way we need to make some service calls.
-Platformstring = runtime.getPlatform()
-if platformstring.find("linux") >= 0:
-    SysOS = "Linux"
-elif platformstring.find("windows") >= 0:
-    SysOS = "Windows"
-else:
-    SysOS = "Mac"
-
 # Before we get too carried away, I plan to start Fred using a 
 # shell script called start_fred.sh
 # This will start the MRL and the Fred scripts with no 

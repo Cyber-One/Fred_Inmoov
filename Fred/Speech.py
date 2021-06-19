@@ -31,13 +31,14 @@ execfile(RuningFolder+'/1_Configuration/B_Speech_Config.py')
 #
 # Notes for when running on the Raspberry Pi.
 #
-#When using Java 11 OpenJDK, you may find the audio from the
+# When using Java x OpenJDK, you may find the audio from the
 # Text To Speech coming out the HDMI port instead of the
 # selected 3.5mm Audio socket on the side of the Raspberry Pi.
 # This is caused by Pulse Audio not following the requested
 # settings and routing the audio from the Java apps to a
 # different output.
 # The solution is to edit the Java sound.properties file.
+# When insetting up Java 11
 # sudo nano /etc/java-11-openjdk/sound.properties
 # You will need to add in the following lines into the config:
 # javax.sound.sampled.Clip=com.sun.media.sound.DirectAudioDeviceProvider
@@ -56,14 +57,17 @@ execfile(RuningFolder+'/1_Configuration/B_Speech_Config.py')
 # now change into your MRL directory and start MRL the way you
 # normally would.
 
+
 # MarySpeech TTS
 if UseMarySpeech == True:
     Mouth = Runtime.createAndStart("Mouth", "MarySpeech")
     print Mouth.getVoices()
-    # The next line will allow you to select which voice we use. The default appears to be "slt"
+    # The next line will allow you to select which voice we use. 
+    # The default appears to be "slt"
     Mouth.setVoice("cmu-bdl-hsmm")
     Mouth.setVolume(100.0)
 
+# Most of the other speech TTS engines all use the same service.
 # MimicSpeech TTS
 # before you can use this on the Raspberry Pi, 
 # you first need to install it.
@@ -76,6 +80,7 @@ if UseMimicSpeech == True:
     Mouth = Runtime.start('Mouth','LocalSpeech')
     # next we need to tell the service where to find our executable
     Mouth.setTtsPath("/home/pi/mimic1/mimic")
+    # mimic.exe -voice Henry -o {filename} -t {text}
     # the next command wil get a list of voices we can use
     # note, thesetVoice command does not work until after you have list of voices.
     print Mouth.getVoices()
@@ -96,6 +101,7 @@ if UseEspeak == True:
     Mouth = Runtime.start('Mouth','LocalSpeech')
     # next we need to tell the service where to find our executable
     Mouth.setTtsPath("/usr/bin/espeak")
+    Mouth.setTtsCommand("espeak \"{text}\" -w {filename}")
     # the next command wil get a list of voices we can use
     # note, thesetVoice command does not work until after you have list of voices.
     print Mouth.getVoices()
@@ -104,6 +110,7 @@ if UseEspeak == True:
     # the set the volume that your robot will speak at use the setVolume command, the value is a float, so remember the .0
     Mouth.setVolume(100.0)
 
+    #echo \"{text}\" | text2wave -o {filename}
 
 #######################################################
 #                                                     #
