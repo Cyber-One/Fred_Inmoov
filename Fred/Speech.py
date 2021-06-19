@@ -22,6 +22,22 @@ print "Creating the Text to Speech and Speech to Text functions"
 # Load the configuration for the IO devices.
 execfile(RuningFolder+'/1_Configuration/B_Speech_Config.py')
 
+#######################################################
+#                                                     #
+# Sanity Checks                                       #
+#                                                     #
+#######################################################
+# We can only have one TTS and one STT selected at the same
+# time, so we will disable secondary ones if there are more
+# than one selected.
+# Lets start with TTS
+if UseMarySpeech and UseMimicSpeech:
+    UseMimicSpeech = False
+if (UseMarySpeech or UseMimicSpeech) and UseEspeak:
+    UseEspeak = False
+# Now lets check the STT services
+if UseSphinx and UseWebKit:
+    UseWebKit = False
 
 #######################################################
 #                                                     #
@@ -56,7 +72,6 @@ execfile(RuningFolder+'/1_Configuration/B_Speech_Config.py')
 # Select 1 Headphones.
 # now change into your MRL directory and start MRL the way you
 # normally would.
-
 
 # MarySpeech TTS
 if UseMarySpeech == True:
