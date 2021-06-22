@@ -47,7 +47,7 @@ else:
 
 # Next lets find out what the base system OS is.
 # This can affect the way we need to make some service calls.
-Platformstring = runtime.getPlatform()
+platformstring = runtime.getPlatform()
 if platformstring.find("linux") >= 0:
     SysOS = "Linux"
 elif platformstring.find("windows") >= 0:

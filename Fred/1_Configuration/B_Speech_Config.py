@@ -49,6 +49,10 @@ UseMimicSpeech = False
 # "sudo apt-get install espeak"
 UseEspeak = False
 
+# Local speech is different betweenthe Windows system and the
+# Linux/Mac system.
+UseLocalSpeech = False
+
 ##############################################################
 # STT Select only one of these two options.
 ##############################################################
