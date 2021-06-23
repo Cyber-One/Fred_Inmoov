@@ -1,0 +1,66 @@
+Before we can use Mimic speech with MyRobotLab on the Raspberry Pi, we first need to install it.
+The compiled executable is installed with MRL for windows, but not for the ARM based linux install used on the Raspberry Pi.
+The following link is video showing the below steps :-)
+https://youtu.be/OSbqlRWYBkQ
+ 
+For this I'm using the instruction from the MycroftAI github site:
+https://github.com/MycroftAI/mimic1
+ 
+There are a few packages required to allow us to setup Mimic speech, so lets get those installed first.
+From the terminal window, you will need to execute the following command.
+ 
+sudo apt-get install gcc make pkg-config automake libtool libasound2-dev
+ 
+For the NOOBs out there.
+sudo is the command Super User Do
+apt-get is the Aptidtude Package manager that we use to install pre-compiled programs within the Debian environment.
+install is the command for the apt-get, the rest of the line are a list of packages to install.
+ 
+The good news is, if any or all of the packages are already installed, then this command will check and make sure they are current and up to date, if they aren't installed, then it will download and install them for you.
+ 
+Now thats done, we need to download thesource files for Mimic Speech.
+This is easywith the following command
+ 
+git clone https://github.com/MycroftAI/mimic1.git
+ 
+This will create a new sub directory which we will need to change into
+ 
+cd mimic1
+ 
+Now it's just about garunteed that some of the dependencies won't be installed, so lets deal with that now
+In the mimic1 directory, there is are shell scripts that will do all the hard work for you :-)
+ 
+./dependencies.sh --prefix="/usr/local"
+./autogen.sh
+./configure --prefix="/usr/local"
+ 
+Now we get to build the Mimic program tailored to the Raspberry Pi ARM based processor
+to do that we execute the command
+ 
+make
+ 
+this is gonna take a while, Time for a cupper :-)
+ 
+When it does finnaly finish, we need to check it all went acording to plan.
+So run the following
+ 
+make check
+ 
+That should com back all green with everything having been built ok.
+ 
+Time for a test :-)
+ececute to following line
+ 
+./mimic -t "Hello. Doctor. Name. Continue. Yesterday. Tomorrow."
+ 
+Note, the . at the start tells the terminal window, theprogram your trying to run is in this directory, if you don't have that there, it won't find our brand new program.
+Unlike windows, programs in linux don't need to have file extentions in the name :-)
+ 
+There are a few voices bundelled with Mimic Speech, to get a list of them, run the command
+ 
+./mimic -lv
+ 
+To use a different voice when starting a speech from theterminal try:
+ 
+./mimic -t "Hello" -voice slt
+ 

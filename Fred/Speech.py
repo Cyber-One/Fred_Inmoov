@@ -30,11 +30,17 @@ execfile(RuningFolder+'/1_Configuration/B_Speech_Config.py')
 # We can only have one TTS and one STT selected at the same
 # time, so we will disable secondary ones if there are more
 # than one selected.
+
 # Lets start with TTS
 if UseMarySpeech and UseMimicSpeech:
     UseMimicSpeech = False
 if (UseMarySpeech or UseMimicSpeech) and UseEspeak:
     UseEspeak = False
+# You can't use eSpeak on Windows in MRL (there is a version
+# of eSpeak for Windows, but it is not supported in MRL.
+if PlatformStructure.isWindows()
+    UseEspeak = False
+    
 # Now lets check the STT services
 if UseSphinx and UseWebKit:
     UseWebKit = False
@@ -90,12 +96,20 @@ if UseMarySpeech == True:
 # like the Raspberry Pi, for detailed instructions on 
 # installing this please watch my video
 # https://youtu.be/OSbqlRWYBkQ
-if UseMimicSpeech == True:
+# I have also included instructions in the GitHub where this
+# program is maintained
+
+# When running MRL on the Windows Platform, MimicSpeech is
+# included as part of the distribution, as such there is a
+# service for it.  In Manticore, there was a command to set
+# the path for the Linux version, however this was removed
+# in the Nixie version, you now use the localSpeach for the
+# Mimic speech in Manticore
+if UseMimicSpeech and (PlatformStructure.isWindows() or (MRL == "Manticore")):
     # start the service
-    Mouth = Runtime.start('Mouth','LocalSpeech')
-    # next we need to tell the service where to find our executable
-    Mouth.setTtsPath("/home/pi/mimic1/mimic")
-    # mimic.exe -voice Henry -o {filename} -t {text}
+    Mouth = Runtime.start('Mouth','MimicSpeech')
+    if PlatformStructure.isLinux():
+        Mouth.setMimicExecutable("~/mimic1/mimic")
     # the next command wil get a list of voices we can use
     # note, thesetVoice command does not work until after you have list of voices.
     print Mouth.getVoices()
@@ -104,6 +118,13 @@ if UseMimicSpeech == True:
     # the set the volume that your robot will speak at use the setVolume command, the value is a float, so remember the .0
     Mouth.setVolume(100.0)
 
+# LocalSpeech TTS
+# In windows there is only one option for local speech,
+# that is TTS.exe located in the MRL\TTS directory.
+# This is a suprisingly good TTS program for Windows,
+# it is not however available for Mac or Linux.
+# For Mac and Linux, we have a few other options :-)
+
 # Espeak TTS
 # before you can use this on the Raspberry Pi, 
 # you first need to install it.
@@ -111,12 +132,26 @@ if UseMimicSpeech == True:
 # computer like the Raspberry Pi.
 # This is very easy with the command 
 # "sudo apt-get install espeak"
-if UseEspeak == True:
+
+# LocalSpeach TTS in Linux.
+# By default this is not installed, but it is easy to install.
+# "sudo apt-get install festival"
+
+if UseEspeak or UseLocalSpeech or 
+    (UseMimicSpeech and MRL == "Nixie" and PlatformStructure.isLinux()):
     # start the service
     Mouth = Runtime.start('Mouth','LocalSpeech')
-    # next we need to tell the service where to find our executable
-    Mouth.setTtsPath("/usr/bin/espeak")
-    Mouth.setTtsCommand("espeak \"{text}\" -w {filename}")
+    # next if not running LocalSpeech we need to tell the 
+    # service where to find our executable and setup a 
+    # template so the MRL knows how to talk to the 
+    # Speech engine
+    if not UseLocalSpeech:
+        if UseEspeak:
+            Mouth.setTtsPath("/usr/bin/espeak")
+            Mouth.setTtsCommand("espeak \"{text}\" -w {filename}")
+        elif UseMimicSpeech:
+            Mouth.setTtsPath("~/mimic1/mimic")
+            Mouth.setTtsCommand("mimic -t \"{text}\" {filename}")
     # the next command wil get a list of voices we can use
     # note, thesetVoice command does not work until after you have list of voices.
     print Mouth.getVoices()
