@@ -49,8 +49,13 @@ UseMimicSpeech = False
 # "sudo apt-get install espeak"
 UseEspeak = False
 
-# Local speech is different betweenthe Windows system and the
-# Linux/Mac system.
+# Local speech is different between the Windows system and the
+# Linux/Mac system.  Linux/Mac uses Festival Speech while the
+# Windows version uses the TTS.exe file that is installed as
+# part of MRL.
+# On the Raspberry Pi and possibly on the Mac, you will need
+# to install the Festival STT before you can use this service.
+# "sudo apt-get install festival"
 UseLocalSpeech = False
 
 ##############################################################
