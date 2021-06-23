@@ -38,22 +38,14 @@ execfile(RuningFolder+'/1_Configuration/1_Sys_Config.py')
 # Manticore was released back in late December 2017
 # At the time of writing this, Nixie is still in developement
 # We can ask the system what the version number is and test that.
-if Runtime.getVersion() < "1.1.200":
+PlatformStructure = runtime.getPlatform()
+
+if PlatformStructure.getVersion() < "1.1.200":
     MRL = "Manticore"
     print "Starting the MyRobotLab Manticore Version"
 else:
     MRL = "Nixie"
     print "Starting the MyRobotLab Nixie Version"
-
-# Next lets find out what the base system OS is.
-# This can affect the way we need to make some service calls.
-#platformstring = runtime.getPlatform()
-#if platformstring.find("linux") >= 0:
-#    SysOS = "Linux"
-#elif platformstring.find("windows") >= 0:
-#    SysOS = "Windows"
-#else:
-#    SysOS = "Mac"
 
 # Before we get too carried away, I plan to start Fred using a 
 # shell script called start_fred.sh
