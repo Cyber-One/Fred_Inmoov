@@ -38,7 +38,7 @@ if (UseMarySpeech or UseMimicSpeech) and UseEspeak:
     UseEspeak = False
 # You can't use eSpeak on Windows in MRL (there is a version
 # of eSpeak for Windows, but it is not supported in MRL.
-if PlatformStructure.isWindows()
+if PlatformStructure.isWindows():
     UseEspeak = False
     
 # Now lets check the STT services
@@ -137,8 +137,7 @@ if UseMimicSpeech and (PlatformStructure.isWindows() or (MRL == "Manticore")):
 # By default this is not installed, but it is easy to install.
 # "sudo apt-get install festival"
 
-if UseEspeak or UseLocalSpeech or 
-    (UseMimicSpeech and MRL == "Nixie" and PlatformStructure.isLinux()):
+if UseEspeak or UseLocalSpeech or (UseMimicSpeech and MRL == "Nixie" and PlatformStructure.isLinux()):
     # start the service
     Mouth = Runtime.start('Mouth','LocalSpeech')
     # next if not running LocalSpeech we need to tell the 
