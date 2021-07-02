@@ -225,7 +225,8 @@ if UseWebKit == True:
     # If setContinuous is True, you have some time to speak again, in case of error
     # in this case we will use False
     Ear.setContinuous(False)
-    Ear.setWakeWord(WebKitWakeWord)
+    if MRL == "Nixie":
+        Ear.setWakeWord(WebKitWakeWord)
 
 # prevent infinite loop - this will suppress the
 # recognition when speaking - default behavior
