@@ -28,7 +28,8 @@ print "Creating the Speech System Config"
 # TTS Select only one of these three options.
 ##############################################################
 
-# this is the default TTS used in the InMoov robot.
+# This is the default TTS used in the InMoov robot.
+# It's been around for a while and works, but there are others.
 UseMarySpeech = True
 
 # MimicSpeech TTS

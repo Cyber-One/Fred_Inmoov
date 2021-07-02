@@ -150,7 +150,7 @@ if UseEspeak or UseLocalSpeech or (UseMimicSpeech and MRL == "Nixie" and Platfor
             Mouth.setTtsCommand("espeak \"{text}\" -w {filename}")
         elif UseMimicSpeech:
             Mouth.setTtsPath("~/mimic1/mimic")
-            Mouth.setTtsCommand("mimic -t \"{text}\" {filename}")
+            Mouth.setTtsCommand("mimic -t \"{text}\" -o \"{filename}\"")
     # the next command wil get a list of voices we can use
     # note, thesetVoice command does not work until after you have list of voices.
     print Mouth.getVoices()
