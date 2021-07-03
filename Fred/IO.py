@@ -26,6 +26,7 @@ execfile(RuningFolder+'/1_Configuration/A_IO_Config.py')
 #######################################################
 # Test to make sure the configured controller is enabled.
 if  not ((PirAttachment == "arduinoNano" and EnableArduinoNano) or 
+    (PirAttachment == "arduinoNano2" and EnableArduinoNano2) or 
     (PirAttachment == "arduinoLeft" and EnableArduinoLeft) or 
     (PirAttachment == "arduinoRight" and EnableArduinoRight)):
     EnablePIR = False
@@ -46,6 +47,8 @@ if EnablePIR:
     pir = Runtime.start('pir','Pir')
     if PirAttachment == "arduinoNano":
         pir.attach(arduinoNano, PirPin) # arduinoNano
+    if PirAttachment == "arduinoNano2":
+        pir.attach(arduinoNano2, PirPin) # arduinoNano
     if PirAttachment == "arduinoLeft":
         pir.attach(arduinoLeft, PirPin) # arduinoLeft
     if PirAttachment == "arduinoRight":
@@ -91,6 +94,7 @@ if EnablePIR:
 
 # Test to make sure the configured controller is enabled.
 if  not ((LeftUltrasonicAttachment == "arduinoNano" and EnableArduinoNano) or 
+    (LeftUltrasonicAttachment == "arduinoNano2" and EnableArduinoNano2) or 
     (LeftUltrasonicAttachment == "arduinoLeft" and EnableArduinoLeft) or 
     (LeftUltrasonicAttachment == "arduinoRight" and EnableArduinoRight)):
     EnableLeftUltrasonic = False
@@ -99,6 +103,8 @@ if EnableLeftUltrasonic:
     LeftUltraSonic = Runtime.start("LeftUltraSonic", "UltrasonicSensor")
     if LeftUltrasonicAttachment == "arduinoNano":
         LeftUltraSonic.attach(arduinoNano, LeftUltrasonicPin1, LeftUltrasonicPin2)
+    elif LeftUltrasonicAttachment == "arduinoNano2":
+        LeftUltraSonic.attach(arduinoNano2, LeftUltrasonicPin1, LeftUltrasonicPin2)
     elif LeftUltrasonicAttachment == "arduinoLeft":
         LeftUltraSonic.attach(arduinoLeft, LeftUltrasonicPin1, LeftUltrasonicPin2)
     elif LeftUltrasonicAttachment == "arduinoRight":
@@ -109,6 +115,7 @@ if EnableLeftUltrasonic:
 
 # Test to make sure the configured controller is enabled.
 if not ((RightUltrasonicAttachment == "arduinoNano" and EnableArduinoNano) or 
+    (RightUltrasonicAttachment == "arduinoNano2" and EnableArduinoNano2) or 
     (RightUltrasonicAttachment == "arduinoLeft" and EnableArduinoLeft) or 
     (RightUltrasonicAttachment == "arduinoRight" and EnableArduinoRight)):
     EnableRightUltraSonic = False
@@ -117,6 +124,8 @@ if EnableRightUltraSonic:
     RightUltraSonic = Runtime.start("RightUltraSonic", "UltrasonicSensor")
     if RightUltrasonicAttachment == "arduinoNano":
         RightUltraSonic.attach(arduinoNano, RightUltrasonicPin1, RightUltrasonicPin2)
+    elif RightUltrasonicAttachment == "arduinoNano2":
+        RightUltraSonic.attach(arduinoNano2, RightUltrasonicPin1, RightUltrasonicPin2)
     elif RightUltrasonicAttachment == "arduinoLeft":
         RightUltraSonic.attach(arduinoLeft, RightUltrasonicPin1, RightUltrasonicPin2)
     elif RightUltrasonicAttachment == "arduinoRight":
@@ -133,6 +142,7 @@ if EnableRightUltraSonic:
 BatteryLevel = [0, 0, 0, 0]
 # Test to make sure the configured controller is enabled.
 if not ((BatteryMonitorAttachment == "arduinoNano" and EnableArduinoNano) or 
+    (BatteryMonitorAttachment == "arduinoNano2" and EnableArduinoNano2) or 
     (BatteryMonitorAttachment == "arduinoLeft" and EnableArduinoLeft) or 
     (BatteryMonitorAttachment == "arduinoRight" and EnableArduinoRight)):
     EnableBatteryMonitor = 0
@@ -195,6 +205,17 @@ if EnableBatteryMonitor > 0 and EnableBatteryMonitor < 5:
             arduinoNano.enablePin(BatteryMonitorPin3, 1)
         if EnableBatteryMonitor > 3:
             arduinoNano.enablePin(BatteryMonitorPin4, 1)
+    elif BatteryMonitorAttachment == "arduinoNano2":
+        arduinoNano2.setBoardNano() 
+        arduinoNano2.setAref("DEFAULT")
+        arduinoNano2.addListener("publishPinArray","python","BattMonPublishedPins")
+        arduinoNano2.enablePin(BatteryMonitorPin1, 1)
+        if EnableBatteryMonitor > 1:
+            arduinoNano2.enablePin(BatteryMonitorPin2, 1)
+        if EnableBatteryMonitor > 2:
+            arduinoNano2.enablePin(BatteryMonitorPin3, 1)
+        if EnableBatteryMonitor > 3:
+            arduinoNano2.enablePin(BatteryMonitorPin4, 1)
  
 ##############################################################
 #                                                            #
@@ -204,6 +225,7 @@ if EnableBatteryMonitor > 0 and EnableBatteryMonitor < 5:
 
 # Test to make sure the configured controller is enabled.
 if not ((StomachNeoPixelAttachment == "arduinoNano" and EnableArduinoNano) or 
+    (StomachNeoPixelAttachment == "arduinoNano2" and EnableArduinoNano2) or 
     (StomachNeoPixelAttachment == "arduinoLeft" and EnableArduinoLeft) or 
     (StomachNeoPixelAttachment == "arduinoRight" and EnableArduinoRight)):
     EnableStomachNeoPixel = False
@@ -217,9 +239,11 @@ if EnableStomachNeoPixel:
     # Next we attach the NeoPixel service to the configured controller.
     if StomachNeoPixelAttachment == "arduinoNano":
         StomachNeoPixel.attach(arduinoNano, StomachNeoPixelPin, StomachNeoPixelNumber)
-    if StomachNeoPixelAttachment == "arduinoLeft":
+    elif StomachNeoPixelAttachment == "arduinoNano2":
+        StomachNeoPixel.attach(arduinoNano2, StomachNeoPixelPin, StomachNeoPixelNumber)
+    elif StomachNeoPixelAttachment == "arduinoLeft":
         StomachNeoPixel.attach(arduinoLeft, StomachNeoPixelPin, StomachNeoPixelNumber)
-    if StomachNeoPixelAttachment == "arduinoRight":
+    elif StomachNeoPixelAttachment == "arduinoRight":
         StomachNeoPixel.attach(arduinoRight, StomachNeoPixelPin, StomachNeoPixelNumber)
 # Thats it for this part of setting up the neo Pixels.
 # The rest is done in the 6_Life_Functions/7_NeoPixel_Control.py program
@@ -239,6 +263,7 @@ if EnableStomachNeoPixel:
 # First lets make sure the I2C controller enabled
 if not ((MPU6050AAttached == "raspi" and EnableRaspberryPi) or 
     (MPU6050AAttached == "arduinoNano" and EnableArduinoNano) or 
+    (MPU6050AAttached == "arduinoNano2" and EnableArduinoNano2) or 
     (MPU6050AAttached == "arduinoLeft" and EnableArduinoLeft) or 
     (MPU6050AAttached == "arduinoRight" and EnableArduinoRight)):
     EnableMPU6050A = False
@@ -258,6 +283,7 @@ if EnableMPU6050A == True:
 # First lets make sure the I2C controller enabled
 if not ((MPU6050BAttached == "raspi" and EnableRaspberryPi) or 
     (MPU6050BAttached == "arduinoNano" and EnableArduinoNano) or 
+    (MPU6050BAttached == "arduinoNano2" and EnableArduinoNano2) or 
     (MPU6050BAttached == "arduinoLeft" and EnableArduinoLeft) or 
     (MPU6050BAttached == "arduinoRight" and EnableArduinoRight)):
     EnableMPU6050B = False

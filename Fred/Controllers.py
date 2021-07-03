@@ -68,6 +68,15 @@ if EnableArduinoNano == True:
     arduinoNano.setBoardNano()
     arduinoNano.connect(ArduinoNanoComPort)
 
+# After hearing some builders were installing a second Arduino
+# Nano in the head for the NeoPixels in the eyes, I added in
+# support for it :-)
+if EnableArduinoNano2 == True:
+    print "-Starting the Arduino Nano 2 Service"
+    arduinoNano2 = Runtime.start("arduinoNano2","Arduino")
+    arduinoNano2.setBoardNano()
+    arduinoNano2.connect(ArduinoNano2ComPort)
+
 ##############################################################
 # The next level of controllers that can be used are attached 
 # to the I2C bus of either the Raspi4 or the Aurduinos.
@@ -99,7 +108,7 @@ if EnableArduinoNano == True:
 # or have a very limited number of selectable addresses.
 
 # First lets make sure the I2C controller enabled
-if not ((HeadServoDriverAttached == "raspi" and EnableRaspberryPi) or (HeadServoDriverAttached == "arduinoNano" and EnableArduinoNano) or (HeadServoDriverAttached == "arduinoLeft" and EnableArduinoLeft) or (HeadServoDriverAttached == "arduinoRight" and EnableArduinoRight)):
+if not ((HeadServoDriverAttached == "raspi" and EnableRaspberryPi) or (HeadServoDriverAttached == "arduinoNano" and EnableArduinoNano) or (HeadServoDriverAttached == "arduinoNano2" and EnableArduinoNano2) or (HeadServoDriverAttached == "arduinoLeft" and EnableArduinoLeft) or (HeadServoDriverAttached == "arduinoRight" and EnableArduinoRight)):
     EnableAdafruit16CServoDriverHead = False
 
 if EnableAdafruit16CServoDriverHead == True:
@@ -108,7 +117,7 @@ if EnableAdafruit16CServoDriverHead == True:
     Head.attach(HeadServoDriverAttached, HeadServoDriverPort, HeadServoDriverAddr)
 
 # First lets make sure the I2C controller enabled
-if not ((BackServoDriverAttached == "raspi" and EnableRaspberryPi) or (BackServoDriverAttached == "arduinoNano" and EnableArduinoNano) or (BackServoDriverAttached == "arduinoLeft" and EnableArduinoLeft) or (BackServoDriverAttached == "arduinoRight" and EnableArduinoRight)):
+if not ((BackServoDriverAttached == "raspi" and EnableRaspberryPi) or (BackServoDriverAttached == "arduinoNano" and EnableArduinoNano) or (BackServoDriverAttached == "arduinoNano2" and EnableArduinoNano2) or (BackServoDriverAttached == "arduinoLeft" and EnableArduinoLeft) or (BackServoDriverAttached == "arduinoRight" and EnableArduinoRight)):
     EnableAdafruit16CServoDriverBack = False
 
 if EnableAdafruit16CServoDriverBack == True:
@@ -117,7 +126,7 @@ if EnableAdafruit16CServoDriverBack == True:
     Back.attach(BackServoDriverAttached, BackServoDriverPort, BackServoDriverAddr)
 
 # First lets make sure the I2C controller enabled
-if not ((LeftArmServoDriverAttached == "raspi" and EnableRaspberryPi) or (LeftArmServoDriverAttached == "arduinoNano" and EnableArduinoNano) or (LeftArmServoDriverAttached == "arduinoLeft" and EnableArduinoLeft) or (LeftArmServoDriverAttached == "arduinoRight" and EnableArduinoRight)):
+if not ((LeftArmServoDriverAttached == "raspi" and EnableRaspberryPi) or (LeftArmServoDriverAttached == "arduinoNano" and EnableArduinoNano) or (LeftArmServoDriverAttached == "arduinoNano2" and EnableArduinoNano2) or (LeftArmServoDriverAttached == "arduinoLeft" and EnableArduinoLeft) or (LeftArmServoDriverAttached == "arduinoRight" and EnableArduinoRight)):
     EnableAdafruit16CServoDriverLeftArm = False
 
 if EnableAdafruit16CServoDriverLeftArm == True:
@@ -126,7 +135,7 @@ if EnableAdafruit16CServoDriverLeftArm == True:
     RightArm.attach(LeftArmServoDriverAttached, LeftArmServoDriverPort, LeftArmServoDriverAddr)
 
 # First lets make sure the I2C controller enabled
-if not ((RightArmServoDriverAttached == "raspi" and EnableRaspberryPi) or (RightArmServoDriverAttached == "arduinoNano" and EnableArduinoNano) or (RightArmServoDriverAttached == "arduinoLeft" and EnableArduinoLeft) or (RightArmServoDriverAttached == "arduinoRight" and EnableArduinoRight)):
+if not ((RightArmServoDriverAttached == "raspi" and EnableRaspberryPi) or (RightArmServoDriverAttached == "arduinoNano" and EnableArduinoNano) or (RightArmServoDriverAttached == "arduinoNano2" and EnableArduinoNano2) or (RightArmServoDriverAttached == "arduinoLeft" and EnableArduinoLeft) or (RightArmServoDriverAttached == "arduinoRight" and EnableArduinoRight)):
     EnableAdafruit16CServoDriverRightArm = False
 
 if EnableAdafruit16CServoDriverRightArm == True:
