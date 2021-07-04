@@ -58,6 +58,11 @@ if EnableRandomEyeMovements == True:
 # one of the things we do within the blink routine is to change the blink interval to a random number between 5 and 10 seconds.
 # future enhancements may include shifting the random range based on the current light levels and the average light levels,
 # blink more often when the light levels increase until an average value has been reached.
+if not(EnableRightUpperEyeLid 
+    or EnableRightLowerEyeLid 
+    or EnableLeftUpperEyeLid 
+    or EnableLeftLowerEyeLid):
+    EnableBlinking = False
 
 # We need a function that does the blink when the timer expires
 # or if we want to simulate a blink for some reason.
