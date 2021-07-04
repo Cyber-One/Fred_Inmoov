@@ -120,6 +120,14 @@ StomachNeoPixelPin = 8                      # 2
 StomachNeoPixelNumber = 23                  # 16
 StomachNeoPixelMode = 0                     # This is how we will use the Neopixel ring/s at startup
 
+# Some builders have put NeoPixels into the eyes of their robots.
+# This can look very cool and sometimes a bit freaky. :-)
+EnableHeadNeoPixel = True
+HeadNeoPixelAttachment = "arduinoNano2"     # Not Present
+HeadNeoPixelPin = 8                         # 
+HeadNeoPixelNumber = 14                     # 
+HeadNeoPixelMode = 0                        # 
+
 ##############################################################
 #                                                            #
 # MPU6050 Inertial Measurment Unit (IMU)                     #

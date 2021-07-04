@@ -162,3 +162,6 @@ NeoPixelDiagConfig = [[1, 250,   0,   0, 200,  10,   0,   0], # pixel 1
     [4, 640,  10,   0,   0,   0,  20,  20],                   # Pixel 23
     [4, 660,  10,   0,   0,   0,  20,  20]]                   # Pixel 24
 
+
+# For those with NeoPixels in the eyes, there is only the mode
+# control to change how the eyes show through.

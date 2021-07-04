@@ -41,10 +41,10 @@ print '6_Life_Functions/7_NeoPixel_Control.py'
 if EnableStomachNeoPixel:
     # Knowing that the service is enabled, we need to create
     # the call back routing for our periodic timer to call.
-    def NeoPixelTimerEvent(timedata):
+    def NeoPixelStomachTimerEvent(timedata):
         # Global variavle are variable defined outside of this
         # method that we need to read and update.
-        global LastNeoPixelMode
+        global LastStomachNeoPixelMode
         global StomachNeoPixelMode
         global LastLeftPing
         global LastRightPing
@@ -53,7 +53,7 @@ if EnableStomachNeoPixel:
         # Next we work out what mode we will be running our 
         # NeoPixels in.
         if StomachNeoPixelMode == 0:
-            if LastNeoPixelMode <> StomachNeoPixelMode:
+            if LastStomachNeoPixelMode <> StomachNeoPixelMode:
                 # If the NeoPixels were running in a different 
                 #mode, then we need to stop the running animation 
                 #and reset all the NeoPixels so that we can 
@@ -61,7 +61,7 @@ if EnableStomachNeoPixel:
                 #the animationStop() command.
                 StomachNeoPixel.animationStop()
                 # we also need to update the last mode used.
-                LastNeoPixelMode = StomachNeoPixelMode
+                LastStomachNeoPixelMode = StomachNeoPixelMode
                 # To reset the NeoPixels, we need to write a
                 # value to them and write that out to the controller
                 # for each pixel in the chain.
@@ -104,40 +104,87 @@ if EnableStomachNeoPixel:
                     StomachNeoPixel.setPixel(Pixel+1, NeoPixelDiagConfig[Pixel][2], NeoPixelDiagConfig[Pixel][3], NeoPixelDiagConfig[Pixel][4])
                 StomachNeoPixel.writeMatrix()
         elif StomachNeoPixelMode == 1:
-            if LastNeoPixelMode <> StomachNeoPixelMode:
-                LastNeoPixelMode = StomachNeoPixelMode
+            if LastStomachNeoPixelMode <> StomachNeoPixelMode:
+                LastStomachNeoPixelMode = StomachNeoPixelMode
                 StomachNeoPixel.setAnimation("Rainbow Cycle", 255, 0, 0, 1) #running Rainbow Cycle at full speed
         elif StomachNeoPixelMode == 2:
-            if LastNeoPixelMode <> StomachNeoPixelMode:
-                LastNeoPixelMode = StomachNeoPixelMode
+            if LastStomachNeoPixelMode <> StomachNeoPixelMode:
+                LastStomachNeoPixelMode = StomachNeoPixelMode
                 StomachNeoPixel.setAnimation("Larson Scanner", 255, 0, 0, 1) #running Larson Scanner with color red at full speed
         elif StomachNeoPixelMode == 3:
-            if LastNeoPixelMode <> StomachNeoPixelMode:
-                LastNeoPixelMode = StomachNeoPixelMode
+            if LastStomachNeoPixelMode <> StomachNeoPixelMode:
+                LastStomachNeoPixelMode = StomachNeoPixelMode
                 StomachNeoPixel.setAnimation("Theater Chase Rainbow", 255, 0, 0, 1) #running Theater Chase Rainbow at full speed
         elif StomachNeoPixelMode == 4:
-            if LastNeoPixelMode <> StomachNeoPixelMode:
-                LastNeoPixelMode = StomachNeoPixelMode
+            if LastStomachNeoPixelMode <> StomachNeoPixelMode:
+                LastStomachNeoPixelMode = StomachNeoPixelMode
                 StomachNeoPixel.setAnimation("Color Wipe", 255, 0, 0, 1) #running Color Wipe at full speed
         elif StomachNeoPixelMode == 5:
-            if LastNeoPixelMode <> StomachNeoPixelMode:
-                LastNeoPixelMode = StomachNeoPixelMode
+            if LastStomachNeoPixelMode <> StomachNeoPixelMode:
+                LastStomachNeoPixelMode = StomachNeoPixelMode
                 StomachNeoPixel.setAnimation("Ironman", 255, 0, 0, 1) #running Ironman at full speed
         else:
-            if LastNeoPixelMode <> StomachNeoPixelMode:
-                LastNeoPixelMode = StomachNeoPixelMode
+            if LastStomachNeoPixelMode <> StomachNeoPixelMode:
+                LastStomachNeoPixelMode = StomachNeoPixelMode
                 StomachNeoPixel.setAnimation("Flash Random", 255, 0, 0, 1) #running Flash Random with color red at full speed
     # Now that we have created the call back method, we need 
     # to create the timer that will be updating the NeoPixels.
-    NeoPixelTimer =Runtime.createAndStart("NeoPixelTimer", "Clock")
+    NeoPixelStomachTimer =Runtime.createAndStart("NeoPixelStomachTimer", "Clock")
     # Adding the listener is how we tell the timer to call
     # our call back method.
-    NeoPixelTimer.addListener("pulse", python.name, "NeoPixelTimerEvent")
+    NeoPixelStomachTimer.addListener("pulse", python.name, "NeoPixelStomachTimerEvent")
     # Next we need to tell the time how often to call the 
     # method, this is in mill-seconds.
-    NeoPixelTimer.setInterval(NeoPixelUpdateRate)
+    NeoPixelStomachTimer.setInterval(NeoPixelUpdateRate)
     # Finally we start the clock.
-    NeoPixelTimer.startClock(False)
+    NeoPixelStomachTimer.startClock(False)
+
+if EnableHeadNeoPixel:
+    def NeoPixelHeadTimerEvent(timedata):
+        global LastHeadNeoPixelMode
+        global HeadNeoPixelMode
+        if HeadNeoPixelMode == 0:
+            if LastHeadNeoPixelMode <> HeadNeoPixelMode:
+                LastHeadNeoPixelMode = HeadNeoPixelMode
+                HeadNeoPixel.animationStop()
+                for pixel in range (1,HeadNeoPixel.numPixel + 1):
+                    HeadNeoPixel.setPixel(pixel, 0, 0, 0)  #setPixel(pixel, red, green, blue)
+                HeadNeoPixel.writeMatrix() #send the pixel data to the HeadNeoPixel hardware 
+        elif HeadNeoPixelMode == 1:
+            if LastHeadNeoPixelMode <> HeadNeoPixelMode:
+                LastHeadNeoPixelMode = HeadNeoPixelMode
+                HeadNeoPixel.setAnimation("Rainbow Cycle", 255, 0, 0, 1) #running Rainbow Cycle at full speed
+        elif HeadNeoPixelMode == 2:
+            if LastHeadNeoPixelMode <> HeadNeoPixelMode:
+                LastHeadNeoPixelMode = HeadNeoPixelMode
+                HeadNeoPixel.setAnimation("Larson Scanner", 255, 0, 0, 1) #running Larson Scanner with color red at full speed
+        elif HeadNeoPixelMode == 3:
+            if LastHeadNeoPixelMode <> HeadNeoPixelMode:
+                LastHeadNeoPixelMode = HeadNeoPixelMode
+                HeadNeoPixel.setAnimation("Theater Chase Rainbow", 255, 0, 0, 1) #running Theater Chase Rainbow at full speed
+        elif HeadNeoPixelMode == 4:
+            if LastHeadNeoPixelMode <> HeadNeoPixelMode:
+                LastHeadNeoPixelMode = HeadNeoPixelMode
+                HeadNeoPixel.setAnimation("Color Wipe", 255, 0, 0, 1) #running Color Wipe at full speed
+        elif HeadNeoPixelMode == 5:
+            if LastHeadNeoPixelMode <> HeadNeoPixelMode:
+                LastHeadNeoPixelMode = HeadNeoPixelMode
+                HeadNeoPixel.setAnimation("Ironman", 255, 0, 0, 1) #running Ironman at full speed
+        else:
+            if LastHeadNeoPixelMode <> HeadNeoPixelMode:
+                LastHeadNeoPixelMode = HeadNeoPixelMode
+                HeadNeoPixel.setAnimation("Flash Random", 255, 0, 0, 1) #running Flash Random with color red at full speed
+    # Now that we have created the call back method, we need 
+    # to create the timer that will be updating the NeoPixels.
+    NeoPixelHeadTimer =Runtime.createAndStart("NeoPixelHeadTimer", "Clock")
+    # Adding the listener is how we tell the timer to call
+    # our call back method.
+    NeoPixelHeadTimer.addListener("pulse", python.name, "NeoPixelHeadTimerEvent")
+    # Next we need to tell the time how often to call the 
+    # method, this is in mill-seconds.
+    NeoPixelHeadTimer.setInterval(NeoPixelUpdateRate)
+    # Finally we start the clock.
+    NeoPixelHeadTimer.startClock(False)
 
 
     #neopixel.animationStop()

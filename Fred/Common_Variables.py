@@ -75,4 +75,5 @@ LastRightPing = 0
 
 # This is used to detect when the NeoPixel mode is being changed
 # and allow appropriot actions to be taken.
-LastNeoPixelMode = 0
+LastStomachNeoPixelMode = 0
+LastHeadNeoPixelMode = 0

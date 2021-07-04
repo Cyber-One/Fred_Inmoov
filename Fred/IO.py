@@ -245,6 +245,24 @@ if EnableStomachNeoPixel:
         StomachNeoPixel.attach(arduinoLeft, StomachNeoPixelPin, StomachNeoPixelNumber)
     elif StomachNeoPixelAttachment == "arduinoRight":
         StomachNeoPixel.attach(arduinoRight, StomachNeoPixelPin, StomachNeoPixelNumber)
+
+# In some builds there are NeoPixels installed in the head for the eyes.
+# These can look very cool in deed.
+# Having them install, also means we need a way to control them.
+# For this, we have the HeadNeoPixels.
+if EnableHeadNeoPixel:
+    # We use the standard method of starting a service in MRL
+    HeadNeoPixel = Runtime.start("HeadNeoPixel","NeoPixel")
+    # Next we attach the NeoPixel service to the configured controller.
+    if HeadNeoPixelAttachment == "arduinoNano":
+        HeadNeoPixel.attach(arduinoNano, HeadNeoPixelPin, HeadNeoPixelNumber)
+    elif HeadNeoPixelAttachment == "arduinoNano2":
+        HeadNeoPixel.attach(arduinoNano2, HeadNeoPixelPin, HeadNeoPixelNumber)
+    elif HeadNeoPixelAttachment == "arduinoLeft":
+        HeadNeoPixel.attach(arduinoLeft, HeadNeoPixelPin, HeadNeoPixelNumber)
+    elif HeadNeoPixelAttachment == "arduinoRight":
+        HeadNeoPixel.attach(arduinoRight, HeadNeoPixelPin, HeadNeoPixelNumber)
+
 # Thats it for this part of setting up the neo Pixels.
 # The rest is done in the 6_Life_Functions/7_NeoPixel_Control.py program
 
