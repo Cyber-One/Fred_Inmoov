@@ -32,6 +32,7 @@ if not ((JawAttachment == "Head" and EnableAdafruit16CServoDriverHead)
     or (JawAttachment == "RightArm" and EnableAdafruit16CServoDriverRightArm)
     or (JawAttachment == "LeftArm" and EnableAdafruit16CServoDriverLeftArm)
     or (JawAttachment == "arduinoNano" and EnableArduinoNano) 
+    or (JawAttachment == "arduinoNano2" and EnableArduinoNano2) 
     or (JawAttachment == "arduinoLeft" and EnableArduinoLeft) 
     or (JawAttachment == "arduinoRight" and EnableArduinoRight)):
     EnableJawServo = False
@@ -67,18 +68,20 @@ if EnableJawServo == True:
     # of possible service we are likely to use.
     if JawAttachment == "Head":
         Jaw.attach(Head, JawPin)
-    if JawAttachment == "Back":
+    elif JawAttachment == "Back":
         Jaw.attach(Back, JawPin)
-    if JawAttachment == "RightArm":
+    elif JawAttachment == "RightArm":
         Jaw.attach(RightArm, JawPin)
-    if JawAttachment == "LeftArm":
+    elif JawAttachment == "LeftArm":
         Jaw.attach(LeftArm, JawPin)
-    if JawAttachment == "arduinoLeft":
+    elif JawAttachment == "arduinoLeft":
         Jaw.attach(arduinoLeft, JawPin)
-    if JawAttachment == "arduinoRight":
+    elif JawAttachment == "arduinoRight":
         Jaw.attach(arduinoRight, JawPin)
-    if JawAttachment == "arduinoNano":
+    elif JawAttachment == "arduinoNano":
         Jaw.attach(arduinoNano, JawPin)
+    elif JawAttachment == "arduinoNano2":
+        Jaw.attach(arduinoNano2, JawPin)
     # When you install your servo into your robot, you may 
     # find that the servo turns to far and has to potential 
     # of damaging your robot.  In this case you will want to 
@@ -157,6 +160,7 @@ if not ((RightEyeXAttachment == "Head" and EnableAdafruit16CServoDriverHead)
     or (RightEyeXAttachment == "RightArm" and EnableAdafruit16CServoDriverRightArm)
     or (RightEyeXAttachment == "LeftArm" and EnableAdafruit16CServoDriverLeftArm)
     or (RightEyeXAttachment == "arduinoNano" and EnableArduinoNano) 
+    or (RightEyeXAttachment == "arduinoNano2" and EnableArduinoNano2) 
     or (RightEyeXAttachment == "arduinoLeft" and EnableArduinoLeft) 
     or (RightEyeXAttachment == "arduinoRight" and EnableArduinoRight)):
     EnableRightEyeX = False
@@ -166,18 +170,20 @@ if EnableRightEyeX == True:
     RightEyeLR = Runtime.createAndStart("RightEyeLR", "Servo")
     if RightEyeXAttachment == "Head":
         RightEyeLR.attach(Head, RightEyeXPin)
-    if RightEyeXAttachment == "Back":
+    elif RightEyeXAttachment == "Back":
         RightEyeLR.attach(Back, RightEyeXPin)
-    if RightEyeXAttachment == "RightArm":
+    elif RightEyeXAttachment == "RightArm":
         RightEyeLR.attach(RightArm, RightEyeXPin)
-    if RightEyeXAttachment == "LeftArm":
+    elif RightEyeXAttachment == "LeftArm":
         RightEyeLR.attach(LeftArm, RightEyeXPin)
-    if RightEyeXAttachment == "arduinoLeft":
+    elif RightEyeXAttachment == "arduinoLeft":
         RightEyeLR.attach(arduinoLeft, RightEyeXPin)
-    if RightEyeXAttachment == "arduinoRight":
+    elif RightEyeXAttachment == "arduinoRight":
         RightEyeLR.attach(arduinoRight, RightEyeXPin)
-    if RightEyeXAttachment == "arduinoNano":
+    elif RightEyeXAttachment == "arduinoNano":
         RightEyeLR.attach(arduinoNano, RightEyeXPin)
+    elif RightEyeXAttachment == "arduinoNano2":
+        RightEyeLR.attach(arduinoNano2, RightEyeXPin)
     #RightEyeLR.setMinMax(RightEyeXMinPos, RightEyeXMaxPos)
     RightEyeLR.setMinMax(0, 100)
     # In the prefious servo service, I used a seperate If
@@ -203,6 +209,7 @@ if not ((RightEyeYAttachment == "Head" and EnableAdafruit16CServoDriverHead)
     or (RightEyeYAttachment == "RightArm" and EnableAdafruit16CServoDriverRightArm)
     or (RightEyeYAttachment == "LeftArm" and EnableAdafruit16CServoDriverLeftArm)
     or (RightEyeYAttachment == "arduinoNano" and EnableArduinoNano) 
+    or (RightEyeYAttachment == "arduinoNano2" and EnableArduinoNano2) 
     or (RightEyeYAttachment == "arduinoLeft" and EnableArduinoLeft) 
     or (RightEyeYAttachment == "arduinoRight" and EnableArduinoRight)):
     EnableRightEyeY = False
@@ -212,18 +219,20 @@ if EnableRightEyeY == True:
     RightEyeUD = Runtime.createAndStart("RightEyeUD", "Servo")
     if RightEyeYAttachment == "Head":
         RightEyeUD.attach(Head, RightEyeYPin)
-    if RightEyeYAttachment == "Back":
+    elif RightEyeYAttachment == "Back":
         RightEyeUD.attach(Back, RightEyeYPin)
-    if RightEyeYAttachment == "RightArm":
+    elif RightEyeYAttachment == "RightArm":
         RightEyeUD.attach(RightArm, RightEyeYPin)
-    if RightEyeYAttachment == "LeftArm":
+    elif RightEyeYAttachment == "LeftArm":
         RightEyeUD.attach(LeftArm, RightEyeYPin)
-    if RightEyeYAttachment == "arduinoLeft":
+    elif RightEyeYAttachment == "arduinoLeft":
         RightEyeUD.attach(arduinoLeft, RightEyeYPin)
-    if RightEyeYAttachment == "arduinoRight":
+    elif RightEyeYAttachment == "arduinoRight":
         RightEyeUD.attach(arduinoRight, RightEyeYPin)
-    if RightEyeYAttachment == "arduinoNano":
+    elif RightEyeYAttachment == "arduinoNano":
         RightEyeUD.attach(arduinoNano, RightEyeYPin)
+    elif RightEyeYAttachment == "arduinoNano2":
+        RightEyeUD.attach(arduinoNano2, RightEyeYPin)
     #RightEyeUD.setMinMax(RightEyeYMinPos, RightEyeYMaxPos)
     RightEyeUD.setMinMax(0, 100)
     if RightEyeYMinPos < RightEyeYMaxPos:
@@ -246,6 +255,7 @@ if not ((LeftEyeXAttachment == "Head" and EnableAdafruit16CServoDriverHead)
     or (LeftEyeXAttachment == "RightArm" and EnableAdafruit16CServoDriverRightArm)
     or (LeftEyeXAttachment == "LeftArm" and EnableAdafruit16CServoDriverLeftArm)
     or (LeftEyeXAttachment == "arduinoNano" and EnableArduinoNano) 
+    or (LeftEyeXAttachment == "arduinoNano2" and EnableArduinoNano2) 
     or (LeftEyeXAttachment == "arduinoLeft" and EnableArduinoLeft) 
     or (LeftEyeXAttachment == "arduinoRight" and EnableArduinoRight)):
     EnableLeftEyeX = False
@@ -255,18 +265,20 @@ if EnableLeftEyeX == True:
     LeftEyeLR = Runtime.createAndStart("LeftEyeLR", "Servo")
     if LeftEyeXAttachment == "Head":
         LeftEyeLR.attach(Head, LeftEyeXPin)
-    if LeftEyeXAttachment == "Back":
+    elif LeftEyeXAttachment == "Back":
         LeftEyeLR.attach(Back, LeftEyeXPin)
-    if LeftEyeXAttachment == "RightArm":
+    elif LeftEyeXAttachment == "RightArm":
         LeftEyeLR.attach(RightArm, LeftEyeXPin)
-    if LeftEyeXAttachment == "LeftArm":
+    elif LeftEyeXAttachment == "LeftArm":
         LeftEyeLR.attach(LeftArm, LeftEyeXPin)
-    if LeftEyeXAttachment == "arduinoLeft":
+    elif LeftEyeXAttachment == "arduinoLeft":
         LeftEyeLR.attach(arduinoLeft, LeftEyeXPin)
-    if LeftEyeXAttachment == "arduinoRight":
+    elif LeftEyeXAttachment == "arduinoRight":
         LeftEyeLR.attach(arduinoRight, LeftEyeXPin)
-    if LeftEyeXAttachment == "arduinoNano":
+    elif LeftEyeXAttachment == "arduinoNano":
         LeftEyeLR.attach(arduinoNano, LeftEyeXPin)
+    elif LeftEyeXAttachment == "arduinoNano2":
+        LeftEyeLR.attach(arduinoNano2, LeftEyeXPin)
     #LeftEyeLR.setMinMax(LeftEyeXMinPos, LeftEyeXMaxPos)
     LeftEyeLR.setMinMax(0, 100)
     if LeftEyeXMinPos < LeftEyeXMaxPos:
@@ -289,6 +301,7 @@ if not ((LeftEyeYAttachment == "Head" and EnableAdafruit16CServoDriverHead)
     or (LeftEyeYAttachment == "RightArm" and EnableAdafruit16CServoDriverRightArm)
     or (LeftEyeYAttachment == "LeftArm" and EnableAdafruit16CServoDriverLeftArm)
     or (LeftEyeYAttachment == "arduinoNano" and EnableArduinoNano) 
+    or (LeftEyeYAttachment == "arduinoNano2" and EnableArduinoNano2) 
     or (LeftEyeYAttachment == "arduinoLeft" and EnableArduinoLeft) 
     or (LeftEyeYAttachment == "arduinoRight" and EnableArduinoRight)):
     EnableLeftEyeY = False
@@ -298,18 +311,20 @@ if EnableLeftEyeY == True:
     LeftEyeUD = Runtime.createAndStart("LeftEyeUD", "Servo")
     if LeftEyeYAttachment == "Head":
         LeftEyeUD.attach(Head, LeftEyeYPin)
-    if LeftEyeYAttachment == "Back":
+    elif LeftEyeYAttachment == "Back":
         LeftEyeUD.attach(Back, LeftEyeYPin)
-    if LeftEyeYAttachment == "RightArm":
+    elif LeftEyeYAttachment == "RightArm":
         LeftEyeUD.attach(RightArm, LeftEyeYPin)
-    if LeftEyeYAttachment == "LeftArm":
+    elif LeftEyeYAttachment == "LeftArm":
         LeftEyeUD.attach(LeftArm, LeftEyeYPin)
-    if LeftEyeYAttachment == "arduinoLeft":
+    elif LeftEyeYAttachment == "arduinoLeft":
         LeftEyeUD.attach(arduinoLeft, LeftEyeYPin)
-    if LeftEyeYAttachment == "arduinoRight":
+    elif LeftEyeYAttachment == "arduinoRight":
         LeftEyeUD.attach(arduinoRight, LeftEyeYPin)
-    if LeftEyeYAttachment == "arduinoNano":
+    elif LeftEyeYAttachment == "arduinoNano":
         LeftEyeUD.attach(arduinoNano, LeftEyeYPin)
+    elif LeftEyeYAttachment == "arduinoNano2":
+        LeftEyeUD.attach(arduinoNano2, LeftEyeYPin)
     #LeftEyeUD.setMinMax(LeftEyeYMinPos, LeftEyeYMaxPos)
     LeftEyeUD.setMinMax(0, 100)
     if LeftEyeYMinPos < LeftEyeYMaxPos:
@@ -332,6 +347,7 @@ if not ((UpperREyeLidAttachment == "Head" and EnableAdafruit16CServoDriverHead)
     or (UpperREyeLidAttachment == "RightArm" and EnableAdafruit16CServoDriverRightArm)
     or (UpperREyeLidAttachment == "LeftArm" and EnableAdafruit16CServoDriverLeftArm)
     or (UpperREyeLidAttachment == "arduinoNano" and EnableArduinoNano) 
+    or (UpperREyeLidAttachment == "arduinoNano2" and EnableArduinoNano2) 
     or (UpperREyeLidAttachment == "arduinoLeft" and EnableArduinoLeft) 
     or (UpperREyeLidAttachment == "arduinoRight" and EnableArduinoRight)):
     EnableRightUpperEyeLid = False
@@ -341,18 +357,20 @@ if EnableRightUpperEyeLid == True:
     UpperEyeLidR = Runtime.createAndStart("UpperEyeLidR", "Servo")
     if UpperREyeLidAttachment == "Head":
         UpperEyeLidR.attach(Head, UpperREyeLidPin)
-    if UpperREyeLidAttachment == "Back":
+    elif UpperREyeLidAttachment == "Back":
         UpperEyeLidR.attach(Back, UpperREyeLidPin)
-    if UpperREyeLidAttachment == "RightArm":
+    elif UpperREyeLidAttachment == "RightArm":
         UpperEyeLidR.attach(RightArm, UpperREyeLidPin)
-    if UpperREyeLidAttachment == "LeftArm":
+    elif UpperREyeLidAttachment == "LeftArm":
         UpperEyeLidR.attach(LeftArm, UpperREyeLidPin)
-    if UpperREyeLidAttachment == "arduinoLeft":
+    elif UpperREyeLidAttachment == "arduinoLeft":
         UpperEyeLidR.attach(arduinoLeft, UpperREyeLidPin)
-    if UpperREyeLidAttachment == "arduinoRight":
+    elif UpperREyeLidAttachment == "arduinoRight":
         UpperEyeLidR.attach(arduinoRight, UpperREyeLidPin)
-    if UpperREyeLidAttachment == "arduinoNano":
+    elif UpperREyeLidAttachment == "arduinoNano":
         UpperEyeLidR.attach(arduinoNano, UpperREyeLidPin)
+    elif UpperREyeLidAttachment == "arduinoNano2":
+        UpperEyeLidR.attach(arduinoNano2, UpperREyeLidPin)
     #UpperEyeLidR.setMinMax(UpperREyeLidMinPos, UpperREyeLidMaxPos)
     UpperEyeLidR.setMinMax(0, 100)
     if UpperREyeLidMinPos < UpperREyeLidMaxPos:
@@ -375,6 +393,7 @@ if not ((LowerREyeLidAttachment == "Head" and EnableAdafruit16CServoDriverHead)
     or (LowerREyeLidAttachment == "RightArm" and EnableAdafruit16CServoDriverRightArm)
     or (LowerREyeLidAttachment == "LeftArm" and EnableAdafruit16CServoDriverLeftArm)
     or (LowerREyeLidAttachment == "arduinoNano" and EnableArduinoNano) 
+    or (LowerREyeLidAttachment == "arduinoNano2" and EnableArduinoNano2) 
     or (LowerREyeLidAttachment == "arduinoLeft" and EnableArduinoLeft) 
     or (LowerREyeLidAttachment == "arduinoRight" and EnableArduinoRight)):
     EnableRightLowerEyeLid = False
@@ -384,18 +403,20 @@ if EnableRightLowerEyeLid == True:
     LowerEyeLidR = Runtime.createAndStart("LowerEyeLidR", "Servo")
     if LowerREyeLidAttachment == "Head":
         LowerEyeLidR.attach(Head, LowerREyeLidPin)
-    if LowerREyeLidAttachment == "Back":
+    elif LowerREyeLidAttachment == "Back":
         LowerEyeLidR.attach(Back, LowerREyeLidPin)
-    if LowerREyeLidAttachment == "RightArm":
+    elif LowerREyeLidAttachment == "RightArm":
         LowerEyeLidR.attach(RightArm, LowerREyeLidPin)
-    if LowerREyeLidAttachment == "LeftArm":
+    elif LowerREyeLidAttachment == "LeftArm":
         LowerEyeLidR.attach(LeftArm, LowerREyeLidPin)
-    if LowerREyeLidAttachment == "arduinoLeft":
+    elif LowerREyeLidAttachment == "arduinoLeft":
         LowerEyeLidR.attach(arduinoLeft, LowerREyeLidPin)
-    if LowerREyeLidAttachment == "arduinoRight":
+    elif LowerREyeLidAttachment == "arduinoRight":
         LowerEyeLidR.attach(arduinoRight, LowerREyeLidPin)
-    if LowerREyeLidAttachment == "arduinoNano":
+    elif LowerREyeLidAttachment == "arduinoNano":
         LowerEyeLidR.attach(arduinoNano, LowerREyeLidPin)
+    elif LowerREyeLidAttachment == "arduinoNano2":
+        LowerEyeLidR.attach(arduinoNano2, LowerREyeLidPin)
     #LowerEyeLidR.setMinMax(LowerREyeLidMinPos, LowerREyeLidMaxPos)
     LowerEyeLidR.setMinMax(0, 100)
     if LowerREyeLidMinPos < LowerREyeLidMaxPos:
@@ -418,6 +439,7 @@ if not ((UpperLEyeLidAttachment == "Head" and EnableAdafruit16CServoDriverHead)
     or (UpperLEyeLidAttachment == "RightArm" and EnableAdafruit16CServoDriverRightArm)
     or (UpperLEyeLidAttachment == "LeftArm" and EnableAdafruit16CServoDriverLeftArm)
     or (UpperLEyeLidAttachment == "arduinoNano" and EnableArduinoNano) 
+    or (UpperLEyeLidAttachment == "arduinoNano2" and EnableArduinoNano2) 
     or (UpperLEyeLidAttachment == "arduinoLeft" and EnableArduinoLeft) 
     or (UpperLEyeLidAttachment == "arduinoRight" and EnableArduinoRight)):
     EnableLeftUpperEyeLid = False
@@ -427,18 +449,20 @@ if EnableLeftUpperEyeLid == True:
     UpperEyeLidL = Runtime.createAndStart("UpperEyeLidL", "Servo")
     if UpperLEyeLidAttachment == "Head":
         UpperEyeLidL.attach(Head, UpperLEyeLidPin)
-    if UpperLEyeLidAttachment == "Back":
+    elif UpperLEyeLidAttachment == "Back":
         UpperEyeLidL.attach(Back, UpperLEyeLidPin)
-    if UpperLEyeLidAttachment == "RightArm":
+    elif UpperLEyeLidAttachment == "RightArm":
         UpperEyeLidL.attach(RightArm, UpperLEyeLidPin)
-    if UpperLEyeLidAttachment == "LeftArm":
+    elif UpperLEyeLidAttachment == "LeftArm":
         UpperEyeLidL.attach(LeftArm, UpperLEyeLidPin)
-    if UpperLEyeLidAttachment == "arduinoLeft":
+    elif UpperLEyeLidAttachment == "arduinoLeft":
         UpperEyeLidL.attach(arduinoLeft, UpperLEyeLidPin)
-    if UpperLEyeLidAttachment == "arduinoRight":
+    elif UpperLEyeLidAttachment == "arduinoRight":
         UpperEyeLidL.attach(arduinoRight, UpperLEyeLidPin)
-    if UpperLEyeLidAttachment == "arduinoNano":
+    elif UpperLEyeLidAttachment == "arduinoNano":
         UpperEyeLidL.attach(arduinoNano, UpperLEyeLidPin)
+    elif UpperLEyeLidAttachment == "arduinoNano2":
+        UpperEyeLidL.attach(arduinoNano2, UpperLEyeLidPin)
     #UpperEyeLidL.setMinMax(UpperLEyeLidMinPos, UpperLEyeLidMaxPos)
     UpperEyeLidL.setMinMax(0, 100)
     if UpperLEyeLidMinPos < UpperLEyeLidMaxPos:
@@ -461,6 +485,7 @@ if not ((LowerLEyeLidAttachment == "Head" and EnableAdafruit16CServoDriverHead)
     or (LowerLEyeLidAttachment == "RightArm" and EnableAdafruit16CServoDriverRightArm)
     or (LowerLEyeLidAttachment == "LeftArm" and EnableAdafruit16CServoDriverLeftArm)
     or (LowerLEyeLidAttachment == "arduinoNano" and EnableArduinoNano) 
+    or (LowerLEyeLidAttachment == "arduinoNano2" and EnableArduinoNano2) 
     or (LowerLEyeLidAttachment == "arduinoLeft" and EnableArduinoLeft) 
     or (LowerLEyeLidAttachment == "arduinoRight" and EnableArduinoRight)):
     EnableLeftLowerEyeLid = False
@@ -470,18 +495,20 @@ if EnableLeftLowerEyeLid == True:
     LowerEyeLidL = Runtime.createAndStart("LowerEyeLidL", "Servo")
     if LowerLEyeLidAttachment == "Head":
         LowerEyeLidL.attach(Head, LowerLEyeLidPin)
-    if LowerLEyeLidAttachment == "Back":
+    elif LowerLEyeLidAttachment == "Back":
         LowerEyeLidL.attach(Back, LowerLEyeLidPin)
-    if LowerLEyeLidAttachment == "RightArm":
+    elif LowerLEyeLidAttachment == "RightArm":
         LowerEyeLidL.attach(RightArm, LowerLEyeLidPin)
-    if LowerLEyeLidAttachment == "LeftArm":
+    elif LowerLEyeLidAttachment == "LeftArm":
         LowerEyeLidL.attach(LeftArm, LowerLEyeLidPin)
-    if LowerLEyeLidAttachment == "arduinoLeft":
+    elif LowerLEyeLidAttachment == "arduinoLeft":
         LowerEyeLidL.attach(arduinoLeft, LowerLEyeLidPin)
-    if LowerLEyeLidAttachment == "arduinoRight":
+    elif LowerLEyeLidAttachment == "arduinoRight":
         LowerEyeLidL.attach(arduinoRight, LowerLEyeLidPin)
-    if LowerLEyeLidAttachment == "arduinoNano":
+    elif LowerLEyeLidAttachment == "arduinoNano":
         LowerEyeLidL.attach(arduinoNano, LowerLEyeLidPin)
+    elif LowerLEyeLidAttachment == "arduinoNano2":
+        LowerEyeLidL.attach(arduinoNano2, LowerLEyeLidPin)
     #LowerEyeLidL.setMinMax(LowerLEyeLidMinPos, LowerLEyeLidMaxPos)
     LowerEyeLidL.setMinMax(0, 100)
     if LowerLEyeLidMinPos < LowerLEyeLidMaxPos:

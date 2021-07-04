@@ -34,6 +34,7 @@ if not ((TopStomachAttachment == "Head" and EnableAdafruit16CServoDriverHead)
     or (TopStomachAttachment == "RightArm" and EnableAdafruit16CServoDriverRightArm)
     or (TopStomachAttachment == "LeftArm" and EnableAdafruit16CServoDriverLeftArm)
     or (TopStomachAttachment == "arduinoNano" and EnableArduinoNano) 
+    or (TopStomachAttachment == "arduinoNano2" and EnableArduinoNano2) 
     or (TopStomachAttachment == "arduinoLeft" and EnableArduinoLeft) 
     or (TopStomachAttachment == "arduinoRight" and EnableArduinoRight)):
     EnableTopStomach = False
@@ -43,18 +44,20 @@ if EnableTopStomach == True:
     TopStomach = Runtime.createAndStart("TopStomach", "Servo")
     if TopStomachAttachment == "Head":
         TopStomach.attach(Head, TopStomachPin)
-    if TopStomachAttachment == "Back":
+    elif TopStomachAttachment == "Back":
         TopStomach.attach(Back, TopStomachPin)
-    if TopStomachAttachment == "RightArm":
+    elif TopStomachAttachment == "RightArm":
         TopStomach.attach(RightArm, TopStomachPin)
-    if TopStomachAttachment == "LeftArm":
+    elif TopStomachAttachment == "LeftArm":
         TopStomach.attach(LeftArm, TopStomachPin)
-    if TopStomachAttachment == "arduinoLeft":
+    elif TopStomachAttachment == "arduinoLeft":
         TopStomach.attach(arduinoLeft, TopStomachPin)
-    if TopStomachAttachment == "arduinoRight":
+    elif TopStomachAttachment == "arduinoRight":
         TopStomach.attach(arduinoRight, TopStomachPin)
-    if TopStomachAttachment == "arduinoNano":
+    elif TopStomachAttachment == "arduinoNano":
         TopStomach.attach(arduinoNano, TopStomachPin)
+    elif TopStomachAttachment == "arduinoNano2":
+        TopStomach.attach(arduinoNano2, TopStomachPin)
     #TopStomach.setMinMax(TopStomachMinPos, TopStomachMaxPos)
     TopStomach.setMinMax(0, 100)
     if TopStomachMinPos < TopStomachMaxPos:
@@ -77,6 +80,7 @@ if not ((MidStomachAttachment == "Head" and EnableAdafruit16CServoDriverHead)
     or (MidStomachAttachment == "RightArm" and EnableAdafruit16CServoDriverRightArm)
     or (MidStomachAttachment == "LeftArm" and EnableAdafruit16CServoDriverLeftArm)
     or (MidStomachAttachment == "arduinoNano" and EnableArduinoNano) 
+    or (MidStomachAttachment == "arduinoNano2" and EnableArduinoNano2) 
     or (MidStomachAttachment == "arduinoLeft" and EnableArduinoLeft) 
     or (MidStomachAttachment == "arduinoRight" and EnableArduinoRight)):
     EnableMidStomach = False
@@ -86,18 +90,20 @@ if EnableMidStomach == True:
     MidStomach = Runtime.createAndStart("MidStomach", "Servo")
     if MidStomachAttachment == "Head":
         MidStomach.attach(Head, MidStomachPin)
-    if MidStomachAttachment == "Back":
+    elif MidStomachAttachment == "Back":
         MidStomach.attach(Back, MidStomachPin)
-    if MidStomachAttachment == "RightArm":
+    elif MidStomachAttachment == "RightArm":
         MidStomach.attach(RightArm, MidStomachPin)
-    if MidStomachAttachment == "LeftArm":
+    elif MidStomachAttachment == "LeftArm":
         MidStomach.attach(LeftArm, MidStomachPin)
-    if MidStomachAttachment == "arduinoLeft":
+    elif MidStomachAttachment == "arduinoLeft":
         MidStomach.attach(arduinoLeft, MidStomachPin)
-    if MidStomachAttachment == "arduinoRight":
+    elif MidStomachAttachment == "arduinoRight":
         MidStomach.attach(arduinoRight, MidStomachPin)
-    if MidStomachAttachment == "arduinoNano":
+    elif MidStomachAttachment == "arduinoNano":
         MidStomach.attach(arduinoNano, MidStomachPin)
+    elif MidStomachAttachment == "arduinoNano2":
+        MidStomach.attach(arduinoNano2, MidStomachPin)
     #MidStomach.setMinMax(MidStomachMinPos, MidStomachMaxPos)
     MidStomach.setMinMax(0, 100)
     if MidStomachMinPos < MidStomachMaxPos:
@@ -120,6 +126,7 @@ if not ((PitchStomachAttchment == "Head" and EnableAdafruit16CServoDriverHead)
     or (PitchStomachAttchment == "RightArm" and EnableAdafruit16CServoDriverRightArm)
     or (PitchStomachAttchment == "LeftArm" and EnableAdafruit16CServoDriverLeftArm)
     or (PitchStomachAttchment == "arduinoNano" and EnableArduinoNano) 
+    or (PitchStomachAttchment == "arduinoNano2" and EnableArduinoNano2) 
     or (PitchStomachAttchment == "arduinoLeft" and EnableArduinoLeft) 
     or (PitchStomachAttchment == "arduinoRight" and EnableArduinoRight)):
     EnablePitchStomach = False
@@ -129,18 +136,20 @@ if EnablePitchStomach == True:
     PitchStomach = Runtime.createAndStart("PitchStomach", "Servo")
     if PitchStomachAttchment == "Head":
         PitchStomach.attach(Head, PitchStomachPin)
-    if PitchStomachAttchment == "Back":
+    elif PitchStomachAttchment == "Back":
         PitchStomach.attach(Back, PitchStomachPin)
-    if PitchStomachAttchment == "RightArm":
+    elif PitchStomachAttchment == "RightArm":
         PitchStomach.attach(RightArm, PitchStomachPin)
-    if PitchStomachAttchment == "LeftArm":
+    elif PitchStomachAttchment == "LeftArm":
         PitchStomach.attach(LeftArm, PitchStomachPin)
-    if PitchStomachAttchment == "arduinoLeft":
+    elif PitchStomachAttchment == "arduinoLeft":
         PitchStomach.attach(arduinoLeft, PitchStomachPin)
-    if PitchStomachAttchment == "arduinoRight":
+    elif PitchStomachAttchment == "arduinoRight":
         PitchStomach.attach(arduinoRight, PitchStomachPin)
-    if PitchStomachAttchment == "arduinoNano":
+    elif PitchStomachAttchment == "arduinoNano":
         PitchStomach.attach(arduinoNano, PitchStomachPin)
+    elif PitchStomachAttchment == "arduinoNano2":
+        PitchStomach.attach(arduinoNano2, PitchStomachPin)
     #PitchStomach.setMinMax(PitchStomachMinPos, PitchStomachMaxPos)
     PitchStomach.setMinMax(0, 100)
     if PitchStomachMinPos < PitchStomachMaxPos:

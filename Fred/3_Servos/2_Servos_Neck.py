@@ -34,6 +34,7 @@ if not ((HeadYawAttachment == "Head" and EnableAdafruit16CServoDriverHead)
     or (HeadYawAttachment == "RightArm" and EnableAdafruit16CServoDriverRightArm)
     or (HeadYawAttachment == "LeftArm" and EnableAdafruit16CServoDriverLeftArm)
     or (HeadYawAttachment == "arduinoNano" and EnableArduinoNano) 
+    or (HeadYawAttachment == "arduinoNano2" and EnableArduinoNano2) 
     or (HeadYawAttachment == "arduinoLeft" and EnableArduinoLeft) 
     or (HeadYawAttachment == "arduinoRight" and EnableArduinoRight)):
     EnableHeadYaw = False
@@ -43,18 +44,20 @@ if EnableHeadYaw == True:
     HeadYaw = Runtime.createAndStart("HeadYaw", "Servo")
     if HeadYawAttachment == "Head":
         HeadYaw.attach(Head, HeadYawPin)
-    if HeadYawAttachment == "Back":
+    elif HeadYawAttachment == "Back":
         HeadYaw.attach(Back, HeadYawPin)
-    if HeadYawAttachment == "RightArm":
+    elif HeadYawAttachment == "RightArm":
         HeadYaw.attach(RightArm, HeadYawPin)
-    if HeadYawAttachment == "LeftArm":
+    elif HeadYawAttachment == "LeftArm":
         HeadYaw.attach(LeftArm, HeadYawPin)
-    if HeadYawAttachment == "arduinoLeft":
+    elif HeadYawAttachment == "arduinoLeft":
         HeadYaw.attach(arduinoLeft, HeadYawPin)
-    if HeadYawAttachment == "arduinoRight":
+    elif HeadYawAttachment == "arduinoRight":
         HeadYaw.attach(arduinoRight, HeadYawPin)
-    if HeadYawAttachment == "arduinoNano":
+    elif HeadYawAttachment == "arduinoNano":
         HeadYaw.attach(arduinoNano, HeadYawPin)
+    elif HeadYawAttachment == "arduinoNano2":
+        HeadYaw.attach(arduinoNano2, HeadYawPin)
     #HeadYaw.setMinMax(HeadYawMinPos, HeadYawMaxPos)
     HeadYaw.setMinMax(0, 100)
     # This next if statement is looking for an inverted servo
@@ -78,6 +81,7 @@ if not ((HeadPitchAttachment == "Head" and EnableAdafruit16CServoDriverHead)
     or (HeadPitchAttachment == "RightArm" and EnableAdafruit16CServoDriverRightArm)
     or (HeadPitchAttachment == "LeftArm" and EnableAdafruit16CServoDriverLeftArm)
     or (HeadPitchAttachment == "arduinoNano" and EnableArduinoNano) 
+    or (HeadPitchAttachment == "arduinoNano2" and EnableArduinoNano2) 
     or (HeadPitchAttachment == "arduinoLeft" and EnableArduinoLeft) 
     or (HeadPitchAttachment == "arduinoRight" and EnableArduinoRight)):
     EnableHeadPitch = False
@@ -87,18 +91,20 @@ if EnableHeadPitch == True:
     HeadPitch = Runtime.createAndStart("HeadPitch", "Servo")
     if HeadPitchAttachment == "Head":
         HeadPitch.attach(Head, HeadPitchPin)
-    if HeadPitchAttachment == "Back":
+    elif HeadPitchAttachment == "Back":
         HeadPitch.attach(Back, HeadPitchPin)
-    if HeadPitchAttachment == "RightArm":
+    elif HeadPitchAttachment == "RightArm":
         HeadPitch.attach(RightArm, HeadPitchPin)
-    if HeadPitchAttachment == "LeftArm":
+    elif HeadPitchAttachment == "LeftArm":
         HeadPitch.attach(LeftArm, HeadPitchPin)
-    if HeadPitchAttachment == "arduinoLeft":
+    elif HeadPitchAttachment == "arduinoLeft":
         HeadPitch.attach(arduinoLeft, HeadPitchPin)
-    if HeadPitchAttachment == "arduinoRight":
+    elif HeadPitchAttachment == "arduinoRight":
         HeadPitch.attach(arduinoRight, HeadPitchPin)
-    if HeadPitchAttachment == "arduinoNano":
+    elif HeadPitchAttachment == "arduinoNano":
         HeadPitch.attach(arduinoNano, HeadPitchPin)
+    elif HeadPitchAttachment == "arduinoNano2":
+        HeadPitch.attach(arduinoNano2, HeadPitchPin)
     #HeadPitch.setMinMax(HeadPitchMinPos, HeadPitchMaxPos)
     HeadPitch.setMinMax(0, 100)
     if HeadPitchMinPos < HeadPitchMaxPos:
@@ -121,6 +127,7 @@ if not ((HeadRollAttachment == "Head" and EnableAdafruit16CServoDriverHead)
     or (HeadRollAttachment == "RightArm" and EnableAdafruit16CServoDriverRightArm)
     or (HeadRollAttachment == "LeftArm" and EnableAdafruit16CServoDriverLeftArm)
     or (HeadRollAttachment == "arduinoNano" and EnableArduinoNano) 
+    or (HeadRollAttachment == "arduinoNano2" and EnableArduinoNano2) 
     or (HeadRollAttachment == "arduinoLeft" and EnableArduinoLeft) 
     or (HeadRollAttachment == "arduinoRight" and EnableArduinoRight)):
     EnableHeadRoll = False
@@ -130,18 +137,20 @@ if EnableHeadRoll == True:
     HeadRoll = Runtime.createAndStart("HeadRoll", "Servo")
     if HeadRollAttachment == "Head":
         HeadRoll.attach(Head, HeadRollPin)
-    if HeadRollAttachment == "Back":
+    elif HeadRollAttachment == "Back":
         HeadRoll.attach(Back, HeadRollPin)
-    if HeadRollAttachment == "RightArm":
+    elif HeadRollAttachment == "RightArm":
         HeadRoll.attach(RightArm, HeadRollPin)
-    if HeadRollAttachment == "LeftArm":
+    elif HeadRollAttachment == "LeftArm":
         HeadRoll.attach(LeftArm, HeadRollPin)
-    if HeadRollAttachment == "arduinoLeft":
+    elif HeadRollAttachment == "arduinoLeft":
         HeadRoll.attach(arduinoLeft, HeadRollPin)
-    if HeadRollAttachment == "arduinoRight":
+    elif HeadRollAttachment == "arduinoRight":
         HeadRoll.attach(arduinoRight, HeadRollPin)
-    if HeadRollAttachment == "arduinoNano":
+    elif HeadRollAttachment == "arduinoNano":
         HeadRoll.attach(arduinoNano, HeadRollPin)
+    elif HeadRollAttachment == "arduinoNano2":
+        HeadRoll.attach(arduinoNano2, HeadRollPin)
     #HeadRoll.setMinMax(HeadRollMinPos, HeadRollMaxPos)
     HeadRoll.setMinMax(0, 100)
     if HeadRollMinPos < HeadRollMaxPos:
