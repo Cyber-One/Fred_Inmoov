@@ -1,3 +1,8 @@
+I get asked a lot about where I get the STL files I used in the building of Fred.
+Below is a list of the different locations for parts I've printed that are non-standard Inmoov parts.
+All other parts not listed are on the official Inmoov site
+http://www.inmoov.fr/
+
 https://www.thingiverse.com/thing:2394098
 InMoov - Accessible skull with continous forehead by dix238.
 
