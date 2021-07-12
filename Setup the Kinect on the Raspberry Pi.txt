@@ -1,0 +1,20 @@
+Accessing the Xbox 360 Kinect using the Raspberry Pi
+
+Once you have the unit connected and up and working, you can access the images. 
+First, you'll need to install a library called freenect, which will make it very easy to access both the regular and depth images from the Kinect 360. 
+
+To do this, type 
+sudo apt-get install freenect
+You'll also need a library to allow you to access freenect from Python; to get this, type 
+sudo apt-get install python-freenect
+Once you have the libraries installed, you'll also need to install a library that will allow you to access the images on the Raspberry Pi graphics system. 
+To do this, type 
+sudo apt-get install libgl1-mesa-swx11
+
+You can check to see if everything is working by opening a vncserver window and typing 
+freenect-glview
+You should see something like this:
+https://static.packt-cdn.com/products/9781786467966/graphics/image_03_048.jpg
+
+Using this in MyRobotLab (MRL) is also not that hard.
+After starting MRL, launch the OpenCV service then select the Kinect as the camera source and click on Capture.
