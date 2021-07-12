@@ -103,11 +103,30 @@ def LookHeadTilt(LookTilt):
     EyesTiltTo(HeadTiltPos)
     HeadTiltTo(LookPositionTilt)
 
-#if EnableMPU6050A:
-#    def MPU6050Head(OrentationData):
-#        print "MPU_Pitch", OrentationData.pitch
-#        print "MPU_Roll", OrentationData.roll
-#        print "MPU_Yaw", OrentationData.yaw
-#    python.subscribe('MPU6050A', 'publishOrientation', 'python', 'MPU6050Head')
-#    MPU6050A.startOrientationTracking()
+"""
+if EnableMPU6050A or EnableMPU6050B:
+    def dist(a,b):
+        return math.sqrt((a*a)+(b*b))
+    def get_y_rotation(x,y,z):
+        radians = math.atan2(x, dist(y,z))
+        return -math.degrees(radians)
+    def get_x_rotation(x,y,z):
+        radians = math.atan2(y, dist(x,z))
+        return math.degrees(radians)
+
+if EnableMPU6050A:
+    def MPU6050Head(OrentationData):
+        print "MPU_Pitch", OrentationData.pitch
+        print "MPU_Roll", OrentationData.roll
+        print "MPU_Yaw", OrentationData.yaw
+    python.subscribe('MPU6050A', 'publishOrientation', 'python', 'MPU6050Head')
+    MPU6050A.startOrientationTracking()
+if EnableMPU6050B:
+    def MPU6050Back(OrentationData):
+        print "MPU_Pitch", OrentationData.pitch
+        print "MPU_Roll", OrentationData.roll
+        print "MPU_Yaw", OrentationData.yaw
+    python.subscribe('MPU6050B', 'publishOrientation', 'python', 'MPU6050Back')
+    MPU6050B.startOrientationTracking()
+"""
     

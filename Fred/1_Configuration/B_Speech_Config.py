@@ -33,6 +33,7 @@ print "Creating the Speech System Config"
 UseMarySpeech = True
 
 # MimicSpeech TTS
+# Created by Microft-AI this TTS is pretty good.
 # before you can use this on the Raspberry Pi, 
 # you first need to install it.
 # By default this is not installed for the ARM based computer 

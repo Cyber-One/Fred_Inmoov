@@ -32,9 +32,12 @@ This is where the Text To Speech and Speech recognition services are created.
 
 <b>Life.py</b>
 This set of routines control the simulation of being alive like the blinking of the eye lids and random movements that simulate a living being.
+Because the Life Simulation functions are so complex (mostly to support different types of build) a sub folder was created to break the life functions down into groups of functions.
+Later functions will call in and control lower level functions so as to make coordinated moves, like moving the eyes and head to look at an object.
 
 <b>Gestures.py</b>
 Any scripts of movements such as shaking the head as a no, or nodding the head as a yes, that may be called by the ProgramAB are scripted here.
+Think of the Life functions as involuntary functions and Gestures as voluntary functions, normally called from the brain (ProgramAB)
 
 <b>Brain.py</b>
 This is where the simulated AI lives. :-)
