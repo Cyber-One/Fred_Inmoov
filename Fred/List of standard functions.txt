@@ -18,24 +18,24 @@
 #                                                            #
 ##############################################################
 
-eyesLR(eyesLRpos)
-eyesUD(eyesUDpos)
-EyesPanTo(NewPan)
-EyesTiltTo(NewTilt)
-EyesPan(NewPan)
-EyesTilt(NewTilt)
-UpperEyeLidsOpen()
-UpperEyeLidsMidway()
-UpperEyeLidsClose()
-LowerEyeLidsOpen()
-LowerEyeLidsMidway()
-LowerEyeLidsClose()
-WinkLeftEye()
-WinkRightEye()
-blink(timedata)
-WakeUpEvent()
-GoToSleepEvent(timedata)
-LookHeadPanTo(LookPan)
-LookHeadTiltTo(LookTilt)
-LookHeadPan(LookPan)
-LookHeadTilt(LookTilt)
+EyesPanTo(NewPan)			# -50:50
+EyesTiltTo(NewTilt)			# -50:50
+EyesPan(NewPan)				# -50:50
+EyesTilt(NewTilt)			# -50:50
+EyesSetEyesCrossHome()		#
+EyesSetEyesCross(Amount)	# 0:50
+UpperEyeLidsOpen()			#
+UpperEyeLidsMidway()		#
+UpperEyeLidsClose()			#
+LowerEyeLidsOpen()			#
+LowerEyeLidsMidway()		#
+LowerEyeLidsClose()			#
+WinkLeftEye()				#
+WinkRightEye()				#
+blink(timedata)				# Pass value of 0
+WakeUpEvent()				#
+GoToSleepEvent(timedata)	# Pass value of 0
+LookHeadPanTo(LookPan)		# -50:50
+LookHeadTiltTo(LookTilt)	# -50:50
+LookHeadPan(LookPan)		# -50:50
+LookHeadTilt(LookTilt)		# -50:50

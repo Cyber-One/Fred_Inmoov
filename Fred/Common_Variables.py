@@ -44,10 +44,15 @@ isTalking = False
 LookPositionPan = 0
 LookPositionTilt = 0
 
-# To simplify the head movements, we need to keep track of
-# where the head is pointed, for that we use following variables
+# To simplify the Eye movements, we need to keep track of
+# where the Eyes are pointed, for that we use following variables
 EyesPanPos = 0
 EyesTiltPos = 0
+# To help with fine tuning, we also need to add in a bit of eye
+# crossing.  This can be useful when looking at an object that is
+# close or to help configure for an optical range triangulation.
+# It also allows our robot to go cross eyed :-)
+EyeCrossAmount = 0
 
 # To simplify the head movements, we need to keep track of
 # where the head is pointed, for that we use following variables

@@ -22,7 +22,7 @@ import time
 import random
 
 print "Creating the various life simulation functions"
-# Load the configuration for the IO devices.
+# Load the configuration for the Life Simulation Functions.
 execfile(RuningFolder+'/1_Configuration/C_Life_Config.py')
 
 # When ever you look at a robot just standing there, it looks
@@ -31,9 +31,11 @@ execfile(RuningFolder+'/1_Configuration/C_Life_Config.py')
 # The movements don't need to be large, a small eye movement
 # or the eyes blinking can help to bring the robot to life.
 # In this file, we will call on a series of small programs
-# designed to provide small random movements to simulate a
+# designed to provide small coordinated movements to simulate a
 # living being and in some cases provide simplified interface
 # for controlling the robot.
+# These in turn are called on by a combination of the gesture
+# controls and Random movements to emulate a living being.
 
 
 # The Eye Balls are controlled from this sub program

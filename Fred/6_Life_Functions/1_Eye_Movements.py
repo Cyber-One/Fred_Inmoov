@@ -18,21 +18,37 @@
 #                                                            #
 ##############################################################
 import math
-import time
-import random
 
 # To make is a bit easier to control, we define functions to
 # move the two eyes togeter.
 # if you have only the one servo for each of these axis, then
 # don't worry, this code will ignore the one you don't have
 # without crashing
-# Like the Pan, Tilt and Roll, we will use 0 as the center
-# position and negative number will look down or left.
+# We will use 0 as the center position, negative number will
+# look down or left.
+# because we use the range 0:100 across all our servos, we
+# know that adding 50 to a -50:50 will result in an
+# output 0:100.
+# EyeCrossAmount
 def eyesLR(eyesLRpos):
-    if EnableRightEyeX == True:
-        RightEyeLR.moveTo(50+eyesLRpos)
-    if EnableLeftEyeX == True:
-        LeftEyeLR.moveTo(50+eyesLRpos)
+    if EnableRightEyeX and EnableLeftEyeX:
+        RightEyeLR.moveTo(50+eyesLRpos-EyeCrossAmount)
+        LeftEyeLR.moveTo(50+eyesLRpos+EyeCrossAmount)
+    else:
+        if EnableRightEyeX:
+            RightEyeLR.moveTo(50+eyesLRpos)
+        if EnableLeftEyeX:
+            LeftEyeLR.moveTo(50+eyesLRpos)
+
+def EyesSetEyesCrossHome():
+    EyeCrossAmount = DefaultEyeCrossAmount
+
+def EyesSetEyesCross(Amount):
+    EyeCrossAmount = Amount
+    if EyeCrossAmount > 50:
+        EyeCrossAmount = 50
+    if EyeCrossAmount < DefaultEyeCrossAmount:
+        EyeCrossAmount = DefaultEyeCrossAmount
 
 def eyesUD(eyesUDpos):
     if EnableRightEyeY == True:

@@ -55,7 +55,7 @@ RandBlinkMaxTime = 10000        # int milliSeconds
 
 ##############################################################
 #                                                            #
-# Random Eye Movement Controls                               #
+# Eye Movement Controls                                      #
 #                                                            #
 ##############################################################
 # while it's good to have the robot blinking above, a living
@@ -72,6 +72,13 @@ RandEyeMovementsMaxTime = 5000  # int miliSeconds
 # Max amount to move the eyes from last position
 # each time the random function is called.
 RandEyeMovementsMaxRot = 20     # Perecnt of total range
+# When the robot is looking forward, there can be some
+# mis-calibration is the eye left right position, and this can
+# look very strange.  The solution can be to apply some
+# correction with this control.
+# A positive number will cross the eyes while a negative
+# number will turn them out.
+DefaultEyeCrossAmount = 0       # The amount of crossing.
 
 ##############################################################
 #                                                            #
