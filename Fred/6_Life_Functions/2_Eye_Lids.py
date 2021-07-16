@@ -21,10 +21,14 @@ import math
 import time
 import random
 
+# Eye lids can be used to convey a number of emotional states,
+# Interest, confusion, anger and surprise just to name a few.
+# There will need to be a fair amount of fine tuning here.
+
 # General eye lid functions
 # because there are so many possible configureations, we need to consider a standard set
 # of function to implement the eye lids movements.
-# Here we define the general ryr lids open and closed as well as half way and wink commands.
+# Here we define the general eye lids open and closed as well as half way and wink commands.
 # These functions can be called at any time, and won't crash is the feature is not supported.
 
 def UpperEyeLidsOpen():
