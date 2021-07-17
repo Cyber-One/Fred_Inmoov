@@ -44,8 +44,8 @@ def WakeUpEvent():
             SleepTimer.restartClock(True)
         if EnableBlinking == True:
             BlinkClock.restartClock(True)
-        if EnableRandomEyeMovements == True:
-            MoveEyesTimer.startClock()
+#        if EnableRandomEyeMovements == True:
+#            MoveEyesTimer.startClock()
         Awake = True
         if not WakeupMessage == "OFF" and not isTalking:
             Mouth.speak(WakeupMessage)
