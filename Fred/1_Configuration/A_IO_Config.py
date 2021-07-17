@@ -150,7 +150,7 @@ MPU6050BAddr = "0x68"
 
 ##############################################################
 #                                                            #
-# Ibus Remotoe Control Service                               #
+# Ibus Remote Control Service                                #
 #                                                            #
 ##############################################################
 # Not yet available
@@ -158,3 +158,10 @@ EnableIBus = False
 IbusAttach = "arduinoLeft"
 IbuSerial = "Serial1"
 
+##############################################################
+#                                                            #
+# Joystick Control Service                                   #
+#                                                            #
+##############################################################
+# Not yet available
+EnableJoyStick = True

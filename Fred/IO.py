@@ -320,7 +320,7 @@ if EnableMPU6050B == True:
 
 ##############################################################
 #                                                            #
-# Ibus Remotoe Control Service                               #
+# Ibus Remote Control Service                                #
 #                                                            #
 ##############################################################
 # Not yet available :-(
@@ -337,3 +337,12 @@ if EnableIBus:
 #int[]              publishChanel(int[] channel) 
 #int                readChannel(int channelNr)
 
+##############################################################
+#                                                            #
+# Joystick Control Service                                   #
+#                                                            #
+##############################################################
+if EnableJoyStick:
+    joy = Runtime.start("joy","Joystick")
+    joy.setController(0)
+    
