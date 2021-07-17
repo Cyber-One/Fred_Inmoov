@@ -62,7 +62,7 @@ EnableArduinoNano = True  # True for on, False for off
 ArduinoNanoComPort = "/dev/ttyUSB0" # Refer to notes above
 
 EnableArduinoNano2 = False  # True for on, False for off
-ArduinoNano2ComPort = "/dev/ttyUSB0" # Refer to notes above
+ArduinoNano2ComPort = "/dev/ttyUSB1" # Refer to notes above
 
 
 ##############################################################
