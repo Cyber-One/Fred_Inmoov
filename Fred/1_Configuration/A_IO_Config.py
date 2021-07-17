@@ -122,7 +122,7 @@ StomachNeoPixelMode = 0                     # This is how we will use the Neopix
 
 # Some builders have put NeoPixels into the eyes of their robots.
 # This can look very cool and sometimes a bit freaky. :-)
-EnableHeadNeoPixel = True
+EnableHeadNeoPixel = False
 HeadNeoPixelAttachment = "arduinoNano2"     # Not Present
 HeadNeoPixelPin = 8                         # 
 HeadNeoPixelNumber = 14                     # 

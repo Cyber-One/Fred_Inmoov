@@ -250,6 +250,13 @@ if EnableStomachNeoPixel:
 # These can look very cool in deed.
 # Having them install, also means we need a way to control them.
 # For this, we have the HeadNeoPixels.
+# Test to make sure the configured controller is enabled.
+if not ((HeadNeoPixelAttachment == "arduinoNano" and EnableArduinoNano) or 
+    (HeadNeoPixelAttachment == "arduinoNano2" and EnableArduinoNano2) or 
+    (HeadNeoPixelAttachment == "arduinoLeft" and EnableArduinoLeft) or 
+    (HeadNeoPixelAttachment == "arduinoRight" and EnableArduinoRight)):
+    EnableHeadNeoPixel = False
+
 if EnableHeadNeoPixel:
     # We use the standard method of starting a service in MRL
     HeadNeoPixel = Runtime.start("HeadNeoPixel","NeoPixel")
