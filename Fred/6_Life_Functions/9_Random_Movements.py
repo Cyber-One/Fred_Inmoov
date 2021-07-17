@@ -105,3 +105,12 @@ if EnableBlinking == True:
     # Then we start the clock running.
     BlinkClock.startClock()
 
+# To manually control the direction the robot is looking, we
+# can use the joystick
+if EnableJoyStick:
+    def onJoystickInput(data):
+        if data.id == "x":
+            LookHeadPanTo(data.value*50)
+        elif data.id == "y":
+            LookHeadTiltTo(data.value*50)
+    joy.addInputListener(python)
