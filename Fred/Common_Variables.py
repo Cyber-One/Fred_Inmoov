@@ -32,6 +32,18 @@ Awake = True
 # our robot is busy talking.
 isTalking = False
 
+# Finite State Control of the emotional state.
+# This variable holds a number to signal which state it is
+# currently in.
+# State 0 = Sleep
+# State 1 = Neutral/Alert
+# State 2 = Bored
+# State 3 = Happy/Excited
+# State 4 = Sad
+# State 5 = Angry
+# On startup, we will start in the State 1 Neutral/Alert state
+EmotionalState = 1
+
 # This is a global direction for looking with the range
 # -50 - +50 the position of 0 is centred with reference
 # to the lower stomach of the standard Inmoov build.
