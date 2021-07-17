@@ -147,7 +147,7 @@ if UseEspeak or UseLocalSpeech or (UseMimicSpeech and MRL == "Nixie" and Platfor
     if not UseLocalSpeech:
         if UseEspeak:
             Mouth.setTtsPath("/usr/bin/espeak")
-            Mouth.setTtsCommand("espeak \"{text}\" -w {filename} -v \"{voice}\"")
+            Mouth.setTtsCommand("espeak \"{text}\" -w {filename})
         elif UseMimicSpeech:
             Mouth.setTtsPath("~/mimic1/mimic")
             Mouth.setTtsCommand("mimic -t \"{text}\" -o \"{filename}\"")

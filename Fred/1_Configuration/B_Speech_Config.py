@@ -30,7 +30,7 @@ print "Creating the Speech System Config"
 
 # This is the default TTS used in the InMoov robot.
 # It's been around for a while and works, but there are others.
-UseMarySpeech = True
+UseMarySpeech = False
 
 # MimicSpeech TTS
 # Created by Microft-AI this TTS is pretty good.
@@ -49,7 +49,7 @@ UseMimicSpeech = False
 # computer like the Raspberry Pi.
 # This is very easy with the command 
 # "sudo apt-get install espeak"
-UseEspeak = False
+UseEspeak = True
 
 # Local speech is different between the Windows system and the
 # Linux/Mac system.  Linux/Mac uses Festival Speech while the
@@ -73,6 +73,6 @@ UseSphinx = False
 # The down side is it does require an Internet access to reach the cloud.
 # the cloud service does support quite a number of languages, for a full
 # list have a look here: https://cloud.google.com/speech/docs/languages
-UseWebKit = True
+UseWebKit = False
 WebkitLanguage = "en-AU"
 WebKitWakeWord = ""
