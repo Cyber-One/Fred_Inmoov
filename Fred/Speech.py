@@ -155,7 +155,7 @@ if UseEspeak or UseLocalSpeech or (UseMimicSpeech and MRL == "Nixie" and Platfor
     # note, thesetVoice command does not work until after you have list of voices.
     print Mouth.getVoices()
     # The next line will allow you to select which voice we use. The default appears to be "slt"
-    Mouth.setVoice("rms")
+    #Mouth.setVoice("rms")
     # the set the volume that your robot will speak at use the setVolume command, the value is a float, so remember the .0
     Mouth.setVolume(100.0)
 
