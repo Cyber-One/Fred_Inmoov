@@ -69,4 +69,5 @@ You can download the latest development version of MRL from the MRL website, whi
 http://myrobotlab.org/
 
 If your would like to help support this project, then consider Patreon
+
 <a href="https://www.patreon.com/bePatron?u=10744269" data-patreon-widget-type="become-patron-button">Become a Patron!</a><script async src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
