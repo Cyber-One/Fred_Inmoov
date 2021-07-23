@@ -29,12 +29,13 @@ Brain = Runtime.start("Brain", "ProgramAB")
 # do that, we need to start the session for the individual
 # user.  At this point in time, it only support one user
 # session at a time.
-Brain.startSession("Builder")
+Brain.startSession("Builder", "Alice")
 
 # create a route which sends published Responses to the
 # mouth.speak(String) method, The addTextListener is sort of
 #  the internal way of doing this :-)
-Brain.addTextListener(Mouth)
+if UseMarySpeech or UseMimicSpeech or UseEspeak:
+    Brain.addTextListener(Mouth)
 
 # Next lets create a route that sends the speech our 
 # robot has heard to the ProgramAB, but only if we satarted
