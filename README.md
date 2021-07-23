@@ -68,6 +68,12 @@ https://discord.gg/WzrBUTkthQ
 You can download the latest development version of MRL from the MRL website, while your there don't forget to say hello to the developers in the shoutbox.
 http://myrobotlab.org/
 
+<<<<<<< HEAD
 If your would like to help support this project, then consider Patreon
 
 <a href="https://www.patreon.com/bePatron?u=10744269" data-patreon-widget-type="become-patron-button">Become a Patron!</a><script async src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
+=======
+If your would like to help support this project, then consider becoming a Patreon.
+<a href="https://www.patreon.com/bePatron?u=10744269">![Digital-Patreon-Wordmark_WhiteOnFieryCoral-Lg](https://user-images.githubusercontent.com/29687261/126272470-78b431e5-dcfb-44d7-81ad-2bcaff662f4f.jpg)
+</a>
+>>>>>>> 45c5cd7f2aaa7fffcc035b01cb346fd91d20f613
