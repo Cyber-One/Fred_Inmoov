@@ -15,24 +15,9 @@
 # or shaking the head No
 #                                                     #
 #######################################################
-import time
 print "Creating the various gestures to make the robot appear alive"
 
-def Yes():
-    PanTilt(0, -40, 0)
-    time.sleep(0.3)
-    PanTilt(0, 30, 0)
-    time.sleep(0.3)
-    PanTilt(0, -20, 0)
-    time.sleep(0.4)
-    PanTilt(0, 0, 0)
-
-def No():
-    PanTilt(40, 0, 0)
-    time.sleep(0.3)
-    PanTilt(-40, 0, 0)
-    time.sleep(0.3)
-    PanTilt(40, 0, 0)
-    time.sleep(0.3)
-    PanTilt(0, 0, 0)
+# This set of gestures are more reaction based, such as
+# nodding or expessing negative.
+execfile(RuningFolder+'7_Gestures/Reactions.py')
 
