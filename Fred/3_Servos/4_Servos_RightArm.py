@@ -146,7 +146,7 @@ if EnableRightRotate == True:
     else:
         RightRotate.map(0, 100, RightRotateMaxPos, RightRotateMinPos)
         RightRotate.setInverted(True)
-    RightRotate.setRest(RightRotateRestPos)
+    RightRotate.setRest(50)
     if MRL == "Nixie":
         RightRotate.setSpeed(50)
     else:

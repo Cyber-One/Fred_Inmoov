@@ -22,29 +22,29 @@ print "Creating the Servo Right Arm Config"
 # The Right OmoPlate lifts the arm at the shoulder out away
 # from the body, this servo is located into the torso cavity
 # and drives a rotary Piston setup in the Official InMoov Build.
-EnableRightOmoPlate = False
+EnableRightOmoPlate = True
 RightOmoPlateAttachment = "Back"# "arduionRight"
-RightOmoPlatePin = 1            # 11
-RightOmoPlateMinPos = 0         # 10
-RightOmoPlateMaxPos = 180       # 80
+RightOmoPlatePin = 0            # 11
+RightOmoPlateMinPos = 62        # 10
+RightOmoPlateMaxPos = 119       # 80
 RightOmoPlateMaxSpeed = 120     # 
 
 # The right shoulder is a worm drive setup the pitches the
 # right arm up in a forward direction.
-EnableRightShoulder = False
+EnableRightShoulder = True
 RightShoulderAttachment="Back"  # "arduionRight"
-RightShoulderPin = 2            # 10
-RightShoulderMinPos = 0         # 0
+RightShoulderPin = 1            # 10
+RightShoulderMinPos = 55        # 0
 RightShoulderMaxPos = 180       # 180
 RightShoulderMaxSpeed = 120     # 
 
 # This servo is located near the shoulder servo and rotates
 # the arm
-EnableRightRotate = False
+EnableRightRotate = True
 RightRotateAttachment = "Back"  # "arduionRight"
-RightRotatePin = 3              # 9
+RightRotatePin = 2              # 9
 RightRotateMinPos = 0           # 40
-RightRotateMaxPin = 180         # 180
+RightRotateMaxPos = 180         # 180
 RightRotateMaxSpeed = 120       # 
 
 # This servo is located in the bicep and operates the elbow.
