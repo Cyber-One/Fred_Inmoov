@@ -27,7 +27,7 @@ RightOmoPlateAttachment = "Back"# "arduionRight"
 RightOmoPlatePin = 0            # 11
 RightOmoPlateMinPos = 62        # 10
 RightOmoPlateMaxPos = 119       # 80
-RightOmoPlateMaxSpeed = 120     # 
+RightOmoPlateMaxSpeed = 60      # 
 
 # The right shoulder is a worm drive setup the pitches the
 # right arm up in a forward direction.
@@ -36,7 +36,7 @@ RightShoulderAttachment="Back"  # "arduionRight"
 RightShoulderPin = 1            # 10
 RightShoulderMinPos = 55        # 0
 RightShoulderMaxPos = 180       # 180
-RightShoulderMaxSpeed = 120     # 
+RightShoulderMaxSpeed = 60      # 
 
 # This servo is located near the shoulder servo and rotates
 # the arm
@@ -45,7 +45,7 @@ RightRotateAttachment = "Back"  # "arduionRight"
 RightRotatePin = 2              # 9
 RightRotateMinPos = 0           # 40
 RightRotateMaxPos = 180         # 180
-RightRotateMaxSpeed = 120       # 
+RightRotateMaxSpeed = 60        # 
 
 # This servo is located in the bicep and operates the elbow.
 EnableRightBicep = False
