@@ -20,3 +20,8 @@
 import math
 import time
 import random
+
+# The transition between emotional states needs to be
+# controlled so that during a transition, the correct
+# sub-functions can be called at the same time.
+
