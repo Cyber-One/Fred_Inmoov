@@ -141,3 +141,55 @@ LowerLEyeLidMinPos = 0          #
 LowerLEyeLidMaxPos = 120        #
 LowerLEyeLidVelocity = -1       #
 
+##############################################################
+#                                                            #
+# Advanced Head Group                                        #
+# Added at Shido's request to support his advanced jaw and   #
+# eyebrow design                                             #
+#                                                            #
+##############################################################
+## The lateral jaw.
+## This will allow the jaw to move side to side.
+## Both lateral law servos will be connected on the same pin.
+EnableLatJaw = False
+LatJawAttachment = "Head" # Not Present
+LatJawPin = 1             #
+LatJawMinPos = 0          #
+LatJawMaxPos = 180        #
+LatJawVelocity = -1       #
+
+## The inner right eyebrow.
+## This will allow the eyebrow to move up and down.
+EnableRBrowIn = False
+RBrowInAttachment = "Head" # Not Present
+RBrowInPin = 2             #
+RBrowInMinPos = 0          #
+RBrowInMaxPos = 180        #
+RBrowInVelocity = -1       #
+
+## The outter right eyebrow.
+## This will allow the eyebrow to move up and down.
+EnableRBrowOut = False
+RBrowOutAttachment = "Head" # Not Present
+RBrowOutPin = 3             #
+RBrowOutMinPos = 0          #
+RBrowOutMaxPos = 180        #
+RBrowOutVelocity = -1       #
+
+## The inner left eyebrow.
+## This will allow the eyebrow to move up and down.
+EnableLBrowIn = False
+LBrowInAttachment = "Head" # Not Present
+LBrowInPin = 4             #
+LBrowInMinPos = 0          #
+LBrowInMaxPos = 180        #
+LBrowInVelocity = -1       #
+
+## The outter left eyebrow.
+## This will allow the eyebrow to move up and down.
+EnableLBrowOut = False
+LBrowOutAttachment = "Head" # Not Present
+LBrowOutPin = 5             #
+LBrowOutMinPos = 0          #
+LBrowOutMaxPos = 180        #
+LBrowOutVelocity = -1       #

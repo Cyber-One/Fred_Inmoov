@@ -524,3 +524,247 @@ if EnableLeftLowerEyeLid == True:
         LowerEyeLidL.setVelocity(LowerLEyeLidVelocity) ## max velocity
     LowerEyeLidL.setAutoDisable(False)
     LowerEyeLidL.rest()
+
+##############################################################
+#                                                            #
+# Advanced Head Group                                        #
+# Added at Shido's request to support his advanced jaw and   #
+# eyebrow design                                             #
+#                                                            #
+##############################################################
+
+## The lateral jaw.
+## This will allow the jaw to move side to side.
+## Both lateral law servos will be connected on the same pin.
+
+# Test to make sure the configured controller is enabled.
+if not ((LatJawAttachment == "Head" and EnableAdafruit16CServoDriverHead) 
+    or (LatJawAttachment == "Back" and EnableAdafruit16CServoDriverBack) 
+    or (LatJawAttachment == "RightArm" and EnableAdafruit16CServoDriverRightArm)
+    or (LatJawAttachment == "LeftArm" and EnableAdafruit16CServoDriverLeftArm)
+    or (LatJawAttachment == "arduinoNano" and EnableArduinoNano) 
+    or (LatJawAttachment == "arduinoNano2" and EnableArduinoNano2) 
+    or (LatJawAttachment == "arduinoLeft" and EnableArduinoLeft) 
+    or (LatJawAttachment == "arduinoRight" and EnableArduinoRight)):
+    EnableLatJaw = False
+if EnableLatJaw == True:
+    print "--Lower Left Eyelid"
+    LatJaw = Runtime.createAndStart("LatJaw", "Servo")
+    if LatJawAttachment == "Head":
+        LatJaw.attach(Head, LatJawPin)
+    elif LatJawAttachment == "Back":
+        LatJaw.attach(Back, LatJawPin)
+    elif LatJawAttachment == "RightArm":
+        LatJaw.attach(RightArm, LatJawPin)
+    elif LatJawAttachment == "LeftArm":
+        LatJaw.attach(LeftArm, LatJawPin)
+    elif LatJawAttachment == "arduinoLeft":
+        LatJaw.attach(arduinoLeft, LatJawPin)
+    elif LatJawAttachment == "arduinoRight":
+        LatJaw.attach(arduinoRight, LatJawPin)
+    elif LatJawAttachment == "arduinoNano":
+        LatJaw.attach(arduinoNano, LatJawPin)
+    elif LatJawAttachment == "arduinoNano2":
+        LatJaw.attach(arduinoNano2, LatJawPin)
+    LatJaw.setMinMax(0, 100)
+    if LatJawMinPos < LatJawMaxPos:
+        LatJaw.map(0, 100, LatJawMinPos, LatJawMaxPos)
+        LatJaw.setInverted(False)
+    else:
+        LatJaw.map(0, 100, LatJawMaxPos, LatJawMinPos)
+        LatJaw.setInverted(True)
+    LatJaw.setRest(50)
+    if MRL == "Nixie":
+        LatJaw.setSpeed(LatJawVelocity)
+    else:
+        LatJaw.setVelocity(LatJawVelocity) ## max velocity
+    LatJaw.setAutoDisable(False)
+    LatJaw.rest()
+
+## The inner right eyebrow.
+## This will allow the eyebrow to move up and down.
+
+# Test to make sure the configured controller is enabled.
+if not ((RBrowInAttachment == "Head" and EnableAdafruit16CServoDriverHead) 
+    or (RBrowInAttachment == "Back" and EnableAdafruit16CServoDriverBack) 
+    or (RBrowInAttachment == "RightArm" and EnableAdafruit16CServoDriverRightArm)
+    or (RBrowInAttachment == "LeftArm" and EnableAdafruit16CServoDriverLeftArm)
+    or (RBrowInAttachment == "arduinoNano" and EnableArduinoNano) 
+    or (RBrowInAttachment == "arduinoNano2" and EnableArduinoNano2) 
+    or (RBrowInAttachment == "arduinoLeft" and EnableArduinoLeft) 
+    or (RBrowInAttachment == "arduinoRight" and EnableArduinoRight)):
+    EnableRBrowIn = False
+if EnableRBrowIn == True:
+    print "--Lower Left Eyelid"
+    RBrowIn = Runtime.createAndStart("RBrowIn", "Servo")
+    if RBrowInAttachment == "Head":
+        RBrowIn.attach(Head, RBrowInPin)
+    elif RBrowInAttachment == "Back":
+        RBrowIn.attach(Back, RBrowInPin)
+    elif RBrowInAttachment == "RightArm":
+        RBrowIn.attach(RightArm, RBrowInPin)
+    elif RBrowInAttachment == "LeftArm":
+        RBrowIn.attach(LeftArm, RBrowInPin)
+    elif RBrowInAttachment == "arduinoLeft":
+        RBrowIn.attach(arduinoLeft, RBrowInPin)
+    elif RBrowInAttachment == "arduinoRight":
+        RBrowIn.attach(arduinoRight, RBrowInPin)
+    elif RBrowInAttachment == "arduinoNano":
+        RBrowIn.attach(arduinoNano, RBrowInPin)
+    elif RBrowInAttachment == "arduinoNano2":
+        RBrowIn.attach(arduinoNano2, RBrowInPin)
+    RBrowIn.setMinMax(0, 100)
+    if RBrowInMinPos < RBrowInMaxPos:
+        RBrowIn.map(0, 100, RBrowInMinPos, RBrowInMaxPos)
+        RBrowIn.setInverted(False)
+    else:
+        RBrowIn.map(0, 100, RBrowInMaxPos, RBrowInMinPos)
+        RBrowIn.setInverted(True)
+    RBrowIn.setRest(50)
+    if MRL == "Nixie":
+        RBrowIn.setSpeed(RBrowInVelocity)
+    else:
+        RBrowIn.setVelocity(RBrowInVelocity) ## max velocity
+    RBrowIn.setAutoDisable(False)
+    RBrowIn.rest()
+
+## The outter right eyebrow.
+## This will allow the eyebrow to move up and down.
+
+# Test to make sure the configured controller is enabled.
+if not ((RBrowOutAttachment == "Head" and EnableAdafruit16CServoDriverHead) 
+    or (RBrowOutAttachment == "Back" and EnableAdafruit16CServoDriverBack) 
+    or (RBrowOutAttachment == "RightArm" and EnableAdafruit16CServoDriverRightArm)
+    or (RBrowOutAttachment == "LeftArm" and EnableAdafruit16CServoDriverLeftArm)
+    or (RBrowOutAttachment == "arduinoNano" and EnableArduinoNano) 
+    or (RBrowOutAttachment == "arduinoNano2" and EnableArduinoNano2) 
+    or (RBrowOutAttachment == "arduinoLeft" and EnableArduinoLeft) 
+    or (RBrowOutAttachment == "arduinoRight" and EnableArduinoRight)):
+    EnableRBrowOut = False
+if EnableRBrowOut == True:
+    print "--Lower Left Eyelid"
+    RBrowOut = Runtime.createAndStart("RBrowOut", "Servo")
+    if RBrowOutAttachment == "Head":
+        RBrowOut.attach(Head, RBrowOutPin)
+    elif RBrowOutAttachment == "Back":
+        RBrowOut.attach(Back, RBrowOutPin)
+    elif RBrowOutAttachment == "RightArm":
+        RBrowOut.attach(RightArm, RBrowOutPin)
+    elif RBrowOutAttachment == "LeftArm":
+        RBrowOut.attach(LeftArm, RBrowOutPin)
+    elif RBrowOutAttachment == "arduinoLeft":
+        RBrowOut.attach(arduinoLeft, RBrowOutPin)
+    elif RBrowOutAttachment == "arduinoRight":
+        RBrowOut.attach(arduinoRight, RBrowOutPin)
+    elif RBrowOutAttachment == "arduinoNano":
+        RBrowOut.attach(arduinoNano, RBrowOutPin)
+    elif RBrowOutAttachment == "arduinoNano2":
+        RBrowOut.attach(arduinoNano2, RBrowOutPin)
+    RBrowOut.setMinMax(0, 100)
+    if RBrowOutMinPos < RBrowOutMaxPos:
+        RBrowOut.map(0, 100, RBrowOutMinPos, RBrowOutMaxPos)
+        RBrowOut.setInverted(False)
+    else:
+        RBrowOut.map(0, 100, RBrowOutMaxPos, RBrowOutMinPos)
+        RBrowOut.setInverted(True)
+    RBrowOut.setRest(50)
+    if MRL == "Nixie":
+        RBrowOut.setSpeed(RBrowOutVelocity)
+    else:
+        RBrowOut.setVelocity(RBrowOutVelocity) ## max velocity
+    RBrowOut.setAutoDisable(False)
+    RBrowOut.rest()
+
+## The inner left eyebrow.
+## This will allow the eyebrow to move up and down.
+
+# Test to make sure the configured controller is enabled.
+if not ((LBrowInAttachment == "Head" and EnableAdafruit16CServoDriverHead) 
+    or (LBrowInAttachment == "Back" and EnableAdafruit16CServoDriverBack) 
+    or (LBrowInAttachment == "RightArm" and EnableAdafruit16CServoDriverRightArm)
+    or (LBrowInAttachment == "LeftArm" and EnableAdafruit16CServoDriverLeftArm)
+    or (LBrowInAttachment == "arduinoNano" and EnableArduinoNano) 
+    or (LBrowInAttachment == "arduinoNano2" and EnableArduinoNano2) 
+    or (LBrowInAttachment == "arduinoLeft" and EnableArduinoLeft) 
+    or (LBrowInAttachment == "arduinoRight" and EnableArduinoRight)):
+    EnableLBrowIn = False
+if EnableLBrowIn == True:
+    print "--Lower Left Eyelid"
+    LBrowIn = Runtime.createAndStart("LBrowIn", "Servo")
+    if LBrowInAttachment == "Head":
+        LBrowIn.attach(Head, LBrowInPin)
+    elif LBrowInAttachment == "Back":
+        LBrowIn.attach(Back, LBrowInPin)
+    elif LBrowInAttachment == "RightArm":
+        LBrowIn.attach(RightArm, LBrowInPin)
+    elif LBrowInAttachment == "LeftArm":
+        LBrowIn.attach(LeftArm, LBrowInPin)
+    elif LBrowInAttachment == "arduinoLeft":
+        LBrowIn.attach(arduinoLeft, LBrowInPin)
+    elif LBrowInAttachment == "arduinoRight":
+        LBrowIn.attach(arduinoRight, LBrowInPin)
+    elif LBrowInAttachment == "arduinoNano":
+        LBrowIn.attach(arduinoNano, LBrowInPin)
+    elif LBrowInAttachment == "arduinoNano2":
+        LBrowIn.attach(arduinoNano2, LBrowInPin)
+    LBrowIn.setMinMax(0, 100)
+    if LBrowInMinPos < LBrowInMaxPos:
+        LBrowIn.map(0, 100, LBrowInMinPos, LBrowInMaxPos)
+        LBrowIn.setInverted(False)
+    else:
+        LBrowIn.map(0, 100, LBrowInMaxPos, LBrowInMinPos)
+        LBrowIn.setInverted(True)
+    LBrowIn.setRest(50)
+    if MRL == "Nixie":
+        LBrowIn.setSpeed(LBrowInVelocity)
+    else:
+        LBrowIn.setVelocity(LBrowInVelocity) ## max velocity
+    LBrowIn.setAutoDisable(False)
+    LBrowIn.rest()
+
+## The outter left eyebrow.
+## This will allow the eyebrow to move up and down.
+
+# Test to make sure the configured controller is enabled.
+if not ((LBrowOutAttachment == "Head" and EnableAdafruit16CServoDriverHead) 
+    or (LBrowOutAttachment == "Back" and EnableAdafruit16CServoDriverBack) 
+    or (LBrowOutAttachment == "RightArm" and EnableAdafruit16CServoDriverRightArm)
+    or (LBrowOutAttachment == "LeftArm" and EnableAdafruit16CServoDriverLeftArm)
+    or (LBrowOutAttachment == "arduinoNano" and EnableArduinoNano) 
+    or (LBrowOutAttachment == "arduinoNano2" and EnableArduinoNano2) 
+    or (LBrowOutAttachment == "arduinoLeft" and EnableArduinoLeft) 
+    or (LBrowOutAttachment == "arduinoRight" and EnableArduinoRight)):
+    EnableLBrowOut = False
+if EnableLBrowOut == True:
+    print "--Lower Left Eyelid"
+    LBrowOut = Runtime.createAndStart("LBrowOut", "Servo")
+    if LBrowOutAttachment == "Head":
+        LBrowOut.attach(Head, LBrowOutPin)
+    elif LBrowOutAttachment == "Back":
+        LBrowOut.attach(Back, LBrowOutPin)
+    elif LBrowOutAttachment == "RightArm":
+        LBrowOut.attach(RightArm, LBrowOutPin)
+    elif LBrowOutAttachment == "LeftArm":
+        LBrowOut.attach(LeftArm, LBrowOutPin)
+    elif LBrowOutAttachment == "arduinoLeft":
+        LBrowOut.attach(arduinoLeft, LBrowOutPin)
+    elif LBrowOutAttachment == "arduinoRight":
+        LBrowOut.attach(arduinoRight, LBrowOutPin)
+    elif LBrowOutAttachment == "arduinoNano":
+        LBrowOut.attach(arduinoNano, LBrowOutPin)
+    elif LBrowOutAttachment == "arduinoNano2":
+        LBrowOut.attach(arduinoNano2, LBrowOutPin)
+    LBrowOut.setMinMax(0, 100)
+    if LBrowOutMinPos < LBrowOutMaxPos:
+        LBrowOut.map(0, 100, LBrowOutMinPos, LBrowOutMaxPos)
+        LBrowOut.setInverted(False)
+    else:
+        LBrowOut.map(0, 100, LBrowOutMaxPos, LBrowOutMinPos)
+        LBrowOut.setInverted(True)
+    LBrowOut.setRest(50)
+    if MRL == "Nixie":
+        LBrowOut.setSpeed(LBrowOutVelocity)
+    else:
+        LBrowOut.setVelocity(LBrowOutVelocity) ## max velocity
+    LBrowOut.setAutoDisable(False)
+    LBrowOut.rest()
