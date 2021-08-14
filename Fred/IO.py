@@ -236,15 +236,28 @@ if not ((StomachNeoPixelAttachment == "arduinoNano" and EnableArduinoNano) or
 if EnableStomachNeoPixel:
     # We use the standard method of starting a service in MRL
     StomachNeoPixel = Runtime.start("StomachNeoPixel","NeoPixel")
-    # Next we attach the NeoPixel service to the configured controller.
-    if StomachNeoPixelAttachment == "arduinoNano":
-        StomachNeoPixel.attach(arduinoNano, StomachNeoPixelPin, StomachNeoPixelNumber)
-    elif StomachNeoPixelAttachment == "arduinoNano2":
-        StomachNeoPixel.attach(arduinoNano2, StomachNeoPixelPin, StomachNeoPixelNumber)
-    elif StomachNeoPixelAttachment == "arduinoLeft":
-        StomachNeoPixel.attach(arduinoLeft, StomachNeoPixelPin, StomachNeoPixelNumber)
-    elif StomachNeoPixelAttachment == "arduinoRight":
-        StomachNeoPixel.attach(arduinoRight, StomachNeoPixelPin, StomachNeoPixelNumber)
+    if PlatformStructure.getVersion() < "1.1.525":
+        # Next we attach the NeoPixel service to the configured controller.
+        if StomachNeoPixelAttachment == "arduinoNano":
+            StomachNeoPixel.attach(arduinoNano, StomachNeoPixelPin, StomachNeoPixelNumber)
+        elif StomachNeoPixelAttachment == "arduinoNano2":
+            StomachNeoPixel.attach(arduinoNano2, StomachNeoPixelPin, StomachNeoPixelNumber)
+        elif StomachNeoPixelAttachment == "arduinoLeft":
+            StomachNeoPixel.attach(arduinoLeft, StomachNeoPixelPin, StomachNeoPixelNumber)
+        elif StomachNeoPixelAttachment == "arduinoRight":
+            StomachNeoPixel.attach(arduinoRight, StomachNeoPixelPin, StomachNeoPixelNumber)
+    else:
+        StomachNeoPixel.setPin(StomachNeoPixelPin)
+        StomachNeoPixel.setPixelCount(StomachNeoPixelNumber)
+        # Next we attach the NeoPixel service to the configured controller.
+        if StomachNeoPixelAttachment == "arduinoNano":
+            StomachNeoPixel.attach(arduinoNano)
+        elif StomachNeoPixelAttachment == "arduinoNano2":
+            StomachNeoPixel.attach(arduinoNano2)
+        elif StomachNeoPixelAttachment == "arduinoLeft":
+            StomachNeoPixel.attach(arduinoLeft)
+        elif StomachNeoPixelAttachment == "arduinoRight":
+            StomachNeoPixel.attach(arduinoRight)
 
 # In some builds there are NeoPixels installed in the head for the eyes.
 # These can look very cool in deed.
@@ -260,15 +273,28 @@ if not ((HeadNeoPixelAttachment == "arduinoNano" and EnableArduinoNano) or
 if EnableHeadNeoPixel:
     # We use the standard method of starting a service in MRL
     HeadNeoPixel = Runtime.start("HeadNeoPixel","NeoPixel")
-    # Next we attach the NeoPixel service to the configured controller.
-    if HeadNeoPixelAttachment == "arduinoNano":
-        HeadNeoPixel.attach(arduinoNano, HeadNeoPixelPin, HeadNeoPixelNumber)
-    elif HeadNeoPixelAttachment == "arduinoNano2":
-        HeadNeoPixel.attach(arduinoNano2, HeadNeoPixelPin, HeadNeoPixelNumber)
-    elif HeadNeoPixelAttachment == "arduinoLeft":
-        HeadNeoPixel.attach(arduinoLeft, HeadNeoPixelPin, HeadNeoPixelNumber)
-    elif HeadNeoPixelAttachment == "arduinoRight":
-        HeadNeoPixel.attach(arduinoRight, HeadNeoPixelPin, HeadNeoPixelNumber)
+    if PlatformStructure.getVersion() < "1.1.525":
+        # Next we attach the NeoPixel service to the configured controller.
+        if HeadNeoPixelAttachment == "arduinoNano":
+            HeadNeoPixel.attach(arduinoNano, HeadNeoPixelPin, HeadNeoPixelNumber)
+        elif HeadNeoPixelAttachment == "arduinoNano2":
+            HeadNeoPixel.attach(arduinoNano2, HeadNeoPixelPin, HeadNeoPixelNumber)
+        elif HeadNeoPixelAttachment == "arduinoLeft":
+            HeadNeoPixel.attach(arduinoLeft, HeadNeoPixelPin, HeadNeoPixelNumber)
+        elif HeadNeoPixelAttachment == "arduinoRight":
+            HeadNeoPixel.attach(arduinoRight, HeadNeoPixelPin, HeadNeoPixelNumber)
+    else:
+        HeadNeoPixel.setPin(HeadNeoPixelPin)
+        HeadNeoPixel.setPixelCount(HeadNeoPixelNumber)
+        # Next we attach the NeoPixel service to the configured controller.
+        if HeadNeoPixelAttachment == "arduinoNano":
+            HeadNeoPixel.attach(arduinoNano)
+        elif HeadNeoPixelAttachment == "arduinoNano2":
+            HeadNeoPixel.attach(arduinoNano2)
+        elif HeadNeoPixelAttachment == "arduinoLeft":
+            HeadNeoPixel.attach(arduinoLeft)
+        elif HeadNeoPixelAttachment == "arduinoRight":
+            HeadNeoPixel.attach(arduinoRight)
 
 # Thats it for this part of setting up the neo Pixels.
 # The rest is done in the 6_Life_Functions/7_NeoPixel_Control.py program
