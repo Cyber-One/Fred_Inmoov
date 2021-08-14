@@ -94,3 +94,9 @@ def WinkRightEye():
     if EnableRightUpperEyeLid == True:
         UpperEyeLidR.moveTo(100) # open the Right upper eye lid
 
+# The normal position of the eye lids is not all the way open,
+# but open enough to see the pupil, or let the camera see out.
+# The amount the eye lids are open can be used to convey a
+# degree of emotion.  The catch is, this position is relative
+# to the eye ball which is a moving target.
+
