@@ -77,6 +77,16 @@ if EnableArduinoNano2 == True:
     arduinoNano2.setBoardNano()
     arduinoNano2.connect(ArduinoNano2ComPort)
 
+def TestI2CControllerExists(ControllerName, CurrentState):
+    if not ((ControllerName == "raspi" and EnableRaspberryPi)
+        or (ControllerName == "arduinoNano" and EnableArduinoNano) 
+        or (ControllerName == "arduinoNano2" and EnableArduinoNano2) 
+        or (ControllerName == "arduinoLeft" and EnableArduinoLeft) 
+        or (ControllerName == "arduinoRight" and EnableArduinoRight)):
+        return(CurrentState)
+    else:
+        return(False)
+
 ##############################################################
 # The next level of controllers that can be used are attached 
 # to the I2C bus of either the Raspi4 or the Aurduinos.
@@ -108,8 +118,9 @@ if EnableArduinoNano2 == True:
 # or have a very limited number of selectable addresses.
 
 # First lets make sure the I2C controller enabled
-if not ((HeadServoDriverAttached == "raspi" and EnableRaspberryPi) or (HeadServoDriverAttached == "arduinoNano" and EnableArduinoNano) or (HeadServoDriverAttached == "arduinoNano2" and EnableArduinoNano2) or (HeadServoDriverAttached == "arduinoLeft" and EnableArduinoLeft) or (HeadServoDriverAttached == "arduinoRight" and EnableArduinoRight)):
-    EnableAdafruit16CServoDriverHead = False
+#if not ((HeadServoDriverAttached == "raspi" and EnableRaspberryPi) or (HeadServoDriverAttached == "arduinoNano" and EnableArduinoNano) or (HeadServoDriverAttached == "arduinoNano2" and EnableArduinoNano2) or (HeadServoDriverAttached == "arduinoLeft" and EnableArduinoLeft) or (HeadServoDriverAttached == "arduinoRight" and EnableArduinoRight)):
+#    EnableAdafruit16CServoDriverHead = False
+EnableAdafruit16CServoDriverHead = TestI2CControllerExists(HeadServoDriverAttached, EnableAdafruit16CServoDriverHead)
 
 if EnableAdafruit16CServoDriverHead == True:
     print "--Starting the Adafruit16CServoDriver for the Head"
@@ -143,3 +154,16 @@ if EnableAdafruit16CServoDriverRightArm == True:
     LeftArm = Runtime.createAndStart("LeftArm", "Adafruit16CServoDriver")
     LeftArm.attach(RightArmServoDriverAttached, RightArmServoDriverPort, RightArmServoDriverAddr)
 
+def TestServoControllerExists(ControllerName, CurrentState):
+    if not ((ControllerName == "Head" and EnableAdafruit16CServoDriverHead) 
+        or (ControllerName == "Back" and EnableAdafruit16CServoDriverBack) 
+        or (ControllerName == "RightArm" and EnableAdafruit16CServoDriverRightArm)
+        or (ControllerName == "LeftArm" and EnableAdafruit16CServoDriverLeftArm)
+        or (ControllerName == "arduinoNano" and EnableArduinoNano) 
+        or (ControllerName == "arduinoNano2" and EnableArduinoNano2) 
+        or (ControllerName == "arduinoLeft" and EnableArduinoLeft) 
+        or (ControllerName == "arduinoRight" and EnableArduinoRight)):
+        return(CurrentState)
+    else:
+        return(False)
+    
