@@ -45,14 +45,7 @@ if EnablePIR:
     # detected, when this change occurs the output of the PIR 
     # sensor is turned on.
     pir = Runtime.start('pir','Pir')
-    if PirAttachment == "arduinoNano":
-        pir.attach(arduinoNano, PirPin) # arduinoNano
-    if PirAttachment == "arduinoNano2":
-        pir.attach(arduinoNano2, PirPin) # arduinoNano
-    if PirAttachment == "arduinoLeft":
-        pir.attach(arduinoLeft, PirPin) # arduinoLeft
-    if PirAttachment == "arduinoRight":
-        pir.attach(arduinoRight, PirPin) # arduinoRight
+    pir.attach(runtime.getService(PirAttachment), PirPin)
     # The isVerbose function is handy if your trying to debug 
     # the PIR sensor, If you are setting it to True can be 
     # handy, but a pain when trying to debug other bits of 
@@ -101,16 +94,7 @@ if  not ((LeftUltrasonicAttachment == "arduinoNano" and EnableArduinoNano) or
 
 if EnableLeftUltrasonic:
     LeftUltraSonic = Runtime.start("LeftUltraSonic", "UltrasonicSensor")
-    if LeftUltrasonicAttachment == "arduinoNano":
-        LeftUltraSonic.attach(arduinoNano, LeftUltrasonicPin1, LeftUltrasonicPin2)
-    elif LeftUltrasonicAttachment == "arduinoNano2":
-        LeftUltraSonic.attach(arduinoNano2, LeftUltrasonicPin1, LeftUltrasonicPin2)
-    elif LeftUltrasonicAttachment == "arduinoLeft":
-        LeftUltraSonic.attach(arduinoLeft, LeftUltrasonicPin1, LeftUltrasonicPin2)
-    elif LeftUltrasonicAttachment == "arduinoRight":
-        LeftUltraSonic.attach(arduinoRight, LeftUltrasonicPin1, LeftUltrasonicPin2)
-    def onRangeLeft(distance):
-        print "Left distance ", distance, " cm"
+    LeftUltraSonic.attach(runtime.getService(LeftUltrasonicAttachment), LeftUltrasonicPin1, LeftUltrasonicPin2)
     #python.subscribe('LeftUltraSonic', 'onRange', 'python', 'onRangeLeft')
 
 # Test to make sure the configured controller is enabled.
@@ -122,16 +106,7 @@ if not ((RightUltrasonicAttachment == "arduinoNano" and EnableArduinoNano) or
     
 if EnableRightUltraSonic:
     RightUltraSonic = Runtime.start("RightUltraSonic", "UltrasonicSensor")
-    if RightUltrasonicAttachment == "arduinoNano":
-        RightUltraSonic.attach(arduinoNano, RightUltrasonicPin1, RightUltrasonicPin2)
-    elif RightUltrasonicAttachment == "arduinoNano2":
-        RightUltraSonic.attach(arduinoNano2, RightUltrasonicPin1, RightUltrasonicPin2)
-    elif RightUltrasonicAttachment == "arduinoLeft":
-        RightUltraSonic.attach(arduinoLeft, RightUltrasonicPin1, RightUltrasonicPin2)
-    elif RightUltrasonicAttachment == "arduinoRight":
-        RightUltraSonic.attach(arduinoRight, RightUltrasonicPin1, RightUltrasonicPin2)
-    def onRangeRight(distance):
-        print "Right distance ", distance, " cm"
+    RightUltraSonic.attach(runtime.getService(RightUltrasonicAttachment), RightUltrasonicPin1, RightUltrasonicPin2)
     #python.subscribe('RightUltraSonic', 'onRange', 'python', 'onRangeRight')
 
 ##############################################################
@@ -238,26 +213,12 @@ if EnableStomachNeoPixel:
     StomachNeoPixel = Runtime.start("StomachNeoPixel","NeoPixel")
     if PlatformStructure.getVersion() < "1.1.525":
         # Next we attach the NeoPixel service to the configured controller.
-        if StomachNeoPixelAttachment == "arduinoNano":
-            StomachNeoPixel.attach(arduinoNano, StomachNeoPixelPin, StomachNeoPixelNumber)
-        elif StomachNeoPixelAttachment == "arduinoNano2":
-            StomachNeoPixel.attach(arduinoNano2, StomachNeoPixelPin, StomachNeoPixelNumber)
-        elif StomachNeoPixelAttachment == "arduinoLeft":
-            StomachNeoPixel.attach(arduinoLeft, StomachNeoPixelPin, StomachNeoPixelNumber)
-        elif StomachNeoPixelAttachment == "arduinoRight":
-            StomachNeoPixel.attach(arduinoRight, StomachNeoPixelPin, StomachNeoPixelNumber)
+        StomachNeoPixel.attach(runtime.getService(StomachNeoPixelAttachment), StomachNeoPixelPin, StomachNeoPixelNumber)
     else:
         StomachNeoPixel.setPin(StomachNeoPixelPin)
         StomachNeoPixel.setPixelCount(StomachNeoPixelNumber)
         # Next we attach the NeoPixel service to the configured controller.
-        if StomachNeoPixelAttachment == "arduinoNano":
-            StomachNeoPixel.attach(arduinoNano)
-        elif StomachNeoPixelAttachment == "arduinoNano2":
-            StomachNeoPixel.attach(arduinoNano2)
-        elif StomachNeoPixelAttachment == "arduinoLeft":
-            StomachNeoPixel.attach(arduinoLeft)
-        elif StomachNeoPixelAttachment == "arduinoRight":
-            StomachNeoPixel.attach(arduinoRight)
+        StomachNeoPixel.attach(runtime.getService(StomachNeoPixelAttachment))
 
 # In some builds there are NeoPixels installed in the head for the eyes.
 # These can look very cool in deed.
@@ -321,7 +282,7 @@ if not ((MPU6050AAttached == "raspi" and EnableRaspberryPi) or
 
 if EnableMPU6050A == True:
     MPU6050A = Runtime.createAndStart("MPU6050A","Mpu6050")
-    MPU6050A.attach(MPU6050AAttached, MPU6050APort, MPU6050AAddr)
+    MPU6050A.attach(runtime.getService(MPU6050AAttached), MPU6050APort, MPU6050AAddr)
     #MPU6050A.initialize()
     MPU6050A.dmpInitialize()
     #MPU6050A.refresh()
@@ -341,7 +302,7 @@ if not ((MPU6050BAttached == "raspi" and EnableRaspberryPi) or
 
 if EnableMPU6050B == True:
     MPU6050B = Runtime.createAndStart("MPU6050B","Mpu6050")
-    MPU6050B.attach(MPU6050BAttached, MPU6050BPort, MPU6050BAddr)
+    MPU6050B.attach(runtime.getService(MPU6050BAttached), MPU6050BPort, MPU6050BAddr)
     #MPU6050B.initialize()
     MPU6050B.dmpInitialize()
     #MPU6050B.refresh()
