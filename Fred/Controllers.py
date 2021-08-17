@@ -83,9 +83,9 @@ def TestI2CControllerExists(ControllerName, CurrentState):
         or (ControllerName == "arduinoNano2" and EnableArduinoNano2) 
         or (ControllerName == "arduinoLeft" and EnableArduinoLeft) 
         or (ControllerName == "arduinoRight" and EnableArduinoRight)):
-        return(CurrentState)
-    else:
         return(False)
+    else:
+        return(CurrentState)
 
 ##############################################################
 # The next level of controllers that can be used are attached 
@@ -163,7 +163,7 @@ def TestServoControllerExists(ControllerName, CurrentState):
         or (ControllerName == "arduinoNano2" and EnableArduinoNano2) 
         or (ControllerName == "arduinoLeft" and EnableArduinoLeft) 
         or (ControllerName == "arduinoRight" and EnableArduinoRight)):
-        return(CurrentState)
-    else:
         return(False)
+    else:
+        return(CurrentState)
     
