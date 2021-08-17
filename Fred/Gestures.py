@@ -19,5 +19,5 @@ print "Creating the various gestures to make the robot appear alive"
 
 # This set of gestures are more reaction based, such as
 # nodding or expessing negative.
-execfile(RuningFolder+'7_Gestures/Reactions.py')
+execfile(RuningFolder+'/7_Gestures/Reactions.py')
 
