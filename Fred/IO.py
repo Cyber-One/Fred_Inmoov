@@ -236,26 +236,12 @@ if EnableHeadNeoPixel:
     HeadNeoPixel = Runtime.start("HeadNeoPixel","NeoPixel")
     if PlatformStructure.getVersion() < "1.1.525":
         # Next we attach the NeoPixel service to the configured controller.
-        if HeadNeoPixelAttachment == "arduinoNano":
-            HeadNeoPixel.attach(arduinoNano, HeadNeoPixelPin, HeadNeoPixelNumber)
-        elif HeadNeoPixelAttachment == "arduinoNano2":
-            HeadNeoPixel.attach(arduinoNano2, HeadNeoPixelPin, HeadNeoPixelNumber)
-        elif HeadNeoPixelAttachment == "arduinoLeft":
-            HeadNeoPixel.attach(arduinoLeft, HeadNeoPixelPin, HeadNeoPixelNumber)
-        elif HeadNeoPixelAttachment == "arduinoRight":
-            HeadNeoPixel.attach(arduinoRight, HeadNeoPixelPin, HeadNeoPixelNumber)
+        HeadNeoPixel.attach(runtime.getService(HeadNeoPixelAttachment), HeadNeoPixelPin, HeadNeoPixelNumber)
     else:
         HeadNeoPixel.setPin(HeadNeoPixelPin)
         HeadNeoPixel.setPixelCount(HeadNeoPixelNumber)
         # Next we attach the NeoPixel service to the configured controller.
-        if HeadNeoPixelAttachment == "arduinoNano":
-            HeadNeoPixel.attach(arduinoNano)
-        elif HeadNeoPixelAttachment == "arduinoNano2":
-            HeadNeoPixel.attach(arduinoNano2)
-        elif HeadNeoPixelAttachment == "arduinoLeft":
-            HeadNeoPixel.attach(arduinoLeft)
-        elif HeadNeoPixelAttachment == "arduinoRight":
-            HeadNeoPixel.attach(arduinoRight)
+        HeadNeoPixel.attach(runtime.getService(HeadNeoPixelAttachment))
 
 # Thats it for this part of setting up the neo Pixels.
 # The rest is done in the 6_Life_Functions/7_NeoPixel_Control.py program

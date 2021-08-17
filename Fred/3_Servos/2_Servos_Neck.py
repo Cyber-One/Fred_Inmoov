@@ -42,22 +42,7 @@ if not ((HeadYawAttachment == "Head" and EnableAdafruit16CServoDriverHead)
 if EnableHeadYaw == True:
     print "Head Yaw"
     HeadYaw = Runtime.createAndStart("HeadYaw", "Servo")
-    if HeadYawAttachment == "Head":
-        HeadYaw.attach(Head, HeadYawPin)
-    elif HeadYawAttachment == "Back":
-        HeadYaw.attach(Back, HeadYawPin)
-    elif HeadYawAttachment == "RightArm":
-        HeadYaw.attach(RightArm, HeadYawPin)
-    elif HeadYawAttachment == "LeftArm":
-        HeadYaw.attach(LeftArm, HeadYawPin)
-    elif HeadYawAttachment == "arduinoLeft":
-        HeadYaw.attach(arduinoLeft, HeadYawPin)
-    elif HeadYawAttachment == "arduinoRight":
-        HeadYaw.attach(arduinoRight, HeadYawPin)
-    elif HeadYawAttachment == "arduinoNano":
-        HeadYaw.attach(arduinoNano, HeadYawPin)
-    elif HeadYawAttachment == "arduinoNano2":
-        HeadYaw.attach(arduinoNano2, HeadYawPin)
+    HeadYaw.attach(runtime.getService(HeadYawAttachment), HeadYawPin)
     #HeadYaw.setMinMax(HeadYawMinPos, HeadYawMaxPos)
     HeadYaw.setMinMax(0, 100)
     # This next if statement is looking for an inverted servo
