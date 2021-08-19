@@ -1,34 +1,40 @@
-##############################################################
-#                                                            #
-# Program Code for Fred Inmoov                               #
-# Of the Cyber_One YouTube Channel                           #
-# https://www.youtube.com/cyber_one                          #
-#                                                            #
-# This is version 5                                          #
-# Divided up into sub programs                               #
-# Coded for the Nixie Version of MyRobotLab.                 #
-#                                                            #
-# Running on MyRobotLab (MRL) http://myrobotlab.org/         #
-# Fred in a modified Inmmov robot, you can find all the      #
-# origonal files on the Inmoov web site. http://inmoov.fr/   #
-#                                                            #
-# 3_Servos_Torso.py                                          #
-# This file is to start all the servos used in the Robot     #
-#                                                            #
-##############################################################
+#################################################################
+#                                                               #
+# Program Code for Fred Inmoov                                  #
+# Of the Cyber_One YouTube Channel                              #
+# https://www.youtube.com/cyber_one                             #
+#                                                               #
+# This is version 5                                             #
+# Divided up into sub programs                                  #
+# Coded for the Nixie Version of MyRobotLab.                    #
+#                                                               #
+# Running on MyRobotLab (MRL) http://myrobotlab.org/            #
+# Fred in a modified Inmmov robot, you can find all the         #
+# origonal files on the Inmoov web site. http://inmoov.fr/      #
+#                                                               #
+# 3_Servos_Torso.py                                             #
+# This file is to start all the servos used in the Robot        #
+#                                                               #
+#################################################################
 print "Starting the various Servos Services"
-##############################################################
-#                                                            #
-# Servo Torso Group                                          #
-#                                                            #
-##############################################################
-# Refer to the /1_Configuration/5_Servo_Torso_Config.py file
-# for an explenation of what these servo are for.
 
-# Load the configuration for the Servos_Head.
+#################################################################
+#                                                               #
+# Servo Torso Group                                             #
+#                                                               #
+#################################################################
+# Refer to the /1_Configuration/5_Servo_Torso_Config.py file    #
+# for an explenation of what these servo are for.               #
+#################################################################
+
+#################################################################
+# Load the configuration for the Servos_Head.                   #
+#################################################################
 execfile(RuningFolder+'/1_Configuration/5_Servo_Torso_Config.py')
 
-# Test to make sure the configured controller is enabled.
+#################################################################
+# The TopStomach servo is used to Roll the body left and right. #
+#################################################################
 EnableTopStomach = TestServoControllerExists(TopStomachAttachment, EnableTopStomach)
 if EnableTopStomach == True:
     print "--Top Stomach"
@@ -49,7 +55,9 @@ if EnableTopStomach == True:
     TopStomach.setAutoDisable(True)
     TopStomach.rest()
 
-# Test to make sure the configured controller is enabled.
+#################################################################
+# The MidStomach servo rotate the body about the Z axis (Yaw)   #
+#################################################################
 EnableMidStomach = TestServoControllerExists(MidStomachAttachment, EnableMidStomach)
 if EnableMidStomach == True:
     print "--Top Stomach"
@@ -70,9 +78,10 @@ if EnableMidStomach == True:
     MidStomach.setAutoDisable(True)
     MidStomach.rest()
 
-# Test to make sure the configured controller is enabled.
+#################################################################
+# The PitchStomach is to tilt the body back and forward.        #
+#################################################################
 EnablePitchStomach = TestServoControllerExists(PitchStomachAttchment, EnablePitchStomach)
-
 if EnablePitchStomach == True:
     print "--Top Stomach"
     PitchStomach = Runtime.createAndStart("PitchStomach", "Servo")
