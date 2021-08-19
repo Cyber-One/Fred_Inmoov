@@ -1,44 +1,49 @@
-##############################################################
-#                                                            #
-# Program Code for Fred Inmoov                               #
-# Of the Cyber_One YouTube Channel                           #
-# https://www.youtube.com/cyber_one                          #
-#                                                            #
-# This is version 5                                          #
-# Divided up into sub programs                               #
-# Coded for the Nixie Version of MyRobotLab.                 #
-#                                                            #
-# Running on MyRobotLab (MRL) http://myrobotlab.org/         #
-# Fred in a modified Inmmov robot, you can find all the      #
-# origonal files on the Inmoov web site. http://inmoov.fr/   #
-#                                                            #
-# 1_Servos_Head.py                                           #
-# This file is to start all the servos used in the Robots    #
-# Head other than the Neck servo.                            #
-#                                                            #
-##############################################################
+#################################################################
+#                                                               #
+# Program Code for Fred Inmoov                                  #
+# Of the Cyber_One YouTube Channel                              #
+# https://www.youtube.com/cyber_one                             #
+#                                                               #
+# This is version 5                                             #
+# Divided up into sub programs                                  #
+# Coded for the Nixie Version of MyRobotLab.                    #
+#                                                               #
+# Running on MyRobotLab (MRL) http://myrobotlab.org/            #
+# Fred in a modified Inmmov robot, you can find all the         #
+# origonal files on the Inmoov web site. http://inmoov.fr/      #
+#                                                               #
+# 1_Servos_Head.py                                              #
+# This file is to start all the servos used in the Robots       #
+# Head other than the Neck servo.                               #
+#                                                               #
+#################################################################
 print "Starting the various Head Servos Services"
 
-# For more information on what each of the servos do, refer
-# to the /1_Configuration/3_Servo_Head_Config.py file
+#################################################################
+# For more information on what each of the servos do, refer     #
+# to the /1_Configuration/3_Servo_Head_Config.py file           #
+#################################################################
 
-##############################################################
-# Load the configuration for the Servos_Head.
+#################################################################
+# Load the configuration for the Servos_Head.                   #
+#################################################################
 execfile(RuningFolder+'/1_Configuration/3_Servo_Head_Config.py')
 
-# Test to make sure the configured controller is enabled.
-if not ((JawAttachment == "Head" and EnableAdafruit16CServoDriverHead) 
-    or (JawAttachment == "Back" and EnableAdafruit16CServoDriverBack) 
-    or (JawAttachment == "RightArm" and EnableAdafruit16CServoDriverRightArm)
-    or (JawAttachment == "LeftArm" and EnableAdafruit16CServoDriverLeftArm)
-    or (JawAttachment == "arduinoNano" and EnableArduinoNano) 
-    or (JawAttachment == "arduinoNano2" and EnableArduinoNano2) 
-    or (JawAttachment == "arduinoLeft" and EnableArduinoLeft) 
-    or (JawAttachment == "arduinoRight" and EnableArduinoRight)):
-    EnableJawServo = False
+#################################################################
+# Test to make sure the configured controller is enabled.       #
+# It would cause errors if we tried to attach to a service that #
+# did not exist.  If the controller service does not exist, we  #
+# also set the enable flag to false to show other service and   #
+# programs that this service is also not available for use.     #
+#################################################################
+EnableJawServo = TestServoControllerExists(JawAttachment, EnableJawServo)
 
+#################################################################
+# If the servo is still enabled after the Controller Service    #
+# available testing, we start the process of creating the       #
+# service.                                                      #
+#################################################################
 if EnableJawServo == True:
-    print "--The Jaw"
     # The Servo service is designede to operate a number of
     # different types of servos via different controllers
     # while providing a common interface for your robot.
@@ -66,22 +71,7 @@ if EnableJawServo == True:
     # will set a config string with the service names and 
     # then select the service based on that name from a list 
     # of possible service we are likely to use.
-    if JawAttachment == "Head":
-        Jaw.attach(Head, JawPin)
-    elif JawAttachment == "Back":
-        Jaw.attach(Back, JawPin)
-    elif JawAttachment == "RightArm":
-        Jaw.attach(RightArm, JawPin)
-    elif JawAttachment == "LeftArm":
-        Jaw.attach(LeftArm, JawPin)
-    elif JawAttachment == "arduinoLeft":
-        Jaw.attach(arduinoLeft, JawPin)
-    elif JawAttachment == "arduinoRight":
-        Jaw.attach(arduinoRight, JawPin)
-    elif JawAttachment == "arduinoNano":
-        Jaw.attach(arduinoNano, JawPin)
-    elif JawAttachment == "arduinoNano2":
-        Jaw.attach(arduinoNano2, JawPin)
+    Jaw.attach(runtime.getService(JawAttachment), JawPin)
     # When you install your servo into your robot, you may 
     # find that the servo turns to far and has to potential 
     # of damaging your robot.  In this case you will want to 
@@ -155,36 +145,11 @@ if EnableJawServo == True:
     Jaw.rest()
 
 # Test to make sure the configured controller is enabled.
-if not ((RightEyeXAttachment == "Head" and EnableAdafruit16CServoDriverHead) 
-    or (RightEyeXAttachment == "Back" and EnableAdafruit16CServoDriverBack) 
-    or (RightEyeXAttachment == "RightArm" and EnableAdafruit16CServoDriverRightArm)
-    or (RightEyeXAttachment == "LeftArm" and EnableAdafruit16CServoDriverLeftArm)
-    or (RightEyeXAttachment == "arduinoNano" and EnableArduinoNano) 
-    or (RightEyeXAttachment == "arduinoNano2" and EnableArduinoNano2) 
-    or (RightEyeXAttachment == "arduinoLeft" and EnableArduinoLeft) 
-    or (RightEyeXAttachment == "arduinoRight" and EnableArduinoRight)):
-    EnableRightEyeX = False
+EnableRightEyeX = TestServoControllerExists(RightEyeXAttachment, EnableRightEyeX)
 
 if EnableRightEyeX == True:
-    print "--Right Eye X axis"
     RightEyeLR = Runtime.createAndStart("RightEyeLR", "Servo")
-    if RightEyeXAttachment == "Head":
-        RightEyeLR.attach(Head, RightEyeXPin)
-    elif RightEyeXAttachment == "Back":
-        RightEyeLR.attach(Back, RightEyeXPin)
-    elif RightEyeXAttachment == "RightArm":
-        RightEyeLR.attach(RightArm, RightEyeXPin)
-    elif RightEyeXAttachment == "LeftArm":
-        RightEyeLR.attach(LeftArm, RightEyeXPin)
-    elif RightEyeXAttachment == "arduinoLeft":
-        RightEyeLR.attach(arduinoLeft, RightEyeXPin)
-    elif RightEyeXAttachment == "arduinoRight":
-        RightEyeLR.attach(arduinoRight, RightEyeXPin)
-    elif RightEyeXAttachment == "arduinoNano":
-        RightEyeLR.attach(arduinoNano, RightEyeXPin)
-    elif RightEyeXAttachment == "arduinoNano2":
-        RightEyeLR.attach(arduinoNano2, RightEyeXPin)
-    #RightEyeLR.setMinMax(RightEyeXMinPos, RightEyeXMaxPos)
+    RightEyeLR.attach(runtime.getService(RightEyeXAttachment), RightEyeXPin)
     RightEyeLR.setMinMax(0, 100)
     # In the prefious servo service, I used a seperate If
     # statment for the map and inverted methods, from now
@@ -204,36 +169,12 @@ if EnableRightEyeX == True:
     RightEyeLR.rest()
 
 # Test to make sure the configured controller is enabled.
-if not ((RightEyeYAttachment == "Head" and EnableAdafruit16CServoDriverHead) 
-    or (RightEyeYAttachment == "Back" and EnableAdafruit16CServoDriverBack) 
-    or (RightEyeYAttachment == "RightArm" and EnableAdafruit16CServoDriverRightArm)
-    or (RightEyeYAttachment == "LeftArm" and EnableAdafruit16CServoDriverLeftArm)
-    or (RightEyeYAttachment == "arduinoNano" and EnableArduinoNano) 
-    or (RightEyeYAttachment == "arduinoNano2" and EnableArduinoNano2) 
-    or (RightEyeYAttachment == "arduinoLeft" and EnableArduinoLeft) 
-    or (RightEyeYAttachment == "arduinoRight" and EnableArduinoRight)):
-    EnableRightEyeY = False
+EnableRightEyeY = TestServoControllerExists(RightEyeYAttachment, EnableRightEyeY)
 
 if EnableRightEyeY == True:
     print "--Right Eye Y axis"
     RightEyeUD = Runtime.createAndStart("RightEyeUD", "Servo")
-    if RightEyeYAttachment == "Head":
-        RightEyeUD.attach(Head, RightEyeYPin)
-    elif RightEyeYAttachment == "Back":
-        RightEyeUD.attach(Back, RightEyeYPin)
-    elif RightEyeYAttachment == "RightArm":
-        RightEyeUD.attach(RightArm, RightEyeYPin)
-    elif RightEyeYAttachment == "LeftArm":
-        RightEyeUD.attach(LeftArm, RightEyeYPin)
-    elif RightEyeYAttachment == "arduinoLeft":
-        RightEyeUD.attach(arduinoLeft, RightEyeYPin)
-    elif RightEyeYAttachment == "arduinoRight":
-        RightEyeUD.attach(arduinoRight, RightEyeYPin)
-    elif RightEyeYAttachment == "arduinoNano":
-        RightEyeUD.attach(arduinoNano, RightEyeYPin)
-    elif RightEyeYAttachment == "arduinoNano2":
-        RightEyeUD.attach(arduinoNano2, RightEyeYPin)
-    #RightEyeUD.setMinMax(RightEyeYMinPos, RightEyeYMaxPos)
+    RightEyeUD.attach(runtime.getService(RightEyeYAttachment), RightEyeYPin)
     RightEyeUD.setMinMax(0, 100)
     if RightEyeYMinPos < RightEyeYMaxPos:
         RightEyeUD.map(0, 100, RightEyeYMinPos, RightEyeYMaxPos)
@@ -250,36 +191,12 @@ if EnableRightEyeY == True:
     RightEyeUD.rest()
 
 # Test to make sure the configured controller is enabled.
-if not ((LeftEyeXAttachment == "Head" and EnableAdafruit16CServoDriverHead) 
-    or (LeftEyeXAttachment == "Back" and EnableAdafruit16CServoDriverBack) 
-    or (LeftEyeXAttachment == "RightArm" and EnableAdafruit16CServoDriverRightArm)
-    or (LeftEyeXAttachment == "LeftArm" and EnableAdafruit16CServoDriverLeftArm)
-    or (LeftEyeXAttachment == "arduinoNano" and EnableArduinoNano) 
-    or (LeftEyeXAttachment == "arduinoNano2" and EnableArduinoNano2) 
-    or (LeftEyeXAttachment == "arduinoLeft" and EnableArduinoLeft) 
-    or (LeftEyeXAttachment == "arduinoRight" and EnableArduinoRight)):
-    EnableLeftEyeX = False
+EnableLeftEyeX = TestServoControllerExists(LeftEyeXAttachment, EnableLeftEyeX)
 
 if EnableLeftEyeX == True:
     print "--Left Eye X axis"
     LeftEyeLR = Runtime.createAndStart("LeftEyeLR", "Servo")
-    if LeftEyeXAttachment == "Head":
-        LeftEyeLR.attach(Head, LeftEyeXPin)
-    elif LeftEyeXAttachment == "Back":
-        LeftEyeLR.attach(Back, LeftEyeXPin)
-    elif LeftEyeXAttachment == "RightArm":
-        LeftEyeLR.attach(RightArm, LeftEyeXPin)
-    elif LeftEyeXAttachment == "LeftArm":
-        LeftEyeLR.attach(LeftArm, LeftEyeXPin)
-    elif LeftEyeXAttachment == "arduinoLeft":
-        LeftEyeLR.attach(arduinoLeft, LeftEyeXPin)
-    elif LeftEyeXAttachment == "arduinoRight":
-        LeftEyeLR.attach(arduinoRight, LeftEyeXPin)
-    elif LeftEyeXAttachment == "arduinoNano":
-        LeftEyeLR.attach(arduinoNano, LeftEyeXPin)
-    elif LeftEyeXAttachment == "arduinoNano2":
-        LeftEyeLR.attach(arduinoNano2, LeftEyeXPin)
-    #LeftEyeLR.setMinMax(LeftEyeXMinPos, LeftEyeXMaxPos)
+    LeftEyeLR.attach(runtime.getService(LeftEyeXAttachment), LeftEyeXPin)
     LeftEyeLR.setMinMax(0, 100)
     if LeftEyeXMinPos < LeftEyeXMaxPos:
         LeftEyeLR.map(0, 100, LeftEyeXMinPos, LeftEyeXMaxPos)
@@ -296,36 +213,12 @@ if EnableLeftEyeX == True:
     LeftEyeLR.rest()
 
 # Test to make sure the configured controller is enabled.
-if not ((LeftEyeYAttachment == "Head" and EnableAdafruit16CServoDriverHead) 
-    or (LeftEyeYAttachment == "Back" and EnableAdafruit16CServoDriverBack) 
-    or (LeftEyeYAttachment == "RightArm" and EnableAdafruit16CServoDriverRightArm)
-    or (LeftEyeYAttachment == "LeftArm" and EnableAdafruit16CServoDriverLeftArm)
-    or (LeftEyeYAttachment == "arduinoNano" and EnableArduinoNano) 
-    or (LeftEyeYAttachment == "arduinoNano2" and EnableArduinoNano2) 
-    or (LeftEyeYAttachment == "arduinoLeft" and EnableArduinoLeft) 
-    or (LeftEyeYAttachment == "arduinoRight" and EnableArduinoRight)):
-    EnableLeftEyeY = False
+EnableLeftEyeY = TestServoControllerExists(LeftEyeYAttachment, EnableLeftEyeY)
 
 if EnableLeftEyeY == True:
     print "--Left Eye Y axis"
     LeftEyeUD = Runtime.createAndStart("LeftEyeUD", "Servo")
-    if LeftEyeYAttachment == "Head":
-        LeftEyeUD.attach(Head, LeftEyeYPin)
-    elif LeftEyeYAttachment == "Back":
-        LeftEyeUD.attach(Back, LeftEyeYPin)
-    elif LeftEyeYAttachment == "RightArm":
-        LeftEyeUD.attach(RightArm, LeftEyeYPin)
-    elif LeftEyeYAttachment == "LeftArm":
-        LeftEyeUD.attach(LeftArm, LeftEyeYPin)
-    elif LeftEyeYAttachment == "arduinoLeft":
-        LeftEyeUD.attach(arduinoLeft, LeftEyeYPin)
-    elif LeftEyeYAttachment == "arduinoRight":
-        LeftEyeUD.attach(arduinoRight, LeftEyeYPin)
-    elif LeftEyeYAttachment == "arduinoNano":
-        LeftEyeUD.attach(arduinoNano, LeftEyeYPin)
-    elif LeftEyeYAttachment == "arduinoNano2":
-        LeftEyeUD.attach(arduinoNano2, LeftEyeYPin)
-    #LeftEyeUD.setMinMax(LeftEyeYMinPos, LeftEyeYMaxPos)
+    LeftEyeUD.attach(runtime.getService(LeftEyeYAttachment), LeftEyeYPin)
     LeftEyeUD.setMinMax(0, 100)
     if LeftEyeYMinPos < LeftEyeYMaxPos:
         LeftEyeUD.map(0, 100, LeftEyeYMinPos, LeftEyeYMaxPos)
@@ -342,36 +235,12 @@ if EnableLeftEyeY == True:
     LeftEyeUD.rest()
 
 # Test to make sure the configured controller is enabled.
-if not ((UpperREyeLidAttachment == "Head" and EnableAdafruit16CServoDriverHead) 
-    or (UpperREyeLidAttachment == "Back" and EnableAdafruit16CServoDriverBack) 
-    or (UpperREyeLidAttachment == "RightArm" and EnableAdafruit16CServoDriverRightArm)
-    or (UpperREyeLidAttachment == "LeftArm" and EnableAdafruit16CServoDriverLeftArm)
-    or (UpperREyeLidAttachment == "arduinoNano" and EnableArduinoNano) 
-    or (UpperREyeLidAttachment == "arduinoNano2" and EnableArduinoNano2) 
-    or (UpperREyeLidAttachment == "arduinoLeft" and EnableArduinoLeft) 
-    or (UpperREyeLidAttachment == "arduinoRight" and EnableArduinoRight)):
-    EnableRightUpperEyeLid = False
+EnableRightUpperEyeLid = TestServoControllerExists(UpperREyeLidAttachment, EnableRightUpperEyeLid)
 
 if EnableRightUpperEyeLid == True:
     print "--Upper Right Eyelid"
     UpperEyeLidR = Runtime.createAndStart("UpperEyeLidR", "Servo")
-    if UpperREyeLidAttachment == "Head":
-        UpperEyeLidR.attach(Head, UpperREyeLidPin)
-    elif UpperREyeLidAttachment == "Back":
-        UpperEyeLidR.attach(Back, UpperREyeLidPin)
-    elif UpperREyeLidAttachment == "RightArm":
-        UpperEyeLidR.attach(RightArm, UpperREyeLidPin)
-    elif UpperREyeLidAttachment == "LeftArm":
-        UpperEyeLidR.attach(LeftArm, UpperREyeLidPin)
-    elif UpperREyeLidAttachment == "arduinoLeft":
-        UpperEyeLidR.attach(arduinoLeft, UpperREyeLidPin)
-    elif UpperREyeLidAttachment == "arduinoRight":
-        UpperEyeLidR.attach(arduinoRight, UpperREyeLidPin)
-    elif UpperREyeLidAttachment == "arduinoNano":
-        UpperEyeLidR.attach(arduinoNano, UpperREyeLidPin)
-    elif UpperREyeLidAttachment == "arduinoNano2":
-        UpperEyeLidR.attach(arduinoNano2, UpperREyeLidPin)
-    #UpperEyeLidR.setMinMax(UpperREyeLidMinPos, UpperREyeLidMaxPos)
+    UpperEyeLidR.attach(runtime.getService(UpperREyeLidAttachment), UpperREyeLidPin)
     UpperEyeLidR.setMinMax(0, 100)
     if UpperREyeLidMinPos < UpperREyeLidMaxPos:
         UpperEyeLidR.map(0, 100, UpperREyeLidMinPos, UpperREyeLidMaxPos)
@@ -388,36 +257,12 @@ if EnableRightUpperEyeLid == True:
     UpperEyeLidR.rest()
 
 # Test to make sure the configured controller is enabled.
-if not ((LowerREyeLidAttachment == "Head" and EnableAdafruit16CServoDriverHead) 
-    or (LowerREyeLidAttachment == "Back" and EnableAdafruit16CServoDriverBack) 
-    or (LowerREyeLidAttachment == "RightArm" and EnableAdafruit16CServoDriverRightArm)
-    or (LowerREyeLidAttachment == "LeftArm" and EnableAdafruit16CServoDriverLeftArm)
-    or (LowerREyeLidAttachment == "arduinoNano" and EnableArduinoNano) 
-    or (LowerREyeLidAttachment == "arduinoNano2" and EnableArduinoNano2) 
-    or (LowerREyeLidAttachment == "arduinoLeft" and EnableArduinoLeft) 
-    or (LowerREyeLidAttachment == "arduinoRight" and EnableArduinoRight)):
-    EnableRightLowerEyeLid = False
+EnableRightLowerEyeLid = TestServoControllerExists(LowerREyeLidAttachment, EnableRightLowerEyeLid)
 
 if EnableRightLowerEyeLid == True:
     print "--Lower Right Eyelid"
     LowerEyeLidR = Runtime.createAndStart("LowerEyeLidR", "Servo")
-    if LowerREyeLidAttachment == "Head":
-        LowerEyeLidR.attach(Head, LowerREyeLidPin)
-    elif LowerREyeLidAttachment == "Back":
-        LowerEyeLidR.attach(Back, LowerREyeLidPin)
-    elif LowerREyeLidAttachment == "RightArm":
-        LowerEyeLidR.attach(RightArm, LowerREyeLidPin)
-    elif LowerREyeLidAttachment == "LeftArm":
-        LowerEyeLidR.attach(LeftArm, LowerREyeLidPin)
-    elif LowerREyeLidAttachment == "arduinoLeft":
-        LowerEyeLidR.attach(arduinoLeft, LowerREyeLidPin)
-    elif LowerREyeLidAttachment == "arduinoRight":
-        LowerEyeLidR.attach(arduinoRight, LowerREyeLidPin)
-    elif LowerREyeLidAttachment == "arduinoNano":
-        LowerEyeLidR.attach(arduinoNano, LowerREyeLidPin)
-    elif LowerREyeLidAttachment == "arduinoNano2":
-        LowerEyeLidR.attach(arduinoNano2, LowerREyeLidPin)
-    #LowerEyeLidR.setMinMax(LowerREyeLidMinPos, LowerREyeLidMaxPos)
+    LowerEyeLidR.attach(runtime.getService(LowerREyeLidAttachment), LowerREyeLidPin)
     LowerEyeLidR.setMinMax(0, 100)
     if LowerREyeLidMinPos < LowerREyeLidMaxPos:
         LowerEyeLidR.map(0, 100, LowerREyeLidMinPos, LowerREyeLidMaxPos)
@@ -434,36 +279,12 @@ if EnableRightLowerEyeLid == True:
     LowerEyeLidR.rest()
 
 # Test to make sure the configured controller is enabled.
-if not ((UpperLEyeLidAttachment == "Head" and EnableAdafruit16CServoDriverHead) 
-    or (UpperLEyeLidAttachment == "Back" and EnableAdafruit16CServoDriverBack) 
-    or (UpperLEyeLidAttachment == "RightArm" and EnableAdafruit16CServoDriverRightArm)
-    or (UpperLEyeLidAttachment == "LeftArm" and EnableAdafruit16CServoDriverLeftArm)
-    or (UpperLEyeLidAttachment == "arduinoNano" and EnableArduinoNano) 
-    or (UpperLEyeLidAttachment == "arduinoNano2" and EnableArduinoNano2) 
-    or (UpperLEyeLidAttachment == "arduinoLeft" and EnableArduinoLeft) 
-    or (UpperLEyeLidAttachment == "arduinoRight" and EnableArduinoRight)):
-    EnableLeftUpperEyeLid = False
+EnableLeftUpperEyeLid = TestServoControllerExists(UpperLEyeLidAttachment, EnableLeftUpperEyeLid)
 
 if EnableLeftUpperEyeLid == True:
     print "--Upper Left Eyelid"
     UpperEyeLidL = Runtime.createAndStart("UpperEyeLidL", "Servo")
-    if UpperLEyeLidAttachment == "Head":
-        UpperEyeLidL.attach(Head, UpperLEyeLidPin)
-    elif UpperLEyeLidAttachment == "Back":
-        UpperEyeLidL.attach(Back, UpperLEyeLidPin)
-    elif UpperLEyeLidAttachment == "RightArm":
-        UpperEyeLidL.attach(RightArm, UpperLEyeLidPin)
-    elif UpperLEyeLidAttachment == "LeftArm":
-        UpperEyeLidL.attach(LeftArm, UpperLEyeLidPin)
-    elif UpperLEyeLidAttachment == "arduinoLeft":
-        UpperEyeLidL.attach(arduinoLeft, UpperLEyeLidPin)
-    elif UpperLEyeLidAttachment == "arduinoRight":
-        UpperEyeLidL.attach(arduinoRight, UpperLEyeLidPin)
-    elif UpperLEyeLidAttachment == "arduinoNano":
-        UpperEyeLidL.attach(arduinoNano, UpperLEyeLidPin)
-    elif UpperLEyeLidAttachment == "arduinoNano2":
-        UpperEyeLidL.attach(arduinoNano2, UpperLEyeLidPin)
-    #UpperEyeLidL.setMinMax(UpperLEyeLidMinPos, UpperLEyeLidMaxPos)
+    UpperEyeLidL.attach(runtime.getService(UpperLEyeLidAttachment), UpperLEyeLidPin)
     UpperEyeLidL.setMinMax(0, 100)
     if UpperLEyeLidMinPos < UpperLEyeLidMaxPos:
         UpperEyeLidL.map(0, 100, UpperLEyeLidMinPos, UpperLEyeLidMaxPos)
@@ -480,36 +301,12 @@ if EnableLeftUpperEyeLid == True:
     UpperEyeLidL.rest()
 
 # Test to make sure the configured controller is enabled.
-if not ((LowerLEyeLidAttachment == "Head" and EnableAdafruit16CServoDriverHead) 
-    or (LowerLEyeLidAttachment == "Back" and EnableAdafruit16CServoDriverBack) 
-    or (LowerLEyeLidAttachment == "RightArm" and EnableAdafruit16CServoDriverRightArm)
-    or (LowerLEyeLidAttachment == "LeftArm" and EnableAdafruit16CServoDriverLeftArm)
-    or (LowerLEyeLidAttachment == "arduinoNano" and EnableArduinoNano) 
-    or (LowerLEyeLidAttachment == "arduinoNano2" and EnableArduinoNano2) 
-    or (LowerLEyeLidAttachment == "arduinoLeft" and EnableArduinoLeft) 
-    or (LowerLEyeLidAttachment == "arduinoRight" and EnableArduinoRight)):
-    EnableLeftLowerEyeLid = False
+EnableLeftLowerEyeLid = TestServoControllerExists(LowerLEyeLidAttachment, EnableLeftLowerEyeLid)
 
 if EnableLeftLowerEyeLid == True:
     print "--Lower Left Eyelid"
     LowerEyeLidL = Runtime.createAndStart("LowerEyeLidL", "Servo")
-    if LowerLEyeLidAttachment == "Head":
-        LowerEyeLidL.attach(Head, LowerLEyeLidPin)
-    elif LowerLEyeLidAttachment == "Back":
-        LowerEyeLidL.attach(Back, LowerLEyeLidPin)
-    elif LowerLEyeLidAttachment == "RightArm":
-        LowerEyeLidL.attach(RightArm, LowerLEyeLidPin)
-    elif LowerLEyeLidAttachment == "LeftArm":
-        LowerEyeLidL.attach(LeftArm, LowerLEyeLidPin)
-    elif LowerLEyeLidAttachment == "arduinoLeft":
-        LowerEyeLidL.attach(arduinoLeft, LowerLEyeLidPin)
-    elif LowerLEyeLidAttachment == "arduinoRight":
-        LowerEyeLidL.attach(arduinoRight, LowerLEyeLidPin)
-    elif LowerLEyeLidAttachment == "arduinoNano":
-        LowerEyeLidL.attach(arduinoNano, LowerLEyeLidPin)
-    elif LowerLEyeLidAttachment == "arduinoNano2":
-        LowerEyeLidL.attach(arduinoNano2, LowerLEyeLidPin)
-    #LowerEyeLidL.setMinMax(LowerLEyeLidMinPos, LowerLEyeLidMaxPos)
+    LowerEyeLidL.attach(runtime.getService(LowerLEyeLidAttachment), LowerLEyeLidPin)
     LowerEyeLidL.setMinMax(0, 100)
     if LowerLEyeLidMinPos < LowerLEyeLidMaxPos:
         LowerEyeLidL.map(0, 100, LowerLEyeLidMinPos, LowerLEyeLidMaxPos)
@@ -538,34 +335,11 @@ if EnableLeftLowerEyeLid == True:
 ## Both lateral law servos will be connected on the same pin.
 
 # Test to make sure the configured controller is enabled.
-if not ((LatJawAttachment == "Head" and EnableAdafruit16CServoDriverHead) 
-    or (LatJawAttachment == "Back" and EnableAdafruit16CServoDriverBack) 
-    or (LatJawAttachment == "RightArm" and EnableAdafruit16CServoDriverRightArm)
-    or (LatJawAttachment == "LeftArm" and EnableAdafruit16CServoDriverLeftArm)
-    or (LatJawAttachment == "arduinoNano" and EnableArduinoNano) 
-    or (LatJawAttachment == "arduinoNano2" and EnableArduinoNano2) 
-    or (LatJawAttachment == "arduinoLeft" and EnableArduinoLeft) 
-    or (LatJawAttachment == "arduinoRight" and EnableArduinoRight)):
-    EnableLatJaw = False
+EnableLatJaw = TestServoControllerExists(LatJawAttachment, EnableLatJaw)
 if EnableLatJaw == True:
     print "--Lower Left Eyelid"
     LatJaw = Runtime.createAndStart("LatJaw", "Servo")
-    if LatJawAttachment == "Head":
-        LatJaw.attach(Head, LatJawPin)
-    elif LatJawAttachment == "Back":
-        LatJaw.attach(Back, LatJawPin)
-    elif LatJawAttachment == "RightArm":
-        LatJaw.attach(RightArm, LatJawPin)
-    elif LatJawAttachment == "LeftArm":
-        LatJaw.attach(LeftArm, LatJawPin)
-    elif LatJawAttachment == "arduinoLeft":
-        LatJaw.attach(arduinoLeft, LatJawPin)
-    elif LatJawAttachment == "arduinoRight":
-        LatJaw.attach(arduinoRight, LatJawPin)
-    elif LatJawAttachment == "arduinoNano":
-        LatJaw.attach(arduinoNano, LatJawPin)
-    elif LatJawAttachment == "arduinoNano2":
-        LatJaw.attach(arduinoNano2, LatJawPin)
+    LatJaw.attach(runtime.getService(LatJawAttachment), LatJawPin)
     LatJaw.setMinMax(0, 100)
     if LatJawMinPos < LatJawMaxPos:
         LatJaw.map(0, 100, LatJawMinPos, LatJawMaxPos)
@@ -585,34 +359,11 @@ if EnableLatJaw == True:
 ## This will allow the eyebrow to move up and down.
 
 # Test to make sure the configured controller is enabled.
-if not ((RBrowInAttachment == "Head" and EnableAdafruit16CServoDriverHead) 
-    or (RBrowInAttachment == "Back" and EnableAdafruit16CServoDriverBack) 
-    or (RBrowInAttachment == "RightArm" and EnableAdafruit16CServoDriverRightArm)
-    or (RBrowInAttachment == "LeftArm" and EnableAdafruit16CServoDriverLeftArm)
-    or (RBrowInAttachment == "arduinoNano" and EnableArduinoNano) 
-    or (RBrowInAttachment == "arduinoNano2" and EnableArduinoNano2) 
-    or (RBrowInAttachment == "arduinoLeft" and EnableArduinoLeft) 
-    or (RBrowInAttachment == "arduinoRight" and EnableArduinoRight)):
-    EnableRBrowIn = False
+EnableRBrowIn = TestServoControllerExists(RBrowInAttachment, EnableRBrowIn)
 if EnableRBrowIn == True:
     print "--Lower Left Eyelid"
     RBrowIn = Runtime.createAndStart("RBrowIn", "Servo")
-    if RBrowInAttachment == "Head":
-        RBrowIn.attach(Head, RBrowInPin)
-    elif RBrowInAttachment == "Back":
-        RBrowIn.attach(Back, RBrowInPin)
-    elif RBrowInAttachment == "RightArm":
-        RBrowIn.attach(RightArm, RBrowInPin)
-    elif RBrowInAttachment == "LeftArm":
-        RBrowIn.attach(LeftArm, RBrowInPin)
-    elif RBrowInAttachment == "arduinoLeft":
-        RBrowIn.attach(arduinoLeft, RBrowInPin)
-    elif RBrowInAttachment == "arduinoRight":
-        RBrowIn.attach(arduinoRight, RBrowInPin)
-    elif RBrowInAttachment == "arduinoNano":
-        RBrowIn.attach(arduinoNano, RBrowInPin)
-    elif RBrowInAttachment == "arduinoNano2":
-        RBrowIn.attach(arduinoNano2, RBrowInPin)
+    RBrowIn.attach(runtime.getService(RBrowInAttachment), RBrowInPin)
     RBrowIn.setMinMax(0, 100)
     if RBrowInMinPos < RBrowInMaxPos:
         RBrowIn.map(0, 100, RBrowInMinPos, RBrowInMaxPos)
@@ -632,20 +383,12 @@ if EnableRBrowIn == True:
 ## This will allow the eyebrow to move up and down.
 
 # Test to make sure the configured controller is enabled.
-if not ((RBrowOutAttachment == "Head" and EnableAdafruit16CServoDriverHead) 
-    or (RBrowOutAttachment == "Back" and EnableAdafruit16CServoDriverBack) 
-    or (RBrowOutAttachment == "RightArm" and EnableAdafruit16CServoDriverRightArm)
-    or (RBrowOutAttachment == "LeftArm" and EnableAdafruit16CServoDriverLeftArm)
-    or (RBrowOutAttachment == "arduinoNano" and EnableArduinoNano) 
-    or (RBrowOutAttachment == "arduinoNano2" and EnableArduinoNano2) 
-    or (RBrowOutAttachment == "arduinoLeft" and EnableArduinoLeft) 
-    or (RBrowOutAttachment == "arduinoRight" and EnableArduinoRight)):
-    EnableRBrowOut = False
+EnableRBrowOut = TestServoControllerExists(RBrowOutAttachment, EnableRBrowOut)
 if EnableRBrowOut == True:
     print "--Lower Left Eyelid"
     RBrowOut = Runtime.createAndStart("RBrowOut", "Servo")
     if RBrowOutAttachment == "Head":
-        RBrowOut.attach(Head, RBrowOutPin)
+        RBrowOut.attach(runtime.getService(RBrowOutAttachment), RBrowOutPin)
     elif RBrowOutAttachment == "Back":
         RBrowOut.attach(Back, RBrowOutPin)
     elif RBrowOutAttachment == "RightArm":
@@ -679,34 +422,11 @@ if EnableRBrowOut == True:
 ## This will allow the eyebrow to move up and down.
 
 # Test to make sure the configured controller is enabled.
-if not ((LBrowInAttachment == "Head" and EnableAdafruit16CServoDriverHead) 
-    or (LBrowInAttachment == "Back" and EnableAdafruit16CServoDriverBack) 
-    or (LBrowInAttachment == "RightArm" and EnableAdafruit16CServoDriverRightArm)
-    or (LBrowInAttachment == "LeftArm" and EnableAdafruit16CServoDriverLeftArm)
-    or (LBrowInAttachment == "arduinoNano" and EnableArduinoNano) 
-    or (LBrowInAttachment == "arduinoNano2" and EnableArduinoNano2) 
-    or (LBrowInAttachment == "arduinoLeft" and EnableArduinoLeft) 
-    or (LBrowInAttachment == "arduinoRight" and EnableArduinoRight)):
-    EnableLBrowIn = False
+EnableLBrowIn = TestServoControllerExists(LBrowInAttachment, EnableLBrowIn)
 if EnableLBrowIn == True:
     print "--Lower Left Eyelid"
     LBrowIn = Runtime.createAndStart("LBrowIn", "Servo")
-    if LBrowInAttachment == "Head":
-        LBrowIn.attach(Head, LBrowInPin)
-    elif LBrowInAttachment == "Back":
-        LBrowIn.attach(Back, LBrowInPin)
-    elif LBrowInAttachment == "RightArm":
-        LBrowIn.attach(RightArm, LBrowInPin)
-    elif LBrowInAttachment == "LeftArm":
-        LBrowIn.attach(LeftArm, LBrowInPin)
-    elif LBrowInAttachment == "arduinoLeft":
-        LBrowIn.attach(arduinoLeft, LBrowInPin)
-    elif LBrowInAttachment == "arduinoRight":
-        LBrowIn.attach(arduinoRight, LBrowInPin)
-    elif LBrowInAttachment == "arduinoNano":
-        LBrowIn.attach(arduinoNano, LBrowInPin)
-    elif LBrowInAttachment == "arduinoNano2":
-        LBrowIn.attach(arduinoNano2, LBrowInPin)
+    LBrowIn.attach(runtime.getService(LBrowInAttachment), LBrowInPin)
     LBrowIn.setMinMax(0, 100)
     if LBrowInMinPos < LBrowInMaxPos:
         LBrowIn.map(0, 100, LBrowInMinPos, LBrowInMaxPos)
@@ -726,34 +446,11 @@ if EnableLBrowIn == True:
 ## This will allow the eyebrow to move up and down.
 
 # Test to make sure the configured controller is enabled.
-if not ((LBrowOutAttachment == "Head" and EnableAdafruit16CServoDriverHead) 
-    or (LBrowOutAttachment == "Back" and EnableAdafruit16CServoDriverBack) 
-    or (LBrowOutAttachment == "RightArm" and EnableAdafruit16CServoDriverRightArm)
-    or (LBrowOutAttachment == "LeftArm" and EnableAdafruit16CServoDriverLeftArm)
-    or (LBrowOutAttachment == "arduinoNano" and EnableArduinoNano) 
-    or (LBrowOutAttachment == "arduinoNano2" and EnableArduinoNano2) 
-    or (LBrowOutAttachment == "arduinoLeft" and EnableArduinoLeft) 
-    or (LBrowOutAttachment == "arduinoRight" and EnableArduinoRight)):
-    EnableLBrowOut = False
+EnableLBrowOut = TestServoControllerExists(LBrowOutAttachment, EnableLBrowOut)
 if EnableLBrowOut == True:
     print "--Lower Left Eyelid"
     LBrowOut = Runtime.createAndStart("LBrowOut", "Servo")
-    if LBrowOutAttachment == "Head":
-        LBrowOut.attach(Head, LBrowOutPin)
-    elif LBrowOutAttachment == "Back":
-        LBrowOut.attach(Back, LBrowOutPin)
-    elif LBrowOutAttachment == "RightArm":
-        LBrowOut.attach(RightArm, LBrowOutPin)
-    elif LBrowOutAttachment == "LeftArm":
-        LBrowOut.attach(LeftArm, LBrowOutPin)
-    elif LBrowOutAttachment == "arduinoLeft":
-        LBrowOut.attach(arduinoLeft, LBrowOutPin)
-    elif LBrowOutAttachment == "arduinoRight":
-        LBrowOut.attach(arduinoRight, LBrowOutPin)
-    elif LBrowOutAttachment == "arduinoNano":
-        LBrowOut.attach(arduinoNano, LBrowOutPin)
-    elif LBrowOutAttachment == "arduinoNano2":
-        LBrowOut.attach(arduinoNano2, LBrowOutPin)
+    LBrowOut.attach(runtime.getService(LBrowOutAttachment), LBrowOutPin)
     LBrowOut.setMinMax(0, 100)
     if LBrowOutMinPos < LBrowOutMaxPos:
         LBrowOut.map(0, 100, LBrowOutMinPos, LBrowOutMaxPos)
