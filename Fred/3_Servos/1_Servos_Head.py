@@ -387,22 +387,7 @@ EnableRBrowOut = TestServoControllerExists(RBrowOutAttachment, EnableRBrowOut)
 if EnableRBrowOut == True:
     print "--Lower Left Eyelid"
     RBrowOut = Runtime.createAndStart("RBrowOut", "Servo")
-    if RBrowOutAttachment == "Head":
-        RBrowOut.attach(runtime.getService(RBrowOutAttachment), RBrowOutPin)
-    elif RBrowOutAttachment == "Back":
-        RBrowOut.attach(Back, RBrowOutPin)
-    elif RBrowOutAttachment == "RightArm":
-        RBrowOut.attach(RightArm, RBrowOutPin)
-    elif RBrowOutAttachment == "LeftArm":
-        RBrowOut.attach(LeftArm, RBrowOutPin)
-    elif RBrowOutAttachment == "arduinoLeft":
-        RBrowOut.attach(arduinoLeft, RBrowOutPin)
-    elif RBrowOutAttachment == "arduinoRight":
-        RBrowOut.attach(arduinoRight, RBrowOutPin)
-    elif RBrowOutAttachment == "arduinoNano":
-        RBrowOut.attach(arduinoNano, RBrowOutPin)
-    elif RBrowOutAttachment == "arduinoNano2":
-        RBrowOut.attach(arduinoNano2, RBrowOutPin)
+    RBrowOut.attach(runtime.getService(RBrowOutAttachment), RBrowOutPin)
     RBrowOut.setMinMax(0, 100)
     if RBrowOutMinPos < RBrowOutMaxPos:
         RBrowOut.map(0, 100, RBrowOutMinPos, RBrowOutMaxPos)
