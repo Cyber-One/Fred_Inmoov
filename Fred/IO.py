@@ -259,13 +259,7 @@ if EnableHeadNeoPixel:
 # RasPi or 0 for an Arduino.
 
 # First lets make sure the I2C controller enabled
-if not ((MPU6050AAttached == "raspi" and EnableRaspberryPi) or 
-    (MPU6050AAttached == "arduinoNano" and EnableArduinoNano) or 
-    (MPU6050AAttached == "arduinoNano2" and EnableArduinoNano2) or 
-    (MPU6050AAttached == "arduinoLeft" and EnableArduinoLeft) or 
-    (MPU6050AAttached == "arduinoRight" and EnableArduinoRight)):
-    EnableMPU6050A = False
-
+EnableMPU6050A = TestI2CControllerExists(MPU6050AAttached, EnableMPU6050A)
 if EnableMPU6050A == True:
     MPU6050A = Runtime.createAndStart("MPU6050A","Mpu6050")
     MPU6050A.attach(runtime.getService(MPU6050AAttached), MPU6050APort, MPU6050AAddr)
@@ -279,13 +273,7 @@ if EnableMPU6050A == True:
     #publishOrientation(Orientation data) 
 
 # First lets make sure the I2C controller enabled
-if not ((MPU6050BAttached == "raspi" and EnableRaspberryPi) or 
-    (MPU6050BAttached == "arduinoNano" and EnableArduinoNano) or 
-    (MPU6050BAttached == "arduinoNano2" and EnableArduinoNano2) or 
-    (MPU6050BAttached == "arduinoLeft" and EnableArduinoLeft) or 
-    (MPU6050BAttached == "arduinoRight" and EnableArduinoRight)):
-    EnableMPU6050B = False
-
+EnableMPU6050B = TestI2CControllerExists(MPU6050BAttached, EnableMPU6050B)
 if EnableMPU6050B == True:
     MPU6050B = Runtime.createAndStart("MPU6050B","Mpu6050")
     MPU6050B.attach(runtime.getService(MPU6050BAttached), MPU6050BPort, MPU6050BAddr)
