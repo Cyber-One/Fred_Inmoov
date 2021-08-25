@@ -34,7 +34,7 @@ EnableRightThumb = TestServoControllerExists(RightThumbAttachment, EnableRightTh
 if EnableRightThumb == True:
     print "--Right Thumb"
     RightThumb = Runtime.createAndStart("RightThumb", "Servo")
-    RightThumb.attach(runtime.getService(), RightThumbPin)
+    RightThumb.attach(runtime.getService(RightThumbAttachment), RightThumbPin)
     RightThumb.setMinMax(0, 100)
     if RightThumbMinPos < RightThumbMaxPos:
         RightThumb.map(0, 100, RightThumbMinPos, RightThumbMaxPos)
