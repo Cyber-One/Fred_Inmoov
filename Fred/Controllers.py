@@ -107,6 +107,21 @@ def TestI2CControllerExists(ControllerName, CurrentState):
         return(False)
 
 #################################################################
+# To assist in performing a sanity test, the following function #
+# will return either the CurrentState or False based on the     #
+# name of the configured service for Arduino supporting         #
+# services.                                                     #
+#################################################################
+def TestArduinoControllerExists(ControllerName, CurrentState):
+    if ((ControllerName == "arduinoNano" and EnableArduinoNano) 
+        or (ControllerName == "arduinoNano2" and EnableArduinoNano2) 
+        or (ControllerName == "arduinoLeft" and EnableArduinoLeft) 
+        or (ControllerName == "arduinoRight" and EnableArduinoRight)):
+        return(CurrentState)
+    else:
+        return(False)
+
+#################################################################
 #                                                               #
 # The next level of controllers that can be used are attached   #
 # to the I2C bus of either the Raspi4 or the Aurduinos.         #
