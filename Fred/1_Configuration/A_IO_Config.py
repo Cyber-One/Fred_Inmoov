@@ -143,7 +143,7 @@ MPU6050AAttached = "raspi"
 MPU6050APort = "1"
 MPU6050AAddr = "0x68"
 
-EnableMPU6050B = True                   # True or False
+EnableMPU6050B = False                   # True or False
 MPU6050BAttached = "arduinoNano"
 MPU6050BPort = "0"
 MPU6050BAddr = "0x68"

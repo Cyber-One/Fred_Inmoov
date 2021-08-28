@@ -103,7 +103,7 @@ def LookHeadTilt(LookTilt):
     EyesTiltTo(HeadTiltPos)
     HeadTiltTo(LookPositionTilt)
 
-"""
+
 if EnableMPU6050A or EnableMPU6050B:
     def dist(a,b):
         return math.sqrt((a*a)+(b*b))
@@ -128,5 +128,5 @@ if EnableMPU6050B:
         print "MPU_Yaw", OrentationData.yaw
     python.subscribe('MPU6050B', 'publishOrientation', 'python', 'MPU6050Back')
     MPU6050B.startOrientationTracking()
-"""
+
     

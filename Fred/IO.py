@@ -1,49 +1,46 @@
-##############################################################
-#                                                            #
-# Program Code for Fred Inmoov                               #
-# Of the Cyber_One YouTube Channel                           #
-# https://www.youtube.com/cyber_one                          #
-#                                                            #
-# This is version 5                                          #
-# Divided up into sub programs                               #
-# Coded for the Nixie Version of MyRobotLab.                 #
-#                                                            #
-# Running on MyRobotLab (MRL) http://myrobotlab.org/         #
-# Fred in a modified Inmmov robot, you can find all the      #
-# origonal files on the Inmoov web site. http://inmoov.fr/   #
-#                                                            #
-# IO.py                                                      #
-# This file handels the various Sensors and outputs          #
-# not already covered in other modules                       #
-#                                                            #
-##############################################################
+#################################################################
+#                                                               #
+# Program Code for Fred Inmoov                                  #
+# Of the Cyber_One YouTube Channel                              #
+# https://www.youtube.com/cyber_one                             #
+#                                                               #
+# This is version 5                                             #
+# Divided up into sub programs                                  #
+# Coded for the Nixie Version of MyRobotLab.                    #
+#                                                               #
+# Running on MyRobotLab (MRL) http://myrobotlab.org/            #
+# Fred in a modified Inmmov robot, you can find all the         #
+# origonal files on the Inmoov web site. http://inmoov.fr/      #
+#                                                               #
+# IO.py                                                         #
+# This file handels the various Sensors and outputs             #
+# not already covered in other modules                          #
+#                                                               #
+#################################################################
 print "Creating the various IO Services"
 # Load the configuration for the IO devices.
 execfile(RuningFolder+'/1_Configuration/A_IO_Config.py')
 
-#######################################################
-# Create the PIR service                              #
-#######################################################
-# Test to make sure the configured controller is enabled.
-if  not ((PirAttachment == "arduinoNano" and EnableArduinoNano) or 
-    (PirAttachment == "arduinoNano2" and EnableArduinoNano2) or 
-    (PirAttachment == "arduinoLeft" and EnableArduinoLeft) or 
-    (PirAttachment == "arduinoRight" and EnableArduinoRight)):
-    EnablePIR = False
-
+#################################################################
+#                                                               #
+# The PIR service                                               #
+#                                                               #
+#################################################################
+# Passive Inrea Red (PIR) works on the principle that a warm    #
+# body emits Infra Red (IR) light. The level of this light can  #
+# indicate the current temperature.                             #
+# PIR sensors, use a single sensing element to measure the      #
+# ambient IR level.                                             #
+# By using a segmented lens in front of the sensor, there will  #
+# be areas where the sensor can not see the IR levels, and      #
+# areas where it is amplified.                                  #
+# As a warm body such as a person moves from one area to        #
+# another, there is a large change in the IR levels detected,   #
+# when this change occurs the output of the PIR sensor is       #
+# turned on.                                                    #
+#################################################################
+EnablePIR = TestArduinoControllerExists(PirAttachment, EnablePIR)
 if EnablePIR:
-    # Passive Inrea Red (PIR) works on the principle that a 
-    # warm body emits Infra Red (IR) light. The level of this 
-    # light can indicate the current temperature.
-    # PIR sensors, use a single sensing element to measure the 
-    # ambient IR level.
-    # By using a segmented lens in front of the sensor, there 
-    # will be areas where the sensor can not see the IR 
-    # levels, and areas where it is amplified.  
-    # As a warm body such as a person moves from one area to 
-    # another, there is a large change in the IR levels 
-    # detected, when this change occurs the output of the PIR 
-    # sensor is turned on.
     pir = Runtime.start('pir','Pir')
     pir.attach(runtime.getService(PirAttachment), PirPin)
     # The isVerbose function is handy if your trying to debug 
@@ -63,65 +60,50 @@ if EnablePIR:
     #  if event:print "Warm body movement detected !!!"
 
 
-#######################################################
-# Create the Ultrasonic services                      #
-#######################################################
-# the Ultrasonic services has a couple of option on how you
-# can use it. In anycase the max range from a software
-# perspective is 5 meters.
-# 1) ping()         This returns the time of flight in
-#                   milli-seconds each time you call it.
-#                   This is a On-Demand method.
-# 2) range()        This gives you the distance in 
-#                   centimeters each time you call it.
-#                   This is a On-Demand method.
-# 3) startRanging() The start and stop ranging methods
-#    stopRanging()  produce a series of pulses with the
-#                   results returning on the callback
-#                   method, the default being onRange.
-#                   This is normally setup using
-#                   UltraSonic.addRangeListener(python)
-#                   But we will use the subscribe method
-#                   from the python service so we can 
-#                   seperate the two sensors returns.
+#################################################################
+#                                                               #
+# The Ultrasonic services                                       #
+#                                                               #
+#################################################################
+# the Ultrasonic services has a couple of option on how you     #
+# can use it. In anycase the max range from a software          #
+# perspective is 5 meters.                                      #
+# 1) ping()         This returns the time of flight in          #
+#                   milli-seconds each time you call it.        #
+#                   This is a On-Demand method.                 #
+# 2) range()        This gives you the distance in              #
+#                   centimeters each time you call it.          #
+#                   This is a On-Demand method.                 #
+# 3) startRanging() The start and stop ranging methods          #
+#    stopRanging()  produce a series of pulses with the         #
+#                   results returning on the callback           #
+#                   method, the default being onRange.          #
+#                   This is normally setup using                #
+#                   UltraSonic.addRangeListener(python)         #
+#                   But we will use the subscribe method        #
+#                   from the python service so we can           #
+#                   seperate the two sensors returns.           #
+#################################################################
 
-# Test to make sure the configured controller is enabled.
-if  not ((LeftUltrasonicAttachment == "arduinoNano" and EnableArduinoNano) or 
-    (LeftUltrasonicAttachment == "arduinoNano2" and EnableArduinoNano2) or 
-    (LeftUltrasonicAttachment == "arduinoLeft" and EnableArduinoLeft) or 
-    (LeftUltrasonicAttachment == "arduinoRight" and EnableArduinoRight)):
-    EnableLeftUltrasonic = False
-
+EnableLeftUltrasonic = TestArduinoControllerExists(LeftUltrasonicAttachment, EnableLeftUltrasonic)
 if EnableLeftUltrasonic:
     LeftUltraSonic = Runtime.start("LeftUltraSonic", "UltrasonicSensor")
     LeftUltraSonic.attach(runtime.getService(LeftUltrasonicAttachment), LeftUltrasonicPin1, LeftUltrasonicPin2)
     #python.subscribe('LeftUltraSonic', 'onRange', 'python', 'onRangeLeft')
 
-# Test to make sure the configured controller is enabled.
-if not ((RightUltrasonicAttachment == "arduinoNano" and EnableArduinoNano) or 
-    (RightUltrasonicAttachment == "arduinoNano2" and EnableArduinoNano2) or 
-    (RightUltrasonicAttachment == "arduinoLeft" and EnableArduinoLeft) or 
-    (RightUltrasonicAttachment == "arduinoRight" and EnableArduinoRight)):
-    EnableRightUltraSonic = False
-    
+EnableRightUltraSonic = TestArduinoControllerExists(RightUltrasonicAttachment, EnableRightUltraSonic)
 if EnableRightUltraSonic:
     RightUltraSonic = Runtime.start("RightUltraSonic", "UltrasonicSensor")
     RightUltraSonic.attach(runtime.getService(RightUltrasonicAttachment), RightUltrasonicPin1, RightUltrasonicPin2)
     #python.subscribe('RightUltraSonic', 'onRange', 'python', 'onRangeRight')
 
-##############################################################
-#                                                            #
-# The Battery Voltage Monitor                                #
-#                                                            #
-##############################################################
+#################################################################
+#                                                               #
+# The Battery Voltage Monitor                                   #
+#                                                               #
+#################################################################
 BatteryLevel = [0, 0, 0, 0]
-# Test to make sure the configured controller is enabled.
-if not ((BatteryMonitorAttachment == "arduinoNano" and EnableArduinoNano) or 
-    (BatteryMonitorAttachment == "arduinoNano2" and EnableArduinoNano2) or 
-    (BatteryMonitorAttachment == "arduinoLeft" and EnableArduinoLeft) or 
-    (BatteryMonitorAttachment == "arduinoRight" and EnableArduinoRight)):
-    EnableBatteryMonitor = 0
-
+EnableBatteryMonitor = TestArduinoControllerExists(BatteryMonitorAttachment, EnableBatteryMonitor)
 if EnableBatteryMonitor > 0 and EnableBatteryMonitor < 5:
     # Lets set a default value for the Battery Monitor value
     # Once the first poll sequence is complete, this will be more accurate
@@ -192,22 +174,16 @@ if EnableBatteryMonitor > 0 and EnableBatteryMonitor < 5:
         if EnableBatteryMonitor > 3:
             arduinoNano2.enablePin(BatteryMonitorPin4, 1)
  
-##############################################################
-#                                                            #
-# The NeoPixel Ring                                          #
-#                                                            #
-##############################################################
-
-# Test to make sure the configured controller is enabled.
-if not ((StomachNeoPixelAttachment == "arduinoNano" and EnableArduinoNano) or 
-    (StomachNeoPixelAttachment == "arduinoNano2" and EnableArduinoNano2) or 
-    (StomachNeoPixelAttachment == "arduinoLeft" and EnableArduinoLeft) or 
-    (StomachNeoPixelAttachment == "arduinoRight" and EnableArduinoRight)):
-    EnableStomachNeoPixel = False
-
-# Before we even think about starting the NeoPixel Service,
-# we need to make sure it's enabled.  The previous bit will
-# disable the service if the controller is not available
+#################################################################
+#                                                               #
+# The NeoPixel Ring                                             #
+#                                                               #
+#################################################################
+# Before we even think about starting the NeoPixel Service,     #
+# we need to make sure it's enabled.  The previous bit will     #
+# disable the service if the controller is not available        #
+#################################################################
+EnableStomachNeoPixel = TestArduinoControllerExists(StomachNeoPixelAttachment, EnableStomachNeoPixel)
 if EnableStomachNeoPixel:
     # We use the standard method of starting a service in MRL
     StomachNeoPixel = Runtime.start("StomachNeoPixel","NeoPixel")
@@ -220,17 +196,14 @@ if EnableStomachNeoPixel:
         # Next we attach the NeoPixel service to the configured controller.
         StomachNeoPixel.attach(runtime.getService(StomachNeoPixelAttachment))
 
-# In some builds there are NeoPixels installed in the head for the eyes.
-# These can look very cool in deed.
-# Having them install, also means we need a way to control them.
-# For this, we have the HeadNeoPixels.
-# Test to make sure the configured controller is enabled.
-if not ((HeadNeoPixelAttachment == "arduinoNano" and EnableArduinoNano) or 
-    (HeadNeoPixelAttachment == "arduinoNano2" and EnableArduinoNano2) or 
-    (HeadNeoPixelAttachment == "arduinoLeft" and EnableArduinoLeft) or 
-    (HeadNeoPixelAttachment == "arduinoRight" and EnableArduinoRight)):
-    EnableHeadNeoPixel = False
-
+#################################################################
+# In some builds there are NeoPixels installed in the head for  #
+# the eyes.  These can look very cool in deed.                  #
+# Having them install, also means we need a way to control them.#
+# For this, we have the HeadNeoPixels.                          #
+# Test to make sure the configured controller is enabled.       #
+#################################################################
+EnableHeadNeoPixel = TestArduinoControllerExists(HeadNeoPixelAttachment, EnableHeadNeoPixel)
 if EnableHeadNeoPixel:
     # We use the standard method of starting a service in MRL
     HeadNeoPixel = Runtime.start("HeadNeoPixel","NeoPixel")
@@ -246,19 +219,18 @@ if EnableHeadNeoPixel:
 # Thats it for this part of setting up the neo Pixels.
 # The rest is done in the 6_Life_Functions/7_NeoPixel_Control.py program
 
-##############################################################
-#                                                            #
-# MPU6050 Inertial Measurment Unit (IMU)                     #
-#                                                            #
-##############################################################
-# The first parameter is the service we want to attach it to, 
-# normally either the RasPi or one of the Arduinos
-# in our case it will be the Raspi4.
-#
-# The second parameter is the bus, This is normally 1 for the 
-# RasPi or 0 for an Arduino.
-
-# First lets make sure the I2C controller enabled
+#################################################################
+#                                                               #
+# MPU6050 Inertial Measurment Unit (IMU)                        #
+#                                                               #
+#################################################################
+# The first parameter is the service we want to attach it to,   #
+# normally either the RasPi or one of the Arduinos              #
+# in our case it will be the Raspi4.                            #
+#                                                               #
+# The second parameter is the bus, This is normally 1 for the   #
+# RasPi or 0 for an Arduino.                                    #
+#################################################################
 EnableMPU6050A = TestI2CControllerExists(MPU6050AAttached, EnableMPU6050A)
 if EnableMPU6050A == True:
     MPU6050A = Runtime.createAndStart("MPU6050A","Mpu6050")
@@ -272,7 +244,6 @@ if EnableMPU6050A == True:
     #python.subscribe('MPU6050A', 'publishOrientation', 'python', 'MPU6050Head')
     #publishOrientation(Orientation data) 
 
-# First lets make sure the I2C controller enabled
 EnableMPU6050B = TestI2CControllerExists(MPU6050BAttached, EnableMPU6050B)
 if EnableMPU6050B == True:
     MPU6050B = Runtime.createAndStart("MPU6050B","Mpu6050")
@@ -286,11 +257,11 @@ if EnableMPU6050B == True:
     #python.subscribe('MPU6050B', 'publishOrientation', 'python', 'MPU6050Body')
     #publishOrientation(Orientation data) 
 
-##############################################################
-#                                                            #
-# Ibus Remote Control Service                                #
-#                                                            #
-##############################################################
+#################################################################
+#                                                               #
+# Ibus Remote Control Service                                   #
+#                                                               #
+#################################################################
 # Not yet available :-(
 if EnableIBus:
     IBus = Runtime.createAndStart("IBus","IBus")
@@ -305,12 +276,11 @@ if EnableIBus:
 #int[]              publishChanel(int[] channel) 
 #int                readChannel(int channelNr)
 
-##############################################################
-#                                                            #
-# Joystick Control Service                                   #
-#                                                            #
-##############################################################
+#################################################################
+#                                                               #
+# Joystick Control Service                                      #
+#                                                               #
+#################################################################
 if EnableJoyStick:
     joy = Runtime.start("joy","Joystick")
     joy.setController(0)
-    
