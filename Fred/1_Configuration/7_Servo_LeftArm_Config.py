@@ -22,29 +22,29 @@ print "Creating the Servo Left Arm Config"
 # The Left OmoPlate lifts the arm at the shoulder out away
 # from the body, this servo is located into the torso cavity
 # and drives a rotary Piston setup in the Official InMoov Build.
-EnableLeftOmoPlate = False
+EnableLeftOmoPlate = True
 LeftOmoPlateAttachment = "Back" # "arduioLeft"
 LeftOmoPlatePin = 15            # 11
-LeftOmoPlateMinPos = 0          # 10
-LeftOmoPlateMaxPos = 180        # 80
+LeftOmoPlateMinPos = 60         # 10
+LeftOmoPlateMaxPos = 123        # 80
 LeftOmoPlateMaxSpeed = 120      # 
 
 # The left shoulder is a worm drive setup the pitches the
 # left arm up in a forward direction.
-EnableLeftShoulder = False
+EnableLeftShoulder = True
 LeftShoulderAttachment = "Back" # "arduioLeft"
 LeftShoulderPin = 14            # 10
-LeftShoulderMinPos = 0          # 0
+LeftShoulderMinPos = 70         # 0
 LeftShoulderMaxPos = 180        # 180
 LeftShoulderMaxSpeed = 120      # 
 
 # This servo is located near the shoulder servo and rotates
 # the arm
-EnableLeftRotate = False
+EnableLeftRotate = True
 LeftRotateAttachment = "Back"   # "arduioLeft"
 LeftRotatePin = 13              # 9
-LeftRotateMinPos = 0            # 40
-LeftRotateMaxPin = 180          # 180
+LeftRotateMinPos = 16           # 40
+LeftRotateMaxPos = 180          # 180
 LeftRotateMaxSpeed = 120        # 
 
 # This servo is located in the bicep and operates the elbow.
