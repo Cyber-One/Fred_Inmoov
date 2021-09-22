@@ -34,7 +34,7 @@ LeftOmoPlateMaxSpeed = 120      #
 EnableLeftShoulder = True
 LeftShoulderAttachment = "Back" # "arduioLeft"
 LeftShoulderPin = 14            # 10
-LeftShoulderMinPos = 70         # 0
+LeftShoulderMinPos = 55         # 0
 LeftShoulderMaxPos = 180        # 180
 LeftShoulderMaxSpeed = 120      # 
 
