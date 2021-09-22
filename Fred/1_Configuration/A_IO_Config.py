@@ -164,4 +164,4 @@ IbuSerial = "Serial1"
 #                                                            #
 ##############################################################
 # Not yet available
-EnableJoyStick = True
+EnableJoyStick = False
