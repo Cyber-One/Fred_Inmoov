@@ -154,7 +154,7 @@ if EnableLeftUltrasonic or EnableRightUltraSonic: # /1_Configuration/A_IO_Config
 # This section will cause the jaw to open and close as the      #
 # robot is speaking.                                            #
 #################################################################
-if (UseMarySpeech or UseMimicSpeech or UseEspeak) and EnableMouthControl and EnableJawServo:
+if (UseMarySpeech or UseMimicSpeech or UseEspeak or UseLocalSpeech) and EnableMouthControl and EnableJawServo:
     # Before we can use this feature, we first need to create it :-)
     mouthcontrol = Runtime.create("mouthcontrol","MouthControl")
     #mouthcontrol = Runtime.start("mouthcontrol","MouthControl")
