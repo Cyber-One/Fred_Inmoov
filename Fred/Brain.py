@@ -34,7 +34,7 @@ Brain.startSession("Builder", "Alice")
 # create a route which sends published Responses to the
 # mouth.speak(String) method, The addTextListener is sort of
 #  the internal way of doing this :-)
-if UseMarySpeech or UseMimicSpeech or UseEspeak:
+if UseMarySpeech or UseMimicSpeech or UseEspeak or UseLocalSpeech:
     Brain.addTextListener(Mouth)
 
 # Next lets create a route that sends the speech our 
