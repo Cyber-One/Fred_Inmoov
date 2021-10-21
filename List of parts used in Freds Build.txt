@@ -21,8 +21,9 @@ InMoov - Low Back Skull / Neck Joint - Modification by dix23.
 https://www.thingiverse.com/thing:1636086
 InMoov Face less holes by juergm.
 
-http://www.thingiverse.com/thing:1523416
-Raspberry Pi side mount by MichMich.
+http://www.thingiverse.com/thing:2062472
+Raspberry Pi 2 Stacking System by TafThorne
+This was modified to let me use PCB standoffs.
 
 https://www.thingiverse.com/thing:2548952
 InMoov - Advanced Eye Mechanism by Dakota76.

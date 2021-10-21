@@ -59,14 +59,14 @@ execfile(RuningFolder+'/6_Life_Functions/3_Neck_Control.py')
 execfile(RuningFolder+'/6_Life_Functions/4_Torso_Control.py')
 
 #################################################################
-# The Right Arm is controlled from this sub program             #
+# The Arms are controlled from this sub program                 #
 #################################################################
-execfile(RuningFolder+'/6_Life_Functions/5_RightArm_Control.py')
+execfile(RuningFolder+'/6_Life_Functions/5_Arm_Control.py')
 
 #################################################################
 # The Left Arm is controlled from this sub program              #
 #################################################################
-execfile(RuningFolder+'/6_Life_Functions/6_LeftArm_Control.py')
+#execfile(RuningFolder+'/6_Life_Functions/6_LeftArm_Control.py')
 
 #################################################################
 # The NeoPixels are controlled from this sub program            #
