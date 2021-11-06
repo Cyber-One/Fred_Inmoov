@@ -3,7 +3,7 @@
 
 # Before we start we need an I2C bus to connect to.
 # This could be via a Raspberry Pi or an Arduino
-raspi = Runtime.createAndStart("raspi","RasPi")
+raspi = Runtime.start("raspi","RasPi")
 #arduino = Runtime.start("arduino","Arduino")
 #arduino.setBoardMega()
 #arduino.connect("COM3")
@@ -11,7 +11,7 @@ raspi = Runtime.createAndStart("raspi","RasPi")
 
 KeyColumn = 0
 LastKeyPress = 0
-KeyPad = Runtime.createAndStart("KeyPad","Pcf8574")
+KeyPad = Runtime.start("KeyPad","Pcf8574")
 # Before we can use this, 
 # we need to configure the I2C Bus 
 #KeyPad.setBus("1")
@@ -104,7 +104,7 @@ def ScanKeyPad(timedata):
         if KeyPress > 0:
             print ("KeyPress: ", KeyPress)
     
-KeyScanTimer = Runtime.createAndStart("KeyScanTimer", "Clock")
+KeyScanTimer = Runtime.start("KeyScanTimer", "Clock")
 KeyScanTimer.addListener("pulse", python.name, "ScanKeyPad")
 KeyScanTimer.setInterval(100)
 KeyScanTimer.startClock(False)
