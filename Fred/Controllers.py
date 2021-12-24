@@ -40,7 +40,7 @@ execfile(RuningFolder+'/1_Configuration/2_Controller_Config.py')
 #################################################################
 if EnableRaspberryPi == True:
     print "-Starting the Raspberry Pi Service"
-    raspi = Runtime.createAndStart("raspi","RasPi")
+    raspi = Runtime.Start("raspi","RasPi")
 
 #################################################################
 # If you were to run the two Arduino Mega 2560 as used in a     #
