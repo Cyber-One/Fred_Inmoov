@@ -1,37 +1,66 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-#############################################################
-# Fred Unix Start Script 
-# Usage:  ./start_fred.sh
-# This will launch MyRobotLab and run the Fred/Start.py 
-# default startup script
-#############################################################
+REPO_FILE=libraries/repo.json
 
-echo "------------------------------------------------------"
-echo "			FRED LAUNCHER"
-echo "------------------------------------------------------"
-echo "Rotate Log files for clean no worky logs"
-echo "------------------------------------------------------"
-rm myrobotlab.log.1
-mv myrobotlab.log myrobotlab.log.1
-echo "Done."
-echo "------------------------------------------------------"
-echo "START MRL & FRED"
-echo "------------------------------------------------------"
-# start the FRED script
-# Let look at this line and break it down a bit.
-# We start the line with the executable "java"
-# the -jar myrobotlab.jar is the name of the java file to be 
-# run by java when it starts.
-# -m 4g tell the java system to allocate 4 Giga bytes of 
-# Random Access Memory (RAM) to the java system.
-# --service python Python is passes to the myrobotlab.jar 
-# program, telling it to sert the Python service and name it python
-# --invoke python execFile ./Fred/Start.py thells the myrobotlab.jar 
-# program to use the python service and execute the file with the 
-# path starting in the current directory look in the sub 
-# directory "Fred" for the file "Start.py"
-java -jar myrobotlab.jar -m 4g --service python Python --invoke python execFile ./Fred/Start.py
+# fancy way to get real cwd ?
+APPDIR="$(dirname -- "$(readlink -f -- "${0}")" )"
 
-# with the older Manitocre version the startup command line is a little bit different.
-#java -jar myrobotlab.jar -m 4g -service python Python -invoke python execFile ./Fred/Start.py
+echo APPDIR=${APPDIR}
+
+CLASSPATH="${CLASSPATH}:${APPDIR}/target/classes/*:${APPDIR}/libraries/jar/*:${APPDIR}/myrobotlab.jar"
+export CLASSPATH
+
+echo CLASSPATH=${CLASSPATH}
+
+# TODO move vars to top
+# TODO have --id as an optional var
+
+# TODO - option to package jdk for now use bin in path
+JAVA=java
+# if we decide to package the jvm
+if [ -x "${APPDIR}/java/bin/java" ]; then
+  JAVA=${APPDIR}/java/bin/java
+fi
+
+# verify java exists
+if type -p java; then
+    echo found java executable in PATH
+    _java=java
+elif [[ -n "$JAVA_HOME" ]] && [[ -x "$JAVA_HOME/bin/java" ]];  then
+    echo found java executable in JAVA_HOME
+    _java="$JAVA_HOME/bin/java"
+else
+    echo "java is not installed please install java 11 e.g. sudo apt install openjdk-11-jdk "
+    exit
+fi
+
+JAVA_VER=$(java -version 2>&1 | sed -n ';s/.* version "\(.*\)\.\(.*\)\..*".*/\1\2/p;')
+
+if [ "$JAVA_VER" -ge 11 ]; then
+    echo "found java version equal or greater to 11"
+else
+    echo "incompatible version of java, java 11 required"
+    exit
+fi
+
+
+# Processing/Arduino handle this in an array - no need for now
+JAVA_OPTIONS="-Djava.library.path=libraries/native -Djna.library.path=libraries/native -Dfile.encoding=UTF-8"
+
+if (( $# > 0 )); 
+then
+  echo "USER SUPPLIED ARGS"
+  "${JAVA}" ${JAVA_OPTIONS} -cp ${CLASSPATH} org.myrobotlab.service.Runtime --from-launcher $@
+  exit
+fi
+
+if test -f "$REPO_FILE"; then
+    echo "$REPO_FILE exists."
+else 
+    echo "$REPO_FILE does not exist."
+    "${JAVA}" ${JAVA_OPTIONS} -cp ${CLASSPATH} org.myrobotlab.service.Runtime --from-launcher --install
+fi
+
+"${JAVA}" ${JAVA_OPTIONS} -cp ${CLASSPATH} org.myrobotlab.service.Runtime --from-launcher --log-level info -s python Python --invoke python execFile ./Fred/Start.py
+
+echo $# $@
