@@ -70,9 +70,6 @@ http://myrobotlab.org/
 
 If your would like to help support this project, then consider Patreon
 
-<a href="https://www.patreon.com/bePatron?u=10744269" data-patreon-widget-type="become-patron-button">Become a Patron!</a><script async src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
-=======
-If your would like to help support this project, then consider becoming a Patreon.
 <a href="https://www.patreon.com/bePatron?u=10744269">![Digital-Patreon-Wordmark_WhiteOnFieryCoral-Lg](https://user-images.githubusercontent.com/29687261/126272470-78b431e5-dcfb-44d7-81ad-2bcaff662f4f.jpg)
 </a>
 
